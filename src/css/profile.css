@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh; /* Высота экрана */
+    background: url('../assets/profile-bg.png') no-repeat center center fixed; /* Путь к файлу фона */
+    background-size: cover; /* Растянуть фон */
+    overflow: hidden; /* Убираем прокрутку */
+  }
+
