@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+dist/
+.vite/
+.vscode/
+.idea/
+*.log
+
+# Vite-specific
+dist/
+.cache/
+
+# Netlify-specific
+netlify.toml
