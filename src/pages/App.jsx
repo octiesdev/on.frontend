@@ -16,8 +16,8 @@ function App() {
           <Route path="/tasks" element={<Tasks />} />
         </Routes>
 
-        {/* Нижнее меню */}
-        <BottomMenu />
+        {/* Нижнее меню df*/}
+        <BottomMenu /> 
       </div>
     </Router>
   );
