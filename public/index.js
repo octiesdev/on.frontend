@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'; // React 18+
-import App from './App'; // Подключаем главный компонент
+import App from './src/App'; // Подключаем главный компонент
 import './css/profile.css'; // Подключаем стили
 
 const container = document.getElementById('root');
