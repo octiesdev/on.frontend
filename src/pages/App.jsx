@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "./pages/Profile";
-import Onexs from "./pages/Onexs";
-import Tasks from "./pages/Tasks";
+import Profile from "./Profile";
+import Onexs from "./Onexs";
+import Tasks from "./Tasks";
 import BottomMenu from "./components/BottomMenu";
 import "./App.module.css";
 
