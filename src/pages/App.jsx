@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "./pages/profile";
-import Onexs from "./pages/onexs";
-import Tasks from "./pages/tasks";
-import BottomMenu from "./components/bottomMenu";
+import Profile from "./pages/Profile";
+import Onexs from "./pages/Onexs";
+import Tasks from "./pages/Tasks";
+import BottomMenu from "./components/BottomMenu";
 import "./App.module.css";
 
 function App() {
