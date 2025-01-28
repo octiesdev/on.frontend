@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./Profile";
 import Onexs from "./Onexs";
 import Tasks from "./Tasks";
-import BottomMenu from "./components/BottomMenu";
+import BottomMenu from "./BottomMenu";
 import "./App.module.css";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route path="/tasks" element={<Tasks />} />
         </Routes>
 
-        {/* Нижнее меню dfd*/}
+        {/* Нижнее меню dfdd*/}
         <BottomMenu /> 
       </div>
     </Router>
