@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../css/Profile.module.css"; // Путь до папки css
-import Logo from "../components/logo";
+import Logo from "../components/Logo";
 
 function Profile() {
   return (

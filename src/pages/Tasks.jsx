@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../css/Tasks.module.css"; // Путь до css
-import Logo from "../components/logo";
+import Logo from "../components/Logo";
 
 function Tasks() {
   return (
