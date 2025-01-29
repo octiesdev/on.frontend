@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
-import Footer from "../Footer";
+import Footer from "../Footer"; // Подключаем футер
 
 const Profile = () => {
   return (
@@ -14,7 +14,7 @@ const Profile = () => {
 
       {/* Основной контент */}
       <div className="content">
-        <h1>!scam alert! pls exit ^-^</h1>
+        <h1>!scam alert! DANGER ^-^</h1>
       </div>
 
       {/* Футер */}
