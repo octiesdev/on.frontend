@@ -32,7 +32,7 @@ const Footer = () => {
             <img src={IconOnexs} alt="ONEX's" className="footerItemImg" />
           </Link>
           <p className={`footerItemLabel ${location.pathname !== "/onexs" ? "footerItemLabel-dark" : ""}`}>
-            ONEX's
+            ONEX’s
           </p>
         </li>
       </ul>
