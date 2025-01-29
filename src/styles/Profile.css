@@ -1,47 +1,38 @@
-/* Фиксируем body, чтобы не было прокрутки */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #000000; /* Чёрный фон */
-}
-
-/* Основной контейнер страницы */
+/* Основной контейнер */
 .profile-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Фиксированный фон */
+/* Фон */
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000; /* Чёрная заливка */
-  background-image: url("/src/assets/profile-bg.png"); /* ✅ Фоновое изображение */
-  background-size: contain; /* ⚡️ Изображение НЕ растягивается */
+  background-color: #000000; /* Чистая чёрная заливка */
+  background-image: url("/src/assets/profile-bg.png"); /* Фон-изображение */
+  background-size: cover; /* Заполняет весь экран */
   background-position: center; /* Центрируем */
   background-repeat: no-repeat;
-  z-index: 0;
+  z-index: 0; /* Фон остаётся позади всех элементов */
 }
 
 /* Логотип */
 .logo {
   position: fixed;
-  top: 2vh;
-  left: 2vw;
-  width: clamp(60px, 12vw, 120px); /* ⚡️ Масштабируется, но не растягивается */
+  top: 10px;
+  left: 10px;
+  width: 100px;
   height: auto;
   z-index: 2;
 }
@@ -52,13 +43,13 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
   color: white;
-  font-size: clamp(16px, 2vw, 22px); /* ⚡️ Размер текста адаптивный */
-  z-index: 2;
+  font-size: 2vh;
+  text-align: center;
+  z-index: 2; /* Поверх фона */
 }
 
-/* Футер (нижнее меню) */
+/* Футер */
 .BTNLow {
   position: fixed;
   bottom: 0;
@@ -70,32 +61,4 @@ html, body {
   align-items: center;
   justify-content: space-evenly;
   z-index: 2;
-}
-.footerItem {
-  width: 15vw;
-  max-width: 60px;
-}
-.footerItem img {
-  width: 5vw;
-  max-width: 40px;
-  height: auto;
-}
-
-/* ⚡️ Адаптация для разных экранов */
-@media (max-width: 320px) { /* Маленькие экраны */
-  .content {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 768px) { /* Планшеты */
-  .content {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 1024px) { /* Десктоп */
-  .content {
-    font-size: 28px;
-  }
 }

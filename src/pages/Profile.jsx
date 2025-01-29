@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Profile.css"; // Подключаем стили
-import logo from "../assets/logo.png"; // Логотип
-import Footer from "../Footer"; // Футер
+import "../styles/Profile.css";
+import logo from "../assets/logo.png";
+import Footer from "../Footer";
 
 const Profile = () => {
   return (
@@ -9,13 +9,12 @@ const Profile = () => {
       {/* Фон */}
       <div className="background"></div>
 
-      {/* Логотип в левом верхнем углу */}
+      {/* Логотип */}
       <img src={logo} alt="Logo" className="logo" />
 
       {/* Основной контент */}
       <div className="content">
-        <h1>!scam alert!</h1>
-        <p>PLS EXIT NOW ^-^</p>
+        <h1>!scam alert! pls exit ^-^</h1>
       </div>
 
       {/* Футер */}
