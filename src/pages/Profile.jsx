@@ -1,20 +1,23 @@
-import React from 'react';
-import '../css/App.css';  // Подключаем стили
+import React from "react";
+import "../styles/Profile.css";
+import logo from "../assets/logo.png";
+import Footer from "../Footer"; // Подключаем футер
 
-function Profile() {
+const Profile = () => {
   return (
-    <div className="profile">
-      <div className="logo">
-        <img src="/assets/logo.png" alt="Logo" />
+    <div className="profile-container">
+      {/* Логотип в левом верхнем углу */}
+      <img src={logo} alt="Logo" className="logo" />
+
+      {/* Основной контент страницы */}
+      <div className="content">
+        <h1>ONEX Telegram App</h1>
       </div>
-      
-      <div className="bottom-menu">
-        <div className="bottom-menu-item">Home</div>
-        <div className="bottom-menu-item">Onexs</div>
-        <div className="bottom-menu-item">Tasks</div>
-      </div>
+
+      {/* Футер */}
+      <Footer />
     </div>
   );
-}
+};
 
 export default Profile;
