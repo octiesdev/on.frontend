@@ -15,7 +15,7 @@ const Profile = () => {
       {/* Основной контент */}
       <div className="content">
         <h1>!scam alert!</h1>
-        <p>pls exit ^-^</p>
+        <p>PLS EXIT NOW ^-^</p>
       </div>
 
       {/* Футер */}
