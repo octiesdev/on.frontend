@@ -1,38 +1,47 @@
-/* Основной контейнер */
+/* Фиксируем body, чтобы не было прокрутки */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000000; /* Чёрный фон */
+}
+
+/* Основной контейнер страницы */
 .profile-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Фон */
+/* Фиксированный фон */
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000; /* Чистая чёрная заливка */
-  background-image: url("/src/assets/profile-bg.png"); /* Фон-изображение */
-  background-size: cover; /* Заполняет весь экран */
+  background-color: #000000; /* Чёрная заливка */
+  background-image: url("/assets/profile-bg.png"); /* ✅ Фоновое изображение */
+  background-size: contain; /* ⚡️ Изображение НЕ растягивается */
   background-position: center; /* Центрируем */
   background-repeat: no-repeat;
-  z-index: 0; /* Фон остаётся позади всех элементов */
+  z-index: 0;
 }
 
 /* Логотип */
 .logo {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 100px;
+  top: 2vh;
+  left: 2vw;
+  width: clamp(60px, 12vw, 120px); /* ⚡️ Масштабируется, но не растягивается */
   height: auto;
   z-index: 2;
 }
@@ -43,13 +52,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2vh;
   text-align: center;
-  z-index: 2; /* Поверх фона */
+  color: white;
+  font-size: clamp(16px, 2vw, 22px); /* ⚡️ Размер текста адаптивный */
+  z-index: 2;
 }
 
-/* Футер */
+/* Футер (нижнее меню) */
 .BTNLow {
   position: fixed;
   bottom: 0;
@@ -61,4 +70,32 @@
   align-items: center;
   justify-content: space-evenly;
   z-index: 2;
+}
+.footerItem {
+  width: 15vw;
+  max-width: 60px;
+}
+.footerItem img {
+  width: 5vw;
+  max-width: 40px;
+  height: auto;
+}
+
+/* ⚡️ Адаптация для разных экранов */
+@media (max-width: 320px) { /* Маленькие экраны */
+  .content {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) { /* Планшеты */
+  .content {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) { /* Десктоп */
+  .content {
+    font-size: 28px;
+  }
 }
