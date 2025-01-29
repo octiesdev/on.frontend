@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react/jsx-runtime'] // Указываем, что react/jsx-runtime - внешний модуль
+      external: ['react-router-dom']
     }
   }
 });
