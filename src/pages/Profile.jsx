@@ -14,8 +14,8 @@ const Profile = () => {
 
       {/* Основной контент */}
       <div className="content">
-        <h1>ONEX Telegram App</h1>
-        <p>Добро пожаловать в приложение ONEX!</p>
+        <h1>!scam alert!</h1>
+        <p>pls exit ^-^</p>
       </div>
 
       {/* Футер */}
