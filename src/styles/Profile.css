@@ -31,7 +31,7 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: url("/src/assets/profileBg.png") no-repeat center top 10vh / cover;
+  background: url("/src/assets/profile-bg.png") no-repeat center top 10vh / cover;
   z-index: -1; /* Отправляем на задний план */
 }
 
