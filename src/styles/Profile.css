@@ -17,7 +17,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
   background-color: #000000; /* Чистая чёрная заливка */
   background-image: url("/src/assets/profile-bg.png"); /* Фон-изображение */
