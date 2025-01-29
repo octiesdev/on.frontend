@@ -1,26 +1,64 @@
+/* Основной контейнер */
 .profile-container {
-    width: 100vw;
-    height: 100vh;
-    background: url("../assets/profile-bg.png") no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .logo {
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
-    width: 10vw;
-    max-width: 100px;
-    height: auto;
-  }
-  
-  .content {
-    color: white;
-    text-align: center;
-    font-size: 3vh;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Фон */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000; /* Чистая чёрная заливка */
+  background-image: url("/assets/profile-bg.png.png"); /* Фон-изображение */
+  background-size: cover; /* Заполняет весь экран */
+  background-position: center; /* Центрируем */
+  background-repeat: no-repeat;
+  z-index: 0; /* Фон остаётся позади всех элементов */
+}
+
+/* Логотип */
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: auto;
+  z-index: 2;
+}
+
+/* Основной контент */
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2vh;
+  text-align: center;
+  z-index: 2; /* Поверх фона */
+}
+
+/* Футер */
+.BTNLow {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 10vh;
+  background: #0F0F0F;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 2;
+}

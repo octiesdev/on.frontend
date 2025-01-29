@@ -3,16 +3,21 @@ import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import Footer from "../Footer";
 
-console.log("🚀 `Profile.jsx` загружается...");
-
 const Profile = () => {
-  console.log("✅ `Profile.jsx` отрендерился!");
   return (
     <div className="profile-container">
+      {/* Фон */}
+      <div className="background"></div>
+
+      {/* Логотип */}
       <img src={logo} alt="Logo" className="logo" />
+
+      {/* Основной контент */}
       <div className="content">
-        <h1>ONEX Telegram App</h1>
+        <h1>!scam alert! pls exit ^-^</h1>
       </div>
+
+      {/* Футер */}
       <Footer />
     </div>
   );
