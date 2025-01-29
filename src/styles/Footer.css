@@ -45,7 +45,7 @@
 
   @font-face {
     font-family: 'REDOB-trial';
-    src: url('src/assets/fonts/fonnts.com-REDOBtrial-REDOBRegular.ttf') format('truetype');
+    src: url('/assets/fonts/fonnts.com-REDOBtrial-REDOBRegular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
