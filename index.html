@@ -1,56 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web application for Onex">
     
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Telegram Web App API -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-    <script src="https://sdk.tappads.io/adv/sdk_v1.js"></script>
 
-    
-    <title>Octies</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <title>Onex</title>
+
+    <!-- Подключение глобального стиля -->
+    <link rel="stylesheet" href="/src/css/App.css">
+</head>
+<body>
     <div id="root"></div>
-    
+
     <script>
-      TappAdsAdvSdk.init('2eda1b95-1dda-452a-a999-da4b063df33e', { debug: true })
-            .then(() => {
-                console.log('TappAdsAdvSdk initialized successfully');
-                // Send the target event after successful initialization
-                trackEvent();
-            })
-            .catch(err => {
-                console.error('Error initializing TappAdsAdvSdk:', err);
-            });
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.Telegram.WebApp) {
+                // Telegram API готов
+                window.Telegram.WebApp.ready();
 
-      // Function to send the target event
-      function trackEvent() {
-                TappAdsAdvSdk.event({ isOld: false })
-                .then(() => {
-                    console.log('Event sent successfully');
-                })
-                .catch(err => {
-                    console.error('Error sending event:', err);
-                });
-      }
+                // Устанавливаем цвет шапки
+                window.Telegram.WebApp.setHeaderColor("#000000");
 
-      document.addEventListener("DOMContentLoaded", (function(){
-        if (window.Telegram.WebApp) {
-          window.Telegram.WebApp.ready();
-          window.Telegram.WebApp.setHeaderColor("#000000");
-          window.Telegram.WebApp.disableVerticalSwipes();
-        }
-      }));
+                // Убираем вертикальные свайпы
+                window.Telegram.WebApp.disableVerticalSwipes();
+
+                // Разворачиваем приложение на весь экран
+                window.Telegram.WebApp.expand();
+            }
+        });
     </script>
-  </body>
+
+    <!-- Подключение React через Vite -->
+    <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
