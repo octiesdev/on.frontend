@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";  // ✅ ОБЯЗАТЕЛЬНО
 import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 
