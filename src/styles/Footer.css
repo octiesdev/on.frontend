@@ -1,4 +1,4 @@
-.BTNLow {
+  .BTNLow {
     height: 10%;
     background: #0F0F0F;
     display: flex;
@@ -31,6 +31,7 @@
     height: 3.2vh;
   }
   
+  
   .footerItemLabel {
     font-size: 1.7vh;
     font-weight: 400;
@@ -41,19 +42,29 @@
     opacity: 0.5;
   }
 
-  /* ✅ Цвет активного текста */
-.footerItemLabel {
-  font-size: 1.7vh;
-  font-weight: 400;
-  margin: 0;
-  color: white; /* По умолчанию белый */
-}
 
-/* ✅ Цвет неактивного текста */
-.footerItemLabel-dark {
-  color: #828282; /* Серый цвет для неактивных элементов */
-}
+  @font-face {
+    font-family: 'REDOB-trial';
+    src: url('src/assets/fonts/fonnts.com-REDOBtrial-REDOBRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-.img-dark {
-  opacity: 0.5;
-}
+    /* ✅ Цвет активного текста */
+  .footerItemLabel {
+    font-size: 1.7vh;
+    font-weight: 400;
+    margin: 0;
+    color: white; /* По умолчанию белый */
+    font-family: 'REDOB-trial', sans-serif;
+  }
+
+  /* ✅ Цвет неактивного текста */
+  .footerItemLabel-dark {
+    color: #828282; /* Серый цвет для неактивных элементов */
+    font-family: 'REDOB-trial', sans-serif;
+  }
+
+  .img-dark {
+    opacity: 0.5;
+  }
