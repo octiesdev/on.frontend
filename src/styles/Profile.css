@@ -20,7 +20,7 @@
   width: 100vw;
   height: 100vh;
   background-color: #000000; /* Чистая чёрная заливка */
-  background-image: url("/assets/profile-bg.png.png"); /* Фон-изображение */
+  background-image: url("/assets/profile-bg.png"); /* Фон-изображение */
   background-size: cover; /* Заполняет весь экран */
   background-position: center; /* Центрируем */
   background-repeat: no-repeat;
