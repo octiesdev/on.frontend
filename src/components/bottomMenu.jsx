@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/BottomMenu.css"; // Подключаем CSS
+import "./../css/BottomMenu.css"; 
 
 const BottomMenu = () => {
   return (
