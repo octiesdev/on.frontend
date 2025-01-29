@@ -1,16 +1,8 @@
 import React from "react";
-import BottomMenu from "../components/BottomMenu";
-import Logo from "../components/Logo";
-import "./styles/Onexs.css";  // Подключаем стили
+import "../css/Onexs.css";
 
 function Onexs() {
-  return (
-    <div className="onexs-page">
-      <Logo />
-      <h1>Onexs Page</h1>
-      <BottomMenu />
-    </div>
-  );
+  return <div className="page onexs">Onexs Page</div>;
 }
 
 export default Onexs;

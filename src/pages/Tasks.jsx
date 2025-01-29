@@ -1,16 +1,8 @@
 import React from "react";
-import BottomMenu from "../components/BottomMenu";
-import Logo from "../components/Logo";
-import "./styles/Tasks.css";  // Подключаем стили
+import "../css/Tasks.css";
 
 function Tasks() {
-  return (
-    <div className="tasks-page">
-      <Logo />
-      <h1>Tasks Page</h1>
-      <BottomMenu />
-    </div>
-  );
+  return <div className="page tasks">Tasks Page</div>;
 }
 
 export default Tasks;
