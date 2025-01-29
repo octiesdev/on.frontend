@@ -1,15 +1,14 @@
 import React from "react";
-import styles from "../css/Profile.module.css"; // Путь до папки css
+import BottomMenu from "../components/BottomMenu";
 import Logo from "../components/Logo";
+import "./styles/Profile.css";  // Подключаем стили
 
 function Profile() {
   return (
-    <div className={styles.profile}>
+    <div className="profile-page">
       <Logo />
-      <div>
-        <h1>Profile</h1>
-        <p>Welcome to your profile page!</p>
-      </div>
+      <h1>Profile Page</h1>
+      <BottomMenu />
     </div>
   );
 }

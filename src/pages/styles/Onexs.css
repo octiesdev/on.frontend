@@ -1,0 +1,9 @@
+.onexs-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("/assets/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }

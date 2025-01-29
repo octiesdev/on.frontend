@@ -1,15 +1,14 @@
 import React from "react";
-import styles from "../css/Onexs.module.css"; // Путь до css
+import BottomMenu from "../components/BottomMenu";
 import Logo from "../components/Logo";
+import "./styles/Onexs.css";  // Подключаем стили
 
 function Onexs() {
   return (
-    <div className={styles.onexs}>
+    <div className="onexs-page">
       <Logo />
-      <div>
-        <h1>Onex's</h1>
-        <p>Welcome to the Onex's page!</p>
-      </div>
+      <h1>Onexs Page</h1>
+      <BottomMenu />
     </div>
   );
 }
