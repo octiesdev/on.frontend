@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./Profile";
 import Onexs from "./Onexs";
 import Tasks from "./Tasks";
-import BottomMenu from "@components/BottomMenu";
-import "./App.module.css";
+import BottomMenu from "../components/BottomMenu";
+import styles from "../css/App.module.css";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import styles from "./BottomMenu.module.css";
+import styles from "../css/BottomMenu.module.css";
 
 import profileIcon from "../assets/profile-icon.png";
 import tasksIcon from "../assets/tasks-icon.png";
