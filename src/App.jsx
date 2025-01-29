@@ -1,16 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 
-const App = () => (
-  <TonConnectUIProvider manifestUrl="https://your-app.netlify.app/tonconnect-manifest.json">
-    <Router>
-      <Routes>
-        <Route path="/" element={<Profile />} />
-      </Routes>
-    </Router>
-  </TonConnectUIProvider>
-);
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Profile />} />
+    </Routes>
+  );
+};
 
 export default App;
