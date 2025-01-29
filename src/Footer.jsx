@@ -15,23 +15,30 @@ const Footer = () => {
           <Link className={`footerItemImgWrapper ${location.pathname !== "/" ? "img-dark" : ""}`} to="/">
             <img src={IconHome} alt="Home" className="footerItemImg" />
           </Link>
-          <p className={`footerItemLabel ${location.pathname !== "/" ? "img-dark" : ""}`}>Home</p>
+          <p className={`footerItemLabel ${location.pathname !== "/" ? "footerItemLabel-dark" : ""}`}>
+            PROFILE
+          </p>
         </li>
         <li className="footerItem">
           <Link className={`footerItemImgWrapper ${location.pathname !== "/tasks" ? "img-dark" : ""}`} to="/tasks">
             <img src={IconTasks} alt="Tasks" className="footerItemImg" />
           </Link>
-          <p className={`footerItemLabel ${location.pathname !== "/tasks" ? "img-dark" : ""}`}>Tasks</p>
+          <p className={`footerItemLabel ${location.pathname !== "/tasks" ? "footerItemLabel-dark" : ""}`}>
+            TASKS
+          </p>
         </li>
         <li className="footerItem">
           <Link className={`footerItemImgWrapper ${location.pathname !== "/onexs" ? "img-dark" : ""}`} to="/onexs">
             <img src={IconOnexs} alt="ONEX's" className="footerItemImg" />
           </Link>
-          <p className={`footerItemLabel ${location.pathname !== "/onexs" ? "img-dark" : ""}`}>ONEX's</p>
+          <p className={`footerItemLabel ${location.pathname !== "/onexs" ? "footerItemLabel-dark" : ""}`}>
+            ONEX's
+          </p>
         </li>
       </ul>
     </footer>
   );
 };
+
 
 export default Footer;

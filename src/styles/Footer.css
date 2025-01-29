@@ -40,3 +40,20 @@
   .img-dark {
     opacity: 0.5;
   }
+
+  /* ✅ Цвет активного текста */
+.footerItemLabel {
+  font-size: 1.7vh;
+  font-weight: 400;
+  margin: 0;
+  color: white; /* По умолчанию белый */
+}
+
+/* ✅ Цвет неактивного текста */
+.footerItemLabel-dark {
+  color: #828282; /* Серый цвет для неактивных элементов */
+}
+
+.img-dark {
+  opacity: 0.5;
+}
