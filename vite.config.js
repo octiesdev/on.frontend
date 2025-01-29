@@ -4,12 +4,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist',
-    sourcemap: false,
-  },
-  resolve: {
-    alias: {
-      '@': '/src',
-    },
-  },
+    rollupOptions: {
+      external: ['react/jsx-runtime'] // Указываем, что react/jsx-runtime - внешний модуль
+    }
+  }
 });
