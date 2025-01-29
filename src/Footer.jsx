@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./styles/Footer.css";
-import IconHome from "./assets/IconHome.png";
-import IconTasks from "./assets/IconTasks.png";
-import IconOnexs from "./assets/IconOnexs.png";
+import IconHome from "./assets/iconProfile.png";
+import IconTasks from "./assets/iconTasks.png";
+import IconOnexs from "./assets/iconOnexs.png";
 
 const Footer = () => {
   const location = useLocation();
