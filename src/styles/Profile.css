@@ -17,8 +17,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 90vw;
-  height: 100vh;
+  width: 100vw;
+  height: 90vh;
   background-color: #000000; /* Чистая чёрная заливка */
   background-image: url("/src/assets/profile-bg.png"); /* Фон-изображение */
   background-size: cover; /* Заполняет весь экран */
