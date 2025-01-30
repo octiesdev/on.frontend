@@ -61,7 +61,7 @@ body {
   
   margin-left: 6px; /* ✅ Отступ 6px слева */
   margin-right: 6px; /* ✅ Отступ 6px справа */
-  margin-top: calc(10vh + 8px); /* ✅ Отступ 8px от верхней границы фонового изображения */
+  top: 90vh;
 
   background: rgba(32, 32, 32, 0.5); /* Полупрозрачный фон */
   border: 1px solid rgba(0, 0, 0, 1); /* Черная обводка */
