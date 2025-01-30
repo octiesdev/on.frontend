@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
+import dollarimg from "../assets/dollar-img.png";
 import Footer from "../Footer"; // Подключаем футер
 
 const Profile = () => {
@@ -14,7 +15,7 @@ const Profile = () => {
 
       {/* Прямоугольник */}
       <div className="rectangle">
-        <img src="/assets/dollar-img.png" class="dollar-icon" alt="Dollar Icon"/>
+        <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
       </div>
 
       {/* Футер */}
