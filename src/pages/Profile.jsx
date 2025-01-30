@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Profile.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo1.png";
 import Footer from "../Footer"; // Подключаем футер
 
 const Profile = () => {
