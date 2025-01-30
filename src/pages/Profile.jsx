@@ -14,7 +14,7 @@ const Profile = () => {
 
       {/* Прямоугольник */}
       <div className="rectangle">
-        <img src="/src/assets/dollar-img.png" class="dollar-icon" alt="Dollar Icon"/>
+        <img src="/assets/dollar-img.png" class="dollar-icon" alt="Dollar Icon"/>
       </div>
 
       {/* Футер */}
