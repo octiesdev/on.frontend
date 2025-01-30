@@ -56,7 +56,7 @@ body {
 
 .rectangle {
   position: relative;
-  width: calc(100% - 12px); /* 100% ширины минус 6px отступа с каждой стороны */
+  width: calc(100vw - 12px); 
   max-width: 363px; /* Максимальная ширина */
   height: 181px; /* Фиксированная высота */
 
