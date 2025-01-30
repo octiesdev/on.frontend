@@ -7,7 +7,7 @@
 body {
   margin: 0;
   width: 100%;
-  height: 90dvh; /* Используем динамическую высоту */
+  height: 100dvh; /* Используем динамическую высоту */
   position: fixed;
   overflow: hidden;
   background: #000000; /* Основная заливка */
@@ -35,9 +35,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 90%;
-  min-height: 90dvh; /* Динамическая высота */
-  background: url("/src/assets/profile-bg.png") no-repeat center center / cover;
+  height: 100%;
+  min-height: 100dvh; /* Динамическая высота */
+  background: url("/src/assets/profile-png.png") no-repeat center center / cover;
   z-index: -1;
 }
 
