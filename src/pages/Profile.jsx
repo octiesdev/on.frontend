@@ -14,7 +14,7 @@ const Profile = () => {
 
       {/* Основной контент */}
       <div className="content">
-        <h1>!scam alert! DANGER ^-^</h1>
+        <h1>^-^</h1>
       </div>
 
       {/* Футер */}
