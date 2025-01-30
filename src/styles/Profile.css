@@ -83,8 +83,7 @@ body {
 .dollar-icon {
   position: absolute;
   top: 4.6vh; /* ✅ Прямоугольник адаптирован по высоте экрана */
-  left: 50%;
-  transform: translateX(-50%);
+  right: 12px; /* 12px от правого края */
 
   width: calc(100vw - 24px);
   max-width: 99%;
