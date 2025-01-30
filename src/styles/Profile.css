@@ -72,8 +72,7 @@ body {
   /* ✅ Добавляем изображение доллара как фон */
   background-image: url("/src/assets/dollar-img.png");
   background-repeat: no-repeat;
-  background-position: right 10px bottom 10px; /* ✅ Подгоняем положение */
-  background-size: 20%; /* ✅ Делаем его масштабируемым */
+  background-position: right 10px bottom 0px; /* ✅ Подгоняем положение */
 
   display: flex;
   align-items: center;
