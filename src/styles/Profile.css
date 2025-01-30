@@ -72,8 +72,8 @@ body {
   font-size: 2vh;
   text-align: center;
 
-  margin-left: 6px; /* Отступ слева */
-  margin-right: 6px; /* Отступ справа */
+  margin-left: auto; /* ✅ Убираем фиксированные margin */
+  margin-right: auto;
   margin-top: 20px; /* Отступ сверху (можно скорректировать) */
 }
 
