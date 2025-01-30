@@ -85,7 +85,7 @@ body {
   top: 3vh; /* ✅ Прямоугольник адаптирован по высоте экрана */
   left: calc(50% + 30px); 
 
-  width: calc(100vw - 24px);
+  width: auto;
   height: 22.6vh;
   
   z-index: 2;
