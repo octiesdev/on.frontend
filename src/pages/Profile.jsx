@@ -12,9 +12,9 @@ const Profile = () => {
       {/* Логотип */}
       <img src={logo} alt="Logo" className="logo" />
 
-      {/* Основной контент */}
-      <div className="content">
-        <h1>^-^</h1>
+      {/* Прямоугольник */}
+      <div className="rectangle">
+        Контент внутри прямоугольника
       </div>
 
       {/* Футер */}
