@@ -26,7 +26,7 @@ body {
 
 /* ✅ Фон (заливка + изображение) */
 .background {
-  position: relative; /* ✅ Теперь .rectangle будет позиционироваться относительно этого блока */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,19 +55,16 @@ body {
 }
 
 .rectangle {
-  position: absolute;
-  top: 80%; /* ✅ Вместо calc(100% + 8px), ставим процент от высоты фона */
-  left: 6px;
-  right: 6px;
-  
-  width: calc(100% - 12px);
-  max-width: 363px;
-  height: 181px;
+  position: relative;
+  width: calc(100% - 12px); /* 100% ширины минус 6px отступа с каждой стороны */
+  max-width: 363px; /* Максимальная ширина */
+  min-width: 280px;
+  height: 181px; /* Фиксированная высота */
 
-  background: rgba(32, 32, 32, 0.5);
-  border: 1px solid rgba(0, 0, 0, 1);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 39.56px;
+  background: rgba(32, 32, 32, 0.5); /* Заливка #202020 с 50% прозрачности */
+  border: 1px solid rgba(0, 0, 0, 1); /* Черная обводка */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Drop Shadow */
+  border-radius: 39.56px; /* Скругление углов */
 
   display: flex;
   align-items: center;
@@ -76,7 +73,9 @@ body {
   font-size: 2vh;
   text-align: center;
 
-  z-index: 2; /* ✅ Подняли z-index, чтобы не скрывался */
+  margin-left: 6px; /* Отступ слева */
+  margin-right: 6px; /* Отступ справа */
+  margin-top: 20px; /* Отступ сверху (можно скорректировать) */
 }
 
 /* ✅ Футер (фиксирован внизу) */
