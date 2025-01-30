@@ -71,7 +71,7 @@ body {
   text-align: center;
   margin-left: 6px; /* ✅ Отступ 6px слева */
   margin-right: 6px; /* ✅ Отступ 6px справа */
-  top: -47vh;
+  top: 20vh;
 }
 
 /* ✅ Футер (фиксирован внизу) */
