@@ -56,7 +56,7 @@ body {
 
 .rectangle {
   position: relative;
-  width: 80%; /* Ширина 80% экрана (можно изменить) */
+  width: clamp(200px, 50%, 363px);/* Ширина 80% экрана (можно изменить) */
   max-width: 363px; /* Максимальная ширина */
   height: 181px; /* Фиксированная высота */
   background: rgba(32, 32, 32, 0.5); /* Заливка #202020 с 50% прозрачности */
@@ -71,7 +71,7 @@ body {
   text-align: center;
   margin-left: 6px; /* ✅ Отступ 6px слева */
   margin-right: 6px; /* ✅ Отступ 6px справа */
-  margin-top: 10vh;
+  margin-top: -40vh;
 }
 
 /* ✅ Футер (фиксирован внизу) */
