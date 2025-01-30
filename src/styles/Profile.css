@@ -57,8 +57,8 @@ body {
 .rectangle {
   position: relative;
   width: calc(100vw - 12px); 
-  max-width: 50%; /* Максимальная ширина */
-  height: 30; /* Фиксированная высота */
+  max-width: 99%; /* Максимальная ширина */
+  height: 181vh; /* Фиксированная высота */
 
   background: rgba(32, 32, 32, 0.5); /* Заливка #202020 с 50% прозрачности */
   border: 1px solid rgba(0, 0, 0, 1); /* Черная обводка */
