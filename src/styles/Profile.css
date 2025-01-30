@@ -55,12 +55,12 @@ body {
 }
 
 .rectangle {
-  position: absolute; /* ✅ Позиционируем относительно .background */
-  top: calc(100% + 8px); /* ✅ Размещаем ниже .background */
+  position: absolute;
+  top: 80%; /* ✅ Вместо calc(100% + 8px), ставим процент от высоты фона */
   left: 6px;
   right: 6px;
   
-  width: calc(100% - 12px); /* ✅ Учитываем отступы */
+  width: calc(100% - 12px);
   max-width: 363px;
   height: 181px;
 
@@ -76,7 +76,7 @@ body {
   font-size: 2vh;
   text-align: center;
 
-  z-index: 1; /* ✅ Убедимся, что прямоугольник выше background */
+  z-index: 2; /* ✅ Подняли z-index, чтобы не скрывался */
 }
 
 /* ✅ Футер (фиксирован внизу) */
