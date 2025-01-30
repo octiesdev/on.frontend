@@ -38,9 +38,9 @@ body {
 /* ✅ Логотип (в левом верхнем углу) */
 .logo {
   position: absolute;
-  top: 1.5vh;
+  top: 2vh;
   left: 7vw;
-  width: 30vw;
+  width: 45vw;
   max-width: 120px;
   height: auto;
 }
