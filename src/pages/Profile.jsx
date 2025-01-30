@@ -14,7 +14,7 @@ const Profile = () => {
 
       {/* Прямоугольник */}
       <div className="rectangle">
-        Контент внутри прямоугольника
+        <img src="/src/assets/dollar-img.png" class="dollar-icon" alt="Dollar Icon"/>
       </div>
 
       {/* Футер */}
