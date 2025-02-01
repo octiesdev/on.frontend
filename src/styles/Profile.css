@@ -35,14 +35,22 @@ body {
   z-index: -1; /* Отправляем на задний план */
 }
 
+.logo-container {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ✅ Логотип (в левом верхнем углу) */
 .logo {
-  position: absolute;
-  top: 2vh;
-  left: 7vw;
-  width: 70vw;
-  max-width: 160px;
-  height: auto;
+  height: 100% !important;
+  z-index: 2;
+  position: absolute !important;
+  left: 5vh !important;
+  margin: 3vh !important;
 }
 
 /* ✅ Основной контент */
