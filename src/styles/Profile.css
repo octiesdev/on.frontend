@@ -79,7 +79,7 @@ body {
 .dollar-icon {
   position: absolute; /* Фиксируем внутри .rectangle */
   height: 90%;
-  right: 12px; /* Отступ от правого края */
+  right: 3.58%; /* Отступ от правого края */
   bottom: 0px; /* Прижимаем к нижнему краю */
   z-index: 2;
 }
