@@ -79,7 +79,7 @@ body {
 .dollar-icon {
   position: absolute; /* Фиксируем внутри .rectangle */
   height: 90%;
-  right: 3.58vw; /* Отступ от правого края */
+  right: 3.58%; /* Отступ от правого края */
   bottom: 0px; /* Прижимаем к нижнему краю */
   z-index: 2;
 }
@@ -87,7 +87,7 @@ body {
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3%; /* ✅ Отступ сверху */
-  right: 5.89vw; /* ✅ Отступ справа */
+  right: 6.89%; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 12%; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
