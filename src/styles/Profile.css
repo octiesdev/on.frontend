@@ -16,8 +16,9 @@ body {
 /* ✅ Контейнер всей страницы */
 .profile-container {
   position: relative;
+  top: 100vh;
   width: 100%;
-  height: 100vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,8 +50,8 @@ body {
 .logo {
   position: absolute;
   top: 2vh;
-  left: 7vw;
-  width: 100%;
+  left: 5vw;
+  width: 10%;
   height: 30%;
 }
 
