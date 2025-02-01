@@ -56,7 +56,7 @@ body {
 
 .rectangle {
   position: relative; /* ✅ Позволяет контролировать вертикальное положение */
-  top: 11.08vh; /* ✅ Начальная позиция */
+  top: 89vh; /* ✅ Начинаем с 89% высоты экрана */
 
 
   width: calc(100% - 12px);
@@ -69,11 +69,8 @@ body {
 
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   color: white;
-  font-size: 2vh;
-  text-align: center;
 
   z-index: 1;
 }
