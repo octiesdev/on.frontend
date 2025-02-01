@@ -84,6 +84,17 @@ body {
   z-index: 2;
 }
 
+.custom-text {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  top: 13.89%; /* ✅ Отступ сверху */
+  right: 4.68%; /* ✅ Отступ справа */
+  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 7.78%; /* ✅ Размер текста 7.78% */
+  color: white; /* ✅ Белый цвет текста */
+  text-align: right; /* ✅ Выравниваем текст по правому краю */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
 
 /* ✅ Футер (фиксирован внизу) */
 .BTNLow {
@@ -107,6 +118,27 @@ body {
     width: 18vw;
   }
 }
+
+@font-face {
+  font-family: 'MullerLight';
+  src: url('/assets/fonts/MullerLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'MullerMedium';
+  src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'MullerRegular';
+  src: url('/assets/fonts/MullerRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
 
 @media (orientation: landscape) {
   .content {
