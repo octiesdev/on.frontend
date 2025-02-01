@@ -11,7 +11,9 @@ const Profile = () => {
       <div className="background"></div>
 
       {/* Логотип */}
-      <img src={logo} alt="Logo" className="logo" />
+      <div className="logo-container">
+        <img src={logo} alt="Logo" className="logo" />
+      </div>
 
       {/* Прямоугольник */}
       <div className="rectangle">
