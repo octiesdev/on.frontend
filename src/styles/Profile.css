@@ -38,8 +38,10 @@ body {
 /* ✅ Логотип (в левом верхнем углу) */
 .logo {
   position: absolute;
-  top: 2%;
-  left: 7%;
+  top: 2vh;
+  left: 7vw;
+  width: 70vw;
+  max-width: 160px;
   height: auto;
 }
 
@@ -67,11 +69,10 @@ body {
 
   display: flex;
   flex-direction: row;
-  align-items: flex-start; 
+  justify-content: center;
   color: white;
 
   z-index: 1;
-  position: relative;
 }
 
 /* ✅ Добавляем отдельный класс для изображения доллара */
