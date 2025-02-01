@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
+import Tasks from "./pages/Tasks";
 
 console.log("🚀 `App.jsx` загружается...");
 
