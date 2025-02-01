@@ -55,7 +55,7 @@ body {
 }
 
 .rectangle {
-  position: absolute; /* ✅ Позволяет контролировать вертикальное положение */
+  position: relative; /* ✅ Позволяет контролировать вертикальное положение */
   top: 11.08vh; /* ✅ Начальная позиция */
   left: 50%;
   transform: translateX(-50%); /* ✅ Центрируем по горизонтали */
@@ -70,11 +70,8 @@ body {
   border-radius: 39.56px;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   font-size: 2vh;
-  text-align: center;
 
   z-index: 1;
 }
