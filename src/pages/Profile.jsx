@@ -6,7 +6,7 @@ import Footer from "../Footer"; // Подключаем футер
 
 const Profile = () => {
   return (
-    <div className="mainProfile">
+    <div className="profile-container">
       {/* Фон */}
       <div className="background"></div>
 
