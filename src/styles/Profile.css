@@ -84,7 +84,7 @@ body {
   z-index: 2;
 }
 
-.custom-text {
+.text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 13.89%; /* ✅ Отступ сверху */
   right: 4.68%; /* ✅ Отступ справа */
