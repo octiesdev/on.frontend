@@ -15,8 +15,9 @@ body {
 
 /* ✅ Контейнер всей страницы */
 .profile-container {
+  position: relative;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,20 +35,14 @@ body {
   z-index: -1; /* Отправляем на задний план */
 }
 
-.logo-container {
-  width: 100%;
-  height: 10%;
-  position: relative;
-
-}
-
 /* ✅ Логотип (в левом верхнем углу) */
 .logo {
-  height: 100% !important;
-  z-index: 2;
-  position: absolute !important;
-  left: 5vh !important;
-  margin: 3vh !important;
+  position: absolute;
+  top: 2vh;
+  left: 7vw;
+  width: 70vw;
+  max-width: 160px;
+  height: auto;
 }
 
 /* ✅ Основной контент */
@@ -91,7 +86,7 @@ body {
 
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 6%; /* ✅ Отступ сверху */
+  top: 3%; /* ✅ Отступ сверху */
   right: 6.89%; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 12%; /* ✅ Размер текста 7.78% */
