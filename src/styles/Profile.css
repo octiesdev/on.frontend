@@ -84,7 +84,7 @@ body {
   position: absolute;
   right: 3vw; /* Отступ от правого края прямоугольника */
   top: 4vh; /* Отступ сверху */
-
+  width: 130%;
   
   
   z-index: 2;
