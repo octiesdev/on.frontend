@@ -73,6 +73,7 @@ body {
   color: white;
 
   z-index: 1;
+  position: relative;
 }
 
 /* ✅ Добавляем отдельный класс для изображения доллара */
@@ -86,7 +87,7 @@ body {
 
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 3%; /* ✅ Отступ сверху */
+  top: 5%; /* ✅ Отступ сверху */
   right: 6.89%; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 12%; /* ✅ Размер текста 7.78% */
