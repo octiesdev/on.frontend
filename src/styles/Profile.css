@@ -81,12 +81,11 @@ body {
 
 /* ✅ Добавляем отдельный класс для изображения доллара */
 .dollar-icon {
-  position: absolute;
-  top: 3vh; /* ✅ Прямоугольник адаптирован по высоте экрана */
-  left: calc(85%); 
-
-  width: auto;
-  height: 22.6vh;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
   
   z-index: 2;
 }
