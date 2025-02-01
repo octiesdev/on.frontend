@@ -9,6 +9,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Profile />} />
+      <Route path="/tasks" element={<Tasks />} />
     </Routes>
   );
 };
