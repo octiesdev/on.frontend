@@ -83,9 +83,9 @@ body {
 .dollar-icon {
   position: absolute;
   right: 3vw; /* Отступ от правого края прямоугольника */
-  top: 3vh; /* Отступ сверху */
+  top: 4vh; /* Отступ сверху */
   width: 15%;
-  max-width: 100px;
+  max-width: 150px;
   
   z-index: 2;
 }
