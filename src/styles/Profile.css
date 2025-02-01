@@ -55,7 +55,7 @@ body {
 }
 
 .rectangle {
-  position: absolute; /* ✅ Позволяет контролировать вертикальное положение */
+  position: relative; /* ✅ Позволяет контролировать вертикальное положение */
   top: 11.08vh; /* ✅ Начальная позиция */
   left: 50%;
   transform: translateX(-50%); /* ✅ Центрируем по горизонтали */
@@ -81,11 +81,11 @@ body {
 
 /* ✅ Добавляем отдельный класс для изображения доллара */
 .dollar-icon {
-  width: 10%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  position: absolute;
+  right: 2vw; /* Отступ от правого края прямоугольника */
+  top: 2vh; /* Отступ сверху */
+  width: 15%;
+  max-width: 60px;
   
   z-index: 2;
 }
