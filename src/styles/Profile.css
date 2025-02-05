@@ -72,10 +72,8 @@ body {
 
 /* ✅ Базовый стиль прямоугольников */
 .rectangle {
-  top: 11.08vh;
   position: relative;
   width: calc(100% - 12px); /* 100% ширины минус отступы */
-  height: 22%;
   
   display: flex;
   justify-content: center;
@@ -92,7 +90,7 @@ body {
 .size-large { height: 30vh; }   /* Большой */
 
 /* ✅ Позиционирование */
-.pos-top { top: 5%; left: 50%; transform: translateX(-50%); }
+.pos-top { top: 11.08vh; left: 100%; transform: translateX(-50%); }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
 .pos-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
 
@@ -160,18 +158,6 @@ body {
   }
   .logo {
     width: 70vw;
-  }
-}
-
-@media (max-width: 768px) {
-  .rectangle {
-    flex-direction: column; /* Ставит блоки вертикально */
-    height: auto; /* Высота зависит от контента */
-  }
-
-  .left-side, .right-side {
-    width: 100% !important; /* Делаем обе части 100% ширины */
-    height: 50%; /* Устанавливаем высоту */
   }
 }
 
