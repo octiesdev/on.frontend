@@ -9,15 +9,9 @@ const Profile = () => {
     <div className="profile-container">
       {/* Фон */}
       <div className="background"></div>
-      <div className="buttonPartners"></div>
-
-      {/* Логотип */}
-        <img src={logo} alt="Logo" className="logo" />
-
-      {/* Прямоугольник */}
-      <div className="rectangle">
-        <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
-        <p class="text01">01</p>
+      <div className="rectangle size-small pos-left">
+        <div className="left-side w-50">Левая 50%</div>
+        <div className="right-side w-50">Правая 50%</div>
       </div>
 
       {/* Футер */}
