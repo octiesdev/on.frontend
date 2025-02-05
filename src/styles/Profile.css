@@ -87,7 +87,7 @@ body {
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */
-  right: 6.89px; /* ✅ Отступ справа */
+  right: 8px; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 2vh; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
