@@ -41,7 +41,7 @@ body {
   top: 2vh;
   left: 7vw;
   width: 70vw;
-  max-width: 200px;
+  max-width: 160px;
   height: auto;
 }
 
@@ -114,7 +114,7 @@ body {
     font-size: 2.5vh;
   }
   .logo {
-    width: 18vw;
+    width: 70vw;
   }
 }
 
