@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import dollarimg from "../assets/dollar-img.png";
 import Footer from "../Footer"; // Подключаем футер
 
-const Profile = () => {
+const Tasks = () => {
   return (
     <div className="profile-container">
       {/* Фон */}
