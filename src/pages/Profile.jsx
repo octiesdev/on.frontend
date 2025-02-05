@@ -9,6 +9,7 @@ const Profile = () => {
     <div className="profile-container">
       {/* Фон */}
       <div className="background"></div>
+      <div className="buttonPartners"></div>
 
       {/* Логотип */}
         <img src={logo} alt="Logo" className="logo" />
