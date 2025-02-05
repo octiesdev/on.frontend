@@ -108,20 +108,6 @@ body {
   z-index: 1002;
 }
 
-/* ✅ Фиксированная шапка */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10%;
-  background: #000000; /* Черный фон, как в футере */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5vw;
-  z-index: 1002;
-}
 
 /* ✅ Адаптивность для мобильных экранов */
 @media (max-width: 375px) {
