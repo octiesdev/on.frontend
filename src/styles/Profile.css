@@ -74,6 +74,7 @@ body {
 .rectangle {
   position: relative;
   width: calc(100% - 12px); /* 100% ширины минус отступы */
+  max-width: 99%;
   
   display: flex;
   justify-content: center;
