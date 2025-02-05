@@ -14,7 +14,9 @@ const Profile = () => {
         <img src={logo} alt="Logo" className="logo" />
 
       {/* Прямоугольник */}
-      <div className="rectangle">
+      <div className="rectangle size-medium pos-top">
+        <div className="left-side w-60">Левая 60%</div>
+        <div className="right-side w-40">Правая 40%</div>
         <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
         <p class="text01">01</p>
       </div>
