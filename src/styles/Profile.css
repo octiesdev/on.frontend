@@ -105,7 +105,7 @@ body {
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */
-  right: 16px; /* ✅ Отступ справа */
+  right: 19px; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.7vh; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
