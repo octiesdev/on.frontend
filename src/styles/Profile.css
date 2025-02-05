@@ -90,7 +90,7 @@ body {
 .size-large { height: 30vh; }   /* Большой */
 
 /* ✅ Позиционирование */
-.pos-top { top: 11.08vh; right: 50%; transform: translateX(-50%); }
+.pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%, -50%); }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
 .pos-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
 
