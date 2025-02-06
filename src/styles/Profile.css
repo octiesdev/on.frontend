@@ -101,7 +101,7 @@ body {
 /* ✅ Левая и правая части */
 .left-side, .right-side {
   position: relative;
-  width: 100% !important; /* Делаем обе части 100% ширины */
+  width: 100%; /* Делаем обе части 100% ширины */
   height: 100%;
   display: flex;
   align-items: center;
