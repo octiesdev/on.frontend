@@ -128,7 +128,7 @@ body {
 .textTON {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 16.37px; /* ✅ Размер текста 7.78% */
+  font-size: 18px; /* ✅ Размер текста 7.78% */
   color: black; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
   text-align: center;
@@ -136,7 +136,7 @@ body {
 
 .textTotalAmount {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 1px; /* ✅ Отступ сверху */
+  top: 1.1%; /* ✅ Отступ сверху */
   left: 32px; /* ✅ Отступ справа */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 32.74px; /* ✅ Размер текста 7.78% */
