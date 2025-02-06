@@ -35,22 +35,6 @@ body {
   z-index: -1; /* Отправляем на задний план */
 }
 
-.buttonPartners {
-  position: absolute; /* ✅ Позволяет контролировать вертикальное положение */
-  top: 2.3vh; /* ✅ Начинаем с 89% высоты экрана */
-
-
-  width: 20vw;
-  max-width: 50px;
-  height: 5%;
-  right: 20vw;
-
-  background: #4D4D4D;
-  border-radius: 10px;
-
-  z-index: 1;
-}
-
 /* ✅ Логотип (в левом верхнем углу) */
 .logo {
   position: absolute;
@@ -90,13 +74,22 @@ body {
   position: absolute;
   width: 34px; /* 100% ширины минус отступы */
 
-  color: #4D4D4D;
+  background: #4D4D4D;
   border-radius: 10px;
   
   display: flex;
   justify-content: center;
   flex-direction: row; /* Ставит блоки горизонтально */
+  align-items: center; /* Выравниваем по центру */
+  overflow: hidden; /* Чтобы не выходило за границы */
 }
+
+/* ✅ Стиль изображения внутри кнопки */
+.partner-icon {
+  width: 60%; /* Подстраиваем под размер кнопки */
+  height: auto;
+}
+
 
 /* ✅ Размеры */
 .size-small { height: 29px; }   /* Маленький */

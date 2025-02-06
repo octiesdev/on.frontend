@@ -3,6 +3,7 @@ import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import dollarimg from "../assets/dollar-img.png";
 import Footer from "../Footer"; // Подключаем футер
+import handshake from "../assets/handshake.png"; // Подключаем иконку
 
 const Profile = () => {
   return (
@@ -22,6 +23,10 @@ const Profile = () => {
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
           <p class="text01">01</p>
         </div>
+      </div>
+
+      <div className="buttonPartners size-small pos-top2">
+        <img src={handshake} class="partner-icon" alt="handshake"/>
       </div>
 
       {/* Футер */}
