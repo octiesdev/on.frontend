@@ -129,7 +129,7 @@ body {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 1.52vh; /* ✅ Размер текста 7.78% */
+  font-size: 32.74px; /* ✅ Размер текста 7.78% */
   color: black; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
