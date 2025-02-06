@@ -103,7 +103,7 @@ body {
 .rectangleTON {
   position: absolute;
   width: 71.5px;
-  height: 29px;
+  height: 3.03vh;
   background: #FFFFFF;
   border-radius: 17.05px;
   display: flex;
@@ -111,7 +111,7 @@ body {
   align-items: center;
   overflow: hidden;
   left: 111.6px; /* Справа */
-  top: 20px;
+  top: 3px;
 }
 
 /* ✅ Размер изображений в кнопках */
@@ -128,7 +128,6 @@ body {
 .textTON {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */
-  padding: auto; /* ✅ Отступ справа */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.52vh; /* ✅ Размер текста 7.78% */
   color: black; /* ✅ Белый цвет текста */
