@@ -72,7 +72,7 @@ body {
 
 /* ✅ Базовый стиль прямоугольников */
 .rectangle {
-  position: absolute;
+  position: relative;
   width: calc(100% - 12px); /* 100% ширины минус отступы */
 
   background: rgba(32, 32, 32, 0.5);
