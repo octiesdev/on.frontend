@@ -85,13 +85,27 @@ body {
   flex-direction: row; /* Ставит блоки горизонтально */
 }
 
+/* ✅ Базовый стиль прямоугольников */
+.buttonPartners {
+  position: absolute;
+  width: 34px; /* 100% ширины минус отступы */
+
+  color: #4D4D4D;
+  border-radius: 10px;
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: row; /* Ставит блоки горизонтально */
+}
+
 /* ✅ Размеры */
-.size-small { height: 15vh; }   /* Маленький */
+.size-small { height: 29px; }   /* Маленький */
 .size-medium { height: 22%; }  /* Средний */
 .size-large { height: 30vh; }   /* Большой */
 
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
+.pos-top2 { top: 3vh; right: 89px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
 .pos-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
 
