@@ -104,14 +104,14 @@ body {
   position: absolute;
   width: 71.5px;
   height: 29px;
-  background: #4D4D4D;
-  border-radius: 10px;
+  background: #FFFFFF;
+  border-radius: 17.05px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   left: 111.6px; /* Справа */
-  top: 3px;
+  top: 20px;
 }
 
 /* ✅ Размер изображений в кнопках */
@@ -128,8 +128,7 @@ body {
 .textTON {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */
-  width: 65%;
-  height: auto;
+  padding: auto; /* ✅ Отступ справа */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.52vh; /* ✅ Размер текста 7.78% */
   color: black; /* ✅ Белый цвет текста */
