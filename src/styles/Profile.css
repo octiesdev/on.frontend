@@ -100,7 +100,12 @@ body {
 }
 
 /* ✅ Размер изображений в кнопках */
-.partner-icon, .connectWallet-icon {
+.partner-icon {
+  width: 65%;
+  height: auto;
+}
+
+.connectWallet-icon {
   width: 70%;
   height: auto;
 }
