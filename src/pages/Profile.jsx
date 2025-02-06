@@ -19,6 +19,9 @@ const Profile = () => {
       <div className="rectangle size-medium pos-top">
         <div className="left-side w-60">
           <p class="textTotalAmount">0.00</p>
+            <div className="rectangleTON">
+              <p class="textTON">TON</p>
+            </div>
         </div>
         <div className="right-side w-40">
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
@@ -33,6 +36,8 @@ const Profile = () => {
       <div className="buttonConnectWallet">
         <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
       </div>
+
+
 
       {/* Футер */}
       <Footer />

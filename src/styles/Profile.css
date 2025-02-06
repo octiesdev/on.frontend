@@ -99,6 +99,21 @@ body {
   top: 3.2vh;
 }
 
+/* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
+.rectangleTON {
+  position: absolute;
+  width: 71.5px;
+  height: 29px;
+  background: #4D4D4D;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  left: 111.6px; /* Справа */
+  top: 3px;
+}
+
 /* ✅ Размер изображений в кнопках */
 .partner-icon {
   width: 65%;
@@ -108,6 +123,17 @@ body {
 .connectWallet-icon {
   width: 70%;
   height: auto;
+}
+
+.textTON {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  top: 3px; /* ✅ Отступ сверху */
+  width: 65%;
+  height: auto;
+  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 1.52vh; /* ✅ Размер текста 7.78% */
+  color: black; /* ✅ Белый цвет текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
 .textTotalAmount {
