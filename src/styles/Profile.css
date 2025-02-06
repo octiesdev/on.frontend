@@ -69,45 +69,39 @@ body {
   flex-direction: row; /* Ставит блоки горизонтально */
 }
 
-/* ✅ Базовый стиль прямоугольников */
+/* ✅ Фиксируем позицию кнопки партнеров (левее кнопки кошелька) */
 .buttonPartners {
   position: absolute;
-  width: 34px; /* 100% ширины минус отступы */
-
+  width: 34px;
+  height: 29px;
   background: #4D4D4D;
   border-radius: 10px;
-  
   display: flex;
   justify-content: center;
-  flex-direction: row; /* Ставит блоки горизонтально */
-  align-items: center; /* Выравниваем по центру */
-  overflow: hidden; /* Чтобы не выходило за границы */
+  align-items: center;
+  overflow: hidden;
+  right: 89px; /* Левее кнопки кошелька */
+  top: 3.2vh;
 }
 
-/* ✅ Базовый стиль прямоугольников */
+/* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
 .buttonConnectWallet {
   position: absolute;
-  width: 47px; /* 100% ширины минус отступы */
-
+  width: 47px;
+  height: 29px;
   background: #4D4D4D;
   border-radius: 10px;
-  
   display: flex;
   justify-content: center;
-  flex-direction: row; /* Ставит блоки горизонтально */
-  align-items: center; /* Выравниваем по центру */
-  overflow: hidden; /* Чтобы не выходило за границы */
+  align-items: center;
+  overflow: hidden;
+  right: 32px; /* Справа */
+  top: 3.2vh;
 }
 
-/* ✅ Стиль изображения внутри кнопки */
-.partner-icon {
-  width: 70%; /* Подстраиваем под размер кнопки */
-  height: auto;
-}
-
-/* ✅ Стиль изображения внутри кнопки */
-.connectWallet-icon {
-  width: 70%; /* Подстраиваем под размер кнопки */
+/* ✅ Размер изображений в кнопках */
+.partner-icon, .connectWallet-icon {
+  width: 70%;
   height: auto;
 }
 

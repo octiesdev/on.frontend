@@ -26,11 +26,11 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="buttonPartners size-small pos-top2">
+      <div className="buttonPartners">
         <img src={handshake} class="partner-icon" alt="handshake"/>
       </div>
 
-      <div className="buttonConnectWallet size-small2 pos-top-connectWallet">
+      <div className="buttonConnectWallet">
         <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
       </div>
 
