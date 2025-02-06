@@ -132,6 +132,7 @@ body {
   font-size: 16.37px; /* ✅ Размер текста 7.78% */
   color: black; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
+  text-align: center;
 }
 
 .textTotalAmount {
