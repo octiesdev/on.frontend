@@ -84,9 +84,30 @@ body {
   overflow: hidden; /* Чтобы не выходило за границы */
 }
 
+/* ✅ Базовый стиль прямоугольников */
+.buttonConnectWallet {
+  position: absolute;
+  width: 47px; /* 100% ширины минус отступы */
+
+  background: #4D4D4D;
+  border-radius: 10px;
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: row; /* Ставит блоки горизонтально */
+  align-items: center; /* Выравниваем по центру */
+  overflow: hidden; /* Чтобы не выходило за границы */
+}
+
 /* ✅ Стиль изображения внутри кнопки */
 .partner-icon {
-  width: 60%; /* Подстраиваем под размер кнопки */
+  width: 70%; /* Подстраиваем под размер кнопки */
+  height: auto;
+}
+
+/* ✅ Стиль изображения внутри кнопки */
+.connectWallet-icon {
+  width: 70%; /* Подстраиваем под размер кнопки */
   height: auto;
 }
 
@@ -98,7 +119,8 @@ body {
 
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
-.pos-top2 { top: 3vh; right: 89px; }
+.pos-top-buttonPartners { top: 3.1vh; right: 89px; }
+.pos-top-connectWallet { top: 3.1vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
 .pos-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
 

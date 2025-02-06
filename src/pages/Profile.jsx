@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import dollarimg from "../assets/dollar-img.png";
 import Footer from "../Footer"; // Подключаем футер
 import handshake from "../assets/handshake.png"; // Подключаем иконку
+import connectWalletButton from "../assets/connectWalletButton.png"; // Подключаем иконку
 
 const Profile = () => {
   return (
@@ -27,6 +28,10 @@ const Profile = () => {
 
       <div className="buttonPartners size-small pos-top2">
         <img src={handshake} class="partner-icon" alt="handshake"/>
+      </div>
+
+      <div className="buttonConnectWallet size-small pos-top-connectWallet">
+        <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
       </div>
 
       {/* Футер */}
