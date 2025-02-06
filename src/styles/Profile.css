@@ -114,6 +114,7 @@ body {
 
 /* ✅ Размеры */
 .size-small { height: 29px; }   /* Маленький */
+.size-small2 { height: 29px; }   /* Маленький */
 .size-medium { height: 22%; }  /* Средний */
 .size-large { height: 30vh; }   /* Большой */
 

@@ -30,7 +30,7 @@ const Profile = () => {
         <img src={handshake} class="partner-icon" alt="handshake"/>
       </div>
 
-      <div className="buttonConnectWallet size-small pos-top-connectWallet">
+      <div className="buttonConnectWallet size-small2 pos-top-connectWallet">
         <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
       </div>
 
