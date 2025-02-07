@@ -174,11 +174,20 @@ body {
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
+.textTotalAmountRUB {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  top: 55px; 
+  left: 46px; /* ✅ Отступ справа */
+  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 13.64px; /* ✅ Размер текста 7.78% */
+  color: white; /* ✅ Белый цвет текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
 .priblizitelno-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 55px; 
   left: 35px; /* ✅ Отступ справа */
-  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   width: 6.82px;
   height: 6.15px;
   z-index: 2; /* ✅ Убедимся, что текст поверх */
