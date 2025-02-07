@@ -111,7 +111,7 @@ body {
   align-items: center;
   overflow: hidden;
   left: 115.6px; /* Справа */
-  top: 3px;
+  top: -3px;
 }
 
 /* ✅ Размер изображений в кнопках */
