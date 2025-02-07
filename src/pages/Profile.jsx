@@ -31,7 +31,7 @@ const Profile = () => {
       <div className="rectangleMainInfo size-medium pos-top">
         <div className="left-side">
         <div className="rectangleTONAndtextTotalAmountContainer">
-          <p class="textTotalAmount">0.00</p>
+          <p class="textTotalAmount">5443.98</p>
         <div className="rectangleTON">
           <p class="textTON">TON</p>
         </div>
