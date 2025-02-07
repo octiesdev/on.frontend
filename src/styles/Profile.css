@@ -136,9 +136,6 @@ body {
   height: 30px;
   background: #FFFFFF;
   border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   left: 112px; /* Справа */
   bottom: -17px;
