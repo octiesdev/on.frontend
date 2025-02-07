@@ -30,15 +30,17 @@ const Profile = () => {
       {/* Прямоугольник */}
       <div className="rectangleMainInfo size-medium pos-top">
         <div className="left-side">
+        <div className="rectangleTONAndtextTotalAmountContainer">
           <p class="textTotalAmount">0.00</p>
+        <div className="rectangleTON">
+          <p class="textTON">TON</p>
+        </div>
+        </div>
         <div className="textTotalAmountRUBContainer">
           <p class="textTotalAmountRUB">0.00</p>
           <p class="textTotalAmountRUBSymbol">RUB</p>
         </div>
             <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
-        <div className="rectangleTON">
-          <p class="textTON">TON</p>
-        </div>
         <div className="buttonDeposit">
         <div className="buttonDepositContainer">
            <img src={depositIcon} class="deposit-icon" alt=""/>

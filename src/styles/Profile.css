@@ -116,7 +116,6 @@ body {
 
 /* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
 .rectangleTON {
-  position: absolute;
   width: 71.5px;
   height: 29px;
   background: #FFFFFF;
@@ -185,23 +184,31 @@ body {
   height: auto;
 }
 
-.textTON {
+.rectangleTONAndtextTotalAmountContainer {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 18px; /* ✅ Размер текста 7.78% */
-  color: black; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-  text-align: center;
+  top: 17px; 
+  left: 32px; /* ✅ Отступ справа */
+  display: flex;
+  align-items: center; /* Выравниваем по центру */
+  gap: 3.4px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
 }
 
 .textTotalAmount {
-  position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: -14.5px; 
   left: 32px; /* ✅ Отступ справа */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 32.74px; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
+.textTON {
+  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  font-size: 18px; /* ✅ Размер текста 7.78% */
+  color: black; /* ✅ Белый цвет текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+  text-align: center;
 }
 
 .textTotalAmountRUBContainer {
@@ -211,7 +218,6 @@ body {
   display: flex;
   align-items: center; /* Выравниваем по центру */
   gap: 2px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-  border: red;
 }
 
 .textTotalAmountRUB {
