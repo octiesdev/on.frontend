@@ -193,6 +193,14 @@ body {
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
+.textTotalAmountRUBSymbol {
+  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 13.64px; /* ✅ Размер текста 7.78% */
+  color: white; /* ✅ Белый цвет текста */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
 .priblizitelno-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 59.5px; 
