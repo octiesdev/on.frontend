@@ -176,7 +176,7 @@ body {
 
 .textTotalAmountRUBContainer {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 37px; 
+  top: 40px; 
   left: 46px; /* ✅ Отступ справа */
   display: flex;
   align-items: center; /* Выравниваем по центру */
@@ -193,7 +193,7 @@ body {
 
 .priblizitelno-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 58px; 
+  top: 59.5px; 
   left: 35px; /* ✅ Отступ справа */
   width: 6.82px;
   height: 6.15px;
