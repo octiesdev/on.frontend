@@ -5,6 +5,7 @@ import dollarimg from "../assets/dollar-img.png";
 import Footer from "../Footer"; // Подключаем футер
 import handshake from "../assets/handshake.png"; // Подключаем иконку
 import connectWalletButton from "../assets/connectWalletButton.png"; // Подключаем иконку
+import priblizitelnoIcon from "../assets/priblizitelno-icon.png"; 
 
 const Profile = () => {
   return (
@@ -19,15 +20,16 @@ const Profile = () => {
       <div className="rectangle size-medium pos-top">
         <div className="left-side">
           <p class="textTotalAmount">0.00</p>
+            <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
             <div className="rectangleTON">
               <p class="textTON">TON</p>
             </div>
-              <div className="rectangleDeposit">
+            <div className="rectangleDeposit">
 
-              </div>
-              <div className="rectangleWithdraw">
+            </div>
+            <div className="rectangleWithdraw">
                 
-              </div>
+            </div>
         </div>
         <div className="right-side">
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
