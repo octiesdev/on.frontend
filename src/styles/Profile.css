@@ -186,13 +186,6 @@ body {
   border: 2px solid red;
 }
 
-.rectangleTON {
-  border: 2px solid rgb(0, 255, 0);
-}
-
-.textTotalAmount {
-  border: 2px solid blue;
-}
 
 /* ✅ Базовые стили размеров (меняй пропорции для разных блоков) */
 .w-50 { width: 50%; }
