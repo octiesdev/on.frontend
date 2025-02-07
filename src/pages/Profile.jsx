@@ -6,6 +6,7 @@ import Footer from "../Footer"; // Подключаем футер
 import handshake from "../assets/handshake.png"; // Подключаем иконку
 import connectWalletButton from "../assets/connectWalletButton.png"; // Подключаем иконку
 import priblizitelnoIcon from "../assets/priblizitelno-icon.png"; 
+import rubIcon from "../assets/rub-icon.png"; 
 
 const Profile = () => {
   return (
@@ -20,9 +21,11 @@ const Profile = () => {
       <div className="rectangle size-medium pos-top">
         <div className="left-side">
           <p class="textTotalAmount">0.00</p>
+        <div className="textTotalAmountRUBContainer">
           <p class="textTotalAmountRUB">0.00</p>
+          <img src={rubIcon} class="rub-icon" alt="RUB Icon"/>
+        </div>
             <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
-            <img src={rub-icon} class="rub-icon" alt=""/>
         <div className="rectangleTON">
             <p class="textTON">TON</p>
           </div>

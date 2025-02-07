@@ -174,6 +174,12 @@ body {
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
+.textTotalAmountRUBContainer {
+  display: flex;
+  align-items: center; /* Выравниваем по центру */
+  gap: 5px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
+}
+
 .textTotalAmountRUB {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 55px; 
@@ -181,10 +187,20 @@ body {
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 13.64px; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
 .priblizitelno-icon {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  top: 55px; 
+  left: 35px; /* ✅ Отступ справа */
+  width: 6.82px;
+  height: 6.15px;
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
+.rub-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 55px; 
   left: 35px; /* ✅ Отступ справа */
