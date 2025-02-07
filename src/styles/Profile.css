@@ -111,7 +111,7 @@ body {
   align-items: center;
   overflow: hidden;
   left: 115.6px; /* Справа */
-  top: 20px;
+  top: 15px;
 }
 
 /* ✅ Размер изображений в кнопках */
@@ -136,7 +136,7 @@ body {
 
 .textTotalAmount {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: -10px; 
+  top: -20px; 
   left: 32px; /* ✅ Отступ справа */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 32.74px; /* ✅ Размер текста 7.78% */
