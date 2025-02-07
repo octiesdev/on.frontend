@@ -202,7 +202,7 @@ body {
 
 .priblizitelno-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 59.5px; 
+  top: 59px; 
   left: 35px; /* ✅ Отступ справа */
   width: 6.82px;
   height: 6.15px;
