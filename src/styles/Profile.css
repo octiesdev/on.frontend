@@ -186,7 +186,7 @@ body {
   top: -14.5px; 
   left: 32px; /* ✅ Отступ справа */
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 3.4px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
   border: 2px solid red;
 }
