@@ -136,7 +136,7 @@ body {
 
 .textTotalAmount {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 10px; 
+  top: 1px; 
   left: 32px; /* ✅ Отступ справа */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 32.74px; /* ✅ Размер текста 7.78% */
