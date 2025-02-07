@@ -196,7 +196,6 @@ body {
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 29px; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
-  line-height: 1; /* Убирает лишнее пространство вокруг текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
   text-align: center;
 }
