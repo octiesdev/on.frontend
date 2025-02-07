@@ -176,7 +176,6 @@ body {
 
 .textTotalAmountRUBContainer {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  height: 13px;
   top: 42px; 
   left: 46px; /* ✅ Отступ справа */
   display: flex;
