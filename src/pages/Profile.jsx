@@ -20,17 +20,19 @@ const Profile = () => {
       <div className="rectangle size-medium pos-top">
         <div className="left-side">
           <p class="textTotalAmount">0.00</p>
+          <p class="textTotalAmountRUB">0.00</p>
             <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
-            <div className="rectangleTON">
-              <p class="textTON">TON</p>
-            </div>
-            <div className="rectangleDeposit">
+            <img src={rub-icon} class="rub-icon" alt=""/>
+        <div className="rectangleTON">
+            <p class="textTON">TON</p>
+          </div>
+        <div className="rectangleDeposit">
 
-            </div>
-            <div className="rectangleWithdraw">
-                
-            </div>
         </div>
+        <div className="rectangleWithdraw">
+                
+        </div>
+      </div>
         <div className="right-side">
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
           <p class="text01">01</p>
