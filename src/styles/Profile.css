@@ -117,7 +117,7 @@ body {
 /* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
 .rectangleTON {
   width: 71.5px;
-  height: 29px;
+  height: 32px;
   background: #FFFFFF;
   border-radius: 17.05px;
   display: flex;
