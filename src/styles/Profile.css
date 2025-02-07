@@ -298,7 +298,7 @@ body {
 
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
-.pos-top2 { top: 33vh; left: 50%; transform: translateX(-50%); }
+.pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
