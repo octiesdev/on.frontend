@@ -183,7 +183,6 @@ body {
 }
 
 .rectangleTONAndtextTotalAmountContainer {
-  position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: -14.5px; 
   left: 32px; /* ✅ Отступ справа */
   display: flex;
