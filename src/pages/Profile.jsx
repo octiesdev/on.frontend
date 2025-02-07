@@ -69,7 +69,6 @@ const Profile = () => {
           <img src={onexImg} class="onex-img" alt=""/>
           <p class="text01">02</p>
         </div>
-
       </div>
 
 
