@@ -22,6 +22,12 @@ const Profile = () => {
             <div className="rectangleTON">
               <p class="textTON">TON</p>
             </div>
+              <div className="rectangleDeposit">
+
+              </div>
+              <div className="rectangleWithdraw">
+                
+              </div>
         </div>
         <div className="right-side">
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
