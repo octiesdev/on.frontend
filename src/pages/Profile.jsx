@@ -8,6 +8,7 @@ import connectWalletButton from "../assets/connectWalletButton.png"; // Подк
 import priblizitelnoIcon from "../assets/priblizitelno-icon.png"; 
 import depositIcon from "../assets/deposit-icon.png"; 
 import withdrawIcon from "../assets/withdraw-icon.png"; 
+import onexImg from "../assets/onex-img.png"; 
 
 const Profile = () => {
   return (
@@ -18,8 +19,16 @@ const Profile = () => {
       {/* Логотип */}
         <img src={logo} alt="Logo" className="logo" />
 
+      <div className="buttonPartners">
+        <img src={handshake} class="partner-icon" alt="handshake"/>
+      </div>
+
+      <div className="buttonConnectWallet">
+        <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
+      </div>
+
       {/* Прямоугольник */}
-      <div className="rectangle size-medium pos-top">
+      <div className="rectangleMainInfo size-medium pos-top">
         <div className="left-side">
           <p class="textTotalAmount">0.00</p>
         <div className="textTotalAmountRUBContainer">
@@ -49,12 +58,18 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="buttonPartners">
-        <img src={handshake} class="partner-icon" alt="handshake"/>
-      </div>
+      <div className="rectangleOnexPoints size-small pos-top2">
+        <div className="left-side">
+         <p class="textTotalAmount">0</p>
+        <div className="rectangleONEX">
+          <p class="textTON">ONEX</p>
+        </div>
+        </div>
+        <div className="right-side">
+          <img src={onexImg} class="onex-img" alt=""/>
+          <p class="text01">02</p>
+        </div>
 
-      <div className="buttonConnectWallet">
-        <img src={connectWalletButton} class="connectWallet-icon" alt="connectWallet"/>
       </div>
 
 

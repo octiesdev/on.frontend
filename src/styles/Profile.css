@@ -55,7 +55,22 @@ body {
 }
 
 /* ✅ Базовый стиль прямоугольников */
-.rectangle {
+.rectangleMainInfo {
+  position: absolute;
+  width: calc(100% - 12px); /* 100% ширины минус отступы */
+
+  background: rgba(32, 32, 32, 0.5);
+  border: 1px solid rgba(0, 0, 0, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 39.56px;
+  
+  display: flex;
+  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
+  gap: 5px; /* ✅ Добавляем отступ между частями */
+}
+
+/* ✅ Базовый стиль прямоугольников */
+.rectangleOnexPoints {
   position: absolute;
   width: calc(100% - 12px); /* 100% ширины минус отступы */
 
@@ -103,6 +118,21 @@ body {
 .rectangleTON {
   position: absolute;
   width: 71.5px;
+  height: 29px;
+  background: #FFFFFF;
+  border-radius: 17.05px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  left: 115.6px; /* Справа */
+  top: 17px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
+}
+
+.rectangleONEX {
+  position: absolute;
+  width: 82.5px;
   height: 29px;
   background: #FFFFFF;
   border-radius: 17.05px;
@@ -254,13 +284,14 @@ body {
 }
 
 /* ✅ Размеры */
-.size-small { height: 29px; }   /* Маленький */
+.size-small { height: 14.6%; }   /* Маленький */
 .size-small2 { height: 29px; }   /* Маленький */
 .size-medium { height: 22%; }  /* Средний */
 .size-large { height: 30vh; }   /* Большой */
 
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
+.pos-top2 { top: 196vh; left: 50%; transform: translateX(-50%); }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
