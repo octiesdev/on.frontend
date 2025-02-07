@@ -17,13 +17,13 @@ const Profile = () => {
 
       {/* Прямоугольник */}
       <div className="rectangle size-medium pos-top">
-        <div className="left-side w-60">
+        <div className="left-side">
           <p class="textTotalAmount">0.00</p>
             <div className="rectangleTON">
               <p class="textTON">TON</p>
             </div>
         </div>
-        <div className="right-side w-40">
+        <div className="right-side">
           <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
           <p class="text01">01</p>
         </div>
