@@ -36,7 +36,7 @@ const Profile = () => {
           <p class="textDepositAndWithdraw">Ввод</p>
         </div>
         </div>
-        <div className="buttonleWithdraw">
+        <div className="buttonWithdraw">
         <div className="buttonWithdrawContainer">
             <img src={withdrawIcon} class="withdraw-icon" alt=""/>
           <p class="textDepositAndWithdraw">Вывод</p>
