@@ -185,6 +185,10 @@ body {
   border: 2px solid red;
 }
 
+.rectangleTON {
+  border: 2px solid green;
+}
+
 .textTotalAmount {
   border: 2px solid blue;
 }
