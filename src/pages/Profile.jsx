@@ -62,7 +62,7 @@ const Profile = () => {
 
       <div className="rectangleOnexPoints size-small pos-top2">
         <div className="left-side">
-         <p class="textTotalAmount">0</p>
+
         <div className="rectangleONEX">
           <p class="textTON">ONEX</p>
         </div>
