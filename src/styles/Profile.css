@@ -190,7 +190,7 @@ body {
 }
 
 .textTotalAmount {
-  top: -2px;
+  top: 5px;
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 32.74px; /* ✅ Размер текста 7.78% */
