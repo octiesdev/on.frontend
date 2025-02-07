@@ -107,9 +107,8 @@ body {
   background: #FFFFFF;
   border-radius: 17.05px;
   display: flex;
-  flex-direction: column; /* ✅ Размещаем элементы вертикально */
-  align-items: flex-start; /* ✅ Выравниваем по левому краю */
   justify-content: center;
+  align-items: center;
   overflow: hidden;
   left: 115.6px; /* Справа */
   top: 3px;
