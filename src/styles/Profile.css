@@ -181,6 +181,7 @@ body {
   display: flex;
   align-items: center; /* Выравниваем по центру */
   gap: 2px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
+  border: red;
 }
 
 .textTotalAmountRUB {
