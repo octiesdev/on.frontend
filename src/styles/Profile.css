@@ -186,7 +186,7 @@ body {
 
 .rectangleTONAndtextTotalAmountContainer {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: -17px; 
+  top: -14.5px; 
   left: 32px; /* ✅ Отступ справа */
   display: flex;
   align-items: center; /* Выравниваем по центру */
