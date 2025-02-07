@@ -23,7 +23,7 @@ const Profile = () => {
           <p class="textTotalAmount">0.00</p>
         <div className="textTotalAmountRUBContainer">
           <p class="textTotalAmountRUB">0.00</p>
-          <p class="textTotalAmountRUBSymbol">₽</p>
+          <p class="textTotalAmountRUBSymbol">RUB</p>
         </div>
             <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
         <div className="rectangleTON">
