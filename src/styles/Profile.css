@@ -176,8 +176,8 @@ body {
 
 .priblizitelno-icon {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 61px; 
-  left: 32px; /* ✅ Отступ справа */
+  top: 51px; 
+  left: 35px; /* ✅ Отступ справа */
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   width: 6.82px;
   height: 6.15px;
