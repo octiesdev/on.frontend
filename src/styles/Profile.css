@@ -176,7 +176,7 @@ body {
 
 .textTotalAmountRUBContainer {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 55px; 
+  top: 45px; 
   left: 46px; /* ✅ Отступ справа */
   display: flex;
   align-items: center; /* Выравниваем по центру */
@@ -201,8 +201,8 @@ body {
 }
 
 .rub-icon {
-  width: 6.82px;
-  height: 6.15px;
+  width: 8.18px;
+  height: 9.55px;
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
