@@ -115,7 +115,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
 }
 
-.rectangleDeposit {
+.buttonDeposit {
   position: absolute;
   width: 77px;
   height: 30px;
@@ -129,7 +129,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
 }
 
-.rectangleWithdraw {
+.buttonWithdraw {
   position: absolute;
   width: 83px;
   height: 30px;
@@ -212,6 +212,44 @@ body {
 .rub-icon {
   width: 8.18px;
   height: 9.55px;
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
+.buttonWithdrawContainer {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  width: 53px;
+  height: 14px;
+  display: flex;
+  align-items: center; /* Выравниваем по центру */
+  gap: 6.8px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
+}
+
+.deposit-icon {
+  width: 12.3px;
+  height: 11px;
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
+.buttonWithdrawContainer {
+  position: absolute; /* ✅ Фиксируем внутри .rectangle */
+  width: 60px;
+  height: 14px;
+  display: flex;
+  align-items: center; /* Выравниваем по центру */
+  gap: 6.8px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
+}
+
+.withdraw-icon {
+  width: 12.3px;
+  height: 11px;
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+}
+
+.textDepositAndWithdraw {
+  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 13.64px; /* ✅ Размер текста 7.78% */
+  color: black; /* ✅ Белый цвет текста */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 

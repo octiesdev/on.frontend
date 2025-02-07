@@ -6,7 +6,8 @@ import Footer from "../Footer"; // Подключаем футер
 import handshake from "../assets/handshake.png"; // Подключаем иконку
 import connectWalletButton from "../assets/connectWalletButton.png"; // Подключаем иконку
 import priblizitelnoIcon from "../assets/priblizitelno-icon.png"; 
-import rubIcon from "../assets/rub-icon.png"; 
+import depositIcon from "../assets/deposit-icon.png"; 
+import withdrawIcon from "../assets/withdraw-icon.png"; 
 
 const Profile = () => {
   return (
@@ -27,13 +28,19 @@ const Profile = () => {
         </div>
             <img src={priblizitelnoIcon} class="priblizitelno-icon" alt=""/>
         <div className="rectangleTON">
-            <p class="textTON">TON</p>
-          </div>
-        <div className="rectangleDeposit">
-
+          <p class="textTON">TON</p>
         </div>
-        <div className="rectangleWithdraw">
-                
+        <div className="buttonDeposit">
+        <div className="buttonDepositContainer">
+           <img src={depositIcon} class="deposit-icon" alt=""/>
+          <p class="textDepositAndWithdraw">Ввод</p>
+        </div>
+        </div>
+        <div className="buttonleWithdraw">
+        <div className="buttonWithdrawContainer">
+            <img src={withdrawIcon} class="withdraw-icon" alt=""/>
+          <p class="textDepositAndWithdraw">Вывод</p>
+        </div> 
         </div>
       </div>
         <div className="right-side">
