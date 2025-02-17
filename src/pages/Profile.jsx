@@ -66,14 +66,14 @@ const Profile = () => {
         <div className="rectangleTONAndtextTotalAmountContainer">
           <p class="textTotalAmount">35</p>
         <div className="rectangleONEX">
+          <p class="textTON">ONEX</p>
+        </div>
+        </div>
+        </div>
         <div className="buttonReceive">
         <div className="buttonReceiveContainer">
           <img src={receiveIcon} class="receive-icon" alt=""/>
             <p class="textDepositAndWithdraw">Получить</p>
-        </div>
-        </div>
-          <p class="textTON">ONEX</p>
-        </div>
         </div>
         </div>
         <div className="right-side">
