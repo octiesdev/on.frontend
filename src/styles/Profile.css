@@ -198,7 +198,7 @@ body {
 .rectangleTONAndtextTotalAmountContainer {
   position: absolute;
   top: -14.5px; 
-  left: 32px; /* ✅ Отступ справа */
+  left: 32px; 
   display: flex;
   align-items: center;
   gap: 3.4px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
@@ -317,6 +317,15 @@ body {
   z-index: 2; /* ✅ Убедимся, что текст поверх */
 }
 
+.textAvaliableDrop {
+  font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  font-size: 24.66px; /* ✅ Размер текста 7.78% */
+  color: black; /* ✅ Белый цвет текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+  left: 27px;
+}
+
 /* ✅ Размеры */
 .size-small { height: 14.6%; }   /* Маленький */
 .size-small2 { height: 29px; }   /* Маленький */
@@ -326,6 +335,7 @@ body {
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
 .pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
+.pos-topTextAvaliableDrop { top: 50.2vh; left: 50%; transform: translateX(-50%); }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
@@ -437,6 +447,13 @@ body {
 @font-face {
   font-family: 'MullerRegular';
   src: url('/assets/fonts/MullerRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'MullerBold';
+  src: url('/assets/fonts/MullerBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 } 

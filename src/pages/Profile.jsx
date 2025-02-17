@@ -82,6 +82,12 @@ const Profile = () => {
         </div>
       </div>
 
+      <div className="textAvaliableDrop pos-topTextAvaliableDrop">
+        
+      </div>
+
+
+
 
 
       {/* Футер */}
