@@ -318,6 +318,7 @@ body {
 }
 
 .textAvaliableDrop {
+  position: absolute;
   font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-size: 24.66px; /* ✅ Размер текста 7.78% */

@@ -83,7 +83,7 @@ const Profile = () => {
       </div>
 
       <div className="textAvaliableDrop pos-topTextAvaliableDrop">
-        
+        ДОСТУПНЫЙ ДРОП
       </div>
 
 
