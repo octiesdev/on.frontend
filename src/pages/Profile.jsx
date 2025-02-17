@@ -66,6 +66,12 @@ const Profile = () => {
           <p class="textTotalAmount">35</p>
         <div className="rectangleONEX">
           <p class="textTON">ONEX</p>
+        <div className="buttonReceive">
+        <div className="buttonReceiveContainer">
+          <img src={depositIcon} class="receive-icon" alt=""/>
+            <p class="textDepositAndWithdraw">Получить</p>
+        </div>
+        </div>
         </div>
         </div>
         </div>
