@@ -322,9 +322,9 @@ body {
   font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-size: 24.66px; /* ✅ Размер текста 7.78% */
-  color: black; /* ✅ Белый цвет текста */
+  color: white; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
-  left: 27px;
+  gap: 27px;
 }
 
 /* ✅ Размеры */
@@ -336,7 +336,7 @@ body {
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
 .pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
-.pos-topTextAvaliableDrop { top: 50.2vh; left: 50%; transform: translateX(-50%); }
+.pos-topTextAvaliableDrop { top: 50.2vh; left: 27px; }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
