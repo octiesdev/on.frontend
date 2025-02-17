@@ -8,6 +8,7 @@ import connectWalletButton from "../assets/connectWalletButton.png"; // Подк
 import priblizitelnoIcon from "../assets/priblizitelno-icon.png"; 
 import depositIcon from "../assets/deposit-icon.png"; 
 import withdrawIcon from "../assets/withdraw-icon.png"; 
+import receiveIcon from "../assets/receive-icon.png";
 import onexImg from "../assets/onex-img.png"; 
 
 const Profile = () => {
@@ -65,13 +66,13 @@ const Profile = () => {
         <div className="rectangleTONAndtextTotalAmountContainer">
           <p class="textTotalAmount">35</p>
         <div className="rectangleONEX">
-          <p class="textTON">ONEX</p>
         <div className="buttonReceive">
         <div className="buttonReceiveContainer">
-          <img src={depositIcon} class="receive-icon" alt=""/>
+          <img src={receiveIcon} class="receive-icon" alt=""/>
             <p class="textDepositAndWithdraw">Получить</p>
         </div>
         </div>
+          <p class="textTON">ONEX</p>
         </div>
         </div>
         </div>
