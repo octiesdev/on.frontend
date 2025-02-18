@@ -83,8 +83,9 @@ const Profile = () => {
       </div>
 
       <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
+      
       <div className="rectangleMainInfo size-medium pos-top-rectangleAvaliableDrop">
-        
+
       </div>
 
 
