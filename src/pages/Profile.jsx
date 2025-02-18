@@ -95,7 +95,10 @@ const Profile = () => {
       <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
         <div className="left-side">
         <div className="rectangleTONIMGAndtextTONNameContainer">
-          <p class="textTONName">TON</p>
+          <div className="ton-icon">
+            <img src={tonIMG} class="ton-icon" alt=""/>
+          </div>
+            <p class="textTONName">TON</p>
         </div>
         <div className="ton-icon">
           <img src={tonIMG} class="ton-icon" alt=""/>
