@@ -84,10 +84,16 @@ const Profile = () => {
       </div>
 
       <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
+      <div className="rectangleAvaliableDropforOnex50opacity size-medium pos-top-rectangleAvaliableDrop">
+        <div className="left-side">
+        </div>
+        <div className="right-side">
+          <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
+        </div>
+      </div>
       <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
-      <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
-      <div className="left-side">
-          <p class="text01">03</p>
+        <div className="left-side">
+
         </div>
       <div className="right-side">
           <p class="text01">03</p>

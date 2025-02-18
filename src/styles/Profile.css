@@ -84,6 +84,18 @@ body {
   gap: 5px; /* ✅ Добавляем отступ между частями */
 }
 
+.rectangleAvaliableDropforOnex50opacity {
+  position: absolute;
+  width: calc(100% - 36px); /* 100% ширины минус отступы */
+
+  border-radius: 20px;
+  
+  display: flex;
+  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
+  gap: 5px; /* ✅ Добавляем отступ между частями */
+  z-index: 1;
+}
+
 .rectangleAvaliableDrop {
   position: absolute;
   width: calc(100% - 36px); /* 100% ширины минус отступы */
@@ -94,7 +106,7 @@ body {
   display: flex;
   justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
   gap: 5px; /* ✅ Добавляем отступ между частями */
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ✅ Фиксируем позицию кнопки партнеров (левее кнопки кошелька) */
@@ -415,7 +427,7 @@ body {
   height: 94%;
   right: 27px; /* Отступ от правого края */
   bottom: 0px; /* Прижимаем к нижнему краю */
-  z-index: -1;
+  z-index: 1;
 }
 
 .text01 {
