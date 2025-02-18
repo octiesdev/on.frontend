@@ -89,6 +89,10 @@ const Profile = () => {
           <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
           <p class="text01">03</p>
         </div>
+      <div className="right-side">
+          <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
+          <p class="text01">03</p>
+        </div>
       </div>
 
 
