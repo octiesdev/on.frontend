@@ -83,8 +83,6 @@ const Profile = () => {
         </div>
       </div>
 
-      <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
-
       <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
       <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
       <div className="left-side">
