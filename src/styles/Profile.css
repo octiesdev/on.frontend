@@ -84,6 +84,18 @@ body {
   gap: 5px; /* ✅ Добавляем отступ между частями */
 }
 
+.rectangleAvaliableDrop {
+  position: absolute;
+  width: calc(100% - 36px); /* 100% ширины минус отступы */
+
+  background: linear-gradient(90deg, #E31717 0%, #FFB800 100%);
+  border-radius: 20px;
+  
+  display: flex;
+  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
+  gap: 5px; /* ✅ Добавляем отступ между частями */
+}
+
 /* ✅ Фиксируем позицию кнопки партнеров (левее кнопки кошелька) */
 .buttonPartners {
   position: absolute;
@@ -336,6 +348,7 @@ body {
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
 .pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
 .pos-topTextAvaliableDrop { top: 52.2vh; left: 27px; }
+.pos-top-rectangleAvaliableDrop { top: 53.2vh; left: 27px; }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
 .pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
