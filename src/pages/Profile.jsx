@@ -85,7 +85,7 @@ const Profile = () => {
       </div>
 
       <div className="rectangleAvaliableDropGroupBox size-medium2 pos-top-rectangleAvaliableDrop">
-        <p className="textAvaliableDrop ">ДОСТУПНЫЙ ДРОП</p>
+        <div className="textAvaliableDrop ">ДОСТУПНЫЙ ДРОП</div>
           <div className="rectangleAvaliableDropforOnex50opacity">
             <div className="left-side">
             </div>
