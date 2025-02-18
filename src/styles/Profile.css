@@ -427,6 +427,25 @@ body {
   gap: 3.5px;
 }
 
+.left-side2 {
+  position: relative;
+  width: 44%; /* Делаем обе части 100% ширины */
+  height: 71%;
+  display: flex;
+  flex-direction: column; /* ✅ Размещаем элементы вертикально */
+  align-items: flex-start; /* ✅ Выравниваем по левому краю */
+}
+
+.right-side2 {
+  position: relative;
+  width: 56%; /* Делаем обе части 100% ширины */
+  height: 71%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5px;
+}
+
 /* .left-side {
   border: 2px solid red;
 } */

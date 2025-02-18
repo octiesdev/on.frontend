@@ -94,13 +94,13 @@ const Profile = () => {
             </div>
           </div>
           <div className="rectangleAvaliableDrop">
-            <div className="left-side">
+            <div className="left-side2">
               <div className="rectangleTONIMGAndtextTONNameContainer">
                   <img src={tonIMG} class="ton-icon" alt=""/>
                   <p class="textTONName">TON</p>
               </div>
             </div>
-            <div className="right-side">
+            <div className="right-side2">
                 <p class="text01">03</p> 
             </div>
           </div>
