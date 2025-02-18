@@ -91,7 +91,7 @@ body {
   border-radius: 20px;
   
   display: flex;
-  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
+  justify-content: center; /* ✅ Гарантируем, что зоны не слипаются */
   gap: 5px; /* ✅ Добавляем отступ между частями */
   z-index: 1;
 }
