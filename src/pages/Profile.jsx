@@ -96,11 +96,11 @@ const Profile = () => {
         <div className="left-side">
         <div className="rectangleTONIMGAndtextTONNameContainer">
           <p class="textTONName">TON</p>
+        </div>
         <div className="ton-icon">
           <img src={tonIMG} class="ton-icon" alt=""/>
         </div>
-        </div>
-        </div>
+      </div>
       <div className="right-side">
           <p class="text01">03</p>
         </div>
