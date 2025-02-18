@@ -230,6 +230,24 @@ body {
 
 }
 
+.rectangleTONIMGAndtextTONNameContainer {
+  position: absolute;
+  top: 0.55%; 
+  left: 1%; 
+  display: flex;
+  align-items: center;
+  gap: 0.3%;
+}
+
+.textTONName {
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 1.1%; /* ✅ Размер текста 7.78% */
+  color: white; /* ✅ Белый цвет текста */
+  z-index: 2; /* ✅ Убедимся, что текст поверх */
+  text-align: center;
+}
+
 .textTotalAmount {
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -237,7 +255,6 @@ body {
   color: white; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
   text-align: center;
-
 }
 
 .textTON {
@@ -412,6 +429,15 @@ body {
   z-index: 2;
 }
 
+.ton-icon {
+  height: 21%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
 /* ✅ Добавляем отдельный класс для изображения доллара */
 .onex-icon {
   position: absolute; /* Фиксируем внутри .rectangle */
@@ -490,6 +516,13 @@ body {
 @font-face {
   font-family: 'MullerBold';
   src: url('/assets/fonts/MullerBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'MullerExtraBold';
+  src: url('/assets/fonts/MullerExtraBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 } 

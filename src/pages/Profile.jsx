@@ -11,6 +11,7 @@ import withdrawIcon from "../assets/withdraw-icon.png";
 import receiveIcon from "../assets/receive-icon.png";
 import onexImg from "../assets/onex-img.png"; 
 import onex50opacityImg from "../assets/onex50opacity-img.png";
+import tonIMG from "../assets/ton-img.png";
 
 const Profile = () => {
   return (
@@ -93,7 +94,12 @@ const Profile = () => {
       </div>
       <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
         <div className="left-side">
-
+        <div className="rectangleTONIMGAndtextTONNameContainer">
+          <p class="textTONName">TON</p>
+        <div className="ton-icon">
+          <img src={tonIMG} class="ton-icon" alt=""/>
+        </div>
+        </div>
         </div>
       <div className="right-side">
           <p class="text01">03</p>
