@@ -248,7 +248,7 @@ body {
 
 .rectangleTONIMGAndtextTONNameContainer {
   position: absolute;
-  top: 0.55%; 
+  top: 10px; 
   height: 16.5%;
   left: 18px; 
   display: flex;
