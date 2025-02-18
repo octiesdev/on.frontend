@@ -347,7 +347,7 @@ body {
 /* ✅ Позиционирование */
 .pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
 .pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
-.pos-topTextAvaliableDrop { top: 52.2vh; left: 27px; }
+.pos-topTextAvaliableDrop { top: 48.2vh; left: 27px; }
 .pos-top-rectangleAvaliableDrop { top: 57.2vh; left: 50%; transform: translateX(-50%); }
 .pos-top-buttonPartners { top: 3.2vh; right: 89px; }
 .pos-top-connectWallet { top: 3.2vh; right: 32px; }
