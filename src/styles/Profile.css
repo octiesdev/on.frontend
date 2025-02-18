@@ -213,7 +213,7 @@ body {
 .buttonReceive {
   position: absolute;
   width: 115px;
-  height: 30px;
+  height: 25%;
   background: #FFFFFF;
   border-radius: 17.05px;
   display: flex;
