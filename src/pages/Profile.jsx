@@ -93,7 +93,7 @@ const Profile = () => {
               <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
             </div>
           </div>
-          <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
+          <div className="rectangleAvaliableDrop size-medium">
             <div className="left-side">
               <div className="rectangleTONIMGAndtextTONNameContainer">
                   <img src={tonIMG} class="ton-icon" alt=""/>
