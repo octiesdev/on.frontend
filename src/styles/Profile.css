@@ -275,6 +275,8 @@ body {
   font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
   width: 50.4%;
   height: 100%;
+  font-size: calc(1em + 1vw); /* Динамический размер текста */
+  line-height: 100%;
   color: white; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
   text-align: center;
