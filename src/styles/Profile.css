@@ -408,6 +408,15 @@ body {
   z-index: 2;
 }
 
+/* ✅ Добавляем отдельный класс для изображения доллара */
+.onex50opacity-icon {
+  position: absolute; /* Фиксируем внутри .rectangle */
+  height: 94%;
+  right: 27px; /* Отступ от правого края */
+  bottom: 0px; /* Прижимаем к нижнему краю */
+  z-index: 0;
+}
+
 .text01 {
   position: absolute; /* ✅ Фиксируем внутри .rectangle */
   top: 3px; /* ✅ Отступ сверху */

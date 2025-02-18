@@ -10,6 +10,7 @@ import depositIcon from "../assets/deposit-icon.png";
 import withdrawIcon from "../assets/withdraw-icon.png"; 
 import receiveIcon from "../assets/receive-icon.png";
 import onexImg from "../assets/onex-img.png"; 
+import onex50opacityImg from "../assets/onex50opacity-img.png";
 
 const Profile = () => {
   return (
@@ -84,7 +85,10 @@ const Profile = () => {
 
       <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
       <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
-
+      <div className="right-side">
+          <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
+          <p class="text01">03</p>
+        </div>
       </div>
 
 
