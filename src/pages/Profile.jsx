@@ -73,10 +73,10 @@ const Profile = () => {
         </div>
         </div>
         <div className="buttonReceive">
-        <div className="buttonReceiveContainer">
-          <img src={receiveIcon} class="receive-icon" alt=""/>
-            <p class="textDepositAndWithdraw">Получить</p>
-        </div>
+          <div className="buttonReceiveContainer">
+            <img src={receiveIcon} class="receive-icon" alt=""/>
+              <p class="textDepositAndWithdraw">Получить</p>
+          </div>
         </div>
         <div className="right-side">
           <img src={onexImg} class="onex-icon" alt=""/>
