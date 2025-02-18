@@ -414,7 +414,7 @@ body {
   height: 94%;
   right: 27px; /* Отступ от правого края */
   bottom: 0px; /* Прижимаем к нижнему краю */
-  z-index: -1;
+  z-index: 0;
 }
 
 .text01 {
