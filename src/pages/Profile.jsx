@@ -16,7 +16,6 @@ const Profile = () => {
     <div className="profile-container">
       {/* Фон */}
       <div className="background"></div>
-      <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
 
       {/* Логотип */}
         <img src={logo} alt="Logo" className="logo" />
@@ -83,8 +82,8 @@ const Profile = () => {
         </div>
       </div>
 
-
-      <div className="rectangleMainInfo size-medium pos-top-rectangleAvaliableDrop">
+      <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
+      <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
 
       </div>
 
