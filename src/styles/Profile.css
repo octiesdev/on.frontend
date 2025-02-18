@@ -376,7 +376,6 @@ body {
 }
 
 .textAvaliableDrop {
-  position: absolute;
   top: 0px;
   left: 9px;
   font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
