@@ -99,7 +99,7 @@ body {
 .rectangleAvaliableDropforOnex50opacity {
   position: absolute;
   width: 100%; /* 100% ширины минус отступы */
-  height: 85%;
+  height: 90%;
   top: 33px;
 
   border-radius: 20px;
