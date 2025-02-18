@@ -430,7 +430,6 @@ body {
 }
 
 .ton-icon {
-  position: absolute; /* Фиксируем внутри .rectangle */
   width: 2.1%;
   height: auto;
   display: flex;
