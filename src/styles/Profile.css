@@ -84,7 +84,7 @@ body {
   gap: 5px; /* ✅ Добавляем отступ между частями */
 }
 
-.rectangleAvaliableDropforOnex50opacity {
+.rectangleAvaliableDropGroupBox {
   position: absolute;
   width: calc(100% - 36px); /* 100% ширины минус отступы */
 
@@ -96,9 +96,23 @@ body {
   z-index: 1;
 }
 
+.rectangleAvaliableDropforOnex50opacity {
+  position: absolute;
+  width: 100%; /* 100% ширины минус отступы */
+  top: 34px;
+
+  border-radius: 20px;
+  
+  display: flex;
+  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
+  gap: 5px; /* ✅ Добавляем отступ между частями */
+  z-index: 1;
+}
+
 .rectangleAvaliableDrop {
   position: absolute;
-  width: calc(100% - 36px); /* 100% ширины минус отступы */
+  width: 100%; /* 100% ширины минус отступы */
+  top: 34px;
 
   background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
   border-radius: 20px;
@@ -361,6 +375,8 @@ body {
 
 .textAvaliableDrop {
   position: absolute;
+  top: 0px;
+  left: 9px;
   font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-size: 24.66px; /* ✅ Размер текста 7.78% */
@@ -372,6 +388,7 @@ body {
 .size-small { height: 14.6%; }   /* Маленький */
 .size-small2 { height: 29px; }   /* Маленький */
 .size-medium { height: 22%; }  /* Средний */
+.size-medium2 { height: 26%; }  /* Средний */
 .size-large { height: 30vh; }   /* Большой */
 
 /* ✅ Позиционирование */

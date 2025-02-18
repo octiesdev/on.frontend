@@ -84,24 +84,26 @@ const Profile = () => {
         </div>
       </div>
 
-      <p className="textAvaliableDrop pos-topTextAvaliableDrop">ДОСТУПНЫЙ ДРОП</p>
-      <div className="rectangleAvaliableDropforOnex50opacity size-medium pos-top-rectangleAvaliableDrop">
-        <div className="left-side">
-        </div>
-        <div className="right-side">
-          <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
-        </div>
-      </div>
-      <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
-        <div className="left-side">
-          <div className="rectangleTONIMGAndtextTONNameContainer">
-              <img src={tonIMG} class="ton-icon" alt=""/>
-              <p class="textTONName">TON</p>
+      <div className="rectangleAvaliableDropGroupBox size-medium2 pos-top-rectangleAvaliableDrop">
+        <p className="textAvaliableDrop ">ДОСТУПНЫЙ ДРОП</p>
+          <div className="rectangleAvaliableDropforOnex50opacity size-medium">
+            <div className="left-side">
+            </div>
+            <div className="right-side">
+              <img src={onex50opacityImg} class="onex50opacity-icon" alt=""/>
+            </div>
           </div>
-        </div>
-        <div className="right-side">
-            <p class="text01">03</p>
-        </div>
+          <div className="rectangleAvaliableDrop size-medium pos-top-rectangleAvaliableDrop">
+            <div className="left-side">
+              <div className="rectangleTONIMGAndtextTONNameContainer">
+                  <img src={tonIMG} class="ton-icon" alt=""/>
+                  <p class="textTONName">TON</p>
+              </div>
+            </div>
+            <div className="right-side">
+                <p class="text01">03</p> 
+            </div>
+          </div>
       </div>
 
 
