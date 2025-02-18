@@ -485,7 +485,7 @@ body {
 .ton-icon {
   width: 30px;
   height: auto;
-  min-height: 25px;
+  min-width: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
