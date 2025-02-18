@@ -85,7 +85,7 @@ body {
 }
 
 .rectangleAvaliableDrop {
-  position: absolute;
+  position: relative;
   width: calc(100% - 36px); /* 100% ширины минус отступы */
 
   background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
