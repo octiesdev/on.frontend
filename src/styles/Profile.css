@@ -250,9 +250,11 @@ body {
   position: absolute;
   top: 20px; 
   height: 11.7%;
+  width: 51.3%;
   left: 18px; 
   display: flex;
   align-items: center;
+  justify-content: row;
   gap: 6px;
 }
 
@@ -271,6 +273,8 @@ body {
 .textTONName {
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
+  width: 50.4%;
+  height: 100%;
   font-size: 19px; /* ✅ Размер текста 7.78% */
   color: white; /* ✅ Белый цвет текста */
   z-index: 2; /* ✅ Убедимся, что текст поверх */
@@ -481,13 +485,8 @@ body {
 }
 
 .ton-icon {
-  width: 30px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  z-index: 2;
+  width: 37.5%;
+  height: 100%;
 }
 
 /* ✅ Добавляем отдельный класс для изображения доллара */
