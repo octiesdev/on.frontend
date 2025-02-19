@@ -121,7 +121,7 @@
   
   /* ✅ Адаптация */
   @media (max-width: 768px) {
-    .rectangleAvaliableDrop {
+    .rectangleAvaliableDrop2 {
       width: 95vw;
       min-height: auto;
       padding: 4vh 5vw;
