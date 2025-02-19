@@ -7,143 +7,124 @@
     background: #000;
   }
   
-/* ✅ Главный контейнер */
+/* ✅ Основной контейнер */
 .rectangleAvaliableDrop2 {
-    width: 90.4vw; /* (339 / 375) * 100 */
+    width: 90.4vw;
     max-width: 339px;
-    height: 22.9vh; /* (186 / 812) * 100 */
+    min-height: 22.9vh; /* Разрешаем увеличение при необходимости */
     max-height: 186px;
-    background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.6), rgba(227, 23, 23, 0.6));
     border-radius: 20px;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    padding: 10px 0;
   }
   
   /* ✅ Заголовок */
   .header {
     display: flex;
     align-items: center;
-    width: 18.7vw; /* (70 / 375) * 100 */
-    max-width: 70px;
-    height: 3.7vh; /* (30 / 812) * 100 */
-    max-height: 30px;
-    position: absolute;
-    top: 1.2vh; /* (10 / 812) * 100 */
-    left: 4.8vw; /* (18 / 375) * 100 */
+    width: 100%;
+    padding: 5px 18px;
   }
   .header-icon {
-    width: 8vw;
-    max-width: 30px;
-    height: 8vw;
-    max-height: 30px;
+    width: 30px;
+    height: 30px;
   }
   .header-text {
-    font-size: 2.3vh;
+    font-size: 19px;
     font-family: "MullerExtraBold", sans-serif;
     color: white;
     margin-left: 8px;
   }
   
-  /* ✅ Блоки информации */
+  /* ✅ Контейнер для всех блоков */
+  .info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 6%;
+  }
+  
+  /* ✅ Общие стили блоков */
   .info-block {
-    width: 33.6vw;
-    max-width: 126px;
-    height: 4.2vh;
-    max-height: 34px;
+    width: 46%;
     background: rgba(32, 32, 32, 0.5);
     border-radius: 10px;
-    position: absolute;
-    padding: 4px 11px;
+    padding: 6px 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
   }
-  .info-text {
-    font-size: 1.4vh;
+  
+  /* ✅ Текст внутри блоков */
+  .info-title {
+    font-size: 11px;
     font-family: "MullerMedium", sans-serif;
     color: white;
+    margin-bottom: 4px;
+    line-height: 1.2;
   }
-  .bold-text {
-    font-size: 1.6vh;
+  .info-bold {
+    font-size: 13px;
     font-family: "MullerBold", sans-serif;
-    margin-top: 6px;
+    color: white;
   }
   .green-text {
     color: #00ff00;
   }
   
-  /* ✅ Позиционирование блоков */
-  .info-block-1 {
-    top: 6.4vh;
-    left: 6.6vw;
-  }
-  .info-block-2 {
-    top: 6.4vh;
-    left: 42.4vw;
-  }
-  .info-block-3 {
-    top: 11.6vh;
-    left: 6.6vw;
-  }
-  
-  /* ✅ Иконка в награде */
+  /* ✅ Блок награды */
   .reward {
     display: flex;
     align-items: center;
+    gap: 5px;
   }
   .reward-icon {
-    width: 3vw;
-    max-width: 12px;
-    height: auto;
-    margin-left: 5px;
+    width: 12px;
+    height: 12px;
   }
   
   /* ✅ Кнопка */
   .button {
-    width: 79.7vw;
+    width: 85%;
     max-width: 299px;
-    height: 3.7vh;
-    max-height: 30px;
+    height: 30px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 9px;
-    border: 1px solid rgba(255, 255, 255, 1);
+    border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.85vh;
+    font-size: 15px;
     font-family: "MullerExtraBold", sans-serif;
     color: white;
-    position: absolute;
-    top: 17.5vh;
-    left: 5.3vw;
+    margin-top: 10px;
   }
   
   /* ✅ Адаптация */
   @media (max-width: 768px) {
     .rectangleAvaliableDrop {
       width: 95vw;
-      height: auto;
+      min-height: auto;
       padding: 3vh 5vw;
     }
   
-    .info-block {
-      width: 40vw;
-      max-width: 160px;
+    .info-container {
+      flex-direction: column;
+      align-items: center;
     }
   
-    .info-block-1,
-    .info-block-2,
-    .info-block-3 {
-      position: static;
-      margin: 2vh auto;
+    .info-block {
+      width: 80%;
+      margin-bottom: 10px;
     }
   
     .button {
-      width: 85vw;
-      position: static;
-      margin-top: 4vh;
-    }
-  
-    .header {
-      width: 100%;
-      justify-content: center;
-      margin-bottom: 2vh;
+      width: 90%;
+      margin-top: 15px;
     }
   }

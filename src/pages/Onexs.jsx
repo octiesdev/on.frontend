@@ -5,41 +5,38 @@ import Footer from "../Footer"; // Подключаем футер
 
 const Onexs = () => {
   return (
-    <div className="test-container">
-      {/* Новый блок */}
-      <div className="rectangleAvaliableDrop2">
-      {/* Заголовок */}
-      <div className="header">
-        <img src={tonIMG} alt="TON" className="header-icon" />
-        <p className="header-text">TON</p>
+    <div className="rectangleAvaliableDrop2">
+    {/* Заголовок */}
+    <div className="header">
+      <img src={tonIMG} alt="TON" className="header-icon" />
+      <p className="header-text">TON</p>
+    </div>
+
+    {/* Блоки информации */}
+    <div className="info-container">
+      <div className="info-block">
+        <p className="info-title">Период фарминга</p>
+        <p className="info-bold">1 день</p>
       </div>
 
-      {/* Блок 1 - Период фарминга */}
-      <div className="info-block info-block-1">
-        <p className="info-text">Период фарминга</p>
-        <p className="bold-text">1 день</p>
+      <div className="info-block">
+        <p className="info-title">Доступно ONEX’s</p>
+        <p className="info-bold"><span className="green-text">99</span> / 100</p>
       </div>
 
-      {/* Блок 2 - Доступно ONEX's */}
-      <div className="info-block info-block-2">
-        <p className="info-text">Доступно ONEX’s</p>
-        <p className="bold-text">
-          <span className="green-text">99</span> / 100
-        </p>
-      </div>
-
-      {/* Блок 3 - Награда в TON */}
-      <div className="info-block info-block-3">
-        <p className="info-text">Награда в TON</p>
+      <div className="info-block">
+        <p className="info-title">Награда в TON</p>
         <div className="reward">
-          <p className="bold-text">+1 TON</p>
-          <img src={tonIMG} alt="Reward Icon" className="reward-icon" />
+          <p className="info-bold">+1 TON</p>
+          <img src={tonIMG} alt="Reward" className="reward-icon" />
         </div>
       </div>
-
-      {/* Кнопка */}
-      <div className="button">ЗАПУСТИТЬ БЕСПЛАТНО</div>
     </div>
+
+    {/* Кнопка */}
+    <button className="button">
+        ЗАПУСТИТЬ БЕСПЛАТНО
+    </button>
 
         <Footer />
     </div>
