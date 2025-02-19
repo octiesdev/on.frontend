@@ -111,7 +111,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="buttonPushFarming">
+              <div className="rectanglePushFarming">
               
               </div>
         
