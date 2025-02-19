@@ -259,6 +259,7 @@ body {
 
 .rectangleFarmingTime {
   position: absolute;
+  top: 0px;
   width: 52.2%;
   height: 49%;
 
@@ -293,6 +294,7 @@ body {
 
 .rectangleAvaliableOnexs {
   position: absolute;
+  top: 0px;
   left: 55%;;
   width: 48.8%;
   height: 49%;
