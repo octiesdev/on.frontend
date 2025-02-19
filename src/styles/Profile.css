@@ -307,7 +307,7 @@ body {
 .rectanglePushFarming {
   position: absolute;
   bottom: 10px;
-  left: 20px;
+  left: 50%;
   width: calc(100% - 40px);
   transform: translateX(-50%);
   height: 19%;
