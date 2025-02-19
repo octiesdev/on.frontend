@@ -106,11 +106,10 @@ const Profile = () => {
                 <div className="rectangleAvaliableOnexs">
                 
                 </div>
-                <div className="rectangleRewardsInTon">
-              
-                </div>
               </div>
-     
+              <div className="rectangleRewardsInTon">
+              
+              </div>
                 <p class="text01">03</p> 
           
           </div>
