@@ -110,11 +110,12 @@ const Profile = () => {
                 <div className="rectangleRewardsInTon">
               
                 </div>
+                <div className="rectanglePushFarming">
+              
+                </div>
               </div>
 
-              <div className="rectanglePushFarming">
-              
-              </div>
+      
         
               <p class="text01">03</p> 
           

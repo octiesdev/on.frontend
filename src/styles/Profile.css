@@ -282,7 +282,7 @@ body {
 
 .rectangleRewardsInTon {
   position: absolute;
-  bottom: 0px;
+  top: 40px;
   width: 44%;
   height: 27.5%;
 
