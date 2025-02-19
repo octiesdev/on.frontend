@@ -10,7 +10,7 @@ const Onexs = () => {
       <div className="rectangleAvaliableDrop2">
       {/* Заголовок */}
       <div className="header">
-        <img src={tonIcon} alt="TON" className="header-icon" />
+        <img src={tonIMG} alt="TON" className="header-icon" />
         <p className="header-text">TON</p>
       </div>
 
@@ -33,7 +33,7 @@ const Onexs = () => {
         <p className="info-text">Награда в TON</p>
         <div className="reward">
           <p className="bold-text">+1 TON</p>
-          <img src={rewardIcon} alt="Reward Icon" className="reward-icon" />
+          <img src={tonIMG} alt="Reward Icon" className="reward-icon" />
         </div>
       </div>
 
