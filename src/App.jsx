@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Tasks from "./pages/Tasks";
-
+import Onexs from "./pages/Onexs";
 
 
 console.log("🚀 `App.jsx` загружается...");
