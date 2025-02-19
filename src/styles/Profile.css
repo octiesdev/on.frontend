@@ -304,6 +304,18 @@ body {
   border-radius: 10px;
 }
 
+.buttonPushFarming {
+  position: absolute;
+  bottom: 10px;
+  width: calc(100%-40px);
+  transform: translateX(-50%);
+  height: 19%;
+
+  background: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
 .textTONName {
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
