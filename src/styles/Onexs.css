@@ -8,7 +8,7 @@
   }
   
   /* ✅ Основной блок */
-  .rectangleAvaliableDrop {
+  .rectangleAvaliableDrop2 {
     width: clamp(280px, 90%, 600px);
     padding: 20px;
     box-sizing: border-box;
