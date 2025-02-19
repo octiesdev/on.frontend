@@ -273,7 +273,7 @@ body {
   top: 52px; 
   height: 42%; 
   width: calc(71.5%); 
-  left: 42px; 
+  left: 30px; 
   display: flex;
   align-items: center;
   justify-content: row;
@@ -282,7 +282,7 @@ body {
 
 .rectangleRewardsInTon {
   position: absolute;
-  margin-top: 30px;
+  margin-top: 42px;
 
   width: 44%;
   height: 45%;
