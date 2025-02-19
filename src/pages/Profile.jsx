@@ -99,15 +99,17 @@ const Profile = () => {
                   <img src={tonIMG} class="ton-icon" alt=""/>
                   <p class="textTONName">TON</p>
               </div>
-              <div className="rectangleFarmingTime">
+              <div className="rectangleFarmTimeAndRewardsInTonContainer">
+                <div className="rectangleFarmingTime">
 
-              </div>
-              <div className="rectangleRewardsInTon">
-              
+                </div>
+                <div className="rectangleAvaliableOnexs">
+                
+                </div>
               </div>
      
             
-              <div className="rectangleAvaliableOnexs">
+              <div className="rectangleRewardsInTon">
               
               </div>
                 <p class="text01">03</p> 
