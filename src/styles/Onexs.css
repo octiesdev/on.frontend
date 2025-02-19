@@ -8,9 +8,8 @@
   }
   
   /* ✅ Основной блок */
-  .rectangleAvaliableDrop2 {
+  .rectangleAvaliableDrop {
     width: clamp(280px, 90%, 600px);
-    height: 25%;
     padding: 20px;
     box-sizing: border-box;
     background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
