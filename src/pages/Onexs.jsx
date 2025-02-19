@@ -7,7 +7,7 @@ const Onexs = () => {
   return (
     <div className="test-container">
       {/* Новый блок */}
-      <div className="rectangleAvaliableDrop">
+      <div className="rectangleAvaliableDrop2">
         <div className="header">
           <img src={tonIMG} alt="TON Icon" className="ton-icon" />
           <p className="ton-title">TON</p>
