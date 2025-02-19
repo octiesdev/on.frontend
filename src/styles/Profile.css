@@ -254,7 +254,6 @@ body {
   left: 18px; 
   display: flex;
   align-items: center;
-  justify-content: row;
   gap: 6px;
 }
 
@@ -272,7 +271,7 @@ body {
   position: absolute;
   top: 50px; 
   height: 12.85%;
-  width: calc(100%);
+  width: calc(57.5%);
   left: 25px; 
   right: 56px;
   display: flex;
