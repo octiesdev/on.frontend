@@ -113,7 +113,7 @@ const Profile = () => {
               </div>
 
               <div className="rectanglePushFarming">
-              lll
+              
               </div>
         
               <p class="text01">03</p> 
