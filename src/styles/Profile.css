@@ -276,6 +276,7 @@ body {
   height: 12.85%;
   width: calc(100%);
   left: 25px; 
+  right: 56px;
   display: flex;
   align-items: center;
   justify-content: row;
