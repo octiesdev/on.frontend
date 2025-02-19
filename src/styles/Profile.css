@@ -309,7 +309,7 @@ body {
   left: 50%;
   width: calc(100% - 40px);
   transform: translateX(-50%);
-  height: 27.5%;
+  height: 24%;
   max-height: 27.5%;
 
   background: rgba(255, 255, 255, 0.15);
