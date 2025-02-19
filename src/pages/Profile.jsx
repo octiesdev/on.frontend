@@ -100,10 +100,16 @@ const Profile = () => {
                   <p class="textTONName">TON</p>
               </div>
               <div className="rectangleFarmingTime">
-                
+
+              </div>
+              <div className="rectangleRewardsInTon">
+              
               </div>
             </div>
             <div className="right-side2">
+              <div className="rectangleAvaliableOnexs">
+              
+              </div>
                 <p class="text01">03</p> 
             </div>
           </div>
