@@ -94,7 +94,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="rectangleAvaliableDrop">
-            <div className="left-side2">
+            
               <div className="rectangleTONIMGAndtextTONNameContainer">
                   <img src={tonIMG} class="ton-icon" alt=""/>
                   <p class="textTONName">TON</p>
@@ -105,13 +105,13 @@ const Profile = () => {
               <div className="rectangleRewardsInTon">
               
               </div>
-            </div>
-            <div className="right-side2">
+     
+            
               <div className="rectangleAvaliableOnexs">
               
               </div>
                 <p class="text01">03</p> 
-            </div>
+          
           </div>
       </div>
 

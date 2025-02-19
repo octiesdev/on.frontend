@@ -270,6 +270,18 @@ body {
   border-radius: 10px;
 }
 
+.rectangleTONIMGAndtextTONNameContainer {
+  position: absolute;
+  top: 17.5px; 
+  height: 11.7%;
+  width: 51.3%;
+  left: 18px; 
+  display: flex;
+  align-items: center;
+  justify-content: row;
+  gap: 6px;
+}
+
 .rectangleRewardsInTon {
   position: absolute;
   left: 25px;
