@@ -308,7 +308,8 @@ body {
   position: absolute;
   bottom: 10px;
   left: 20px;
-  width: 88%;
+  width: calc(100% - 40px);
+  transform: translateX(-50%);
   height: 19%;
 
   background: rgba(255, 255, 255, 0.15);
