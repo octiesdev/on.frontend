@@ -99,6 +99,7 @@ const Profile = () => {
                   <img src={tonIMG} class="ton-icon" alt=""/>
                   <p class="textTONName">TON</p>
               </div>
+
               <div className="rectangleFarmTimeAndRewardsInTonContainer">
                 <div className="rectangleFarmingTime">
 
@@ -112,7 +113,7 @@ const Profile = () => {
               </div>
 
               <div className="rectanglePushFarming">
-              
+              lll
               </div>
         
               <p class="text01">03</p> 
