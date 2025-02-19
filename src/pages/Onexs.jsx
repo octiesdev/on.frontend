@@ -1,26 +1,39 @@
 import React from "react";
-import "../styles/Profile.css";
-import logo from "../assets/logo.png";
-import dollarimg from "../assets/dollar-img.png";
+import "../styles/Onexs.css"; // Подключаем новый CSS
+import tonIMG from "../assets/ton-img.png"; // Иконка TON
 import Footer from "../Footer"; // Подключаем футер
 
 const Onexs = () => {
   return (
-    <div className="profile-container">
-      {/* Фон */}
-      <div className="background"></div>
+    <div className="test-container">
+      {/* Новый блок */}
+      <div className="rectangleAvaliableDrop">
+        <div className="header">
+          <img src={tonIMG} alt="TON Icon" className="ton-icon" />
+          <p className="ton-title">TON</p>
+        </div>
 
-      {/* Логотип */}
-        <img src={logo} alt="Logo" className="logo" />
+        <div className="info-container">
+          <div className="farming-period">
+            <p>Период фарминга</p>
+            <p><strong>1 день</strong></p>
+          </div>
+          
+          <div className="available-onex">
+            <p>Доступно ONEX’s</p>
+            <p><span className="available">99</span> / 100</p>
+          </div>
+        </div>
 
-      {/* Прямоугольник */}
-      <div className="rectangle">
-        <img src={dollarimg} class="dollar-icon" alt="Dollar Icon"/>
-        <p class="text01">01</p>
+        <div className="reward-container">
+          <p>Награда в TON</p>
+          <p><strong>+1 TON</strong> <img src={tonIMG} alt="TON Icon" className="reward-icon" /></p>
+        </div>
+
+        <button className="start-farming">ЗАПУСТИТЬ БЕСПЛАТНО</button>
       </div>
 
-      {/* Футер */}
-      <Footer />
+        <Footer />
     </div>
   );
 };

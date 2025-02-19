@@ -1,0 +1,86 @@
+/* ✅ Контейнер страницы */
+.test-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+  }
+  
+  /* ✅ Основной блок */
+  .rectangleAvaliableDrop {
+    width: clamp(280px, 90%, 600px);
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* ✅ Верхний заголовок с логотипом */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .ton-icon {
+    width: 40px;
+    height: auto;
+  }
+  
+  .ton-title {
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* ✅ Контейнер для информации */
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .farming-period, .available-onex {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .available-onex .available {
+    color: #00ff00;
+    font-weight: bold;
+  }
+  
+  /* ✅ Контейнер награды */
+  .reward-container {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .reward-icon {
+    width: 18px;
+    height: auto;
+  }
+  
+  /* ✅ Кнопка */
+  .start-farming {
+    width: 100%;
+    padding: 15px;
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
