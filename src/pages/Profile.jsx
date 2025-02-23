@@ -95,33 +95,33 @@ const Profile = () => {
           </div>
           <div className="rectangleAvaliableDrop">
             
-              <div className="rectangleTONIMGAndtextTONNameContainer">
-                  <img src={tonIMG} class="ton-icon" alt=""/>
-                  <p class="textTONName">TON</p>
+            <div className="rectangleTONIMGAndtextTONNameContainer">
+                <img src={tonIMG} class="ton-icon" alt=""/>
+                <p class="textTONName">TON</p>
+            </div>
+
+            <div className="rectangleFarmTimeAndRewardsInTonContainer">
+              <div className="rectangleFarmingTime">
+
               </div>
-
-              <div className="rectangleFarmTimeAndRewardsInTonContainer">
-                <div className="rectangleFarmingTime">
-
-                </div>
-                <div className="rectangleAvaliableOnexs">
-                
-                </div>
-                <div className="rectangleRewardsInTon">
-              
-                </div>
-           
-              </div>
-
-              <div className="rectanglePushFarming">
+              <div className="rectangleAvaliableOnexs">
               
               </div>
+              <div className="rectangleRewardsInTon">
+            
+              </div>
+         
+            </div>
 
+            <div className="rectanglePushFarming">
+            
+            </div>
+
+    
       
+            <p class="text01">03</p> 
         
-              <p class="text01">03</p> 
-          
-          </div>
+        </div>
       </div>
 
 
