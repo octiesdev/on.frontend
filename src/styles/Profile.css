@@ -307,10 +307,10 @@ body {
   position: absolute;
   bottom: 10px;
   left: 50%;
-  width: calc(100% - 40px);
-  transform: translateX(-50%);
-  height: 19%;
-  max-height: 19%;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
 
   background: rgba(255, 255, 255, 0.15);
   border-radius: 9px;
