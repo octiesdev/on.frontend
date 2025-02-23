@@ -13,8 +13,9 @@ const Tasks = () => {
       {/* Логотип */}
         <img src={logo} alt="Logo" className="logo" />
 
-      {/* Прямоугольник */}
+      <div className="Menu">
       <div className="AvaliableDrop"></div>
+      </div>
 
       {/* Футер */}
       <Footer />

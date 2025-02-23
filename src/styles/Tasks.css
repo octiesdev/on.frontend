@@ -54,7 +54,6 @@
   }
 
     .AvaliableDrop {
-        position: absolute;
         height: 23vh;
         display: flex;
         align-items: center;
