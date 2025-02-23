@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Profile.css";
+import "../styles/Tasks.css";
 import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
