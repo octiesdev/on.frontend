@@ -101,6 +101,7 @@ body {
   width: 100%; /* 100% ширины минус отступы */
   height: 95%;
   top: 33px;
+  padding: 10px;
 
 
   border-radius: 20px;
