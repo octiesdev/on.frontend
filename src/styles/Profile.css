@@ -590,7 +590,7 @@ body {
 
 
 /* ✅ Адаптивность для мобильных экранов */
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   .content {
     font-size: 2.5vh;
   }
