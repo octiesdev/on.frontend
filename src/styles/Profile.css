@@ -305,13 +305,13 @@ body {
 
 .rectanglePushFarming {
   position: absolute;
-  /* bottom: 10px; */
+  bottom: 0px;
   left: 50%;
   width: calc(100% - 40px);
   transform: translateX(-50%);
   height: 19%;
   max-height: 19%;
-  padding-bottom: 10%;
+  padding-top: 5%;
 
   background: rgba(255, 255, 255, 0.15);
   border-radius: 9px;
