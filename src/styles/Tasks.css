@@ -42,6 +42,33 @@ body {
     animation: fade-in 0.3s forwards;
 }
 
+.Header{
+    height: 7.5%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.headerlogo {
+    height: 65%;
+    margin: 1vh; 
+}
+
+.headerConnectWalletConnected img{ 
+    height: 65%;
+    margin: 1vh; 
+    filter: drop-shadow(0 0 4mm #0088CC);
+}
+
+.headerButtonPartners img{ 
+    height: 65%;
+    margin: 1vh; 
+    filter: drop-shadow(0 0 4mm #0088CC);
+}
+
 @media (orientation: landscape) {
     .ONEXs_Window {height: 80%;}
 }
