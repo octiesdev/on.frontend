@@ -273,10 +273,10 @@ body {
 
 .rectangleFarmTimeAndRewardsInTonContainer {
   position: absolute;
-  padding: 52px 58px 27px 65px;
+  padding: 52px 65px 58px 27px;
   height: 100%; 
-  width: calc(71.5%); 
-  left: 27px; 
+  width: 100%; 
+
   display: flex;
   align-items: center;
   justify-content: row;
