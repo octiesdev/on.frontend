@@ -6,15 +6,10 @@ import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
   return (
-    <div className="profile-container2">
+    <div className="App">
       {/* Фон */}
-      <div className="background">   </div>
-
-      {/* Логотип */}
-        <img src={logo} alt="Logo" className="logo" />
-
-      <div className="Menu">
-      <div className="AvaliableDrop"></div>
+      <div className="ONEXs_Window">   
+        
       </div>
 
       {/* Футер */}
