@@ -59,7 +59,7 @@ body {
 
 .headerConnectWalletConnected { 
     height: 65%;
-    margin: 1vh; 
+    margin: 1vh 1vh 1vh 10vh; 
     filter: drop-shadow(0 0 4mm #0088CC);
 }
 
