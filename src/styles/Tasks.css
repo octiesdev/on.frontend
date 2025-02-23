@@ -15,13 +15,12 @@
   
   /* ✅ Контейнер всей страницы */
   .profile-container {
-    position: relative;
     width: 100%;
     height: 100vh;
+    position: fixed;
     display: flex;
+    text-align: center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   
   /* ✅ Фон (заливка + изображение) */

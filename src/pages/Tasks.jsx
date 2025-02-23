@@ -8,14 +8,13 @@ const Tasks = () => {
   return (
     <div className="profile-container">
       {/* Фон */}
-      <div className="background">
+      <div className="background">   </div>
 
       {/* Логотип */}
         <img src={logo} alt="Logo" className="logo" />
 
       <div className="Menu">
       <div className="AvaliableDrop"></div>
-      </div>
       </div>
 
       {/* Футер */}
