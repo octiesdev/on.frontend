@@ -14,7 +14,7 @@ const Tasks = () => {
         <img src={logo} alt="Logo" className="logo" />
 
       {/* Прямоугольник */}
-
+      <div className="AvaliableDrop"></div>
 
       {/* Футер */}
       <Footer />
