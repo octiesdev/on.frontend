@@ -275,9 +275,8 @@ body {
   position: absolute;
   padding: 52px 65px 58px 27px;
     
-  left: 50%;
   height: 95%; 
-  width: calc(100%-36px); 
+  width: 100%; 
 
   display: flex;
   align-items: center;
