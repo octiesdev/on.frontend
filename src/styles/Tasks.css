@@ -59,13 +59,13 @@ body {
 
 .headerConnectWalletConnected { 
     height: 65%;
-    margin: 1vh 1vh 1vh 10vh; 
+    margin: 1vh; 
 
 }
 
 .headerButtonPartners { 
     height: 65%;
-    margin: 1vh; 
+    margin: 1vh 1vh 1vh 14vh;; 
    
 }
 
