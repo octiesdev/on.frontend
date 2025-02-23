@@ -1,0 +1,115 @@
+/* ✅ Глобальные настройки */
+* {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background: #000000; /* Основная заливка */
+  }
+  
+  /* ✅ Контейнер всей страницы */
+  .profile-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ✅ Фон (заливка + изображение) */
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: url("/src/assets/profile-bg.png") no-repeat center top 10vh / cover;
+    z-index: -1; /* Отправляем на задний план */
+  }
+  
+  /* ✅ Логотип (в левом верхнем углу) */
+  .logo {
+    position: absolute;
+    top: 2vh;
+    left: 7vw;
+    width: 70vw;
+    max-width: 160px;
+    height: auto;
+  }
+
+  .Menu {
+    height: 47.5% ;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+    .AvaliableDrop {
+        height: 23vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(90% - 0.2vh);
+        background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
+        border-radius: 20px;
+    }
+
+    /* ✅ Адаптивность для мобильных экранов */
+    @media (max-width: 375px) {
+    .content {
+      font-size: 2.5vh;
+    }
+    .logo {
+      width: 70vw;
+    }
+  }
+  
+  @font-face {
+    font-family: 'MullerLight';
+    src: url('/assets/fonts/MullerLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  } 
+  
+  @font-face {
+    font-family: 'MullerMedium';
+    src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  } 
+  
+  @font-face {
+    font-family: 'MullerRegular';
+    src: url('/assets/fonts/MullerRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  } 
+  
+  @font-face {
+    font-family: 'MullerBold';
+    src: url('/assets/fonts/MullerBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  } 
+  
+  @font-face {
+    font-family: 'MullerExtraBold';
+    src: url('/assets/fonts/MullerExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  } 
+  
+  @media (orientation: landscape) {
+    .content {
+      font-size: 4vh;
+    }
+  }
