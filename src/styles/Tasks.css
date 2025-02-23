@@ -57,13 +57,13 @@ body {
     margin: 0.2vh; 
 }
 
-.headerConnectWalletConnected img{ 
+.headerConnectWalletConnected { 
     height: 65%;
     margin: 1vh; 
     filter: drop-shadow(0 0 4mm #0088CC);
 }
 
-.headerButtonPartners img{ 
+.headerButtonPartners { 
     height: 65%;
     margin: 1vh; 
     filter: drop-shadow(0 0 4mm #0088CC);
