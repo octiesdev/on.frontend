@@ -6,7 +6,7 @@ import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
   return (
-    <div className="profile-container">
+    <div className="profile-container2">
       {/* Фон */}
       <div className="background">   </div>
 
