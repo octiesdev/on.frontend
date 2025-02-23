@@ -71,6 +71,17 @@
     .logo {
       width: 70vw;
     }
+
+    .Menu{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .AvaliableDrop{
+       height: 45%;
+    }
+
   }
   
   @font-face {
