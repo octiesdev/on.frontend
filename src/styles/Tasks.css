@@ -89,6 +89,21 @@ body {
 
 }
 
+.mainTasksPageContainer {
+    
+    height: 92.5%;
+    width: 100%;
+    margin-top: 1.5vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: url('../assets/backgroundBorder.png');
+    border-radius: 39.58px;
+
+}
+
 @media (orientation: landscape) {
     .ONEXs_Window {height: 80%;}
 }
