@@ -193,26 +193,12 @@ button {
     border-radius: 1.8vh;
 }
 
-.onex-node-bg {
-    display: flex;
-    align-items: center;
-    align-self: start;
-    justify-content: flex-start;
-    border-radius: 20px;
-    position: relative;
-    width: 95%;
-    left: 2.5%;
-    height: 28.5%;
-    margin-top: 1.5vh;
-    z-index: 0;
-}
-
 .onex-node img {
     height: 90%;
     position: absolute;
     bottom: 0;
     right: 1.5vh;
-    z-index: 0;
+    z-index: -1;
 }
 
 
@@ -228,6 +214,7 @@ button {
     left: 2.5%;
     height: 28.5%;
     margin-top: 1.5vh;
+    overflow: hidden; /* ✅ Это предотвратит выход изображения за границы */
     z-index: 1;
 }
 
