@@ -280,6 +280,16 @@ button {
     height: 16%;
 }
 
+.pay-button {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+    font-family: "MullerMedium", sans-serif;
+    border-radius: 1.8vh;
+}
+
 @media (orientation: landscape) {
     .ONEXs_Window {height: 80%;}
 }

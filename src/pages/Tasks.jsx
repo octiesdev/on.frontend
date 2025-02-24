@@ -50,7 +50,9 @@ const Tasks = () => {
                   
               </div>
               <div className="onexNode-PayButton">
-                  
+                <div className="pay-button">
+                  ЗАПУСТИТЬ ЗА 5 TON
+                </div>
               </div>
             </div>
           </div>
