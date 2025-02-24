@@ -19,6 +19,9 @@ const Tasks = () => {
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
+        <div className="mainTasksPageContainer">  
+          
+        </div>
       </div>
 
       {/* Футер */}
