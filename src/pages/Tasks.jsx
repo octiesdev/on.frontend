@@ -24,7 +24,7 @@ const Tasks = () => {
           <div className="info-onexs-block"> 
             <div className="info-onexs-nameText"> 
               <h2>ONEXs</h2>
-              <p>Активация ONEX’s позволяет заработать<br/>TON,ONEX и др. криптовалюты.</p>
+              <p>Активация ONEX’s позволяет заработать<br/>TON, ONEX и др. криптовалюты.</p>
                 <div className="section-buttons">
                   <button class="all-button">Все</button>
                   <button class="my-button">Мои</button>
