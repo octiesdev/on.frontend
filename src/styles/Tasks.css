@@ -103,7 +103,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 39.58px;
+    border-radius: 39.58px 39.58px 0 0;
 
 }
 
