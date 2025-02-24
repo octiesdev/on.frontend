@@ -43,6 +43,9 @@ const Tasks = () => {
                 <img src={onexIMG}/>
                 <h2>ONEX</h2>
               </div>
+              <div className="numberOnexNode"> 
+                <h2>01</h2>
+              </div>
             </div>
           </div>
         </div>
