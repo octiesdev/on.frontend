@@ -207,11 +207,12 @@ button {
     z-index: 0;
 }
 
-.onex-node-bg img {
+.onex-node img {
     height: 90%;
     position: absolute;
     bottom: 0;
     right: 1.5vh;
+    z-index: 0;
 }
 
 
