@@ -246,7 +246,7 @@ button {
 }
 
 .ton-onex-logo h2 {
-    font-size: 1vh;
+    font-size: 1.8vh;
     margin-top: 1.55vh;
     font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
@@ -255,7 +255,7 @@ button {
 
 
 .number-OnexNode h2 {
-    font-size: 1.8vh;
+    font-size: 1vh;
     margin-top: 0.4vh;
     right: 1.55vh;
     font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
