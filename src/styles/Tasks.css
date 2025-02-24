@@ -143,7 +143,7 @@ body {
 
 .info-onexs-nameText p {
     font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     white-space: nowrap;
 }
 

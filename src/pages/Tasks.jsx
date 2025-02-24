@@ -23,7 +23,7 @@ const Tasks = () => {
           <div className="info-onexs-block"> 
             <div className="info-onexs-nameText"> 
               <h2>ONEXs</h2>
-              <p>Активация ONEX’s позволяет заработать</p>
+              <p>Активация ONEX’s позволяет заработать<br/>TON и ONEX.</p>
             </div>
           </div>
         </div>
