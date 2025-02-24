@@ -47,20 +47,21 @@ body {
     width: 100%;
     position: relative;
     display: flex;
-   
+    justify-content: space-between;
     align-items: center;
     overflow: hidden;
 }
 
 .HeaderButtonsContainer{
     height: 100%;
+    margin-right: 1.7vh;
     display: flex;
     align-items: center;
     overflow: hidden;
 }
 
 .headerlogo {
-
+    margin-left: 2vh;
     height: 60%;
     margin: 0vh; 
 }
