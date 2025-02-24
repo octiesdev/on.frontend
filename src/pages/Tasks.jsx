@@ -3,6 +3,7 @@ import "../styles/Tasks.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
+import tonIMG from "../assets/ton-img.png";
 import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
@@ -33,7 +34,10 @@ const Tasks = () => {
           </div>
           <div className="onex-node"> 
             <div className="info-section-logo"> 
-              
+              <div className="onex-logo"> 
+                <img src={tonIMG}/>
+                <h2>TON</h2>
+              </div>
             </div>
           </div>
         </div>
