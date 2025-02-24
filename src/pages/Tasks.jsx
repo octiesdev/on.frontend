@@ -25,7 +25,8 @@ const Tasks = () => {
               <h2>ONEXs</h2>
               <p>Активация ONEX’s позволяет заработать<br/>TON и ONEX.</p>
                 <div className="section-buttons">
-
+                  <button class="all-button">Все</button>
+                  <button class="my-button">Мои</button>
                 </div> 
             </div>
           </div>

@@ -152,6 +152,27 @@ body {
     height: 21%;
     display: flex;
     align-items: center;
+    gap: 2vh;
+}
+
+.all-button {
+    background-color: #868686;
+    color: #000000;
+    height: 100%;
+    width: 20.7%;
+    font-size: 1.5vh;
+    font-family: "MullerMedium", sans-serif;
+    border-radius: 1.67vh;
+}
+
+.my-button {
+    background-color: #FFFFFF;
+    color: #000000;
+    height: 100%;
+    width: 20.7%;
+    font-size: 1.5vh;
+    font-family: "MullerMedium", sans-serif;
+    border-radius: 1.67vh;
 }
 
 @media (orientation: landscape) {
@@ -171,3 +192,11 @@ body {
     font-weight: normal;
     font-style: normal;
 } 
+
+@font-face {
+    font-family: 'MullerMedium';
+    src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+  
