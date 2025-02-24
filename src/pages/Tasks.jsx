@@ -31,6 +31,8 @@ const Tasks = () => {
                 </div> 
             </div>
           </div>
+          <div className="onex-node"> 
+          </div>
         </div>
       </div>
 
