@@ -27,6 +27,7 @@ const Tasks = () => {
                 <div className="section-buttons">
                   <button class="all-button">Все</button>
                   <button class="my-button">Мои</button>
+                  <button class="limited-button">Ограниченные</button>
                 </div> 
             </div>
           </div>
