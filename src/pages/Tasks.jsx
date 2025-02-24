@@ -3,6 +3,7 @@ import "../styles/Tasks.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
+import onexImg from "../assets/onex-img.png"; 
 import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
@@ -30,6 +31,9 @@ const Tasks = () => {
                   <button class="limited-button">Ограниченные</button>
                 </div> 
             </div>
+          </div>
+          <div className="onex-node-bg"> 
+            <img src={onexImg} alt="" className="onex-img"/>
           </div>
           <div className="onex-node"> 
           </div>
