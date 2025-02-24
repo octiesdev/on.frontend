@@ -20,8 +20,8 @@ const Tasks = () => {
             </div>
         </div>
         <div className="mainTasksPageContainer">  
-          <div className="mainTasksPageContainer"> 
-            
+          <div className="info-onexs-block"> 
+
           </div>
         </div>
       </div>
