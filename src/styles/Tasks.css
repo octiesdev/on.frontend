@@ -207,7 +207,7 @@ button {
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
 
-    width: 100%;
+    width: 90%;
     height: 28.5%;
     margin-top: 1.5vh;
 }
