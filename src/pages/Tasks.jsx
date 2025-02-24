@@ -12,8 +12,10 @@ const Tasks = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <img src={logo} alt="Logo" className="headerlogo"/>
-          <img src={buttonPartners} alt="" className="headerButtonPartners"/>
-          <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
+            <div className="HeaderButtonsContainer">  
+              <img src={buttonPartners} alt="" className="headerButtonPartners"/>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
+            </div>
         </div>
       </div>
 

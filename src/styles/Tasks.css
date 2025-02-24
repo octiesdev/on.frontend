@@ -52,6 +52,13 @@ body {
     overflow: hidden;
 }
 
+.HeaderButtonsContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
 .headerlogo {
 
     height: 60%;
