@@ -262,6 +262,15 @@ button {
     color: #FFFFFF;
 }
 
+.onexNode-infoBlocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 70%;
+    height: 41%;
+}
+
 @media (orientation: landscape) {
     .ONEXs_Window {height: 80%;}
 }
