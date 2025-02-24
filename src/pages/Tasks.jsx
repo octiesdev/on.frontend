@@ -49,6 +49,9 @@ const Tasks = () => {
               <div className="onexNode-infoBlocks">
                   
               </div>
+              <div className="onexNode-PayButton">
+                  
+              </div>
             </div>
           </div>
         </div>
