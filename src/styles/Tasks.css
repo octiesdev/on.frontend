@@ -155,6 +155,10 @@ body {
     gap: 2vh;
 }
 
+button {
+    border: none;
+}
+
 .all-button {
     background-color: #868686;
     color: #000000;
