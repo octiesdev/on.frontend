@@ -55,6 +55,7 @@ body {
 .HeaderLogoContainer{
     height: 100%;
     margin-left: 3vh;
+    margin-top: 2vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -63,6 +64,7 @@ body {
 .HeaderButtonsContainer{
     height: 100%;
     margin-right: 1.7vh;
+    margin-top: 2vh;
     display: flex;
     align-items: center;
     overflow: hidden;
