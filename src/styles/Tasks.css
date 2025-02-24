@@ -247,7 +247,7 @@ button {
 
 .ton-onex-logo h2 {
     font-size: 1.8vh;
-    margin-top: 1.55vh;
+    margin-top: 0.4vh;
     font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
