@@ -152,7 +152,7 @@ body {
     height: 21%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 2vh;
 }
 
