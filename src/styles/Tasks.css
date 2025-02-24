@@ -126,7 +126,7 @@ body {
 .info-onexs-nameText {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-evenly;
     height: 100%;
     width: 100%;
@@ -134,12 +134,11 @@ body {
 }
 
 .info-onexs-nameText h2 {
-    font-size: 3.5vh;
+    font-size: 3.2vh;
     margin: 0;
     font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
-    color: #fff;
-    margin-top: 1vh;
+    color: #FFFFFF;
     white-space: nowrap;
 }
 
