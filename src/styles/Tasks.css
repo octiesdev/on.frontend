@@ -271,6 +271,15 @@ button {
     height: 41%;
 }
 
+.onexNode-PayButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 94%;
+    height: 16%;
+}
+
 @media (orientation: landscape) {
     .ONEXs_Window {height: 80%;}
 }
