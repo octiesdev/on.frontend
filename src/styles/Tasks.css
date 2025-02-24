@@ -53,19 +53,19 @@ body {
 }
 
 .headerlogo {
-    height: 70%;
-    margin: 0.2vh; 
+    height: 60%;
+    margin: 0vh; 
 }
 
 .headerConnectWalletConnected { 
-    height: 65%;
-    margin: 1vh; 
+    height: 45%;
+    margin: 1.8vh 1vh 1vh 1vh; 
 
 }
 
 .headerButtonPartners { 
-    height: 65%;
-    margin: 1vh 1vh 1vh 8vh;; 
+    height: 45%;
+    margin: 1.8vh 1vh 1vh 8vh;; 
    
 }
 
