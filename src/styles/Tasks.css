@@ -255,9 +255,8 @@ button {
 
 
 .number-OnexNode h2 {
-    font-size: 1vh;
+    font-size: 1.3vh;
     margin-top: 0.4vh;
-    right: 1.55vh;
     font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
