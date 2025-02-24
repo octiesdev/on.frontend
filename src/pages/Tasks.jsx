@@ -35,9 +35,11 @@ const Tasks = () => {
           </div>
           <div className="onex-node"> 
             <div className="info-section-logo"> 
-              <div className="tonlogo"> 
+              <div className="ton-onex-logo"> 
                 <img src={tonIMG}/>
                 <h2>TON</h2>
+                <img src={onexIMG}/>
+                <h2>ONEX</h2>
               </div>
               <div className="onexlogo"> 
                 <img src={onexIMG}/>
