@@ -267,7 +267,7 @@ button {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    align-items: flex-start;
+    align-self: flex-start;
     margin-left: 2vh;
     width: 70%;
     height: 41%;
