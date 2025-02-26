@@ -44,7 +44,10 @@ const Tasks = () => {
                 </div> 
             </div>
           </div>
-          <div className="onex-node"> 
+          
+          {selectedCategory === "all" && (
+          <>
+          <div className="onex-node all"> 
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
                 <div className="ton-onex-logo"> 
@@ -104,7 +107,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
-          <div className="onex-node"> 
+          <div className="onex-node all"> 
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
                 <div className="ton-onex-logo"> 
@@ -164,7 +167,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
-          <div className="onex-node-last"> 
+          <div className="onex-node-last all"> 
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
                 <div className="ton-onex-logo"> 
@@ -224,9 +227,12 @@ const Tasks = () => {
               </div>
             </div>
         </div>
+        </>
+        )}
 
             {/* 🔥 Фильтрация блоков по выбранной категории */}
             {(selectedCategory === "my") && (
+            <>
             <div className="onex-node-my my">
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
@@ -287,9 +293,11 @@ const Tasks = () => {
               </div>
             </div>
           </div>
+          </>
           )}
 
           {(selectedCategory === "limited") && (
+          <>
             <div className="onex-node-limited limited">
            <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
@@ -350,6 +358,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
+          </>
           )}
 
       </div>
