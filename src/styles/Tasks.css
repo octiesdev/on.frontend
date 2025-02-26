@@ -275,7 +275,7 @@ button {
 
 .first-onexNode-infoBlock {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     width: 100%;
@@ -284,7 +284,7 @@ button {
 
 .single-onexNode-infoBlock {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     width: 100%;
