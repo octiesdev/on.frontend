@@ -49,7 +49,12 @@ const Tasks = () => {
               <div className="onexNode-infoBlocks">
                 <div className="first-onexNode-infoBlock">
                   <div className="farming-time-block">
-                    Период фарминга 4дня
+                    <div className="farming-time-block-MainText">
+                      Период фарминга
+                    </div>
+                    <div className="farming-time-block-Description">
+                      3 дня
+                    </div>
                   </div>
                   <div className="apy-info-block">
 

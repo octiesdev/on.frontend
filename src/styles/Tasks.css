@@ -297,10 +297,32 @@ button {
     border-radius: 10px;
     width: 53.3%;
     height: 90%; 
-    font-family: MullerMedium;
-    font-size: 1.2vh;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.farming-time-block-MainText {
+    width: 100%;
+    height: 100%; 
+    align-content: center;
+    justify-content: flex-start;
+
+    font-size: 1.4vh;
+    font-family: MullerBold;
+    color: #000000
+}
+
+.farming-time-block-Description {
+    width: 100%;
+    height: 100%; 
+    align-content: center;
+    justify-content: flex-start;
+
+    font-size: 1.4vh;
+    font-family: MullerBold;
+    color: #FFFFFF
 }
 
 .apy-info-block {
@@ -378,6 +400,13 @@ button {
     font-weight: normal;
     font-style: normal;
 } 
+
+@font-face {
+    font-family: 'MullerBold';
+    src: url('/assets/fonts/MullerBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'MullerExtraBold';
