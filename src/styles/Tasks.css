@@ -310,7 +310,7 @@ button {
     align-items: center;
     justify-content: flex-start;
     margin-left: 1vh;
-    margin-top: 0.6vh;
+    margin-top: 0.5vh;
     font-size: 1.5vh;
     font-family: MullerMedium;
     color: #000000
@@ -323,6 +323,7 @@ button {
     align-items: center;
     justify-content: flex-start;
     margin-left: 1vh;
+    margin-bottom: 0.3vh;
     font-size: 1.5vh;
     font-family: MullerBold;
     color: #FFFFFF
