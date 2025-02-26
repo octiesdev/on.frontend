@@ -206,6 +206,7 @@ button {
     background-position: center, right 1.5vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
+    animation: gradientMove 4s infinite alternate ease-in-out;
 
     width: 90%;
     left: 5%;
@@ -418,3 +419,9 @@ button {
     font-weight: normal;
     font-style: normal;
 } 
+
+@keyframes gradientMove {
+    0% { background-position: left, right 1.5vh bottom 0; }
+    50% { background-position: center, right 1.5vh bottom 0; }
+    100% { background-position: right, right 1.5vh bottom 0; }
+}
