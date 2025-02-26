@@ -309,8 +309,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1vh;
-    margin-top: 0.4vh;
+    margin-left: 1.4vh;
+    margin-top: 0.6vh;
     font-size: 1.4vh;
     font-family: MullerBold;
     color: #000000
@@ -322,8 +322,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1vh;
-    margin-bottom: 0.4vh;
+    margin-left: 1.4vh;
     font-size: 1.4vh;
     font-family: MullerBold;
     color: #FFFFFF
