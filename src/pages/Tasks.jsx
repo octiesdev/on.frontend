@@ -56,10 +56,10 @@ const Tasks = () => {
                   </div>  
                 </div>
                 <div className="single-onexNode-infoBlock">
-                  <div className="apy-info-block">
+                  <div className="apy-info-block2">
 
                   </div>
-                  <div className="farming-time-block">
+                  <div className="farming-time-block2">
 
                   </div>
                 </div>
