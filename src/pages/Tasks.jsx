@@ -15,7 +15,7 @@ const Tasks = () => {
     
     // Проверяем, поддерживается ли вибрация
     if (navigator.vibrate) {
-      navigator.vibrate(50); // Вибрация на 50 мс
+      navigator.vibrate(600); // Вибрация на 50 мс
     }
   };
 
