@@ -59,7 +59,7 @@ const Tasks = () => {
                   <div className="rewardInTon-block">
 
                   </div>
-                  <div className="farming-time-block2">
+                  <div className="rewardInOnex-block">
 
                   </div>
                 </div>
