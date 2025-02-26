@@ -297,6 +297,10 @@ button {
     border-radius: 10px;
     width: 53.3%;
     height: 90%; 
+    font-family: MullerMedium;
+    font-size: 1.2vh;
+    display: flex;
+    align-items: center;
 }
 
 .apy-info-block {
