@@ -57,15 +57,30 @@ const Tasks = () => {
                     </div>
                   </div>
                   <div className="apy-info-block">
-
+                    <div className="farming-time-block-MainText">
+                        APY
+                      </div>
+                      <div className="farming-time-block-Description">
+                        10%
+                    </div>
                   </div>  
                 </div>
                 <div className="single-onexNode-infoBlock">
                   <div className="rewardInTon-block">
-
+                    <div className="farming-time-block-MainText">
+                        Награда в TON
+                      </div>
+                      <div className="farming-time-block-Description">
+                        5.5 TON
+                    </div>
                   </div>
                   <div className="rewardInOnex-block">
-
+                    <div className="farming-time-block-MainText">
+                        Награда в ONEX
+                      </div>
+                      <div className="farming-time-block-Description">
+                        10 ONEX
+                    </div>
                   </div>
                 </div>
               </div>
