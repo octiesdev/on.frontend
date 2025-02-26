@@ -195,6 +195,12 @@ button {
     border-radius: 1.8vh;
 }
 
+.all-button.active,
+.my-button.active,
+.limited-button.active {
+    filter: brightness(0.5); /* Уменьшает яркость кнопки */
+}
+
 
 .onex-node {
     position: relative;
