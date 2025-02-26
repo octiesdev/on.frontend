@@ -47,9 +47,14 @@ const Tasks = () => {
                 </div>
               </div>
               <div className="onexNode-infoBlocks">
-                  
+                <div className="onexNode-infoBlocks">
+
+                </div>
+                <div className="farming-time-block">
+
+                </div>
               </div>
-              <div className="onexNode-PayButton">
+              <div className="apy-info-block">
                 <div className="pay-button">
                   ЗАПУСТИТЬ ЗА 5 TON
                 </div>
