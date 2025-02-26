@@ -220,7 +220,7 @@ button {
     height: 28.5%;
     margin-top: 1.5vh;
 
-    animation: gradientShift 0.8s infinite alternate ease-in-out; /* 🔥 Запускаем анимацию */
+
 }
 
 .onex-node-last {
@@ -242,7 +242,7 @@ button {
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
 
-    animation: gradientShift 0.8s infinite alternate ease-in-out; /* 🔥 Запускаем анимацию */
+
 }
 
 .onex-node-my {
@@ -516,8 +516,8 @@ button {
     font-style: normal;
 } 
 
-@keyframes gradientShift {
+/* @keyframes gradientShift {
     0% { background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%); }
     50% { background: linear-gradient(75deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.8) 100%); }
     100% { background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%); }
-}
+} */
