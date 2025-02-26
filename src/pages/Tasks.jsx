@@ -51,9 +51,15 @@ const Tasks = () => {
                   <div className="farming-time-block">
 
                   </div>
+                  <div className="apy-info-block">
+
+                  </div>  
                 </div>
                 <div className="single-onexNode-infoBlock">
                   <div className="apy-info-block">
+
+                  </div>
+                  <div className="farming-time-block">
 
                   </div>
                 </div>
