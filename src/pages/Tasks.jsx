@@ -223,9 +223,10 @@ const Tasks = () => {
                 </div>
               </div>
             </div>
-          
-          {/* 🔥 Фильтрация блоков по выбранной категории */}
-          {(selectedCategory === "all" || selectedCategory === "my") && (
+        </div>
+
+                 {/* 🔥 Фильтрация блоков по выбранной категории */}
+                 {(selectedCategory === "all" || selectedCategory === "my") && (
             <div className="onex-node-my my">
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
@@ -350,7 +351,7 @@ const Tasks = () => {
             </div>
           </div>
           )}
-        </div>
+
       </div>
     </div>
 
