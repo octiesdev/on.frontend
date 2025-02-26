@@ -225,8 +225,8 @@ const Tasks = () => {
             </div>
         </div>
 
-                 {/* 🔥 Фильтрация блоков по выбранной категории */}
-                 {(selectedCategory === "all" || selectedCategory === "my") && (
+            {/* 🔥 Фильтрация блоков по выбранной категории */}
+            {(selectedCategory === "my") && (
             <div className="onex-node-my my">
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
@@ -289,7 +289,7 @@ const Tasks = () => {
           </div>
           )}
 
-          {(selectedCategory === "all" || selectedCategory === "limited") && (
+          {(selectedCategory === "limited") && (
             <div className="onex-node-limited limited">
            <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
