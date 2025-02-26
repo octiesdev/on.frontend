@@ -72,6 +72,7 @@ const Tasks = () => {
                       </div>
                       <div className="farming-time-block-Description">
                         5.5 TON
+                        <img src={tonIMG}/>
                     </div>
                   </div>
                   <div className="rewardInOnex-block">
@@ -80,6 +81,7 @@ const Tasks = () => {
                       </div>
                       <div className="farming-time-block-Description">
                         10 ONEX
+                        <img src={onexIMG}/>
                     </div>
                   </div>
                 </div>
