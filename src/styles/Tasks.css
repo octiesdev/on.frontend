@@ -337,6 +337,10 @@ button {
     width: 25.8%;
     height: 90%;
     margin-left: 1vh;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
 
 .rewardInTon-block {
@@ -345,6 +349,10 @@ button {
     border-radius: 10px;
     width: 46.6%;
     height: 90%; 
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
 
 .rewardInOnex-block {
@@ -354,6 +362,10 @@ button {
     width: 50%;
     height: 90%;
     margin-left: 1vh;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
 
 .onexNode-PayButton {
