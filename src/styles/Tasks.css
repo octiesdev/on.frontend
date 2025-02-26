@@ -356,8 +356,8 @@ button {
 }
 
 .rewardInTon-block img {
-    width: auto;
-    height: auto;
+    width: 12%;
+    margin-left: 0.2vh;
 }
 
 .rewardInOnex-block {
@@ -374,8 +374,8 @@ button {
 }
 
 .rewardInOnex-block img {
-    width: 25%;
-    height: 25%;
+    width: 12%;
+    margin-left: 0.2vh;
 }
 
 .onexNode-PayButton {
