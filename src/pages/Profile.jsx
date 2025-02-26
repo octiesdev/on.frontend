@@ -9,7 +9,7 @@ import priblizitelnoIcon from "../assets/priblizitelno-icon.png";
 import depositIcon from "../assets/deposit-icon.png"; 
 import withdrawIcon from "../assets/withdraw-icon.png"; 
 import receiveIcon from "../assets/receive-icon.png";
-import onexImg from "../assets/onex-img.png"; 
+import onexImg from "../assets/onex-img-all.png"; 
 import onex50opacityImg from "../assets/onex50opacity-img.png";
 import tonIMG from "../assets/ton-img.png";
 
