@@ -198,7 +198,7 @@ button {
 .all-button.active,
 .my-button.active,
 .limited-button.active {
-    filter: brightness(0.5); /* Уменьшает яркость кнопки */
+    filter: brightness(0.4); /* Уменьшает яркость кнопки */
 }
 
 
