@@ -154,6 +154,66 @@ const Tasks = () => {
             </div>
           </div>
       </div>
+      <div className="onex-node"> 
+            <div className="info-onexs-nameText"> 
+              <div className="info-section-logo"> 
+                <div className="ton-onex-logo"> 
+                  <img src={tonIMG}/>
+                  <h2>TON</h2>
+                  <img src={onexIMG}/>
+                  <h2>ONEX</h2>
+                </div>
+                <div className="number-OnexNode"> 
+                  <h2>02</h2>
+                </div>
+              </div>
+              <div className="onexNode-infoBlocks">
+                <div className="first-onexNode-infoBlock">
+                  <div className="farming-time-block">
+                    <div className="farming-time-block-MainText">
+                      Период фарминга
+                    </div>
+                    <div className="farming-time-block-Description">
+                      3 дня
+                    </div>
+                  </div>
+                  <div className="apy-info-block">
+                    <div className="farming-time-block-MainText">
+                        APY
+                      </div>
+                      <div className="farming-time-block-Description">
+                        10%
+                    </div>
+                  </div>  
+                </div>
+                <div className="single-onexNode-infoBlock">
+                  <div className="rewardInTon-block">
+                    <div className="farming-time-block-MainText">
+                        Награда в TON
+                      </div>
+                      <div className="farming-time-block-Description">
+                        5.5 TON
+                        <img src={tonIMG}/>
+                    </div>
+                  </div>
+                  <div className="rewardInOnex-block">
+                    <div className="farming-time-block-MainText">
+                        Награда в ONEX
+                      </div>
+                      <div className="farming-time-block-Description">
+                        10 ONEX
+                        <img src={onexIMG}/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="onexNode-PayButton">
+                <div className="pay-button">
+                  ЗАПУСТИТЬ ЗА 5 TON
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
       {/* Футер */}
