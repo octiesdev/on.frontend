@@ -153,8 +153,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
-      </div>
-      <div className="onex-node"> 
+          <div className="onex-node"> 
             <div className="info-onexs-nameText"> 
               <div className="info-section-logo"> 
                 <div className="ton-onex-logo"> 
@@ -214,6 +213,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
+      </div>
     </div>
 
       {/* Футер */}
