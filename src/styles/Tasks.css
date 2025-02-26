@@ -211,7 +211,7 @@ button {
 
     background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%),  url("../assets/onex-img-all.png");
     background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
-    background-position: center, right 1.5vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
+    background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
 
@@ -232,7 +232,7 @@ button {
 
     background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%),  url("../assets/onex-img-all.png");
     background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
-    background-position: center, right 1.5vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
+    background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
 
@@ -254,7 +254,7 @@ button {
 
     background: linear-gradient(240deg, rgba(37, 227, 23, 0.6) 0%, rgba(0, 9, 255, 0.6) 100%),  url("../assets/onex-img-my.png");
     background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
-    background-position: center, right 1.5vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
+    background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
 
@@ -274,7 +274,7 @@ button {
 
     background: linear-gradient(240deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 0, 64, 0.6) 100%),  url("../assets/onex-img-limited.png");
     background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
-    background-position: center, right 1.5vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
+    background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
     background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
     border-radius: 20px;
 
