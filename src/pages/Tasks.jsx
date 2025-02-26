@@ -56,7 +56,7 @@ const Tasks = () => {
                   </div>  
                 </div>
                 <div className="single-onexNode-infoBlock">
-                  <div className="apy-info-block2">
+                  <div className="rewardInTon-block">
 
                   </div>
                   <div className="farming-time-block2">
