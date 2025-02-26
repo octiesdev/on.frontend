@@ -10,6 +10,15 @@ import Footer from "../Footer"; // Подключаем футер
 const Tasks = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  const handleButtonClick = (category) => {
+    setSelectedCategory(category);
+    
+    // Проверяем, поддерживается ли вибрация
+    if (navigator.vibrate) {
+      navigator.vibrate(50); // Вибрация на 50 мс
+    }
+  };
+
   return (
     <div className="App">
       {/* Фон */}
@@ -30,15 +39,15 @@ const Tasks = () => {
               <p>Активация ONEX’s позволяет заработать<br/>TON, ONEX и др. криптовалюты.</p>
                 <div className="section-buttons">
                   <button className={`all-button ${selectedCategory === "all" ? "active" : ""}`}
-                    onClick={() => setSelectedCategory("all")}>
+                    onClick={() => handleButtonClick("all")}>
                       Все
                   </button>
                   <button className={`my-button ${selectedCategory === "my" ? "active" : ""}`}
-                    onClick={() => setSelectedCategory("my")}>
+                    onClick={() => handleButtonClick("my")}>
                       Мои
                   </button>
                   <button className={`limited-button ${selectedCategory === "limited" ? "active" : ""}`}
-                    onClick={() => setSelectedCategory("limited")}>
+                    onClick={() => handleButtonClick("limited")}>
                       Ограниченные
                   </button>
                 </div> 
