@@ -323,6 +323,7 @@ button {
     font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
+    text-align: left; /* Выравниваем текст влево */
 }
 
 
