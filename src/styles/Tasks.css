@@ -325,6 +325,11 @@ button {
     text-align: left; /* Выравниваем текст влево */
 }
 
+.infoSection-all-text {
+    height: 100%; /* Ограничиваем ширину, чтобы не вылазил за границы */
+    text-align: left;
+    flex-shrink: 0; /* Запрещаем сжатие текста */
+}
 
 .infoSection-all-text h2 {
     font-size: 2.2vh;
