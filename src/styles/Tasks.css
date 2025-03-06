@@ -331,6 +331,8 @@ button {
     font-family: MullerLight; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
+    text-align: left; /* Выравниваем текст влево */
+
 }
 
 .onexNode-infoBlocks {
