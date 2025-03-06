@@ -459,16 +459,16 @@ button {
     overflow: hidden;
 }
 
-.onexNode-PayButton {
+.task-to-be-complete-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    width: 90%;
-    height: 16%;
+    width: 95%;
+    height: 25.8%;
 }
 
-.pay-button {
+.to-be-complete-button {
     background-color: rgba(255, 255, 255, 0.15);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 1);
