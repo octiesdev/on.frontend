@@ -318,8 +318,7 @@ button {
 }
 
 .infoSection-all-logo h2 {
-    font-size: 1.8vh;
-    margin-top: 0.4vh;
+    font-size: 2vh;
     font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
