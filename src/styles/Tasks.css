@@ -327,7 +327,7 @@ button {
 
 
 .number-OnexNode h2 {
-    font-size: 1.3vh;
+    font-size: 4vh;
     margin-top: -1.3vh;
     font-family: MullerLight; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
