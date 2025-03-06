@@ -104,7 +104,7 @@ const Tasks = () => {
               </div>
             </div>
           </div>
-          <div className="onex-task2"> 
+          <div className="onex-task4"> 
             <div className="info-tasks-nameText">
               <div className="info-section">
                 <div className="infoSection-all-logo"> 
