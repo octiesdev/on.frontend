@@ -6,6 +6,9 @@ import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import tonIMG from "../assets/ton-img.png";
 import onexIMG from "../assets/onex-circle.png";
 import Footer from "../Footer"; // Подключаем футер
+import React from "react";
+import onexIMG from "../assets/onex-circle.png";
+import tonIMG from "../assets/ton-img.png";
 
 const Tasks = () => {
 
@@ -30,9 +33,15 @@ const Tasks = () => {
             </div>
           </div>
           <div className="onex-task"> 
-          <div className="info-tasks-nameText">
-            
-          </div>
+            <div className="info-tasks-nameText">
+              <div className="info-section">
+                <div className="infoSection-all-logo"> 
+                  <img src={onexIMG}/>
+                  <h2>ПРИСОЕДИНЯЙСЯ<br/>К ONEX!</h2>
+                </div>
+              
+              </div>
+            </div>
           </div>
       </div>
     </div>
