@@ -301,7 +301,7 @@ button {
     height: 43.1%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .infoSection-all-logo {
@@ -309,7 +309,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.8vh;
+    gap: 1vh;
 }
 
 .infoSection-all-logo img {
@@ -319,7 +319,6 @@ button {
 
 .infoSection-all-logo h2 {
     font-size: 2.15vh;
-    margin-left: 0.4vh;
     font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
@@ -333,7 +332,7 @@ button {
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     justify-content: flex-start;
     color: #FFFFFF;
-    text-align: left; /* Выравниваем текст влево */
+    /* text-align: left; Выравниваем текст влево */
 
 }
 
