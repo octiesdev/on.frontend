@@ -327,8 +327,7 @@ button {
 
 
 .infoSection-all-text h2 {
-    font-size: 4vh;
-    margin-top: -1.3vh;
+    font-size: 2.8vh;
     font-family: MullerLight; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
