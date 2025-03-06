@@ -30,6 +30,9 @@ const Tasks = () => {
             </div>
           </div>
           <div className="onex-task"> 
+          <div className="info-tasks-nameText">
+            
+          </div>
           </div>
       </div>
     </div>

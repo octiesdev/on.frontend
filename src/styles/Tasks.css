@@ -125,7 +125,7 @@ body {
     margin-top: 1vh;
 }
 
-.info-onexs-nameText {
+.info-tasks-nameText {
     display: flex;
     flex-direction: column;
     align-items: center;
