@@ -460,7 +460,7 @@ button {
 }
 
 .task-to-be-complete-button {
-    margin-top: 1.2vh;
+    margin-top: 1.1vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
