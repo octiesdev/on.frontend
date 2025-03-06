@@ -1,12 +1,9 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "../styles/Tasks.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
-import tonIMG from "../assets/ton-img.png";
-import onexIMG from "../assets/onex-circle.png";
 import Footer from "../Footer"; // Подключаем футер
-import React from "react";
 import onexIMG from "../assets/onex-circle.png";
 import tonIMG from "../assets/ton-img.png";
 
