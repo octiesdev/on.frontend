@@ -33,7 +33,7 @@ const Tasks = () => {
             </div>
         </div>
         <div className="mainTasksPageContainer">  
-          <div className="info-onexs-block"> 
+          <div className="info-tasks-block"> 
             <div className="info-onexs-nameText"> 
               <h2>ONEX TASKS</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
