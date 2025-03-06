@@ -8,16 +8,6 @@ import onexIMG from "../assets/onex-circle.png";
 import Footer from "../Footer"; // Подключаем футер
 
 const Tasks = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const handleButtonClick = (category) => {
-    setSelectedCategory(category);
-    
-    // Проверяем, поддерживается ли вибрация
-    if (navigator.vibrate) {
-      navigator.vibrate(600); // Вибрация на 50 мс
-    }
-  };
 
   return (
     <div className="App">
@@ -38,6 +28,8 @@ const Tasks = () => {
               <h2>ONEX TASKS</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
             </div>
+          </div>
+          <div className="onex-task"> 
           </div>
       </div>
     </div>
