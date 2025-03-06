@@ -37,7 +37,7 @@ const Tasks = () => {
                   <h2>ПРИСОЕДИНЯЙСЯ<br/>К ONEX!</h2>
                 </div>
                 <div className="infoSection-all-text"> 
-                  <h2>+10<br/>ONEX</h2>
+                  <h2>+10</h2>
                 </div>
               
               </div>
