@@ -167,6 +167,12 @@ isolation: isolate;
   overflow: hidden;
 }
 
+.rectangle-info-profile image {
+  height: 73%;
+  overflow: hidden;
+  margin-bottom: 0.1vh;
+}
+
 .rectangle-info-profile p {
   height: 23.5%;
   width: 100%;

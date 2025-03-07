@@ -38,7 +38,7 @@ const Profile = () => {
                 </h2>
                 <p>
                   ≈ 545.322.79
-                    <img src={rubIMG}/>
+                    <image src={rubIMG}/>
                 </p>
               </div>
             </div>
