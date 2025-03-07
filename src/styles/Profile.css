@@ -140,8 +140,8 @@ isolation: isolate;
   flex-direction: column;
   margin-right: 8%;
   margin-top: 5%;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-start;
   height: 28.1%;
   width: 76.1%;
   overflow: hidden;
@@ -157,12 +157,9 @@ isolation: isolate;
 
 .rectangle-info-profile p {
   display: flex;
-  flex-direction: column;
-  margin-left: 1vh;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  height: 28.1%;
-  width: 76.1%;
+  justify-content: center;
+  height: 23.5%;
+  width: 100%;
   overflow: hidden;
 }
 
