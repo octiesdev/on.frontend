@@ -139,7 +139,7 @@ isolation: isolate;
   display: flex;
   flex-direction: column;
   margin-right: 8%;
-  margin-top: 10%;
+  margin-top: 2.5vh;
   align-items: flex-end;
   justify-content: space-between;
   height: 28.1%;
@@ -153,7 +153,6 @@ isolation: isolate;
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   font-size: 4.17vh;
   margin: 0;
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -173,7 +172,6 @@ isolation: isolate;
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.4vh;
   white-space: nowrap;
