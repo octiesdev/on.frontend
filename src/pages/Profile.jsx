@@ -31,7 +31,9 @@ const Profile = () => {
               <div className="rectangle-info-profile">
                 <h2>
                   35.57
-                  <img src={onexIMG}/>
+                  <div className="rectangle-info-profile-ton">
+                    TON
+                  </div>
                 </h2>
                 <p>
                   ≈ 545.322.79
