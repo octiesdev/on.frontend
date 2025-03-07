@@ -10,7 +10,7 @@ import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 
-const Tasks = () => {
+const Profile = () => {
 
   return (
     <div className="App">
@@ -33,4 +33,6 @@ const Tasks = () => {
     </div>
   );
 };
+
+export default Profile;
         
