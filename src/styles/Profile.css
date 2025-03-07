@@ -167,11 +167,6 @@ isolation: isolate;
   overflow: hidden;
 }
 
-.rectangle-info-profile-p img {
-  height: 100%;
-  overflow: hidden;
-}
-
 .rectangle-info-profile p {
   height: 23.5%;
   width: 100%;
@@ -181,7 +176,7 @@ isolation: isolate;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.4vh;
   white-space: nowrap;
-  gap: 1vh;
+  gap: 0.1vh;
   align-items: center;
 }
 

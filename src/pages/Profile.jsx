@@ -38,9 +38,7 @@ const Profile = () => {
                 </h2>
                 <p>
                   ≈ 545.322.79
-                  <div className="rectangle-info-profile-p">
                     <img src={rubIMG}/>
-                  </div>
                 </p>
               </div>
             </div>
