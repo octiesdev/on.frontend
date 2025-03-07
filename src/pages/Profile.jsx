@@ -9,7 +9,7 @@ import blumIMG from "../assets/blum-circle.png";
 import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
-import rubIMG from "../assets/rubImg.png";
+import rubIMG from "../assets/rub-icon.png";
 
 const Profile = () => {
 
