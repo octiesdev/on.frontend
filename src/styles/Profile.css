@@ -161,6 +161,12 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
+.rectangle-info-profile img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .rectangle-info-profile p {
   height: 23.5%;
   width: 100%;
