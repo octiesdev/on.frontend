@@ -182,7 +182,7 @@ isolation: isolate;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.4vh;
   white-space: nowrap;
-  gap: 0.1vh;
+  gap: 0.3vh;
   align-items: center;
 }
 
