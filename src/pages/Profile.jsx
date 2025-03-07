@@ -28,10 +28,12 @@ const Profile = () => {
         <div className="mainProfilePageContainer">  
           <div className="info-profile-block"> 
             <div className="info-profile-nameText55"> 
-            <div className="rectangle-info-profile"> 
-              <h2>ONEX TASKS</h2>
-              <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
-            </div>
+              <div className="rectangle-info-profile h2">
+                <h2>35.57</h2>
+              </div>
+              <div className="rectangle-info-profile p">
+                <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
+              </div>
             </div>
             <div className="info-profile-nameText45"> 
               <div className="rectangle-info-profile h2">
