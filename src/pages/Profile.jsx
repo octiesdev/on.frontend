@@ -27,11 +27,13 @@ const Profile = () => {
         </div>
         <div className="mainProfilePageContainer">  
           <div className="info-profile-block"> 
-            <div className="info-profile-nameText70"> 
+            <div className="info-profile-nameText55"> 
+            <div className="rectangle-info-profile"> 
               <h2>ONEX TASKS</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
             </div>
-            <div className="info-profile-nameText30"> 
+            </div>
+            <div className="info-profile-nameText45"> 
               <h2>ONEX TASKS</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
             </div>
