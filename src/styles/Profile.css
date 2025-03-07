@@ -169,7 +169,7 @@ isolation: isolate;
 }
 
 
-.info-profile-nameText70 h2 {
+.info-profile-nameText55 h2 {
   font-size: 2vh;
   margin: 0;
   font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -177,7 +177,7 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
-.info-profile-nameText70 p {
+.info-profile-nameText55 p {
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1vh;
   white-space: nowrap;
