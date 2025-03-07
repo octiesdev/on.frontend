@@ -9,6 +9,7 @@ import blumIMG from "../assets/blum-circle.png";
 import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
+import rubIMG from "../assets/rubImg.png";
 
 const Profile = () => {
 
@@ -37,7 +38,9 @@ const Profile = () => {
                 </h2>
                 <p>
                   ≈ 545.322.79
-                  <img src={tonIMG}/>
+                  <div className="rectangle-info-profile-p">
+                    <img src={rubIMG}/>
+                  </div>
                 </p>
               </div>
             </div>
