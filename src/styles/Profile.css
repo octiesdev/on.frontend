@@ -141,7 +141,7 @@ isolation: isolate;
   margin-right: 8%;
   margin-top: 5%;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 28.1%;
   width: 76.1%;
   overflow: hidden;
@@ -161,21 +161,6 @@ isolation: isolate;
   height: 23.5%;
   width: 100%;
   overflow: hidden;
-}
-
-
-.info-profile-nameText55 h2 {
-  font-size: 2vh;
-  margin: 0;
-  font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  color: #FFFFFF;
-}
-
-.info-profile-nameText55 p {
-  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 1vh;
-  white-space: nowrap;
 }
 
 .info-profile-nameText45 {
