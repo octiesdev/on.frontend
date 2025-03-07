@@ -26,6 +26,12 @@ const Profile = () => {
             </div>
         </div>
         <div className="mainProfilePageContainer">  
+          <div className="info-profile-block"> 
+            <div className="info-profile-nameText"> 
+              <h2>ONEX TASKS</h2>
+              <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
+            </div>
+          </div>
         </div>
       </div>
        {/* Футер */}
