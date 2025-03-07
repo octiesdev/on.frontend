@@ -25,7 +25,7 @@ const Profile = () => {
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
-        <div className="mainTasksPageContainer2">  
+        <div className="mainProfilePageContainer">  
       </div>
       </div>
        {/* Футер */}
