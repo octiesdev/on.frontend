@@ -30,7 +30,7 @@ const Profile = () => {
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
                 <h2>35.57</h2>
-                <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
+                <p>≈ 545.322.79<br/></p>
               </div>
             </div>
             <div className="info-profile-nameText45"> 
