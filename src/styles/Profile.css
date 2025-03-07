@@ -5,638 +5,105 @@
 }
 
 body {
+margin: 0;
+width: 100%;
+height: 100vh;
+position: fixed;
+overflow: hidden; 
+isolation: isolate;
+}
+
+.App {
   margin: 0;
   width: 100%;
   height: 100vh;
   position: fixed;
-  overflow: hidden;
-  background: #000000; /* Основная заливка */
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background: #000000;
+  color: white;
+  font-family: Muller;
+  font-size: 2.2vh ;
 }
 
-/* ✅ Контейнер всей страницы */
-.profile-container {
-  position: relative;
+.App p{
+  margin: 0;
+}
+
+.ONEXs_Window{
   width: 100%;
-  height: 100vh;
+  height: 90%;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  color: white;
+  z-index: 1001;
+  animation: fade-in 0.3s forwards;
+}
+
+.Header{
+  height: 7.5%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.HeaderLogoContainer{
+  height: 100%;
+  margin-left: 2.5vh;
+  margin-top: 0.5vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.HeaderButtonsContainer{
+  height: 100%;
+  margin-right: 1.7vh;
+  margin-top: 0.5vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.headerlogo {
+  height: 60%;
+  margin: 0vh; 
+}
+
+.headerConnectWalletConnected { 
+  
+  height: 55%;
+  margin: 1.6vh 1vh 1vh 0.5vh; 
+
+}
+
+.headerButtonPartners { 
+  
+  height: 55%;
+  margin: 1.6vh 0.5vh 1vh 1vh; 
+
+}
+
+.mainTasksPageContainer {
+
+  height: 89.5%;
+  width: 100%;
+  margin-top: 2.5vh;
+  overflow: auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
 
-/* ✅ Фон (заливка + изображение) */
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90vh;
-  background: url("/src/assets/profile-bg.png") no-repeat center top 10vh / cover;
-  z-index: -1; /* Отправляем на задний план */
-}
+  background: url('../assets/backgroundBorder.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 39.58px 39.58px 0 0;
 
-/* ✅ Логотип (в левом верхнем углу) */
-.logo {
-  position: absolute;
-  top: 2vh;
-  left: 7vw;
-  width: 70vw;
-  max-width: 160px;
-  height: auto;
-}
-
-/* ✅ Основной контент */
-.content {
-  width: 100%;
-  text-align: center;
-  font-size: 3vh;
-  font-family: "Muller", sans-serif;
-  color: white;
-}
-
-/* ✅ Базовый стиль прямоугольников */
-.rectangleMainInfo {
-  position: absolute;
-  width: calc(100% - 12px); /* 100% ширины минус отступы */
-
-  background: rgba(32, 32, 32, 0.5);
-  border: 1px solid rgba(0, 0, 0, 1);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 39.56px;
-  
-  display: flex;
-  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
-  gap: 5px; /* ✅ Добавляем отступ между частями */
-}
-
-/* ✅ Базовый стиль прямоугольников */
-.rectangleOnexPoints {
-  position: absolute;
-  width: calc(100% - 12px); /* 100% ширины минус отступы */
-
-  background: rgba(32, 32, 32, 0.5);
-  border: 1px solid rgba(0, 0, 0, 1);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 39.56px;
-  
-  display: flex;
-  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
-  gap: 5px; /* ✅ Добавляем отступ между частями */
-}
-
-.rectangleAvaliableDropGroupBox {
-  position: absolute;
-  width: calc(100% - 36px); /* 100% ширины минус отступы */
-
-  border-radius: 20px;
-  
-  display: flex;
-  justify-content: center; /* ✅ Гарантируем, что зоны не слипаются */
-  gap: 5px; /* ✅ Добавляем отступ между частями */
-  z-index: 1;
-}
-
-.rectangleAvaliableDropforOnex50opacity {
-  position: absolute;
-  width: 100%; /* 100% ширины минус отступы */
-  height: 95%;
-  top: 33px;
-  padding: 10px;
-
-
-  border-radius: 20px;
-  
-  display: flex;
-  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
-  gap: 5px; /* ✅ Добавляем отступ между частями */
-  z-index: 1;
-}
-
-.rectangleAvaliableDrop {
-  position: absolute;
-  width: 100%; /* 100% ширины минус отступы */
-  height: 95%;
-  top: 33px;
-  padding: 10px;
-
-  background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%);
-  border-radius: 20px;
-  
-  display: flex;
-  justify-content: space-between; /* ✅ Гарантируем, что зоны не слипаются */
-  gap: 5px; /* ✅ Добавляем отступ между частями */
-  z-index: 1;
-}
-
-/* ✅ Фиксируем позицию кнопки партнеров (левее кнопки кошелька) */
-.buttonPartners {
-  position: absolute;
-  width: 34px;
-  height: 29px;
-  background: #4D4D4D;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  right: 89px; /* Левее кнопки кошелька */
-  top: 3.2vh;
-}
-
-/* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
-.buttonConnectWallet {
-  position: absolute;
-  width: 47px;
-  height: 29px;
-  background: #4D4D4D;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  right: 32px; /* Справа */
-  top: 3.2vh;
-}
-
-/* ✅ Фиксируем позицию кнопки кошелька (правее кнопки партнеров) */
-.rectangleTON {
-  width: 71.5px;
-  height: 29px;
-  background: #FFFFFF;
-  border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  top: 17px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
-
-}
-
-.rectangleONEX {
-  width: 82.5px;
-  height: 29px;
-  background: #FFFFFF;
-  border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
-}
-
-.buttonDeposit {
-  position: absolute;
-  width: 77px;
-  height: 30px;
-  background: #FFFFFF;
-  border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 29px; /* Справа */
-  bottom: 17px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
-}
-
-.buttonWithdraw {
-  position: absolute;
-  width: 83px;
-  height: 30px;
-  background: #FFFFFF;
-  border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 112px; /* Справа */
-  bottom: 17px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
-}
-
-.buttonReceive {
-  position: absolute;
-  width: 115px;
-  height: 25%;
-  background: #FFFFFF;
-  border-radius: 17.05px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 29px; /* Справа */
-  bottom: 14px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* ✅ Добавляем тень */
-}
-
-/* ✅ Размер изображений в кнопках */
-.partner-icon {
-  width: 65%;
-  height: auto;
-} 
-
-
-.connectWallet-icon {
-  width: 70%;
-  height: auto;
-}
-
-.rectangleTONAndtextTotalAmountContainer {
-  position: absolute;
-  top: -14.5px; 
-  left: 32px; 
-  display: flex;
-  align-items: center;
-  gap: 3.4px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-
-}
-
-.rectangleTONIMGAndtextTONNameContainer {
-  position: absolute;
-  top: 17.5px; 
-  height: 11.7%;
-  width: 51.3%;
-  left: 18px; 
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.rectangleFarmingTime {
-  position: absolute;
-  top: 0px;
-  width: 52.2%;
-  height: 45%;
-
-  background: rgba(32, 32, 32, 0.2);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.rectangleFarmTimeAndRewardsInTonContainer {
-  position: absolute;
-  top: 52px; 
-  height: 42%; 
-  width: calc(71.5%); 
-  left: 27px; 
-  display: flex;
-  align-items: center;
-  justify-content: row;
-  gap: 8px;
-}
-
-.rectangleRewardsInTon {
-  position: absolute;
-  bottom: 0px;
-  width: 44%;
-  height: 45%;
-
-  background: rgba(13, 255, 0, 0.2);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.rectangleAvaliableOnexs {
-  position: absolute;
-  top: 0px;
-  left: 55%;;
-  width: 48.8%;
-  height: 45%;
-
-  background: rgba(32, 32, 32, 0.2);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.rectanglePushFarming {
-  position: absolute;
-  
-  left: 50%;
-  width: calc(100% - 40px);
-  transform: translateX(-50%);
-  height: 18%;
-  max-height: 18%;
-
-  bottom: 10px;
-
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 9px;
-  border: 1px solid rgba(255, 255, 255, 1);
-
-}
-
-.textTONName {
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  font-family: "MullerExtraBold", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 19px; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-  text-align: center;
-}
-
-.textTotalAmount {
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 29px; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-  text-align: center;
-}
-
-.textTON {
-  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  font-size: 18px; /* ✅ Размер текста 7.78% */
-  color: black; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-  text-align: center;
-}
-
-.textTotalAmountRUBContainer {
-  position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 42px; 
-  left: 46px; /* ✅ Отступ справа */
-  display: flex;
-  align-items: center; /* Выравниваем по центру */
-  gap: 2px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-}
-
-.textTotalAmountRUB {
-  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 13.64px; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.textTotalAmountRUBSymbol {
-  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 13.64px; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.priblizitelno-icon {
-  position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 59px; 
-  left: 35px; /* ✅ Отступ справа */
-  width: 6.82px;
-  height: 6.15px;
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.rub-icon {
-  width: 8.18px;
-  height: 9.55px;
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.buttonDepositContainer {
-  width: 53px;
-  height: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Выравниваем по центру */
-  gap: 6.8px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-}
-
-.deposit-icon {
-  width: 12.3px;
-  height: 11px;
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.buttonReceiveContainer {
-  width: 80px;
-  height: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Выравниваем по центру */
-  gap: 6.8px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-}
-
-.receive-icon {
-  width: 12.3px;
-  height: 11px;
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.buttonWithdrawContainer {
-  width: 60px;
-  height: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Выравниваем по центру */
-  gap: 6.8px; /* ✅ Отступ между `textTotalAmountRUB` и `rub-icon` */
-}
-
-.withdraw-icon {
-  width: 12.3px;
-  height: 11px;
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.textDepositAndWithdraw {
-  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 13.64px; /* ✅ Размер текста 7.78% */
-  color: black; /* ✅ Белый цвет текста */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-.textAvaliableDrop {
-  position: absolute;
-  top: 0px;
-  left: 9px;
-  font-family: "MullerBold", sans-serif; /* ✅ Используем кастомный шрифт */
-  white-space: nowrap; /* ✅ Запрещаем перенос текста */
-  font-size: 24.66px; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-/* ✅ Размеры */
-.size-small { height: 14.6%; }   /* Маленький */
-.size-small2 { height: 29px; }   /* Маленький */
-.size-medium { height: 22%; }  /* Средний */
-.size-medium2 { height: 26%; }  /* Средний */
-.size-large { height: 30vh; }   /* Большой */
-
-/* ✅ Позиционирование */
-.pos-top { top: 11.08vh; left: 50%; transform: translateX(-50%); }
-.pos-top2 { top: 34.1vh; left: 50%; transform: translateX(-50%); }
-.pos-topTextAvaliableDrop { top: 49.5vh; left: 27px; }
-.pos-top-rectangleAvaliableDrop { top: 53vh; left: 50%; transform: translateX(-50%); }
-.pos-top-buttonPartners { top: 3.2vh; right: 89px; }
-.pos-top-connectWallet { top: 3.2vh; right: 32px; }
-.pos-center { top: 35%; left: 50%; transform: translateX(-50%); }
-.pos-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
-
-.pos-left { left: 5%; top: 20%; }
-.pos-right { right: 5%; top: 50%; }
-
-/* ✅ Левая и правая части */
-.left-side {
-  position: relative;
-  width: 60%; /* Делаем обе части 100% ширины */
-  height: 100%;
-  display: flex;
-  flex-direction: column; /* ✅ Размещаем элементы вертикально */
-  align-items: flex-start; /* ✅ Выравниваем по левому краю */
-}
-
-.right-side {
-  position: relative;
-  width: 40%; /* Делаем обе части 100% ширины */
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.5px;
-}
-
-.left-side2 {
-  position: relative;
-  width: 44%; /* Делаем обе части 100% ширины */
-  height: 71%;
-  display: flex;
-  flex-direction: column; /* ✅ Размещаем элементы вертикально */
-  align-items: flex-start; /* ✅ Выравниваем по левому краю */
-}
-
-.right-side2 {
-  position: relative;
-  width: 56%; /* Делаем обе части 100% ширины */
-  height: 71%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.5px;
-}
-
-/* .left-side {
-  border: 2px solid red;
-} */
-
-
-/* ✅ Базовые стили размеров (меняй пропорции для разных блоков) */
-.w-50 { width: 50%; }
-.w-70 { width: 70%; }
-.w-85 { width: 85%; }
-
-.w-30 { width: 30%; }
-.w-15 { width: 15%; }
-
-/* ✅ Добавляем отдельный класс для изображения доллара */
-.dollar-icon {
-  position: absolute; /* Фиксируем внутри .rectangle */
-  height: 90%;
-  right: 12.65px; /* Отступ от правого края */
-  bottom: 0px; /* Прижимаем к нижнему краю */
-  z-index: 2;
-}
-
-.ton-icon {
-  width: 30px;
-  height: auto;
-  min-width: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  z-index: 2;
-}
-
-/* ✅ Добавляем отдельный класс для изображения доллара */
-.onex-icon {
-  position: absolute; /* Фиксируем внутри .rectangle */
-  height: 94%;
-  right: 36px; /* Отступ от правого края */
-  bottom: 0px; /* Прижимаем к нижнему краю */
-  z-index: 2;
-}
-
-/* ✅ Добавляем отдельный класс для изображения доллара */
-.onex50opacity-icon {
-  position: absolute; /* Фиксируем внутри .rectangle */
-  height: 92%;
-  right: 35px; /* Отступ от правого края */
-  bottom: 0px; /* Прижимаем к нижнему краю */
-  z-index: 1;
-  opacity: 0.7;
-}
-
-.text01 {
-  position: absolute; /* ✅ Фиксируем внутри .rectangle */
-  top: 3px; /* ✅ Отступ сверху */
-  right: 23px; /* ✅ Отступ справа */
-  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-  font-size: 1.7vh; /* ✅ Размер текста 7.78% */
-  color: white; /* ✅ Белый цвет текста */
-  z-index: 2; /* ✅ Убедимся, что текст поверх */
-}
-
-
-/* ✅ Футер (фиксирован внизу) */
-.BTNLow {
-  height: 10%;
-  background: #0F0F0F;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1002;
-}
-
-
-/* ✅ Адаптивность для мобильных экранов */
-@media (max-width: 768px) {
-  .content {
-    font-size: 2.5vh;
-  }
-  .logo {
-    width: 70vw;
-  }
-}
-
-@font-face {
-  font-family: 'MullerLight';
-  src: url('/assets/fonts/MullerLight.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} 
-
-@font-face {
-  font-family: 'MullerMedium';
-  src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} 
-
-@font-face {
-  font-family: 'MullerRegular';
-  src: url('/assets/fonts/MullerRegular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} 
-
-@font-face {
-  font-family: 'MullerBold';
-  src: url('/assets/fonts/MullerBold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} 
-
-@font-face {
-  font-family: 'MullerExtraBold';
-  src: url('/assets/fonts/MullerExtraBold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} 
-
-@media (orientation: landscape) {
-  .content {
-    font-size: 4vh;
-  }
 }
