@@ -154,7 +154,7 @@ isolation: isolate;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 4.2vh;
+  font-size: 4.17vh;
   margin: 0;
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
