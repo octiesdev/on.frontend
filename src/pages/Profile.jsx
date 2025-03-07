@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Tasks.css";
+import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
@@ -26,7 +26,7 @@ const Profile = () => {
             </div>
         </div>
         <div className="mainProfilePageContainer">  
-      </div>
+        </div>
       </div>
        {/* Футер */}
        <Footer />
