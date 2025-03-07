@@ -135,7 +135,7 @@ isolation: isolate;
   overflow: visible;
 }
 
-.info-profile-nameText h2 {
+.info-profile-nameText70 h2 {
   font-size: 2vh;
   margin: 0;
   font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -143,7 +143,7 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
-.info-profile-nameText p {
+.info-profile-nameText70 p {
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1vh;
   white-space: nowrap;
@@ -159,7 +159,7 @@ isolation: isolate;
   overflow: visible;
 }
 
-.info-profile-nameText h2 {
+.info-profile-nameText30 h2 {
   font-size: 1vh;
   margin: 0;
   font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -167,7 +167,7 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
-.info-profile-nameText p {
+.info-profile-nameText30 p {
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 0.7vh;
   white-space: nowrap;
