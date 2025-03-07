@@ -163,7 +163,7 @@ isolation: isolate;
 .info-profile-nameText55 h2 {
   display: flex;
   justify-content: flex-start;
-  align-self: center;
+  align-items: center;
   font-size: 2vh;
   margin: 0;
   font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -174,7 +174,7 @@ isolation: isolate;
 .info-profile-nameText55 p {
   display: flex;
   justify-content: flex-start;
-  align-self: center;
+  align-items: center;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1vh;
   white-space: nowrap;
