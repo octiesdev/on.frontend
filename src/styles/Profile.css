@@ -100,7 +100,7 @@ isolation: isolate;
   flex-direction: column;
   align-items: center;
 
-  background: url('../assets/backgroundBorder.png');
+  background: url('../assets/backgroundProfileBorder.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
