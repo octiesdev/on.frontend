@@ -160,6 +160,7 @@ isolation: isolate;
   color: #FFFFFF;
   gap: 0.8vh;
   align-items: center;
+  flex-shrink: 1; /* Позволяет тексту уменьшаться */
 }
 
 .rectangle-info-profile img {
