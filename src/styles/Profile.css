@@ -153,7 +153,7 @@ isolation: isolate;
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
-  font-size: clamp(2vh, 4vw, 4.17vh);
+  font-size: clamp(3.4vh, 3.4vw,4.17vh);
   margin: 0;
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
@@ -210,11 +210,11 @@ isolation: isolate;
   background-color: #FFFFFF;
   color: #0D0D0D;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 90%;
-  width: 55%;
-  font-size: 1.65vh;
+  height: clamp(3vh, 6vw, 5.5vh);
+  width: clamp(8vh, 12vw, 11vh);
+  font-size: clamp(1.2vh, 2.5vw, 2vh);
   font-family: MullerMedium;
-  border-radius: 2vh;
+  border-radius: clamp(1vh, 3vw, 2vh);
   display: flex;
   align-items: center;
   justify-content: center;
