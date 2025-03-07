@@ -35,7 +35,7 @@ const Profile = () => {
                 </h2>
                 <p>
                   ≈ 545.322.79
-                  <img src={onexIMG}/>
+                  <img src={tonIMG}/>
                 </p>
               </div>
             </div>

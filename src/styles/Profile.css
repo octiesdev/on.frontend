@@ -158,6 +158,7 @@ isolation: isolate;
   font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
+  gap: 1vh;
 }
 
 .rectangle-info-profile img {
@@ -174,6 +175,7 @@ isolation: isolate;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1.4vh;
   white-space: nowrap;
+  gap: 1vh;
 }
 
 .info-profile-nameText45 {
