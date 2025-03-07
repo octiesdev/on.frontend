@@ -148,16 +148,12 @@ isolation: isolate;
 }
 
 .rectangle-info-profile h2 {
-  display: flex;
-  justify-content: center;
   height: 57%;
   width: 100%;
   overflow: hidden;
 }
 
 .rectangle-info-profile p {
-  display: flex;
-  justify-content: center;
   height: 23.5%;
   width: 100%;
   overflow: hidden;
@@ -166,7 +162,8 @@ isolation: isolate;
 
 .info-profile-nameText55 h2 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-self: center;
   font-size: 2vh;
   margin: 0;
   font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -176,7 +173,8 @@ isolation: isolate;
 
 .info-profile-nameText55 p {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-self: center;
   font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
   font-size: 1vh;
   white-space: nowrap;
