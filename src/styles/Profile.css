@@ -165,6 +165,12 @@ isolation: isolate;
   height: 23.5%;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-size: 1vh;
+  white-space: nowrap;
 }
 
 
