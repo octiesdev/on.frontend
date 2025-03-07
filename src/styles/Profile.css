@@ -163,11 +163,6 @@ isolation: isolate;
 }
 
 .rectangle-info-profile img {
-  height: 100%;
-  overflow: hidden;
-}
-
-.rectangle-info-profile image {
   height: 73%;
   overflow: hidden;
   margin-bottom: 0.1vh;
