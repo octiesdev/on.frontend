@@ -151,6 +151,14 @@ isolation: isolate;
   height: 57%;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3vh;
+  margin: 0;
+  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  color: #FFFFFF;
 }
 
 .rectangle-info-profile p {
@@ -164,9 +172,9 @@ isolation: isolate;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 2vh;
+  font-size: 3vh;
   margin: 0;
-  font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
 }
