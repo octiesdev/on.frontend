@@ -168,7 +168,7 @@ isolation: isolate;
   justify-content: flex-start;
   font-size: clamp(3.4vh, 3.4vw,4.17vh);
   margin: 0;
-  font-family: "MullerMedium", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-family: MullerMedium; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
   gap: 0.8vh;
@@ -266,3 +266,10 @@ isolation: isolate;
   justify-content: center;
   gap: 0.6vh;
 }
+
+@font-face {
+  font-family: 'MullerMedium';
+  src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
