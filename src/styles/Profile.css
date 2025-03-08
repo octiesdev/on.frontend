@@ -244,7 +244,7 @@ isolation: isolate;
   background-color: #FFFFFF;
   color: #0D0D0D;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 100%;
+  height: 95%;
   width: 45.2%;
   font-size: 1.5vh;
   font-family: MullerMedium;
@@ -252,14 +252,14 @@ isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3vh;
+  gap: 0.6vh;
 }
 
 .rectangle-buttons-with {
   background-color: #FFFFFF;
   color: #0D0D0D;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 100%;
+  height: 95%;
   width: 50%;
   font-size: 1.5vh;
   font-family: MullerMedium;
@@ -267,5 +267,5 @@ isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3vh;
+  gap: 0.6vh;
 }
