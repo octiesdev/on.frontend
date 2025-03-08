@@ -149,8 +149,8 @@ isolation: isolate;
 
 .rectangle-for-buttons {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 2.5vh;
+  flex-direction: row;
+  margin-bottom: 2vh;
   align-items: flex-end;
   justify-content: space-between;
   height: 16.5%;
@@ -182,8 +182,8 @@ isolation: isolate;
   margin-bottom: 0.1vh;
 }
 
-.rectangle-info-profile2 img {
-  height: 53%;
+.buttons-icons img {
+  height: 63%;
   overflow: hidden;
   margin-bottom: 0.1vh;
 }
@@ -234,6 +234,21 @@ isolation: isolate;
   font-size: clamp(1.2vh, 2.5vw, 2vh);
   font-family: MullerMedium;
   border-radius: clamp(1vh, 3vw, 2vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3vh;
+}
+
+.rectangle-buttons-with-depo {
+  background-color: #FFFFFF;
+  color: #0D0D0D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 100%;
+  width: 46%;
+  font-size: 2vh;
+  font-family: MullerMedium;
+  border-radius: 2vh;
   display: flex;
   align-items: center;
   justify-content: center;

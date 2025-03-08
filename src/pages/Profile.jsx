@@ -10,6 +10,8 @@ import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
+import depoIMG from "../assets/deposit-icon.png";
+import withIMG from "../assets/withdraw-icon.png";
 
 const Profile = () => {
 
@@ -42,10 +44,12 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons">
-                  <div className="rectangle-info-profile-ton">
+                  <div className="rectangle-buttons-with-depo">
+                    <img src={depoIMG} className="buttons-icons"/>
                     Ввод
                   </div>
-                  <div className="rectangle-info-profile-ton">
+                  <div className="rectangle-buttons-with-depo">
+                    <img src={withIMG} className="buttons-icons"/>
                     Вывод
                   </div>
               </div>
