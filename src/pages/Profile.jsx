@@ -14,6 +14,7 @@ import depoIMG from "../assets/deposit-icon.png";
 import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
+import onexlogoIMG from "../assets/onex-img-all.png";
 
 
 const Profile = () => {
@@ -80,7 +81,8 @@ const Profile = () => {
               </div>
             </div>
             <div className="info-onex-nameText60"> 
-
+              <h2>02</h2>
+              <img src={onexlogoIMG} className="onex-logo-icon"/>
             </div>
           </div>
         </div>

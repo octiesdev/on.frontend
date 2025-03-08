@@ -266,6 +266,13 @@ isolation: isolate;
   margin-right: 1.4vh;
 }
 
+.onex-logo-icon {
+  height: 86%;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-right: 3vh;
+}
+
 .rectangle-info-profile p {
   height: 25.5%;
   width: 100%;
