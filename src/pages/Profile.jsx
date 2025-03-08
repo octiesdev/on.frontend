@@ -102,25 +102,25 @@ const Profile = () => {
               <div className="onexNode-infoBlocks">
                 <div className="first-onexNode-infoBlock">
                   <div className="farming-time-block">
-                    <div className="farming-time-block-MainText">
+                    <div className="farming-time-block-MainText2">
                       Период фарминга
                     </div>
                     <div className="farming-time-block-Description">
                       3 дня
                     </div>
                   </div>
-                  <div className="apy-info-block">
-                    <div className="farming-time-block-MainText">
-                        APY
+                  <div className="avaliable-onex-info-block">
+                    <div className="farming-time-block-MainText2">
+                        Доступно ONEX's
                       </div>
                       <div className="farming-time-block-Description">
-                        10%
+                        99/100
                     </div>
                   </div>  
                 </div>
                 <div className="single-onexNode-infoBlock">
                   <div className="rewardInTon-block">
-                    <div className="farming-time-block-MainText">
+                    <div className="farming-time-block-MainText2">
                         Награда в TON
                       </div>
                       <div className="farming-time-block-Description">
