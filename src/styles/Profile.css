@@ -487,7 +487,7 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
-.number-OnexNode-profile h2 {
+.number-OnexNode h2 {
   font-size: 1.4vh;
   margin-top: -1.3vh;
   font-family: MullerLight; /* ✅ Используем кастомный шрифт */

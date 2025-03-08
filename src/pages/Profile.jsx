@@ -95,7 +95,7 @@ const Profile = () => {
                   <img src={tonIMG}/>
                   <h2>TON</h2>
                 </div>
-                <div className="number-OnexNode-profile"> 
+                <div className="number-OnexNode"> 
                   <h2>01</h2>
                 </div>
               </div>
