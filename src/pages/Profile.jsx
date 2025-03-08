@@ -44,7 +44,7 @@ const Profile = () => {
                   <img src={rubIMG}/>
                 </p>
               </div>
-              <div className="rectangle-for-buttons">
+              <div className="rectangle-for-buttons-profile">
                   <div className="rectangle-buttons-depo">
                     <img src={depoIMG} className="buttons-icons"/>
                     Ввод
@@ -58,6 +58,24 @@ const Profile = () => {
             <div className="info-profile-nameText45"> 
               <h2>01</h2>
               <img src={dollarIMG} className="dollar-icon"/>
+            </div>
+          </div>
+          <div className="info-onex-block"> 
+            <div className="info-onex-nameText40"> 
+              <div className="rectangle-info-onex">
+                <h2>
+                  08
+                  <div className="rectangle-info-onex-onex">
+                    ONEX
+                  </div>
+                </h2>
+              </div>
+              <div className="rectangle-for-button-onex">
+                
+              </div>
+            </div>
+            <div className="info-onex-nameText60"> 
+
             </div>
           </div>
         </div>
