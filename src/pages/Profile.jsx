@@ -105,7 +105,7 @@ const Profile = () => {
                     <div className="farming-time-block-MainText2">
                       Период фарминга
                     </div>
-                    <div className="farming-time-block-Description">
+                    <div className="farming-time-block-Description2">
                       3 дня
                     </div>
                   </div>
@@ -113,7 +113,7 @@ const Profile = () => {
                     <div className="farming-time-block-MainText2">
                         Доступно ONEX's
                       </div>
-                      <div className="farming-time-block-Description">
+                      <div className="farming-time-block-Description2">
                         99/100
                     </div>
                   </div>  
@@ -123,7 +123,7 @@ const Profile = () => {
                     <div className="farming-time-block-MainText2">
                         Награда в TON
                       </div>
-                      <div className="farming-time-block-Description">
+                      <div className="farming-time-block-Description2">
                         5.5 TON
                         <img src={tonIMG}/>
                     </div>

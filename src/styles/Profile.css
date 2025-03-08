@@ -540,7 +540,7 @@ isolation: isolate;
   color: #000000
 }
 
-.farming-time-block-Description {
+.farming-time-block-Description2 {
   width: 100%;
   height: 100%; 
   display: flex;
@@ -548,7 +548,7 @@ isolation: isolate;
   justify-content: flex-start;
   margin-left: 1.11vh;
   margin-bottom: 0.3vh;
-  font-size: 1.5vh;
+  font-size: 1.45vh;
   font-family: MullerBold;
   color: #FFFFFF
 }
