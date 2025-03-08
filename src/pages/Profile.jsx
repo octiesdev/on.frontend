@@ -114,7 +114,7 @@ const Profile = () => {
                         Доступно ONEX's
                       </div>
                       <div className="farming-time-block-Description2">
-                        99/100
+                        99<span className="highlight-text"></span>/100
                     </div>
                   </div>  
                 </div>

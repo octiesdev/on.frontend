@@ -637,6 +637,10 @@ isolation: isolate;
   border-radius: 1vh;
 }
 
+.highlight-text {
+  color: #1FFF02; /* Задаём нужный цвет (например, золотой) */
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
