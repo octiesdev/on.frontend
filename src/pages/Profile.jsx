@@ -57,6 +57,7 @@ const Profile = () => {
             </div>
             <div className="info-profile-nameText45"> 
               <img src={dollarIMG} className="dollar-icon"/>
+              <h2>01</h2>
             </div>
           </div>
         </div>

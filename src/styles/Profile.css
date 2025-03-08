@@ -218,10 +218,9 @@ isolation: isolate;
   overflow: visible;
 }
 
-.info-profile-nameText30 h2 {
+.info-profile-nameText45 h2 {
   font-size: 1vh;
-  margin: 0;
-  font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
+  font-family: MullerLight; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
 }
