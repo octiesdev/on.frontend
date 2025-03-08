@@ -253,6 +253,12 @@ isolation: isolate;
   margin-bottom: 0.1vh;
 }
 
+.receive-button-icons {
+  height: 45%;
+  overflow: hidden;
+  margin-bottom: 0.1vh;
+}
+
 .dollar-icon {
   height: 86%;
   overflow: hidden;
