@@ -74,7 +74,7 @@ const Profile = () => {
               </div>
               <div className="rectangle-for-button-onex">
                 <div className="rectangle-buttons-receive">
-                  <img src={receiveIMG} className="buttons-icons"/>
+                  <img src={receiveIMG} className="receive-button-icon"/>
                   Получить
                 </div>
               </div>
