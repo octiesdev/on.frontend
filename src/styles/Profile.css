@@ -375,6 +375,11 @@ isolation: isolate;
   display: inline-block; /* Чтобы `margin-top` работал */
 }
 
+.text-in-rectangle2 {
+  margin-top: 0.5vh; /* Устанавливаем отступ только для текста */
+  display: inline-block; /* Чтобы `margin-top` работал */
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
