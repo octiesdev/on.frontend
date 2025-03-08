@@ -158,11 +158,6 @@ isolation: isolate;
   overflow: visible;
 }
 
-.text-in-rectangle {
-  margin-top: 0.2vh; /* Устанавливаем отступ только для текста */
-  display: inline-block; /* Чтобы `margin-top` работал */
-}
-
 
 .rectangle-info-profile h2 {
   height: 57%;
