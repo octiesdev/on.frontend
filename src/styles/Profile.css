@@ -371,7 +371,7 @@ isolation: isolate;
 }
 
 .text-in-rectangle {
-  margin-top: 0.2vh; /* Устанавливаем отступ только для текста */
+  margin-top: 0.3vh; /* Устанавливаем отступ только для текста */
   display: inline-block; /* Чтобы `margin-top` работал */
 }
 
