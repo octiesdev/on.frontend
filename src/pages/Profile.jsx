@@ -34,7 +34,7 @@ const Profile = () => {
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
                 <h2>
-                  35.57
+                  385.57
                   <div className="rectangle-info-profile-ton">
                     TON
                   </div>
