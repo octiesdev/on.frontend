@@ -67,7 +67,7 @@ const Profile = () => {
               <div className="rectangle-info-onex">
                 <h2>
                   <span className="text-in-rectangle2">08</span>
-                  <div className="rectangle-info-onex">
+                  <div className="rectangle-info-onex-onex">
                     ONEX
                   </div>
                 </h2>
