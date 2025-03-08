@@ -370,9 +370,15 @@ isolation: isolate;
   gap: 0.6vh;
 }
 
+.text-in-rectangle {
+  margin-top: 0.2vh; /* Устанавливаем отступ только для текста */
+  display: inline-block; /* Чтобы `margin-top` работал */
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 } 
+
