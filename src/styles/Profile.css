@@ -177,7 +177,7 @@ isolation: isolate;
 .rectangle-info-onex {
   display: flex;
   flex-direction: column;
-  margin-right: 8%;
+  margin-right: 5%;
   margin-top: 2.5vh;
   align-items: flex-end;
   justify-content: space-between;
