@@ -44,11 +44,11 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons">
-                  <div className="rectangle-buttons-with-depo">
+                  <div className="rectangle-buttons-depo">
                     <img src={depoIMG} className="buttons-icons"/>
                     Ввод
                   </div>
-                  <div className="rectangle-buttons-with-depo">
+                  <div className="rectangle-buttons-with">
                     <img src={withIMG} className="buttons-icons"/>
                     Вывод
                   </div>
