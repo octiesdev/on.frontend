@@ -124,7 +124,7 @@ const Profile = () => {
                         Награда в TON
                       </div>
                       <div className="farming-time-block-Description2">
-                        5.5 TON
+                        +1 TON
                         <img src={tonIMG}/>
                     </div>
                   </div>
