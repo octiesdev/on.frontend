@@ -589,7 +589,8 @@ isolation: isolate;
 
 .rewardInTon-block img {
   width: 10%;
-  margin-left: 0.2vh;
+  margin-left: 0.3vh;
+  margin-bottom: 0.3vh;
   overflow: hidden;
 }
 
