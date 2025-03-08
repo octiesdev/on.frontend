@@ -163,7 +163,7 @@ isolation: isolate;
 .rectangle-info-profile h2 {
   height: 57%;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   justify-content: flex-start;
   font-size: clamp(3.4vh, 3.4vw,4.17vh);
