@@ -94,10 +94,8 @@ const Profile = () => {
                 <div className="ton-onex-logo"> 
                   <img src={tonIMG}/>
                   <h2>TON</h2>
-                  <img src={onexIMG}/>
-                  <h2>ONEX</h2>
                 </div>
-                <div className="number-OnexNode"> 
+                <div className="number-OnexNode-profile"> 
                   <h2>01</h2>
                 </div>
               </div>
@@ -142,7 +140,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="onexNode-PayButton">
-                <div className="pay-button">
+                <div className="pay-button-profile">
                   ЗАПУСТИТЬ БЕСПЛАТНО
                 </div>
               </div>

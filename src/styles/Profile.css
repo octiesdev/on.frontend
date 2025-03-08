@@ -487,8 +487,8 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
-.number-OnexNode h2 {
-  font-size: 1.3vh;
+.number-OnexNode-profile h2 {
+  font-size: 1.4vh;
   margin-top: -1.3vh;
   font-family: MullerLight; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
@@ -621,7 +621,7 @@ isolation: isolate;
   height: 16%;
 }
 
-.pay-button {
+.pay-button-profile {
   background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 1);
@@ -632,7 +632,7 @@ isolation: isolate;
   align-items: center;
   justify-content: center;
 
-  font-size: 2.2vh;
+  font-size: 1.7vh;
   font-family: "MullerExtraBold", sans-serif;
   border-radius: 1vh;
 }
