@@ -219,7 +219,7 @@ isolation: isolate;
 }
 
 .info-profile-nameText45 h2 {
-  font-size: 1vh;
+  font-size: 1.35vh;
   font-family: MullerLight; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
