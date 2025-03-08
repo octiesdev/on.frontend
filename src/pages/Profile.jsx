@@ -96,7 +96,7 @@ const Profile = () => {
                   <h2>TON</h2>
                 </div>
                 <div className="number-OnexNode"> 
-                  <h2>01</h2>
+                  <h2>03</h2>
                 </div>
               </div>
               <div className="onexNode-infoBlocks">
