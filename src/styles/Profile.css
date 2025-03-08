@@ -419,6 +419,15 @@ isolation: isolate;
   display: inline-block; /* Чтобы `margin-top` работал */
 }
 
+.text-avaliable-drop {
+  font-size: 4vh;
+  font-family: MullerBold; /* ✅ Используем кастомный шрифт */
+  white-space: nowrap; /* ✅ Запрещаем перенос текста */
+  color: #FFFFFF;
+  margin-left: 4%;
+  margin-top: 1vh;
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');

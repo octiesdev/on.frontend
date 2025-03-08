@@ -85,6 +85,9 @@ const Profile = () => {
               <img src={onexlogoIMG} className="onex-logo-icon"/>
             </div>
           </div>
+          <div className="text-avaliable-drop">
+            ДОСТУПНЫЙ ДРОП
+          </div>
         </div>
       </div>
        {/* Футер */}
