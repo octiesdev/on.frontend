@@ -13,6 +13,8 @@ import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
 import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
+import receiveIMG from "../assets/receive-icon.png";
+
 
 const Profile = () => {
 
@@ -71,7 +73,10 @@ const Profile = () => {
                 </h2>
               </div>
               <div className="rectangle-for-button-onex">
-                
+                <div className="rectangle-buttons-receive">
+                  <img src={receiveIMG} className="buttons-icons"/>
+                  Получить
+                </div>
               </div>
             </div>
             <div className="info-onex-nameText60"> 

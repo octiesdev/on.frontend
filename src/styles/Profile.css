@@ -370,6 +370,21 @@ isolation: isolate;
   gap: 0.6vh;
 }
 
+.rectangle-buttons-receive {
+  background-color: #FFFFFF;
+  color: #0D0D0D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35); /* ✅ Добавляем тень */
+  height: 95%;
+  width: 100%;
+  font-size: clamp(1.35vh, 2.5vw, 2vh);
+  font-family: MullerMedium;
+  border-radius: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6vh;
+}
+
 .text-in-rectangle {
   margin-top: 0.35vh; /* Устанавливаем отступ только для текста */
   display: inline-block; /* Чтобы `margin-top` работал */
