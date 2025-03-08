@@ -424,7 +424,7 @@ isolation: isolate;
   font-family: MullerBold; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
-  margin-left: 3.5vh;
+  margin-left: 3.65vh;
   margin-top: 3.5vh;
 }
 
