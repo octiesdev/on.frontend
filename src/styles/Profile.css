@@ -147,6 +147,19 @@ isolation: isolate;
   overflow: hidden;
 }
 
+.rectangle-for-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5vh;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 28.5%;
+  width: 85.2%;
+  overflow: hidden;
+}
+
+
+
 .rectangle-info-profile h2 {
   height: 57%;
   width: 100%;

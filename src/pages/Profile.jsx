@@ -41,6 +41,14 @@ const Profile = () => {
                   <img src={rubIMG}/>
                 </p>
               </div>
+              <div className="rectangle-for-buttons">
+                  <div className="rectangle-info-profile-ton">
+                    Ввод
+                  </div>
+                  <div className="rectangle-info-profile-ton">
+                    Вывод
+                  </div>
+              </div>
             </div>
             <div className="info-profile-nameText45"> 
             </div>
