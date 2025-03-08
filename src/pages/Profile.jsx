@@ -12,6 +12,7 @@ import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
 import withIMG from "../assets/withdraw-icon.png";
+import dollarIMG from "../assets/dollar-img.png";
 
 const Profile = () => {
 
@@ -55,6 +56,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="info-profile-nameText45"> 
+              <img src={dollarIMG} className="dollar-icon"/>
             </div>
           </div>
         </div>

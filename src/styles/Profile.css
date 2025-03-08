@@ -188,6 +188,12 @@ isolation: isolate;
   margin-bottom: 0.1vh;
 }
 
+.dollar-icon {
+  height: 90%;
+  overflow: hidden;
+  bottom: 0;
+}
+
 .rectangle-info-profile p {
   height: 25.5%;
   width: 100%;
