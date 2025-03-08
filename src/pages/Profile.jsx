@@ -128,15 +128,6 @@ const Profile = () => {
                         <img src={tonIMG}/>
                     </div>
                   </div>
-                  <div className="rewardInOnex-block">
-                    <div className="farming-time-block-MainText">
-                        Награда в ONEX
-                      </div>
-                      <div className="farming-time-block-Description">
-                        10 ONEX
-                        <img src={onexIMG}/>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="onexNode-PayButton">
