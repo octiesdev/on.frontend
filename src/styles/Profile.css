@@ -717,7 +717,7 @@ isolation: isolate;
   color: #505050;
   border: 1px solid rgba(80, 80, 80, 1);
 
-  height: 95%;
+  height: 100%;
   width: 55.5%;
   font-size: clamp(1.4vh, 2.5vw, 2vh);
   font-family: MullerExtraBold;
