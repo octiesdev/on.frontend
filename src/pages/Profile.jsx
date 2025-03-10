@@ -150,7 +150,9 @@ const Profile = () => {
             // Блок, который появится при нажатии на "Ввод"
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
+                <div className="rectangle-for-buttons-deposit-block">
 
+                </div>
               </div>
             </div>
           )}
