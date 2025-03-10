@@ -158,6 +158,9 @@ const Profile = () => {
                     ПОПОЛНИТЬ
                   </div>
                 </div>
+                <div className="number-OnexNode"> 
+                  <h2>03</h2>
+                </div>
               </div>
             </div>
           )}
