@@ -18,6 +18,8 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 
 
 const Profile = () => {
+    // Состояние для переключения между разделами
+    const [showDepositSection, setShowDepositSection] = useState(false);
 
   return (
     <div className="App">
@@ -48,7 +50,7 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
-                  <div className="rectangle-buttons-depo">
+                  <div className="rectangle-buttons-depo" onClick={() => setShowDepositSection(true)}>
                     <img src={depoIMG} className="buttons-icons"/>
                     Ввод
                   </div>
@@ -85,58 +87,70 @@ const Profile = () => {
               <img src={onexlogoIMG} className="onex-logo-icon"/>
             </div>
           </div>
-          <div className="text-avaliable-drop">
-            ДОСТУПНЫЙ ДРОП
-          </div>
-          <div className="onex-node"> 
-            <div className="info-onexs-nameText"> 
-              <div className="info-section-logo"> 
-                <div className="ton-onex-logo"> 
-                  <img src={tonIMG}/>
-                  <h2>TON</h2>
-                </div>
-                <div className="number-OnexNode"> 
-                  <h2>03</h2>
-                </div>
+{/* Если showDepositSection = false, показываем текст и onex-node */}
+{!showDepositSection ? (
+            <>
+              <div className="text-avaliable-drop">
+                ДОСТУПНЫЙ ДРОП
               </div>
-              <div className="onexNode-infoBlocks">
-                <div className="first-onexNode-infoBlock">
-                  <div className="farming-time-block">
-                    <div className="farming-time-block-MainText2">
-                      Период фарминга
+              <div className="onex-node"> 
+                <div className="info-onexs-nameText"> 
+                  <div className="info-section-logo"> 
+                    <div className="ton-onex-logo"> 
+                      <img src={tonIMG}/>
+                      <h2>TON</h2>
                     </div>
-                    <div className="farming-time-block-Description2">
-                      3 дня
+                    <div className="number-OnexNode"> 
+                      <h2>03</h2>
                     </div>
                   </div>
-                  <div className="avaliable-onex-info-block">
-                    <div className="farming-time-block-MainText2">
-                        Доступно ONEX's
+                  <div className="onexNode-infoBlocks">
+                    <div className="first-onexNode-infoBlock">
+                      <div className="farming-time-block">
+                        <div className="farming-time-block-MainText2">
+                          Период фарминга
+                        </div>
+                        <div className="farming-time-block-Description2">
+                          3 дня
+                        </div>
                       </div>
-                      <div className="farming-time-block-Description2">
-                        <span className="highlight-text">99</span>/100
+                      <div className="avaliable-onex-info-block">
+                        <div className="farming-time-block-MainText2">
+                          Доступно ONEX's
+                        </div>
+                        <div className="farming-time-block-Description2">
+                          <span className="highlight-text">99</span>/100
+                        </div>
+                      </div>  
                     </div>
-                  </div>  
-                </div>
-                <div className="single-onexNode-infoBlock">
-                  <div className="rewardInTon-block">
-                    <div className="farming-time-block-MainText2">
-                        Награда в TON
+                    <div className="single-onexNode-infoBlock">
+                      <div className="rewardInTon-block">
+                        <div className="farming-time-block-MainText2">
+                          Награда в TON
+                        </div>
+                        <div className="farming-time-block-Description2">
+                          +1 TON
+                          <img src={tonIMG}/>
+                        </div>
                       </div>
-                      <div className="farming-time-block-Description2">
-                        +1 TON
-                        <img src={tonIMG}/>
+                    </div>
+                  </div>
+                  <div className="onexNode-PayButton">
+                    <div className="pay-button-profile">
+                      ЗАПУСТИТЬ БЕСПЛАТНО
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="onexNode-PayButton">
-                <div className="pay-button-profile">
-                  ЗАПУСТИТЬ БЕСПЛАТНО
-                </div>
-              </div>
+            </>
+          ) : (
+            // Блок, который появится при нажатии на "Ввод"
+            <div className="deposit-section">
+              <h2>Внесение депозита</h2>
+              <p>Выберите сумму и способ пополнения</p>
+              <button onClick={() => setShowDepositSection(false)}>Назад</button>
             </div>
-          </div>
+          )}
         </div>
       </div>
        {/* Футер */}
