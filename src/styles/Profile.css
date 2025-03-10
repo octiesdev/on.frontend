@@ -729,9 +729,10 @@ isolation: isolate;
 }
 
 .number-OnexNode-deposit-block h2 {
+  position: absolute;
   font-size: 1.4vh;
-  margin-top: -1.3vh;
-  top: 1vh;
+  top: 1.3vh;
+  right: 3vh;
   font-family: MullerLight; /* ✅ Используем кастомный шрифт */
   white-space: nowrap; /* ✅ Запрещаем перенос текста */
   color: #FFFFFF;
