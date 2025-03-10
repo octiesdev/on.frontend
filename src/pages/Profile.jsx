@@ -179,7 +179,7 @@ const Profile = () => {
                     СУММА
                   </div>
                   <div className="rectangle-buttonDepo-depoSection">
-                    Вывести
+                    ВЫВЕСТИ
                   </div>
                 </div>
                 <div className="number-OnexNode-deposit-block"> 
@@ -187,7 +187,7 @@ const Profile = () => {
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
                   <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
-                  <p>2. Обработка вывода может занимать до <br/> 24 часов. </p>
+                  <p>2. Обработка вывода может занимать до 24 часов. </p>
                   <p>3. Минимальная сумма вывода 1 TON.</p>
                 </div>
               </div>
