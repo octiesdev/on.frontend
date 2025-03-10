@@ -644,7 +644,8 @@ isolation: isolate;
 
 /* Эффект затемнения кнопки при нажатии */
 .rectangle-buttons-depo,
-.rectangle-buttons-with {
+.rectangle-buttons-with,
+.rectangle-buttons-receive {
   transition: all 0.3s ease; /* Плавный переход */
 }
 
