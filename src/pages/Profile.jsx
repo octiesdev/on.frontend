@@ -65,6 +65,10 @@ const Profile = () => {
               <img src={dollarIMG} className="dollar-icon"/>
             </div>
           </div>
+
+          {/* Если showDepositSection = false, показываем текст и onex-node */}
+          {!showDepositSection ? (
+            <>
           <div className="info-onex-block"> 
             <div className="info-onex-nameText40"> 
               <div className="rectangle-info-onex">
@@ -87,9 +91,6 @@ const Profile = () => {
               <img src={onexlogoIMG} className="onex-logo-icon"/>
             </div>
           </div>
-{/* Если showDepositSection = false, показываем текст и onex-node */}
-{!showDepositSection ? (
-            <>
               <div className="text-avaliable-drop">
                 ДОСТУПНЫЙ ДРОП
               </div>
