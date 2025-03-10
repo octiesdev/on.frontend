@@ -182,6 +182,7 @@ const Profile = () => {
           )}
 
           {activeSection === "withdraw" && (
+            <>
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
@@ -202,6 +203,13 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+            <div className="rectangle-support">
+              В случае каких-либо проблем с выводом, обращайтесь в тех. поддержку.
+              <div className="rectangle-button-support">
+                ТЕХ.ПОДДЕРЖКА
+              </div>
+            </div>
+            </>
           )}
 
 
