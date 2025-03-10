@@ -689,6 +689,7 @@ isolation: isolate;
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
+  margin-left: 3.8vh;
   align-items: center;
   justify-content: space-between;
   height: 16.2%;
@@ -697,7 +698,6 @@ isolation: isolate;
 }
 
 .rectangle-button-amount {
-  margin-left: 3.8vh;
   background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 1);
