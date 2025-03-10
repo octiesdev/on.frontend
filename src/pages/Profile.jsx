@@ -158,7 +158,7 @@ const Profile = () => {
                     ПОПОЛНИТЬ
                   </div>
                 </div>
-                <div className="number-OnexNode"> 
+                <div className="number-OnexNode-deposit-block"> 
                   <h2>03</h2>
                 </div>
               </div>
