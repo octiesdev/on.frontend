@@ -697,9 +697,10 @@ isolation: isolate;
   overflow: visible;
 }
 
-.rectangle-for-text-deposit-block {
+.rectangle-for-text-deposit-block p{
   display: flex;
   flex-direction: column;
+  gap: 1vh;
   margin-top: 2.5vh;
   margin-left: 4.1vh;
   align-items: flex-start;
