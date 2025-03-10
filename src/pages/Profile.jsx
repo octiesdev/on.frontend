@@ -19,7 +19,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 
 const Profile = () => {
     // Состояние для переключения между разделами
-    const [showDepositSection, setShowDepositSection] = useState(false);
+    const [activeSection, setActiveSection] = useState("default");
 
   return (
     <div className="App">
@@ -50,13 +50,13 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
-                  <div 
-                    className={`rectangle-buttons-depo ${showDepositSection ? "disabled" : ""}`}
-                    onClick={() => setShowDepositSection(true)}>
+                  <div className={`rectangle-buttons-depo ${activeSection === "deposit" ? "active" : ""}`}
+                    onClick={() => setActiveSection("deposit")}>
                     <img src={depoIMG} className="buttons-icons" />
                     Ввод
                   </div>
-                  <div className="rectangle-buttons-with">
+                  <div className={`rectangle-buttons-with ${activeSection === "withdraw" ? "active" : ""}`}
+                    onClick={() => setActiveSection("withdraw")}>
                     <img src={withIMG} className="buttons-icons"/>
                     Вывод
                   </div>
@@ -68,8 +68,8 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Если showDepositSection = false, показываем текст и onex-node */}
-          {!showDepositSection ? (
+        {/* Если showDepositSection = false, показываем текст и onex-node */}
+        {activeSection === "default" && (
             <>
           <div className="info-onex-block"> 
             <div className="info-onex-nameText40"> 
@@ -92,7 +92,7 @@ const Profile = () => {
               <h2>02</h2>
               <img src={onexlogoIMG} className="onex-logo-icon"/>
             </div>
-          </div>
+            </div>
               <div className="text-avaliable-drop">
                 ДОСТУПНЫЙ ДРОП
               </div>
@@ -146,8 +146,9 @@ const Profile = () => {
                 </div>
               </div>
             </>
-          ) : (
-            // Блок, который появится при нажатии на "Ввод"
+          )}
+
+          {activeSection === "deposit" && (
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
@@ -169,6 +170,31 @@ const Profile = () => {
               </div>
             </div>
           )}
+
+          {activeSection === "withdraw" && (
+            <div className="deposit-block">
+              <div className="info-deposit-nameText100">
+                <div className="rectangle-for-buttons-deposit-block">
+                  <div className="rectangle-button-amount">
+                    СУММА
+                  </div>
+                  <div className="rectangle-buttonDepo-depoSection">
+                    Вывести
+                  </div>
+                </div>
+                <div className="number-OnexNode-deposit-block"> 
+                  <h2>02</h2>
+                </div>
+                <div className="rectangle-for-text-deposit-block"> 
+                  <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
+                  <p>2. Обработка вывода может занимать до <br/> 24 часов. </p>
+                  <p>3. Минимальная сумма вывода 1 TON.</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+
         </div>
       </div>
        {/* Футер */}
