@@ -151,7 +151,9 @@ const Profile = () => {
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
+                  <div className="rectangle-button-amount">
 
+                  </div>
                 </div>
               </div>
             </div>
