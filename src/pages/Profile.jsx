@@ -79,7 +79,7 @@ const Profile = () => {
           </div>
 
           {/* Если showDepositSection = false, показываем текст и onex-node */}
-          {!showDepositSection ? (
+          {!showNewBlock ? (
             <>
           <div className="info-onex-block"> 
             <div className="info-onex-nameText40"> 
