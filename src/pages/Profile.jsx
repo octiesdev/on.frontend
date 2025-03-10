@@ -20,6 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
+    const navigate = useNavigate();
 
   return (
     <div className="App">
@@ -82,7 +83,7 @@ const Profile = () => {
                 </h2>
               </div>
               <div className="rectangle-for-button-onex">
-                <div className="rectangle-buttons-receive">
+                <div className="rectangle-buttons-receive" onClick={() => navigate("/tasks")}>
                   <img src={receiveIMG} className="receive-button-icon"/>
                   Получить
                 </div>
