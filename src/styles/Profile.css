@@ -704,7 +704,22 @@ isolation: isolate;
 
   height: 95%;
   width: 39.75%;
-  font-size: clamp(1.35vh, 2.5vw, 2vh);
+  font-size: clamp(1.4vh, 2.5vw, 2vh);
+  font-family: MullerExtraBold;
+  border-radius: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rectangle-buttonDepo-depoSection {
+  background: rgba(255, 255, 255, 0.15);
+  color: #505050;
+  border: 1px solid rgba(80, 80, 80, 1);
+
+  height: 95%;
+  width: 39.75%;
+  font-size: clamp(1.4vh, 2.5vw, 2vh);
   font-family: MullerExtraBold;
   border-radius: 1vh;
   display: flex;

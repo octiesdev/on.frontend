@@ -154,6 +154,9 @@ const Profile = () => {
                   <div className="rectangle-button-amount">
                     СУММА
                   </div>
+                  <div className="rectangle-buttonDepo-depoSection">
+                    ПОПОЛНИТЬ
+                  </div>
                 </div>
               </div>
             </div>
