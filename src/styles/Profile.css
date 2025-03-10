@@ -648,8 +648,8 @@ isolation: isolate;
   transition: all 0.3s ease; /* Плавный переход */
 }
 
-.rectangle-buttons-depo:active,
-.rectangle-buttons-with:active {
+.rectangle-buttons-depo.active,
+.rectangle-buttons-with.active {
   filter: brightness(50%); /* Затемняет кнопку на 50% */
 }
 
