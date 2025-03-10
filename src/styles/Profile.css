@@ -642,22 +642,15 @@ isolation: isolate;
   color: #1FFF02; /* Задаём нужный цвет (например, золотой) */
 }
 
+/* Эффект затемнения кнопки при нажатии */
 .rectangle-buttons-depo,
 .rectangle-buttons-with {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Плавный переход */
 }
 
-/* Обычное состояние */
-.rectangle-buttons-depo,
-.rectangle-buttons-with {
-  background-color: #FFFFFF;
-  color: #0D0D0D;
-}
-
-/* При активном состоянии (после нажатия) */
-.rectangle-buttons-depo.active,
-.rectangle-buttons-with.active {
-  filter: brightness(50%);
+.rectangle-buttons-depo:active,
+.rectangle-buttons-with:active {
+  filter: brightness(50%); /* Затемняет кнопку на 50% */
 }
 
 @font-face {
