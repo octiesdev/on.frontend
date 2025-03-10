@@ -688,7 +688,7 @@ isolation: isolate;
 .rectangle-for-buttons-deposit-block {
   display: flex;
   flex-direction: row;
-  margin-top: 2vh;
+  margin-top: 2.55vh;
   margin-left: 4.1vh;
   align-items: center;
   justify-content: space-between;
