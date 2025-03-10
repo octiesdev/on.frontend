@@ -152,7 +152,7 @@ const Profile = () => {
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
                   <div className="rectangle-button-amount">
-
+                    СУММА
                   </div>
                 </div>
               </div>
