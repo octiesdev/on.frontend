@@ -151,6 +151,7 @@ const Profile = () => {
           )}
 
           {activeSection === "deposit" && (
+            <>
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
@@ -170,8 +171,11 @@ const Profile = () => {
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
                 </div>
               </div>
-              <div className="rectangle-support"></div>
             </div>
+            <div className="rectangle-support">
+              
+            </div>
+            </>
           )}
 
           {activeSection === "withdraw" && (
