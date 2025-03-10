@@ -685,6 +685,17 @@ isolation: isolate;
   overflow: visible;
 }
 
+.rectangle-for-buttons-deposit-block {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2vh;
+  align-items: center;
+  justify-content: space-between;
+  height: 16.2%;
+  width: 68.6%;
+  overflow: visible;
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
