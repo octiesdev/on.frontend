@@ -20,6 +20,19 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [showDepositSection, setShowDepositSection] = useState(false);
+    const [showDepositBlock, setShowDepositBlock] = useState(false);
+
+    // ✅ Функция клика по кнопкам
+    const handleButtonClick = (button) => {
+      setSelectedButton(button);
+  
+      // Если нажали "Ввод" — скрываем старый блок и показываем новый
+      if (button === "deposit") {
+        setShowDepositBlock(true);
+      } else {
+        setShowDepositBlock(false);
+      }
+    };
 
   return (
     <div className="App">
@@ -50,12 +63,12 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
-              <button
-                className={`rectangle-buttons-depo ${selectedButton === "deposit" ? "active" : ""}`}
-                onClick={() => handleButtonClick("deposit")}>
-                <img src={depoIMG} className="buttons-icons" />
-                Ввод
-              </button>
+                <button
+                  className={`rectangle-buttons-depo ${selectedButton === "deposit" ? "active" : ""}`}
+                  onClick={() => handleButtonClick("deposit")}>
+                  <img src={depoIMG} className="buttons-icons" />
+                  Ввод
+                </button>
                   <div className="rectangle-buttons-with">
                     <img src={withIMG} className="buttons-icons"/>
                     Вывод
@@ -69,7 +82,7 @@ const Profile = () => {
           </div>
 
           {/* Если showDepositSection = false, показываем текст и onex-node */}
-          {!showDepositSection ? (
+          {showDepositBlock ? (
             <>
           <div className="info-onex-block"> 
             <div className="info-onex-nameText40"> 
