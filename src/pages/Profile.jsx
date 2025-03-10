@@ -21,7 +21,12 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
+
     const navigate = useNavigate();
+
+    const handleSupportClick = () => {
+      window.open("https://t.me/zustrich_lab_hr", "_blank");
+    };
 
   return (
     <div className="App">
@@ -174,7 +179,7 @@ const Profile = () => {
             </div>
             <div className="rectangle-support">
               В случае каких-либо проблем с депозитом, обращайтесь в тех. поддержку.
-              <div className="rectangle-button-support">
+              <div className="rectangle-button-support" onClick={handleSupportClick}>
                 ТЕХ.ПОДДЕРЖКА
               </div>
             </div>
@@ -205,7 +210,7 @@ const Profile = () => {
             </div>
             <div className="rectangle-support">
               В случае каких-либо проблем с выводом, обращайтесь в тех. поддержку.
-              <div className="rectangle-button-support">
+              <div className="rectangle-button-support" onClick={handleSupportClick}>
                 ТЕХ.ПОДДЕРЖКА
               </div>
             </div>
@@ -222,4 +227,4 @@ const Profile = () => {
 };
 
 export default Profile;
-        
+
