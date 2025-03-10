@@ -760,6 +760,20 @@ isolation: isolate;
   color: #FFFFFF;
 }
 
+.rectangle-support {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  align-items: center;
+  justify-content: center;
+  height: 53.5%;
+  width: 79.9%;
+  overflow: visible;
+
+  font-size: clamp(1.65vh, 2.6vw, 2.1vh);
+  font-family: MullerLight;
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
