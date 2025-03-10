@@ -780,8 +780,8 @@ isolation: isolate;
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 1);
 
-  height: 62.3%;
-  width: 39.75%;
+  height: 39.75%;
+  width: 62.3%;
   font-size: clamp(1.4vh, 2.5vw, 2vh);
   font-family: MullerExtraBold;
   border-radius: 1vh;
