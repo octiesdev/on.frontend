@@ -20,6 +20,16 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [showDepositSection, setShowDepositSection] = useState(false);
+    const [showNewBlock, setShowNewBlock] = useState(false);
+
+    const handleButtonClick = (button) => {
+      setSelectedButton(button);
+      if (button === "deposit") {
+        setShowNewBlock(true);
+      } else {
+        setShowNewBlock(false);
+      }
+    };
 
   return (
     <div className="App">
@@ -50,10 +60,12 @@ const Profile = () => {
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
-                  <div className="rectangle-buttons-depo" onClick={() => setShowDepositSection(true)}>
-                    <img src={depoIMG} className="buttons-icons"/>
-                    Ввод
-                  </div>
+              <button
+                className={`rectangle-buttons-depo ${selectedButton === "deposit" ? "active" : ""}`}
+                onClick={() => handleButtonClick("deposit")}>
+                <img src={depoIMG} className="buttons-icons" />
+                Ввод
+              </button>
                   <div className="rectangle-buttons-with">
                     <img src={withIMG} className="buttons-icons"/>
                     Вывод
