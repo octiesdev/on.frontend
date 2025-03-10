@@ -148,10 +148,8 @@ const Profile = () => {
             </>
           ) : (
             // Блок, который появится при нажатии на "Ввод"
-            <div className="deposit-section">
-              <h2>Внесение депозита</h2>
-              <p>Выберите сумму и способ пополнения</p>
-              <button onClick={() => setShowDepositSection(false)}>Назад</button>
+            <div className="deposit-block">
+
             </div>
           )}
         </div>
