@@ -26,6 +26,11 @@ const Profile = () => {
         setActiveButton(button); // Устанавливаем активную кнопку
         setShowDepositSection(button === "deposit");
     };
+    
+    const buttonStyle = (button) => ({
+      opacity: activeButton === button ? 0.5 : 1, // Уменьшаем прозрачность выбранной кнопки
+      transition: "opacity 0.3s ease" // Добавляем плавный переход
+    });
 
   return (
     <div className="App">
