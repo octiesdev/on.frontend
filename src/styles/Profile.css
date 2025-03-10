@@ -642,6 +642,17 @@ isolation: isolate;
   color: #1FFF02; /* Задаём нужный цвет (например, золотой) */
 }
 
+/* Эффект затемнения кнопки при нажатии */
+.rectangle-buttons-depo,
+.rectangle-buttons-with {
+  transition: all 0.3s ease; /* Плавный переход */
+}
+
+.rectangle-buttons-depo:active,
+.rectangle-buttons-with:active {
+  filter: brightness(50%); /* Затемняет кнопку на 50% */
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
