@@ -719,7 +719,7 @@ isolation: isolate;
 
   height: 100%;
   width: 56%;
-  margin-top: 0.15vh;
+  margin-top: 0.1vh;
   font-size: clamp(1.4vh, 2.5vw, 2vh);
   font-family: MullerExtraBold;
   border-radius: 1vh;
