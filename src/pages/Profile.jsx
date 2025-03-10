@@ -51,7 +51,7 @@ const Profile = () => {
               </div>
               <div className="rectangle-for-buttons-profile">
                   <div 
-                    className="rectangle-buttons-depo"
+                    className={`rectangle-buttons-depo ${showDepositSection ? "disabled" : ""}`}
                     onClick={() => setShowDepositSection(true)}>
                     <img src={depoIMG} className="buttons-icons" />
                     Ввод

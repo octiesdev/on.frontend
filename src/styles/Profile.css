@@ -653,6 +653,11 @@ isolation: isolate;
   filter: brightness(50%); /* Затемняет кнопку на 50% */
 }
 
+.rectangle-buttons-depo.disabled {
+  opacity: 0.5; /* Уменьшает яркость кнопки */
+  pointer-events: none; /* Отключает клики, чтобы не спамить */
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
