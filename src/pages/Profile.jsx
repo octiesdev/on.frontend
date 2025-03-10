@@ -170,6 +170,7 @@ const Profile = () => {
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
                 </div>
               </div>
+              <div className="rectangle-support"></div>
             </div>
           )}
 
