@@ -159,11 +159,11 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="number-OnexNode-deposit-block"> 
-                  <h2>03</h2>
+                  <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
                   <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
-                  <p>2. Минимальный депозит 5 TON </p>
+                  <p>2. Минимальный депозит 5 TON. </p>
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
                 </div>
               </div>
