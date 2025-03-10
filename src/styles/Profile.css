@@ -697,6 +697,20 @@ isolation: isolate;
   overflow: visible;
 }
 
+.rectangle-for-text-deposit-block {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4.1vh;
+  align-items: flex-start;
+  justify-content: center;
+  height: 53.5%;
+  width: 79.9%;
+  overflow: visible;
+
+  font-size: clamp(1vh, 2.1vw, 1.6vh);
+  font-family: MullerLight;
+}
+
 .rectangle-button-amount {
   background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
