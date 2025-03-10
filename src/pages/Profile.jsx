@@ -161,6 +161,7 @@ const Profile = () => {
                 <div className="number-OnexNode-deposit-block"> 
                   <h2>03</h2>
                 </div>
+                1. Подключите кошелек (в правом верхнем углу экрана) перед внесением депозита.
               </div>
             </div>
           )}
