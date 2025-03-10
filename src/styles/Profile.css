@@ -766,7 +766,7 @@ isolation: isolate;
   margin-top: 9vh;
   align-self: center;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 10.95%;
   width: 65.9%;
   overflow: visible;
