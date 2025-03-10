@@ -174,6 +174,9 @@ const Profile = () => {
             </div>
             <div className="rectangle-support">
               В случае каких-либо проблем с депозитом, обращайтесь в тех. поддержку.
+              <div className="rectangle-button-support">
+                ТЕХ.ПОДДЕРЖКА
+              </div>
             </div>
             </>
           )}
