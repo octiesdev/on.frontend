@@ -20,16 +20,6 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [showDepositSection, setShowDepositSection] = useState(false);
-    const [showNewBlock, setShowNewBlock] = useState(false);
-
-    const handleButtonClick = (button) => {
-      setSelectedButton(button);
-      if (button === "deposit") {
-        setShowNewBlock(true);
-      } else {
-        setShowNewBlock(false);
-      }
-    };
 
   return (
     <div className="App">
@@ -79,7 +69,7 @@ const Profile = () => {
           </div>
 
           {/* Если showDepositSection = false, показываем текст и onex-node */}
-          {!showNewBlock ? (
+          {!showDepositSection ? (
             <>
           <div className="info-onex-block"> 
             <div className="info-onex-nameText40"> 
