@@ -32,8 +32,8 @@ const AmbasProgram = () => {
           <div className="info-ambasProgram-block"> 
             <div className="info-ambasProgram-nameText"> 
               <h2>AMBASADOR<br/>PROGRAM</h2>
-              <p>1. Зарабатывай TON с каждой покупки твоих рефералов.<br/></p>
-              <p>2. Фарми фиксированное количество ONEX за каждого приглашенного реферала.<br/></p>
+              <p>1. Зарабатывай TON с каждой покупки<br/>твоих рефералов.</p>
+              <p>2. Фарми фиксированное количество<br/>ONEX за каждого приглашенного<br/>реферала.</p>
             </div>
         </div>
         </div>
