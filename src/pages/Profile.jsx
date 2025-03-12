@@ -25,6 +25,10 @@ const Profile = () => {
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
 
+    useEffect(() => {
+      console.log("navigate function:", navigate);
+    }, [navigate]);
+
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
