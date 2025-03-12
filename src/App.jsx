@@ -15,6 +15,7 @@ const App = () => {
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
       <Route path="/onexs" element={<Onexs />} />
+      <Route path="/ambasProgram" element={<AmbasProgram />} />
     </Routes>
   );
 };
