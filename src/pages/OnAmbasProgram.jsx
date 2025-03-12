@@ -80,6 +80,26 @@ const OnAmbasProgram = () => {
                         <img src={logoInTheEclipseIMG} alt=""/>
                     </div>
                     <h2>bullpitt4</h2>
+                    <div className="OnAmbasProgram-section-friendsBlocks"> 
+                    <div className="rewardInTON-block">
+                        <div className="rewardInTON-block-MainText2">
+                            Награда в TON 
+                        </div>
+                        <div className="rewardInTON-block-Description2">
+                            100 TON
+                            <img src={tonIMG} alt=""/>
+                        </div>
+                    </div>
+                    <div className="rewardInONEX-block">
+                        <div className="rewardInONEX-block-MainText2">
+                            Награда в ONEX 
+                        </div>
+                        <div className="rewardInONEX-block-Description2">
+                            16 ONEX
+                            <img src={onexIMG} alt=""/>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
           </div>
