@@ -29,17 +29,24 @@ const Profile = () => {
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
-
-    const [tonConnectUI] = useTonConnectUI();
-    const { open, close } = useTonConnectModal();
     const walletAddress = useTonAddress();
-    
+    const { open } = useTonConnectModal();
+    const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
+
+    useEffect(() => {
+        console.log("✅ TonConnect UI загружен!");
+    }, []);
+
     const handleWalletClick = () => {
+        console.log("🔥 Клик по кнопке кошелька...");
+        console.log("Текущий адрес кошелька:", walletAddress);
+        console.log("Статус модалки:", tonConnectUI.uiOptions.buttonRootId);
+
         if (walletAddress) {
-            console.log("🔥 Кошелек уже подключен:", walletAddress);
-            open();  // Открываем модальное окно с кнопками Disconnect и Copy Address
+            console.log("✅ Кошелек уже подключен, открываю меню с кнопками Disconnect и Copy Address...");
+            open();  // Открываем меню Disconnect/Copy Address
         } else {
-            console.log("🔥 Открываю модальное окно TonConnect...");
+            console.log("🟢 Открываю окно подключения кошелька...");
             tonConnectUI.openModal();
         }
     };
