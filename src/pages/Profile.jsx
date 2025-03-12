@@ -35,7 +35,7 @@ const Profile = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo"></img>
+            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/ambasProgram")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
