@@ -177,7 +177,7 @@ body {
 }
 
 .info-OnAmbasProgram-nameText2 h2 {
-    font-size: 2vh;
+    font-size: 1.9vh;
     margin: 0;
     font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
