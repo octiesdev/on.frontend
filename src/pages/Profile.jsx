@@ -69,7 +69,7 @@ const Profile = () => {
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
               <div id="headerConnectWalletConnected" onClick={handleWalletClick}>
-                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
+                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
               </div>
             </div>
         </div>
