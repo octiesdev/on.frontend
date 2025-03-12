@@ -30,7 +30,12 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const { openModal } = useTonConnectUI(); // Убеждаемся, что импорт работает
+    const [tonConnectUI] = useTonConnectUI();
+
+    const handleWalletClick = () => {
+        console.log("🔥 Попытка открыть модальное окно TonConnect...");
+        tonConnectUI.openModal();
+    };
 
   return (
     <div className="App">
@@ -48,11 +53,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" 
-              onClick={() => {
-                console.log("🔥 Попытка открыть модальное окно TonConnect...");
-                openModal();
-              }}/>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
