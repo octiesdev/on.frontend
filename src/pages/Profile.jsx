@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTonConnectUI } from "@tonconnect/ui-react";
+import { useTonAddress } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -30,6 +31,7 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
+    const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
 
     const handleWalletClick = () => {
