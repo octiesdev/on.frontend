@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TonConnectUIProvider, useTonConnectUI } from "@tonconnect/ui-react";
+import { useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -36,11 +36,7 @@ const Profile = () => {
     const walletAddress = useTonAddress();
     const tonConnectUI = useTonConnectUI();
     
-    const handleDisconnect = async () => {
-        await tonConnectUI.disconnect();
-    };
-
-    const { open } = useTonConnectUI();
+    const { openModal } = useTonConnectUI();
 
   return (
     <div className="App">
@@ -60,10 +56,9 @@ const Profile = () => {
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" 
               onClick={() => {
-                console.log("tonConnectUI:", tonConnectUI);
-                if (tonConnectUI) {
-                  tonConnectUI.connectWallet();
-                }}}/>
+                console.log("🔥 Попытка открыть модальное окно TonConnect...");
+                openModal();
+              }}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
