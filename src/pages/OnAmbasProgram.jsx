@@ -49,6 +49,7 @@ const OnAmbasProgram = () => {
                         </div>
                         <div className="earnTON-block-Description2">
                             10%
+                            <img src={tonIMG} alt=""/>
                         </div>
                     </div>
                     <div className="earnONEX-block">
@@ -57,6 +58,7 @@ const OnAmbasProgram = () => {
                         </div>
                         <div className="earnONEX-block-Description2">
                             20%
+                            <img src={onexIMG} alt=""/>
                         </div>
                     </div>
                 </div>

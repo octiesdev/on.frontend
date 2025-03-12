@@ -246,6 +246,13 @@ body {
     color: #FFFFFF
 }
 
+.earnTON-block img {
+    width: 10%;
+    margin-left: 0.3vh;
+    margin-bottom: 0.25vh;
+    overflow: hidden;
+}
+
 .earnONEX-block {
     background: rgba(32, 32, 32, 0.2);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -282,4 +289,11 @@ body {
     font-size: 1.45vh;
     font-family: MullerBold;
     color: #FFFFFF
+}
+
+.earnONEX-block img {
+    width: 10%;
+    margin-left: 0.3vh;
+    margin-bottom: 0.25vh;
+    overflow: hidden;
 }
