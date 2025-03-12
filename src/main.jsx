@@ -18,7 +18,6 @@ root.render(
   <React.StrictMode>
     <TonConnectUIProvider manifestUrl="https://raw.githubusercontent.com/octiesdev/tonconnect-manifest/refs/heads/main/tonconnect-manifest.json">
       <BrowserRouter>
-        <Profile />
         <App />
       </BrowserRouter>
     </TonConnectUIProvider>
