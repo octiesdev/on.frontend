@@ -25,9 +25,9 @@ const Profile = () => {
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
 
-    useEffect(() => {
-      console.log("navigate function:", navigate);
-    }, [navigate]);
+    const handleLogoClick = () => {
+      setTimeout(() => navigate("/"), 0);
+    };
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
@@ -42,7 +42,7 @@ const Profile = () => {
             <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
-              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
+              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={handleLogoClick}></img>
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
