@@ -299,3 +299,12 @@ body {
     margin-bottom: 0.12vh;
     overflow: hidden;
 }
+
+.invite-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 82.5%;
+    height: 21.9%;
+}
