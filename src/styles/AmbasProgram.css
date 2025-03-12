@@ -157,3 +157,18 @@ body {
     margin-top: 17vh;
 }
 
+.rectangle-button-getAmbassAcess {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 1);
+  
+    height: 6.6%;
+    width: 81%;
+    font-size: clamp(1.4vh, 2.5vw, 2vh);
+    font-family: MullerExtraBold;
+    border-radius: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22vh;  }

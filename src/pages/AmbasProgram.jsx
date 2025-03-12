@@ -40,6 +40,9 @@ const AmbasProgram = () => {
           <div className="logoEclipse"> 
             <img src={logoEclipseIMG} alt=""/>
           </div>
+          <div className="rectangle-button-getAmbassAcess"> 
+            СТАТЬ АМБАСАДОРОМ
+          </div>
         </div>
         </div>
         {/* Футер */}
