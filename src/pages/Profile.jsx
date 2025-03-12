@@ -23,6 +23,7 @@ const Profile = () => {
     const [activeSection, setActiveSection] = useState("default");
 
     const navigate = useNavigate();
+    console.log("navigate function:", navigate);
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
