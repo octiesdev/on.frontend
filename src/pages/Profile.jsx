@@ -32,14 +32,20 @@ const Profile = () => {
 
     const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
+    const { open } = useTonConnectModal(); // <-- Используем для вызова модалки
 
+    // 📌 Обработчик клика по кнопке подключения
     const handleWalletClick = () => {
-      if (walletAddress) {
-          console.log("🔥 Кошелек уже подключен:", walletAddress);
-      } else {
-          console.log("🔥 Открываю модальное окно TonConnect...");
-          tonConnectUI.openModal();
-      }
+        console.log("🔥 Клик по кнопке кошелька...");
+        console.log("Текущий адрес кошелька:", walletAddress);
+        
+        if (walletAddress) {
+            console.log("✅ Кошелек уже подключен, открываю модалку...");
+            open(); // <-- Теперь открываем нужную модалку
+        } else {
+            console.log("📌 Кошелек не подключен, открываю окно подключения...");
+            tonConnectUI.openModal();
+        }
     };
 
 
@@ -59,9 +65,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <div id="headerConnectWalletConnected">
-                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
-              </div>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
