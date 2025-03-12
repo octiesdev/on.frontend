@@ -6,10 +6,6 @@ import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import Footer from "../Footer"; // Подключаем футер
-import onexIMG from "../assets/onex-circle.png";
-import blumIMG from "../assets/blum-circle.png";
-import pawsIMG from "../assets/paws-circle.png";
-import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
@@ -64,9 +60,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <div id="headerConnectWalletConnected" onClick={handleWalletClick}>
-                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
-              </div>
+                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}></img>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 

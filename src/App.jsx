@@ -10,13 +10,20 @@ import OnAmbasProgram from "./pages/OnAmbasProgram";
 
 console.log("🚀 `App.jsx` загружается...");
 
+useEffect(() => {
+  if (window.TON_CONNECT_UI) {
+      new window.TON_CONNECT_UI.TonConnectUI({
+          manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+          buttonRootId: "TonMainConBtn"
+      });
+  }
+}, []);
+
 const App = () => {
   console.log("✅ `App.jsx` отрендерился!");
   return (
     <TonConnectUIProvider 
-    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json"
-    buttonRootId="headerConnectWalletConnected">
-      <Profile />
+    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json">
     <Routes>
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
