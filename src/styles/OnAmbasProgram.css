@@ -214,7 +214,6 @@ body {
     border-radius: 10px;
     width: 34.7%;
     height: 100%; 
-    gap: 1vh;
   
     display: flex;
     flex-direction: column;
