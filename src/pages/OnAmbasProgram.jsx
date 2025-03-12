@@ -76,6 +76,7 @@ const OnAmbasProgram = () => {
             <div className="info-about-friends-block-nameText2"> 
                 <div className="info-section-friend-eclipse-block"> 
                     <div className="friend-eclipse"> 
+                        <img src={onexIMG} alt=""/>
                     </div>
                     <h2>bullpitt4</h2>
                 </div>
