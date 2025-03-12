@@ -156,7 +156,7 @@ const OnAmbasProgram = () => {
                             Награда в ONEX 
                         </div>
                         <div className="rewardInONEX-block-Description2">
-                            06 ONEX
+                            08 ONEX
                             <img src={onexIMG} alt=""/>
                         </div>
                     </div>
