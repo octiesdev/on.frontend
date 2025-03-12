@@ -144,7 +144,7 @@ body {
 }
 
 .info-ambasProgram-nameText p {
-    font-family: "MullerLight", sans-serif; /* ✅ Используем кастомный шрифт */
-    font-size: clamp(1.65vh, 2.6vw, 2.1vh);
+    font-family: MullerLight;
+    font-size: 1.7vh; /*clamp(1.65vh, 2.6vw, 2.1vh)*/
 }
 
