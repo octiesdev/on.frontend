@@ -30,6 +30,9 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
+    const connectWallet = useTonConnectUI(); // Должно быть определено
+    connectWallet(); // Вызов функции
+
     const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
     
@@ -55,7 +58,11 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={() => open()}/>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" 
+              onClick={() => {
+                console.log("Подключение кошелька...");
+                tonConnectUI.connectWallet();
+              }}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
