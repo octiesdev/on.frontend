@@ -422,10 +422,11 @@ body {
     height: 100%; 
     gap: 0.2vh;
 
+
   
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    margin-left: 4.5vh;
 }
   
 .rewardInTON-block-MainText2 {
