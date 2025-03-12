@@ -165,7 +165,7 @@ body {
   
     height: 4.85%;
     width: 81%;
-    font-size: clamp(1.4vh, 2.5vw, 2vh);
+    font-size: 1.55vh;
     font-family: MullerExtraBold;
     border-radius: 1.4vh;
     display: flex;
