@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTonConnectUI } from "@tonconnect/ui-react";
+import { useTonConnectUI, useTonAddress } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -30,11 +30,17 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const [tonConnectUI] = useTonConnectUI();
-
-    const handleWalletClick = () => {
-        console.log("🔥 Попытка открыть модальное окно TonConnect...");
-        tonConnectUI.openModal();
+    const WalletConnectButton = () => {
+      const [tonConnectUI] = useTonConnectUI();
+      const walletAddress = useTonAddress(); // Получаем текущий адрес кошелька
+  
+      const handleWalletClick = () => {
+        if (walletAddress) {
+            console.log("🔥 Кошелек уже подключен:", walletAddress);
+        } else {
+            console.log("🔥 Открываю модальное окно TonConnect...");
+            tonConnectUI.openModal();
+        }
     };
 
   return (
@@ -239,6 +245,7 @@ const Profile = () => {
        <Footer />
     </div>
   );
+  }
 };
 
 export default Profile;
