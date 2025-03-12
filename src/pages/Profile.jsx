@@ -30,13 +30,7 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const connectWallet = useTonConnectUI(); // Должно быть определено
-    connectWallet(); // Вызов функции
-
-    const walletAddress = useTonAddress();
-    const tonConnectUI = useTonConnectUI();
-    
-    const { openModal } = useTonConnectUI();
+    const { openModal } = useTonConnectUI(); // Убеждаемся, что импорт работает
 
   return (
     <div className="App">
