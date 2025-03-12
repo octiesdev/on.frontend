@@ -6,6 +6,10 @@ import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import Footer from "../Footer"; // Подключаем футер
+import onexIMG from "../assets/onex-circle.png";
+import blumIMG from "../assets/blum-circle.png";
+import pawsIMG from "../assets/paws-circle.png";
+import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
@@ -27,21 +31,15 @@ const Profile = () => {
     };
 
     const walletAddress = useTonAddress();
-    const { open } = useTonConnectModal();
-    const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
+    const [tonConnectUI] = useTonConnectUI();
 
     const handleWalletClick = () => {
-        console.log("🔥 Клик по кнопке кошелька...");
-        console.log("Текущий адрес кошелька:", walletAddress);
-        console.log("Статус модалки:", tonConnectUI.uiOptions.buttonRootId);
-
-        if (walletAddress) {
-            console.log("✅ Кошелек уже подключен, открываю меню с кнопками Disconnect и Copy Address...");
-            open();  // Открываем меню Disconnect/Copy Address
-        } else {
-            console.log("🟢 Открываю окно подключения кошелька...");
-            tonConnectUI.openModal();
-        }
+      if (walletAddress) {
+          console.log("🔥 Кошелек уже подключен:", walletAddress);
+      } else {
+          console.log("🔥 Открываю модальное окно TonConnect...");
+          tonConnectUI.openModal();
+      }
     };
 
 
@@ -61,7 +59,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}></img>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
