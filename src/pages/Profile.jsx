@@ -30,12 +30,7 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
-    
-    const handleDisconnect = async () => {
-        await tonConnectUI.disconnect();
-    };
+    const { open } = useTonConnectUI();
 
   return (
     <div className="App">
@@ -53,20 +48,10 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
-              <TonConnectButton />
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={() => open()} />
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
-        <h2>Ваш TON кошелек:</h2>
-        {walletAddress ? (
-        <div>
-        <p>{walletAddress}</p>
-        <button onClick={handleDisconnect}>Отключить</button>
-        </div>
-        ) : (
-        <p>Кошелек не подключен</p>
-        )} 
           <div className="info-profile-block"> 
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
