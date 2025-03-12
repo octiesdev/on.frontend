@@ -14,7 +14,9 @@ const App = () => {
   console.log("✅ `App.jsx` отрендерился!");
   return (
     <TonConnectUIProvider 
-    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json">
+    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json"
+    buttonRootId="headerConnectWalletConnected">
+      <Profile />
     <Routes>
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
