@@ -81,7 +81,8 @@ const OnAmbasProgram = () => {
                     </div>
                     <h2>bullpitt4</h2>
                     <div className="OnAmbasProgram-section-friendsBlocks"> 
-                    <div className="rewardInTON-block">
+                </div>
+                <div className="rewardInTON-block">
                         <div className="rewardInTON-block-MainText2">
                             Награда в TON 
                         </div>
@@ -99,7 +100,6 @@ const OnAmbasProgram = () => {
                             <img src={onexIMG} alt=""/>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
           </div>
