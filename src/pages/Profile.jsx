@@ -33,10 +33,6 @@ const Profile = () => {
     const { open } = useTonConnectModal();
     const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
 
-    useEffect(() => {
-        console.log("✅ TonConnect UI загружен!");
-    }, []);
-
     const handleWalletClick = () => {
         console.log("🔥 Клик по кнопке кошелька...");
         console.log("Текущий адрес кошелька:", walletAddress);
