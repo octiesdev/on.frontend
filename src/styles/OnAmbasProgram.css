@@ -371,3 +371,22 @@ body {
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
 }
+
+.info-section-friend-picture {
+    width: 90%;
+    margin-left: 0.6vh;
+    height: 16.3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ton-onex-logo {
+    height: 100%;
+    background: rgba(242, 234, 1, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8vh;
+}
