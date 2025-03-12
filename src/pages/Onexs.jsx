@@ -29,10 +29,10 @@ const Onexs = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/ambasProgram")}></img>
+            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
-              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={handleLogoClick}></img>
+              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
