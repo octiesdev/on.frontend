@@ -43,6 +43,12 @@ const Profile = () => {
       }
     };
 
+    // Функция для отключения кошелька
+    const handleDisconnect = async () => {
+      await tonConnectUI.disconnect();
+      setIsWalletMenuOpen(false); // Закрываем всплывающее меню
+    };
+
   return (
     <div className="App">
       {/* Фон */}
