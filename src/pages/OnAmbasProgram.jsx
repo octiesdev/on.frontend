@@ -43,7 +43,22 @@ const OnAmbasProgram = () => {
                     <h2>УСЛОВИЯ ПАРТНЕРСТВА</h2>
                 </div>
                 <div className="OnAmbasProgram-section-infoBlocks"> 
-                    
+                    <div className="earnTON-block">
+                        <div className="earnTON-block-MainText2">
+                            % заработка TON 
+                        </div>
+                        <div className="earnTON-block-Description2">
+                            10%
+                        </div>
+                    </div>
+                    <div className="earnONEX-block">
+                        <div className="earnONEX-block-MainText2">
+                            % заработка ONEX 
+                        </div>
+                        <div className="earnONEX-block-Description2">
+                            20%
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
