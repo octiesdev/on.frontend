@@ -11,6 +11,7 @@ import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import logoEclipseIMG from "../assets/logo-with-eclipse.png";
+import logoInTheEclipseIMG from "../assets/onex-img-all.png"
 
 const OnAmbasProgram = () => { 
 
@@ -76,7 +77,7 @@ const OnAmbasProgram = () => {
             <div className="info-about-friends-block-nameText2"> 
                 <div className="info-section-friend-eclipse-block"> 
                     <div className="friend-eclipse"> 
-                        <img src={onexIMG} alt=""/>
+                        <img src={logoInTheEclipseIMG} alt=""/>
                     </div>
                     <h2>bullpitt4</h2>
                 </div>

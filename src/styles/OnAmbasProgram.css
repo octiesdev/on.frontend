@@ -365,12 +365,13 @@ body {
 }
 
 .info-about-friends-block-nameText2 h2 {
-    font-size: 1.3vh;
+    font-size: 1.6vh;
     margin: 0;
     font-family: MullerMedium; /* ✅ Используем кастомный шрифт */
     white-space: nowrap; /* ✅ Запрещаем перенос текста */
     color: #FFFFFF;
     margin-left: 1vh;
+    align-self: center;
 }
 
 .info-section-friend-eclipse-block {
@@ -390,11 +391,11 @@ body {
     aspect-ratio: 1/1; /* Поддерживает круговую форму */
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 0.8vh;
 }
 
 .friend-eclipse img{
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
 }
