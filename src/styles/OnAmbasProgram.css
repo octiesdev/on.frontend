@@ -226,7 +226,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1.11vh;
+    margin-left: 1.2vh;
     margin-top: 0.5vh;
     font-size: 1.4vh;
     font-family: MullerMedium;
@@ -239,7 +239,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1.11vh;
+    margin-left: 1.2vh;
     margin-bottom: 0.3vh;
     font-size: 1.45vh;
     font-family: MullerBold;
@@ -247,7 +247,7 @@ body {
 }
 
 .earnTON-block img {
-    width: 10%;
+    width: 8%;
     margin-left: 0.3vh;
     margin-bottom: 0.25vh;
     overflow: hidden;
@@ -271,7 +271,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1.11vh;
+    margin-left: 1.2vh;
     margin-top: 0.5vh;
     font-size: 1.4vh;
     font-family: MullerMedium;
@@ -284,7 +284,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 1.11vh;
+    margin-left: 1.2vh;
     margin-bottom: 0.3vh;
     font-size: 1.45vh;
     font-family: MullerBold;
@@ -292,7 +292,7 @@ body {
 }
 
 .earnONEX-block img {
-    width: 10%;
+    width: 8%;
     margin-left: 0.3vh;
     margin-bottom: 0.25vh;
     overflow: hidden;
