@@ -36,11 +36,11 @@ const AmbasProgram = () => {
               <p>1. Зарабатывай TON с каждой покупки твоих рефералов.</p>
               <p>2. Фарми фиксированное количество ONEX за каждого<br/>приглашенного реферала.</p>
             </div>
+          </div>
+        </div>
             <div className="logoEclipse"> 
                 <img src={logoEclipseIMG} alt=""/>
             </div>
-        </div>
-        </div>
         </div>
         {/* Футер */}
             <Footer />
