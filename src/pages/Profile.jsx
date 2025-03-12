@@ -31,6 +31,13 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
+    const walletAddress = useTonAddress();
+    const [tonConnectUI] = useTonConnectUI();
+    
+    const handleDisconnect = async () => {
+        await tonConnectUI.disconnect();
+    };
+
     const { open } = useTonConnectUI();
 
   return (
@@ -49,7 +56,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={() => open()} />
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={() => open()}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
