@@ -25,10 +25,6 @@ const Profile = () => {
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
 
-    const handleLogoClick = () => {
-      setTimeout(() => navigate("/"), 0);
-    };
-
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
