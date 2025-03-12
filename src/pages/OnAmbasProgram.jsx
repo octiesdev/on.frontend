@@ -72,6 +72,15 @@ const OnAmbasProgram = () => {
           <div className="text-friends-counter"> 
             3 друзей
           </div>
+          <div className="info-about-friends-block"> 
+            <div className="info-about-friends-block-nameText2"> 
+                <div className="info-section-friend-eclipse-block"> 
+                    <div className="friend-eclipse"> 
+                    
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
     </div>
     {/* Футер */}
