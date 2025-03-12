@@ -10,6 +10,7 @@ import blumIMG from "../assets/blum-circle.png";
 import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
+import logoEclipseIMG from "../assets/logo-with-eclipse.png";
 
 const AmbasProgram = () => { 
 
@@ -34,6 +35,9 @@ const AmbasProgram = () => {
               <h2>AMBASADOR<br/>PROGRAM</h2>
               <p>1. Зарабатывай TON с каждой покупки твоих рефералов.</p>
               <p>2. Фарми фиксированное количество ONEX за каждого<br/>приглашенного реферала.</p>
+            </div>
+            <div className="logoEclipse"> 
+                <img src={logoEclipseIMG} alt=""/>
             </div>
         </div>
         </div>

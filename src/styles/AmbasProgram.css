@@ -148,3 +148,9 @@ body {
     font-size: 1.5vh; /*clamp(1.65vh, 2.6vw, 2.1vh)*/
 }
 
+.logoEclipse {
+    height: 100%;
+    width: 100%;
+    margin-top: 3vh;
+}
+
