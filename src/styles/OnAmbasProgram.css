@@ -384,7 +384,7 @@ body {
 .friend-eclipse {
     width: auto;
     height: 100%;
-    background: rgba(242, 234, 1, 0.5);
+    background: rgba(255, 196, 3, 1);
     border-radius: 50%;
     aspect-ratio: 1/1; /* Поддерживает круговую форму */
     display: flex;
