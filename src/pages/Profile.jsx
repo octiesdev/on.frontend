@@ -35,7 +35,12 @@ const Profile = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
+            <img src={logo} alt="Logo" className="headerlogo"   
+              onClick={() => {
+                console.log("🔥 Лого кликнуто!");
+                setTimeout(() => navigate("/"), 0);
+              }}>   
+            </img>
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
