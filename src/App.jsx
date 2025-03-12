@@ -12,7 +12,7 @@ console.log("🚀 `App.jsx` загружается...");
 const App = () => {
   console.log("✅ `App.jsx` отрендерился!");
   return (
-    <TonConnectUIProvider manifestUrl="https://yourwebsite.com/tonconnect-manifest.json">
+    <TonConnectUIProvider manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json">
     <Routes>
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
