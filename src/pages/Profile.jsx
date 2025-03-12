@@ -25,21 +25,18 @@ const Profile = () => {
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
+
+    const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
     const walletAddress = useTonAddress();
     const { open } = useTonConnectModal();
-    const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
 
     const handleWalletClick = () => {
         console.log("🔥 Клик по кнопке кошелька...");
         console.log("Текущий адрес кошелька:", walletAddress);
-        console.log("Статус модалки:", tonConnectUI.uiOptions.buttonRootId);
 
         if (walletAddress) {
-            console.log("✅ Кошелек уже подключен, открываю меню с кнопками Disconnect и Copy Address...");
-            open();  // Открываем меню Disconnect/Copy Address
-        } else {
-            console.log("🟢 Открываю окно подключения кошелька...");
-            tonConnectUI.openModal();
+            console.log("✅ Кошелек уже подключен, открываю меню Disconnect/Copy Address...");
+            open(); // Открываем модальное окно Disconnect/Copy Address
         }
     };
 
@@ -60,7 +57,14 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}></img>
+              <div id="TonMainConBtn">
+                            <img 
+                                src={buttonConnectWallet} 
+                                alt="Connect Wallet" 
+                                className="headerConnectWalletConnected"
+                                onClick={handleWalletClick} 
+                            />
+              </div>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
