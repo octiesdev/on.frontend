@@ -467,7 +467,6 @@ isolation: isolate;
 }
 
 .ton-onex-logo {
-  position: absolute;
   height: 100%;
   display: flex;
   align-items: center;
