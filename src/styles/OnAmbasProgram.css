@@ -166,7 +166,7 @@ body {
     margin-top: 1.5vh;
 }
 
-.info-OnAmbasProgram-nameText {
+.info-OnAmbasProgram-nameText2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,7 +176,7 @@ body {
     overflow: visible;
 }
 
-.info-OnAmbasProgram-nameText h2 {
+.info-OnAmbasProgram-nameText2 h2 {
     font-size: 1.8vh;
     margin: 0;
     font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
@@ -184,7 +184,7 @@ body {
     color: #FFFFFF;
 }
 
-.info-OnAmbasProgram-nameText p {
+.info-OnAmbasProgram-nameText2 p {
     font-family: MullerLight;
     font-size: 1.5vh; /*clamp(1.65vh, 2.6vw, 2.1vh)*/
 }

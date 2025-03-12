@@ -38,7 +38,7 @@ const OnAmbasProgram = () => {
             </div>
           </div>
           <div className="partner-terms"> 
-            <div className="info-OnAmbasProgram-nameText"> 
+            <div className="info-OnAmbasProgram-nameText2"> 
                 <div className="info-OnAmbasProgram-section-title"> 
                     <h2>УСЛОВИЯ ПАРТНЕРСТВА</h2>
                 </div>
