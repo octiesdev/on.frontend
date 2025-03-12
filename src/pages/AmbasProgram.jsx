@@ -34,6 +34,8 @@ const AmbasProgram = () => {
         </div>
         </div>
         </div>
+        {/* Футер */}
+            <Footer />
         </div>
         );
     };
