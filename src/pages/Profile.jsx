@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTonAddress, useTonConnectUI } from "@tonconnect/ui-react"; 
+import { TonConnectUIProvider, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -34,7 +34,7 @@ const Profile = () => {
     connectWallet(); // Вызов функции
 
     const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
+    const tonConnectUI = useTonConnectUI();
     
     const handleDisconnect = async () => {
         await tonConnectUI.disconnect();
@@ -60,9 +60,10 @@ const Profile = () => {
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" 
               onClick={() => {
-                console.log("Подключение кошелька...");
-                tonConnectUI.connectWallet();
-              }}/>
+                console.log("tonConnectUI:", tonConnectUI);
+                if (tonConnectUI) {
+                  tonConnectUI.connectWallet();
+                }}}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
