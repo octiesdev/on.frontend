@@ -18,7 +18,7 @@ const AmbasProgram = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/tasks")}></img>
+            <img src={logo} alt="Logo" className="headerlogo"></img>
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners"/>
