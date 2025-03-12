@@ -30,20 +30,16 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
-    const { open } = useTonConnectModal(); // <-- Используем для вызова модалки
-
-    // 📌 Обработчик клика по кнопке подключения
+    const { open, close } = useTonConnectModal();
+    const walletAddress = useTonAddress();
+    
     const handleWalletClick = () => {
-        console.log("🔥 Клик по кнопке кошелька...");
-        console.log("Текущий адрес кошелька:", walletAddress);
-        
         if (walletAddress) {
-            console.log("✅ Кошелек уже подключен, открываю модалку...");
-            open(); // <-- Теперь открываем нужную модалку
+            console.log("🔥 Кошелек уже подключен:", walletAddress);
+            open();  // Открываем модальное окно с кнопками Disconnect и Copy Address
         } else {
-            console.log("📌 Кошелек не подключен, открываю окно подключения...");
+            console.log("🔥 Открываю модальное окно TonConnect...");
             tonConnectUI.openModal();
         }
     };
