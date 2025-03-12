@@ -27,6 +27,7 @@ const Onexs = () => {
     setTimeout(() => navigate("/"), 0);  // Даем React обновить состояние перед редиректом
   };
 
+  
   return (
     <div className="App">
       {/* Фон */}
@@ -36,7 +37,7 @@ const Onexs = () => {
             <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
-              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={handleLogoClick}></img>
+              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={handleLogoClick} ></img>
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
