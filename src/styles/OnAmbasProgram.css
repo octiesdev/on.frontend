@@ -150,6 +150,7 @@ body {
 
 .partner-terms {
     position: relative;
+    flex-wrap: wrap; /* ✅ Контент не сжимается, а переносится */
     display: flex;
     align-items: center;
     align-self: start;
