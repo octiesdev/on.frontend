@@ -34,13 +34,21 @@ const Profile = () => {
     const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
 
+    // const handleWalletClick = () => {
+    //   if (walletAddress) {
+    //       console.log("🔥 Кошелек уже подключен:", walletAddress);
+    //   } else {
+    //       console.log("🔥 Открываю модальное окно TonConnect...");
+    //       tonConnectUI.openModal();
+    //   }
+    // };
+
+
     const handleWalletClick = () => {
-      if (walletAddress) {
-          console.log("🔥 Кошелек уже подключен:", walletAddress);
-      } else {
-          console.log("🔥 Открываю модальное окно TonConnect...");
-          tonConnectUI.openModal();
-      }
+      console.log("🔥 Попытка открыть TonConnect UI...");
+      console.log("Текущий адрес кошелька:", walletAddress || "Не подключен");
+
+      tonConnectUI.openModal(); // Открываем стандартное модальное окно TonConnect
     };
 
   return (
