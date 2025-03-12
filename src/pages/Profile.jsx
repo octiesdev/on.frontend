@@ -30,17 +30,17 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const connectWallet = useTonConnectUI(); // Должно быть определено
-    connectWallet(); // Вызов функции
+    // const connectWallet = useTonConnectUI(); // Должно быть определено
+    // connectWallet(); // Вызов функции
 
-    const walletAddress = useTonAddress();
-    const tonConnectUI = useTonConnectUI();
+    // const walletAddress = useTonAddress();
+    // const tonConnectUI = useTonConnectUI();
     
-    const handleDisconnect = async () => {
-        await tonConnectUI.disconnect();
-    };
+    // const handleDisconnect = async () => {
+    //     await tonConnectUI.disconnect();
+    // };
 
-    const { open } = useTonConnectUI();
+    // const { open } = useTonConnectUI();
 
   return (
     <div className="App">
