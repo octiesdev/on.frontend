@@ -8,14 +8,6 @@ import AmbasProgram from "./pages/AmbasProgram";
 import OnAmbasProgram from "./pages/OnAmbasProgram";
 
 const App = () => {
-  useEffect(() => {
-    if (window.TON_CONNECT_UI) {
-        new window.TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
-            buttonRootId: "TonMainConBtn"
-        });
-    }
-  }, []);
 
   return (
     <TonConnectUIProvider 
