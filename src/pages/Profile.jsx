@@ -26,22 +26,21 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
+    const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
 
-    const walletAddress = useTonAddress();
-    const { open } = useTonConnectModal(); 
-    
     const handleWalletClick = () => {
-      console.log("🔥 Клик по кнопке кошелька...");
-      console.log("Текущий адрес кошелька:", walletAddress);
-  
-      if (walletAddress) {
-          console.log("✅ Кошелек уже подключен, открываю меню Disconnect/Copy Address...");
-          setTimeout(() => open(), 100); // ✅ Добавляем задержку перед открытием
-      } else {
-          console.log("🟢 Открываю окно подключения кошелька...");
-          setTimeout(() => open(), 100); // ✅ То же самое для подключения
-      }
-  };
+        console.log("🔥 Клик по кнопке кошелька...");
+        console.log("Текущий адрес кошелька:", walletAddress);
+        console.log("Статус модалки:", tonConnectUI.uiOptions.buttonRootId);
+
+        if (walletAddress) {
+            console.log("✅ Кошелек уже подключен, открываю меню с кнопками Disconnect и Copy Address...");
+            open();  // Открываем меню Disconnect/Copy Address
+        } else {
+            console.log("🟢 Открываю окно подключения кошелька...");
+            tonConnectUI.openModal();
+        }
+    };
 
 
   return (
@@ -60,7 +59,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}></img>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
