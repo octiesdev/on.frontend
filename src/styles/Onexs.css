@@ -104,7 +104,7 @@ isolation: isolate;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 39.58px 39.58px 0 0;
+  border-radius: 4.22vh 4.22vh 0 0;
 
 }
 
@@ -117,7 +117,7 @@ isolation: isolate;
   background: rgba(32, 32, 32, 0.5);
   border: 1px solid rgba(0, 0, 0, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 39.58px;
+  border-radius: 4.22vh;
   position: relative;
   width: 95%;
   left: 2.5%;
@@ -213,7 +213,7 @@ button {
   background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
   background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
   background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
-  border-radius: 20px;
+  border-radius: 2.22vh;
 
   width: 90%;
   left: 5%;
@@ -234,7 +234,7 @@ button {
   background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
   background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
   background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
-  border-radius: 20px;
+  border-radius: 2.22vh;
 
   width: 90%;
   left: 5%;
@@ -256,7 +256,7 @@ button {
   background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
   background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
   background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
-  border-radius: 20px;
+  border-radius: 2.22vh;
 
   width: 90%;
   left: 5%;
@@ -276,7 +276,7 @@ button {
   background-repeat: no-repeat, no-repeat; /* ✅ Отключаем повторение */
   background-position: center, right 2vh bottom 0; /* ✅ Центрируем градиент, а изображение сдвигаем */
   background-size: cover, auto 90%; /* ✅ Градиент на всю область, а картинка — высотой 90% */
-  border-radius: 20px;
+  border-radius: 2.22vh;
 
   width: 90%;
   left: 5%;
@@ -367,7 +367,7 @@ button {
 .farming-time-block {
   background: rgba(32, 32, 32, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 1.11vh;
   width: 53.3%;
   height: 90%; 
 
@@ -405,7 +405,7 @@ button {
 .apy-info-block {
   background: rgba(32, 32, 32, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 1.11vh;
   width: 25.8%;
   height: 90%;
   margin-left: 1vh;
@@ -418,7 +418,7 @@ button {
 .rewardInTon-block {
   background: rgba(32, 32, 32, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 1.11vh;
   width: 46.6%;
   height: 90%; 
 
@@ -436,7 +436,7 @@ button {
 .rewardInOnex-block {
   background: rgba(32, 32, 32, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 1.11vh;
   width: 50%;
   height: 90%;
   margin-left: 1vh;
