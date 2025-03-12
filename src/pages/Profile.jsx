@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTonAddress, useTonConnectModal } from "@tonconnect/ui-react";
+import { useTonAddress, useTonConnectModal, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -31,13 +31,15 @@ const Profile = () => {
     };
 
     const walletAddress = useTonAddress();
-    const { open } = useTonConnectModal(); // ✅ Управление модалкой
-
-    console.log("🔥 Текущий адрес кошелька:", walletAddress || "Не подключен");
+    const [tonConnectUI] = useTonConnectUI();
 
     const handleWalletClick = () => {
-        console.log("✅ Клик по кнопке кошелька...");
-        open(); // ❗ ВСЕГДА открываем TonConnect UI, независимо от статуса подключения
+      if (walletAddress) {
+          console.log("🔥 Кошелек уже подключен:", walletAddress);
+      } else {
+          console.log("🔥 Открываю модальное окно TonConnect...");
+          tonConnectUI.openModal();
+      }
     };
 
 
@@ -57,9 +59,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <button className="customWalletButton" onClick={handleWalletClick}>
-                <img src={buttonConnectWallet} alt="Connect Wallet" />
-              </button>
+              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
