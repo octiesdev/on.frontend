@@ -354,6 +354,24 @@ body {
     margin-top: 1.15vh;
 }
 
+.info-about-friends-block-last {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: start;
+    justify-content: center;
+  
+    background: rgba(32, 32, 32, 0.5);
+    border: 1px solid rgba(165, 165, 165, 1);
+    border-radius: 2.22vh;
+  
+    width: 90%;
+    left: 5%;
+    height: 17.7%;
+    margin-top: 1.15vh;
+    margin-bottom: 1.15vh;
+}
+
 .info-about-friends-block-nameText2 {
     display: flex;
     flex-direction: column;

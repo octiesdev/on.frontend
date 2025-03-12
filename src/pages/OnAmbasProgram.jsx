@@ -133,7 +133,7 @@ const OnAmbasProgram = () => {
                 </div>
             </div>
           </div>
-          <div className="info-about-friends-block"> 
+          <div className="info-about-friends-block-last"> 
             <div className="info-about-friends-block-nameText2"> 
                 <div className="info-section-friend-eclipse-block"> 
                     <div className="friend-eclipse-v3"> 
