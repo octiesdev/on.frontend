@@ -37,13 +37,13 @@ const OnAmbasProgram = () => {
               <p>2. Фарми фиксированное количество ONEX за каждого<br/>приглашенного реферала.</p>
             </div>
           </div>
-        </div>
-        <div className="partner-terms"> 
+          <div className="partner-terms"> 
             <div className="info-OnAmbasProgram-nameText"> 
                 <div className="info-OnAmbasProgram-section-title"> 
                     <h2>УСЛОВИЯ ПАРТНЕРСТВА</h2>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     {/* Футер */}
