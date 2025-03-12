@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Tasks from "./pages/Tasks";
 import Onexs from "./pages/Onexs";
+import AmbasProgram from "./pages/AmbasProgram";
 
 
 console.log("🚀 `App.jsx` загружается...");
