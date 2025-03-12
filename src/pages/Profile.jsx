@@ -34,20 +34,24 @@ const Profile = () => {
     const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
 
-    const handleWalletClick = () => {
-      if (walletAddress) {
-          console.log("🔥 Кошелек уже подключен:", walletAddress);
-      } else {
-          console.log("🔥 Открываю модальное окно TonConnect...");
-          tonConnectUI.openModal();
-      }
-    };
+    // const handleWalletClick = () => {
+    //   if (walletAddress) {
+    //       console.log("🔥 Кошелек уже подключен:", walletAddress);
+    //   } else {
+    //       console.log("🔥 Открываю модальное окно TonConnect...");
+    //       tonConnectUI.openModal();
+    //   }
+    // };
 
-    // Функция для отключения кошелька
-    const handleDisconnect = async () => {
-      await tonConnectUI.disconnect();
-      setIsWalletMenuOpen(false); // Закрываем всплывающее меню
-    };
+    const handleWalletClick = async () => {
+      console.log("🔥 Открываю модальное окно TonConnect...");
+
+      try {
+          await tonConnectUI.openModal(); // Принудительно открываем модалку
+      } catch (error) {
+          console.error("Ошибка открытия модального окна TonConnect:", error);
+      }
+  };
 
   return (
     <div className="App">
