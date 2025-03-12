@@ -57,9 +57,11 @@ const Profile = () => {
             }}>
             </img>
           </div>
-            <div id="HeaderButtonsContainer">  
+            <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
+              <div id="headerConnectWalletConnected">
+                <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
+              </div>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
