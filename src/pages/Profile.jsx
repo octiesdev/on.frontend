@@ -36,10 +36,11 @@ const Profile = () => {
         <div className="Header">  
           <div className="HeaderLogoContainer">  
             <img src={logo} alt="Logo" className="headerlogo"   
-              onClick={() => {
-                console.log("🔥 Лого кликнуто!");
-                setTimeout(() => navigate("/"), 0);
-              }}>   
+            onClick={() => {
+              console.log("🔥 Лого кликнуто!");
+              setActiveSection("default"); // ⬅ Сбрасываем состояние
+              setTimeout(() => navigate("/"), 0); // ⬅ Ожидаем ререндер
+            }}>
             </img>
           </div>
             <div className="HeaderButtonsContainer">  
