@@ -25,9 +25,9 @@ const AmbasProgram = () => {
               <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
             </div>
         </div>
-        <div className="mainTasksPageContainer">  
-          <div className="info-tasks-block"> 
-            <div className="info-onexs-nameText"> 
+        <div className="mainambasProgramPageContainer">  
+          <div className="info-ambasProgram-block"> 
+            <div className="info-ambasProgram-nameText"> 
               <h2>ONEX TASKS</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
             </div>
