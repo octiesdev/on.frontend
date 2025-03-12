@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTonConnectUI } from "@tonconnect/ui-react";
 import { useTonAddress, useTonConnectModal } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -32,15 +31,20 @@ const Profile = () => {
     };
 
     const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
+    const { open, close, state } = useTonConnectModal(); // Управляем модалкой
 
     const handleWalletClick = () => {
-      if (walletAddress) {
-          console.log("🔥 Кошелек уже подключен:", walletAddress);
-      } else {
-          console.log("🔥 Открываю модальное окно TonConnect...");
-          tonConnectUI.openModal();
-      }
+        console.log("🔥 Клик по кнопке кошелька...");
+        console.log("Текущий адрес:", walletAddress || "Не подключен");
+        console.log("Статус модалки:", state?.open ? "Открыта" : "Закрыта");
+
+        if (state?.open) {
+            console.log("⚡️ Закрываю модалку...");
+            close();
+        } else {
+            console.log("📢 Открываю модалку...");
+            open();
+        }
     };
 
 
