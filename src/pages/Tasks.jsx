@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "../styles/Tasks.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -12,6 +13,8 @@ import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 
 const Tasks = () => {
+  const navigate = useNavigate();
+
 
   return (
     <div className="App">
@@ -19,7 +22,7 @@ const Tasks = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo"></img>
+            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>

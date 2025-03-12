@@ -10,7 +10,9 @@ import pawsIMG from "../assets/paws-circle.png";
 import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 
-const AmbasProgram = () => {
+const AmbasProgram = () => { 
+
+    const navigate = useNavigate();
 
   return (
     <div className="App">
@@ -18,7 +20,7 @@ const AmbasProgram = () => {
       <div className="ONEXs_Window">   
         <div className="Header">  
           <div className="HeaderLogoContainer">  
-            <img src={logo} alt="Logo" className="headerlogo"></img>
+            <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners"/>
