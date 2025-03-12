@@ -62,8 +62,10 @@ const OnAmbasProgram = () => {
                         </div>
                     </div>
                 </div>
-                <div className="invite-button">
-                    ПРИГЛАСИТЬ
+                <div className="invite-button-block">
+                    <div className="invite-button">
+                        ПРИГЛАСИТЬ
+                    </div>
                 </div>
             </div>
         </div>

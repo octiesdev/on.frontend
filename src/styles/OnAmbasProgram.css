@@ -300,11 +300,27 @@ body {
     overflow: hidden;
 }
 
-.invite-button {
+.invite-button-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
     width: 82.5%;
     height: 21.9%;
+}
+
+.invite-button {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 1);
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2.2vh;
+    font-family: "MullerExtraBold", sans-serif;
+    border-radius: 1vh;
 }
