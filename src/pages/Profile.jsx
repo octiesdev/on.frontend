@@ -33,8 +33,12 @@ const Profile = () => {
     const [tonConnectUI] = useTonConnectUI();
 
     const handleWalletClick = () => {
-        console.log("🔥 Попытка открыть модальное окно TonConnect...");
-        tonConnectUI.openModal();
+      if (walletAddress) {
+          console.log("🔥 Кошелек уже подключен:", walletAddress);
+      } else {
+          console.log("🔥 Открываю модальное окно TonConnect...");
+          tonConnectUI.openModal();
+      }
     };
 
   return (
