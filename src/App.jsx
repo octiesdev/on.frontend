@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import Profile from "./pages/Profile";
@@ -8,11 +8,18 @@ import AmbasProgram from "./pages/AmbasProgram";
 import OnAmbasProgram from "./pages/OnAmbasProgram";
 
 const App = () => {
-  console.log("✅ `App.jsx` отрендерился!");
+  useEffect(() => {
+    if (window.TON_CONNECT_UI) {
+        new window.TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+            buttonRootId: "TonMainConBtn"
+        });
+    }
+  }, []);
+
   return (
     <TonConnectUIProvider 
-    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json"
-    buttonRootId="TonMainConBtn">
+    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json">
     <Routes>
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
