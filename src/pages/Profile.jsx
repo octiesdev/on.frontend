@@ -26,6 +26,8 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
+    const walletAddress = useTonAddress();
+    const { open } = useTonConnectModal();
     const [tonConnectUI] = useTonConnectUI(); // Берем готовый объект
 
     const handleWalletClick = () => {
