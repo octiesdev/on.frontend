@@ -41,12 +41,12 @@ const Profile = () => {
 
       if (walletAddress) {
           // Кошелек уже подключен → Открываем модалку с "Copy Address" и "Disconnect"
-          open();
+          close();
       } else {
           // Кошелек НЕ подключен → Открываем окно подключения
           open();
       }
-  };
+    };
 
   return (
     <div className="App">
