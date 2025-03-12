@@ -386,6 +386,7 @@ body {
     width: 20%;
     background: rgba(242, 234, 1, 0.5);
     border-radius: 50%;
+    aspect-ratio: 1/1; /* Поддерживает круговую форму */
     display: flex;
     align-items: center;
     justify-content: flex-start;
