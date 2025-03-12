@@ -103,6 +103,66 @@ const OnAmbasProgram = () => {
                 </div>
             </div>
           </div>
+          <div className="info-about-friends-block"> 
+            <div className="info-about-friends-block-nameText2"> 
+                <div className="info-section-friend-eclipse-block"> 
+                    <div className="friend-eclipse-v2"> 
+                        <img src={logoInTheEclipseIMG} alt=""/>
+                    </div>
+                    <h2>sampled1kx0</h2>
+                </div>
+                <div className="OnAmbasProgram-section-friendsBlocks"> 
+                    <div className="rewardInTON-block">
+                        <div className="rewardInTON-block-MainText2">
+                            Награда в TON 
+                        </div>
+                        <div className="rewardInTON-block-Description2">
+                            59 TON
+                            <img src={tonIMG} alt=""/>
+                        </div>
+                    </div>
+                    <div className="rewardInONEX-block">
+                        <div className="rewardInONEX-block-MainText2">
+                            Награда в ONEX 
+                        </div>
+                        <div className="rewardInONEX-block-Description2">
+                            24 ONEX
+                            <img src={onexIMG} alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div className="info-about-friends-block"> 
+            <div className="info-about-friends-block-nameText2"> 
+                <div className="info-section-friend-eclipse-block"> 
+                    <div className="friend-eclipse-v3"> 
+                        <img src={logoInTheEclipseIMG} alt=""/>
+                    </div>
+                    <h2>maiskyyGor4o</h2>
+                </div>
+                <div className="OnAmbasProgram-section-friendsBlocks"> 
+                    <div className="rewardInTON-block">
+                        <div className="rewardInTON-block-MainText2">
+                            Награда в TON 
+                        </div>
+                        <div className="rewardInTON-block-Description2">
+                            20 TON
+                            <img src={tonIMG} alt=""/>
+                        </div>
+                    </div>
+                    <div className="rewardInONEX-block">
+                        <div className="rewardInONEX-block-MainText2">
+                            Награда в ONEX 
+                        </div>
+                        <div className="rewardInONEX-block-Description2">
+                            06 ONEX
+                            <img src={onexIMG} alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
     </div>
     {/* Футер */}

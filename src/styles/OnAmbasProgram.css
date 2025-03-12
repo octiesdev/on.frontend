@@ -396,6 +396,30 @@ body {
     gap: 0.8vh;
 }
 
+.friend-eclipse-v2 {
+    width: auto;
+    height: 100%;
+    background: rgba(240, 93, 186, 1);
+    border-radius: 50%;
+    aspect-ratio: 1/1; /* Поддерживает круговую форму */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vh;
+}
+
+.friend-eclipse-v3 {
+    width: auto;
+    height: 100%;
+    background: rgba(97, 240, 93, 1);
+    border-radius: 50%;
+    aspect-ratio: 1/1; /* Поддерживает круговую форму */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vh;
+}
+
 .friend-eclipse img{
     width: 55%;
     height: 55%;
