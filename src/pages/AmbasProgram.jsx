@@ -31,7 +31,7 @@ const AmbasProgram = () => {
         <div className="mainambasProgramPageContainer">  
           <div className="info-ambasProgram-block"> 
             <div className="info-ambasProgram-nameText"> 
-              <h2>ONEX TASKS</h2>
+              <h2>AMBASADOR<br/>PROGRAM</h2>
               <p>Выполняй задания, чтобы фармить ONEX.<br/></p>
             </div>
         </div>
