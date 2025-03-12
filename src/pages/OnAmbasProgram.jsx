@@ -42,6 +42,9 @@ const OnAmbasProgram = () => {
                 <div className="info-OnAmbasProgram-section-title"> 
                     <h2>УСЛОВИЯ ПАРТНЕРСТВА</h2>
                 </div>
+                <div className="OnAmbasProgram-section-infoBlocks"> 
+                    
+                </div>
             </div>
         </div>
         </div>
