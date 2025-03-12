@@ -61,9 +61,9 @@ const OnAmbasProgram = () => {
                             <img src={onexIMG} alt=""/>
                         </div>
                     </div>
-                    <div className="invite-button">
-                        ПРИГЛАСИТЬ
-                    </div>
+                </div>
+                <div className="invite-button">
+                    ПРИГЛАСИТЬ
                 </div>
             </div>
         </div>
