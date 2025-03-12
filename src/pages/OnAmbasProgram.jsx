@@ -38,11 +38,13 @@ const OnAmbasProgram = () => {
             </div>
           </div>
         </div>
+        <div className="partner-terms"> 
         </div>
-        {/* Футер */}
-            <Footer />
-        </div>
-        );
-    };
+    </div>
+    {/* Футер */}
+        <Footer />
+    </div>
+    );
+};
 
-    export default OnAmbasProgram;
+export default OnAmbasProgram;
