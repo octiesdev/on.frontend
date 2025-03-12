@@ -427,6 +427,20 @@ body {
     margin-right: 0.21vh;
 }
 
+.friend-eclipse-v2 img{
+    width: 55%;
+    height: 55%;
+    margin-bottom: 0.1vh;
+    margin-right: 0.21vh;
+}
+
+.friend-eclipse-v3 img{
+    width: 55%;
+    height: 55%;
+    margin-bottom: 0.1vh;
+    margin-right: 0.21vh;
+}
+
 .OnAmbasProgram-section-friendsBlocks {
     display: flex;
     flex-direction: row;
