@@ -40,7 +40,7 @@ const AmbasProgram = () => {
           <div className="logoEclipse"> 
             <img src={logoEclipseIMG} alt=""/>
           </div>
-          <div className="rectangle-button-getAmbassAcess"> 
+          <div className="rectangle-button-getAmbassAcess" onClick={() => navigate("/onambasprogram")}> 
             СТАТЬ АМБАСАДОРОМ
           </div>
         </div>
