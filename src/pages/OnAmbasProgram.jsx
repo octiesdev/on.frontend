@@ -80,9 +80,9 @@ const OnAmbasProgram = () => {
                         <img src={logoInTheEclipseIMG} alt=""/>
                     </div>
                     <h2>bullpitt4</h2>
-                    <div className="OnAmbasProgram-section-friendsBlocks"> 
                 </div>
-                <div className="rewardInTON-block">
+                <div className="OnAmbasProgram-section-friendsBlocks"> 
+                    <div className="rewardInTON-block">
                         <div className="rewardInTON-block-MainText2">
                             Награда в TON 
                         </div>
