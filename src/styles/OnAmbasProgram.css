@@ -163,4 +163,36 @@ body {
     left: 2.5%;
     height: 20.9%;
     margin-top: 1.5vh;
-  }
+}
+
+.info-OnAmbasProgram-nameText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+}
+
+.info-OnAmbasProgram-nameText h2 {
+    font-size: 1.8vh;
+    margin: 0;
+    font-family: "REDOB trial", sans-serif; /* ✅ Используем кастомный шрифт */
+    white-space: nowrap; /* ✅ Запрещаем перенос текста */
+    color: #FFFFFF;
+}
+
+.info-OnAmbasProgram-nameText p {
+    font-family: MullerLight;
+    font-size: 1.5vh; /*clamp(1.65vh, 2.6vw, 2.1vh)*/
+}
+
+.info-section-logo {
+    width: 90%;
+    margin-left: 0.6vh;
+    height: 16.3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -39,6 +39,11 @@ const OnAmbasProgram = () => {
           </div>
         </div>
         <div className="partner-terms"> 
+            <div className="info-OnAmbasProgram-nameText"> 
+                <div className="info-OnAmbasProgram-nameText"> 
+                    <h2>УСЛОВИЯ ПАРТНЕРСТВА</h2>
+                </div>
+            </div>
         </div>
     </div>
     {/* Футер */}
