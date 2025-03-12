@@ -37,10 +37,10 @@ const AmbasProgram = () => {
               <p>2. Фарми фиксированное количество ONEX за каждого<br/>приглашенного реферала.</p>
             </div>
           </div>
+          <div className="logoEclipse"> 
+            <img src={logoEclipseIMG} alt=""/>
+          </div>
         </div>
-            <div className="logoEclipse"> 
-                <img src={logoEclipseIMG} alt=""/>
-            </div>
         </div>
         {/* Футер */}
             <Footer />
