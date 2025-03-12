@@ -32,14 +32,14 @@ const Profile = () => {
     };
 
     const walletAddress = useTonAddress();
-    const { open } = useTonConnectModal(); // Функция открытия модалки
+    const { state, open, close } = useTonConnectModal();
 
     const handleWalletClick = () => {
         console.log("🔥 Клик по кнопке кошелька...");
         console.log("Текущий адрес:", walletAddress || "Не подключен");
 
         // 🔥 Открываем стандартную модалку TonConnect
-        open();
+        state, open, close();
     };
 
   return (
