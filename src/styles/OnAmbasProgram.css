@@ -163,7 +163,7 @@ body {
   
     width: 95%;
     left: 2.5%;
-    height: 20.9%;
+    min-height: 20.9%;
     margin-top: 1.2vh;
 }
 
