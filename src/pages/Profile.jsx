@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTonConnectUI } from "@tonconnect/ui-react";
-import { useTonAddress } from "@tonconnect/ui-react";
+import { useTonAddress, useTonConnectModal } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -32,30 +32,15 @@ const Profile = () => {
     };
 
     const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
-
-    // const handleWalletClick = () => {
-    //   if (walletAddress) {
-    //       console.log("🔥 Кошелек уже подключен:", walletAddress);
-    //   } else {
-    //       console.log("🔥 Открываю модальное окно TonConnect...");
-    //       tonConnectUI.openModal();
-    //   }
-    // };
-
+    const { open } = useTonConnectModal(); // Функция открытия модалки
 
     const handleWalletClick = () => {
-      console.log("🔥 Клик по кнопке кошелька...");
-      console.log("Текущий адрес:", walletAddress || "Не подключен");
+        console.log("🔥 Клик по кнопке кошелька...");
+        console.log("Текущий адрес:", walletAddress || "Не подключен");
 
-      if (walletAddress) {
-          // 🔥 Если кошелек подключен — открыть МОДАЛКУ TonConnect (копирование/отключение)
-          tonConnectUI.openModal();
-      } else {
-          // 🔥 Если кошелек НЕ подключен — открыть окно ПОДКЛЮЧЕНИЯ
-          tonConnectUI.connectWallet();
-      }
-  };
+        // 🔥 Открываем стандартную модалку TonConnect
+        open();
+    };
 
   return (
     <div className="App">
