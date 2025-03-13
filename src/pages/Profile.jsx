@@ -17,8 +17,6 @@ import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
-import onexlogoIMG from "../assets/onex-img-all.png";
-
 
 const Profile = () => {
     // Состояние для переключения между разделами
@@ -35,24 +33,32 @@ const Profile = () => {
     const [tonConnectUI] = useTonConnectUI();
 
 
-  useEffect(() => {
-    setTimeout(() => {
-        const button = document.querySelector("#ton-connect-button button[data-tc-button='true']");
-        if (button) {
-            // Удаляем стандартную иконку
-            const icon = button.querySelector("[data-tc-icon-button='true']");
-            if (icon) icon.remove();
+    useEffect(() => {
+      const observer = new MutationObserver(() => {
+          const button = document.querySelector("#ton-connect-button button[data-tc-button='true']");
+          if (button) {
+              // Удаляем стандартную иконку
+              const icon = button.querySelector("[data-tc-icon-button='true']");
+              if (icon) icon.remove();
 
-            // Создаем новую иконку
-            const newIcon = document.createElement("img");
-            newIcon.src = "../on.frontend/src/assets/onex-img-all.svg"; 
-            newIcon.style.width = "24px";
-            newIcon.style.height = "24px";
-            newIcon.style.marginRight = "10px";
+              // Проверяем, чтобы иконка не дублировалась
+              if (!button.querySelector(".custom-ton-icon")) {
+                  const newIcon = document.createElement("img");
+                  newIcon.src = "../assets/onex-img-all.svg"; // Проверь путь к картинке
+                  newIcon.className = "custom-ton-icon";
+                  newIcon.style.width = "24px";
+                  newIcon.style.height = "24px";
+                  newIcon.style.marginRight = "10px";
 
-            button.prepend(newIcon); // Добавляем иконку в начало кнопки
-        }
-    }, 1000); // Ждем секунду, пока кнопка загрузится
+                  button.prepend(newIcon);
+              }
+          }
+      });
+
+      // Наблюдаем за изменениями в дереве DOM
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      return () => observer.disconnect(); // Очищаем наблюдатель при размонтировании
   }, []);
 
 
