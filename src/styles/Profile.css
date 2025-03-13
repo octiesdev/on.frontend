@@ -792,12 +792,10 @@ isolation: isolate;
 }
 
 button[data-tc-button="true"] {
-  margin: 1.6vh 0.5vh 1vh 1vh; 
-  width: 10vh;
   border-radius: 1.9vh;
   display: flex;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
 @font-face {
