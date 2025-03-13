@@ -891,8 +891,8 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 
 .rectangle-buttonDepo-depoSection.neutral {
   background: rgba(255, 255, 255, 0.15); /* Серый нейтральный */
-  color: #888;
-  border: 1px solid rgba(150, 150, 150, 1);
+  color: #505050;
+  border: 1px solid rgba(80, 80, 80, 1);
 }
 
 
