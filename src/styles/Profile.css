@@ -866,7 +866,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 }
 
 .minimum-deposit-text {
-  color: rgba(200, 200, 200, 1); /* Серый цвет (нейтральный) */
+  color: rgba(255, 255, 255, 1); /* Серый цвет (нейтральный) */
 }
 
 .minimum-deposit-text.error {
