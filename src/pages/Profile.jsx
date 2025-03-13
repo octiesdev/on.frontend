@@ -33,35 +33,6 @@ const Profile = () => {
     const [tonConnectUI] = useTonConnectUI();
 
 
-    useEffect(() => {
-      const observer = new MutationObserver(() => {
-          const button = document.querySelector("#ton-connect-button button[data-tc-button='true']");
-          if (button) {
-              // Удаляем стандартную иконку
-              const icon = button.querySelector("[data-tc-icon-button='true']");
-              if (icon) icon.remove();
-
-              // Проверяем, чтобы иконка не дублировалась
-              if (!button.querySelector(".custom-ton-icon")) {
-                  const newIcon = document.createElement("img");
-                  newIcon.src = "../assets/onex-img-all.svg"; // Проверь путь к картинке
-                  newIcon.className = "custom-ton-icon";
-                  newIcon.style.width = "24px";
-                  newIcon.style.height = "24px";
-                  newIcon.style.marginRight = "10px";
-
-                  button.prepend(newIcon);
-              }
-          }
-      });
-
-      // Наблюдаем за изменениями в дереве DOM
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      return () => observer.disconnect(); // Очищаем наблюдатель при размонтировании
-  }, []);
-
-
   return (
     <div className="App">
       {/* Фон */}
