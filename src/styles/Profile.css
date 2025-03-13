@@ -792,13 +792,15 @@ isolation: isolate;
 }
 
 button[data-tc-button="true"] {
-  border: 2px solid red;
   margin: 1.6vh 0.5vh 1vh 1vh; 
   width: 10vh;
   border-radius: 1.9vh;
+  display: flex;
+  justify-content: center;
 }
-button [data-tc-icon-button="true"] {
-  src: url('../assets/onex-img-all.png');
+div [data-tc-text="true"] {
+  display: flex;
+  justify-content: center;
 }
 
 @font-face {
