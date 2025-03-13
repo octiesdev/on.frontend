@@ -201,7 +201,7 @@ const Profile = () => {
                             onKeyDown={handleKeyDown}
                             onBlur={handleBlur}
                             autoFocus
-                            className="amount-input"
+                            className=""
                             placeholder="Введите сумму"
                           /> ) : ( 
                         amount || "СУММА" 
