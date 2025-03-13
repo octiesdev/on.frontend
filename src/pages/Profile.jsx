@@ -44,7 +44,7 @@ const Profile = () => {
 
             // Создаем новую иконку
             const newIcon = document.createElement("img");
-            newIcon.src = "/assets/onex-img-all.png";
+            newIcon.src = "/assets/onex-img-all.svg";
             newIcon.style.width = "24px";
             newIcon.style.height = "24px";
             newIcon.style.marginRight = "10px";
