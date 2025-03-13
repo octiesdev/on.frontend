@@ -32,40 +32,6 @@ const Profile = () => {
     const walletAddress = useTonAddress();
     const [tonConnectUI] = useTonConnectUI();
 
-    useEffect(() => {
-      const observer = new MutationObserver(() => {
-          const button = document.querySelector("button[data-tc-button='true']");
-  
-          if (button) {
-              // ✅ Гарантируем, что кнопка сохраняет стиль при любом состоянии
-              button.style.background = "linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%)";
-              button.style.color = "#000";
-              button.style.boxShadow = "0px 4px 4px rgba(0, 0, 0, 0.25)";
-              button.style.borderRadius = "8px";
-              button.style.fontSize = "1.4vh";
-              button.style.width = "90%";
-              button.style.height = "4vh";
-              button.style.display = "flex";
-              button.style.justifyContent = "center";
-              button.style.alignItems = "center";
-  
-              // ✅ Проверяем, подключен ли кошелек (если да → меняем текст)
-              const buttonText = button.querySelector("div[data-tc-text='true']");
-              if (buttonText) {
-                  if (buttonText.textContent.includes("Connect Wallet")) {
-                      buttonText.textContent = "BUY";
-                  } else {
-                      buttonText.textContent = "";
-                  }
-              }
-          }
-      });
-  
-      observer.observe(document.body, { childList: true, subtree: true });
-  
-      return () => observer.disconnect();
-  }, []);
-
   useEffect(() => {
     setTimeout(() => {
         const buttonContainer = document.querySelector("#ton-connect-button");
