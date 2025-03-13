@@ -793,8 +793,7 @@ isolation: isolate;
 }
 
 button[data-tc-button="true"] {
-  /* background: linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%) !important; Изменение цвета фона */
-  background-color: #0098EA !important;
+  background: linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%) !important; /* Изменение цвета фона */
   color: #000 !important; /* Изменение цвета текста */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px !important; /* Скругление углов */
@@ -835,8 +834,7 @@ button[class^="go157313249"] {
 
 /* 🔥 Оставляем стили кнопки даже после подключения кошелька */
 button[data-tc-dropdown-button="true"] {
-  /* background: linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%) !important; */
-  background-color: #0098EA !important;
+  background: linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%) !important;
   color: #000 !important;
   border-radius: 8px !important;
   font-size: 1.4vh !important;
