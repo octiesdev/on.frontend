@@ -23,6 +23,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
+    const [tonConnectUI, setTonConnectUI] = useState(null);
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -32,18 +33,24 @@ const Profile = () => {
     };
 
 
-    const tonConnectUI = new TonConnectUI({
-      manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
-      buttonRootId: "ton-connect-button" // Указываем, куда рендерить кнопку
-    });
-
     useEffect(() => {
-      tonConnectUI.setButtonOptions({
-        style: "white", // Стилизация кнопки (white, dark)
-        size: "m", // Размер (s, m, l)
-        theme: "dark" // Тема (light, dark)
-      });
-    }, []);
+      const initTonConnect = () => {
+          console.log("⏳ Ждем рендеринга кнопки...");
+          if (document.getElementById("ton-connect-button")) {
+              console.log("✅ Кнопка найдена, инициализируем TonConnect");
+              const instance = new TonConnectUI({
+                  manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+                  buttonRootId: "ton-connect-button",
+              });
+              setTonConnectUI(instance);
+          } else {
+              console.warn("⏳ Кнопка не найдена, пробуем снова...");
+              setTimeout(initTonConnect, 500); // Повторяем попытку через 500ms
+          }
+      };
+
+      initTonConnect();
+  }, []);
 
 
   return (
