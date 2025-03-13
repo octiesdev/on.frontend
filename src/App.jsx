@@ -11,8 +11,7 @@ const App = () => {
 
   return (
     <TonConnectUIProvider 
-    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json"
-    buttonRootId="customTonButton">
+    manifestUrl="https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json">
     <Routes>
       <Route path="/" element={<Profile />} />
       <Route path="/tasks" element={<Tasks />} />
