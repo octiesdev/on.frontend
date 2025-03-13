@@ -195,14 +195,21 @@ const Profile = () => {
     className="rectangle-button-amount"
     contentEditable={true}
     suppressContentEditableWarning={true}
-    spellCheck={false}  // ❌ Отключаем проверку орфографии
+    spellCheck={false} // ❌ Отключаем проверку орфографии
     onFocus={(e) => {
-        if (amount === "СУММА") setAmount(""); // Очищаем "СУММА" при фокусе
+        if (amount === "СУММА") setAmount(""); // Очищаем поле при фокусе
         moveCursorToEnd(e.target);
     }}
     onInput={(e) => {
         let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
-        if (!newValue) newValue = "СУММА"; // 🔥 Если пусто, вернуть "СУММА"
+
+        if (!newValue) {
+            newValue = "СУММА"; // 🔥 Если пусто, вернуть "СУММА"
+            setIsValidAmount(false); // ❌ Число меньше 5 — невалидное
+        } else {
+            setIsValidAmount(parseInt(newValue) >= 5); // ✅ Число валидное, если 5 или больше
+        }
+
         setAmount(newValue);
         e.target.textContent = newValue;
         moveCursorToEnd(e.target);
@@ -210,6 +217,7 @@ const Profile = () => {
     onBlur={(e) => {
         if (!e.target.textContent.trim()) {
             setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
+            setIsValidAmount(false);
         }
     }}
     onKeyDown={(e) => {
