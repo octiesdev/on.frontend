@@ -235,9 +235,17 @@ const Profile = () => {
                 >
                     {amount}
               </div>
-                  <div className="rectangle-buttonDepo-depoSection">
+              <div
+                    className="rectangle-buttonDepo-depoSection"
+                    style={{
+                        background: isAmountValid ? "rgba(0, 255, 38, 0.15)" : "rgba(255, 255, 255, 0.15)",
+                        color: isAmountValid ? "#1FFF02" : "#505050",
+                        border: isAmountValid ? "1px solid rgba(31, 255, 2, 1)" : "1px solid rgba(80, 80, 80, 1)",
+                        cursor: isAmountValid ? "pointer" : "not-allowed",
+                    }}
+                  >
                     ПОПОЛНИТЬ
-                  </div>
+                </div>
                 </div>
                 <div className="number-OnexNode-deposit-block"> 
                   <h2>02</h2>
