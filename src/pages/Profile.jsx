@@ -21,6 +21,8 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
+    const [amount, setAmount] = useState(""); // Хранит введенную сумму
+    const [isEditing, setIsEditing] = useState(false); // Контролирует состояние редактирования
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -29,9 +31,9 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-        // ✅ Обработчик клика по "СУММА"
-        const handleAmountClick = () => {
-          setIsEditing(true); // Включаем режим редактирования
+      // ✅ Обработчик клика по "СУММА"
+      const handleAmountClick = () => {
+        setIsEditing(true); // Включаем режим редактирования
       };
   
       // ✅ Обработчик изменения инпута
