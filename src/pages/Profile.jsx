@@ -192,44 +192,43 @@ const Profile = () => {
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
                 <div
-    className="rectangle-button-amount"
-    contentEditable={true}
-    suppressContentEditableWarning={true}
-    spellCheck={false} // ❌ Отключаем проверку орфографии
-    onFocus={(e) => {
-        if (amount === "СУММА") setAmount(""); // Очищаем поле при фокусе
-        moveCursorToEnd(e.target);
-    }}
-    onInput={(e) => {
-        let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
+                  className="rectangle-button-amount"
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                  spellCheck={false} // ❌ Отключаем проверку орфографии
+                  onFocus={(e) => {
+                      if (amount === "СУММА") setAmount(""); // Очищаем поле при фокусе
+                      moveCursorToEnd(e.target);
+                  }}
+                  onInput={(e) => {
+                      let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
 
-        if (!newValue) {
-            newValue = "СУММА"; // 🔥 Если пусто, вернуть "СУММА"
-            setIsValidAmount(false); // ❌ Число меньше 5 — невалидное
-        } else {
-            setIsValidAmount(parseInt(newValue) >= 5); // ✅ Число валидное, если 5 или больше
-        }
+                      if (!newValue) {
+                          setAmount(""); // 🔥 Если пусто, вернуть "СУММА"
+                          setIsValidAmount(false); // ❌ Число меньше 5 — невалидное
+                      } else {
+                          setIsValidAmount(parseInt(newValue) >= 5); // ✅ Число валидное, если 5 или больше
+                      }
 
-        setAmount(newValue);
-        e.target.textContent = newValue;
-        moveCursorToEnd(e.target);
-    }}
-    onBlur={(e) => {
-        if (!e.target.textContent.trim()) {
-            setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
-            setIsValidAmount(false);
-            e.target.blur(); // 🔥 Явно убираем фокус, если поле пустое
-        }
-    }}
-    onKeyDown={(e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            e.target.blur(); // 🔥 Закрываем редактирование при нажатии Enter
-        }
-    }}
->
-    {amount}
-</div>
+                      setAmount(newValue);
+                      e.target.textContent = newValue;
+                      moveCursorToEnd(e.target);
+                  }}
+                  onBlur={(e) => {
+                      if (!e.target.textContent.trim()) {
+                          setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
+                          setIsValidAmount(false);
+                          e.target.blur(); // 🔥 Явно убираем фокус, если поле пустое
+                      }
+                  }}
+                  onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                          e.preventDefault();
+                          e.target.blur(); // 🔥 Закрываем редактирование при нажатии Enter
+                      }
+                  }}>
+                    {amount}
+                </div>
                     <div className={`rectangle-buttonDepo-depoSection ${isValidAmount ? "valid" : ""}`}>
                       ПОПОЛНИТЬ
                     </div>
