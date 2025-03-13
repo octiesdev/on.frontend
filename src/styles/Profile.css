@@ -799,8 +799,7 @@ button[data-tc-button="true"] {
   justify-content: center;
 }
 div [data-tc-text="true"] {
-  display: flex;
-  justify-content: center;
+  display: none !important;
 }
 
 @font-face {
