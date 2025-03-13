@@ -21,7 +21,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
-    const [amount, setAmount] = useState("5"); // Минимальная сумма 5 TON
+    const [amount, setAmount] = useState("СУММА"); // Минимальная сумма 5 TON
     const [isAmountValid, setIsAmountValid] = useState(true); // Проверка минимальной суммы
 
     const navigate = useNavigate();
