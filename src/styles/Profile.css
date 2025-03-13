@@ -798,6 +798,22 @@ button[data-tc-button="true"] {
   display: flex;
   justify-content: center;
 }
+
+/* Найдем SVG и изменим */
+button[data-tc-button="true"] svg {
+  display: none; /* Скрываем оригинальный SVG */
+}
+
+/* Добавляем свою иконку */
+button[data-tc-button="true"] {
+  background-image: url('/assets/onex-img-all.png'); /* Путь к кастомной иконке */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px; /* Размер кнопки */
+  height: 50px;
+  border: none;
+}
+
 div [data-tc-text="true"] {
   display: none !important;
 }
