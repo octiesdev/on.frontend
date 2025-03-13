@@ -16,7 +16,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <TonConnectUIProvider manifestUrl="https://raw.githubusercontent.com/octiesdev/tonconnect-manifest/refs/heads/main/tonconnect-manifest.json">
+    <TonConnectUIProvider manifestUrl="https://raw.githubusercontent.com/octiesdev/tonconnect-manifest/refs/heads/main/tonconnect-manifest.json"
+    buttonRootId="customTonButton">
       <BrowserRouter>
         <App />
       </BrowserRouter>
