@@ -797,6 +797,9 @@ button[data-tc-button="true"] {
   width: 10vh;
   border-radius: 1.9vh;
 }
+button [data-tc-icon-button="true"] {
+  src: url('../assets/onex-img-all.png');
+}
 
 @font-face {
   font-family: 'MullerMedium';
