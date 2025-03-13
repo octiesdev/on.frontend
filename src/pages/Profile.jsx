@@ -218,6 +218,7 @@ const Profile = () => {
         if (!e.target.textContent.trim()) {
             setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
             setIsValidAmount(false);
+            e.target.blur(); // 🔥 Явно убираем фокус, если поле пустое
         }
     }}
     onKeyDown={(e) => {
