@@ -198,7 +198,7 @@ const Profile = () => {
                     suppressContentEditableWarning={true}
                     onBlur={(e) => {
                       if (!e.target.textContent.trim()) {
-                        e.target.textContent = "СУММА";
+                        e.target.textContent = "Введите сумму";
                       }
                     }}
                     onFocus={(e) => {

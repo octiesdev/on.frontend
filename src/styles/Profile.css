@@ -725,6 +725,8 @@ isolation: isolate;
   background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 1);
+  outline: none;
+  cursor: text;
 
   height: 95%;
   width: 39.75%;
@@ -734,6 +736,7 @@ isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 /* Добавляем невидимый символ для фиксации курсора по центру */
