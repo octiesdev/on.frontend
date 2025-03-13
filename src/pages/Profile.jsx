@@ -233,7 +233,6 @@ const Profile = () => {
                       }
                   }}
                 >
-                    {amount}
               </div>
               <div
                     className="rectangle-buttonDepo-depoSection"
