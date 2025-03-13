@@ -819,6 +819,10 @@ div[class^="go3572451881"] {
   width: 90%;
 }
 
+div[class^="go157313249"] {
+  padding: 12px 16px;
+}
+
 #ton-connect-button {
   width: 55% !important;     
   margin: 1.6vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
