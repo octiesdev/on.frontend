@@ -803,6 +803,21 @@ div [data-tc-text="true"] {
   display: none !important;
 }
 
+/* Убираем стандартную иконку */
+[data-tc-icon-button="true"] svg {
+  display: none !important;
+}
+
+/* Добавляем кастомную иконку */
+[data-tc-icon-button="true"] {
+  background-image: url('/assets/custom-wallet-icon.png'); /* Путь к новой иконке */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px; /* Размер кнопки */
+  height: 50px;
+  border: none;
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
