@@ -29,8 +29,28 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
+        // ✅ Обработчик клика по "СУММА"
+        const handleAmountClick = () => {
+          setIsEditing(true); // Включаем режим редактирования
+      };
+  
+      // ✅ Обработчик изменения инпута
+      const handleAmountChange = (e) => {
+          const value = e.target.value.replace(/[^0-9.]/g, ""); // Разрешаем ввод только чисел и точки
+          setAmount(value);
+      };
+  
+      // ✅ Обработчик нажатия клавиши "Enter"
+      const handleKeyDown = (e) => {
+          if (e.key === "Enter") {
+              setIsEditing(false); // Выключаем режим редактирования
+          }
+      };
+  
+      // ✅ Закрытие инпута при клике вне него
+      const handleBlur = () => {
+          setIsEditing(false);
+      };
 
 
   return (
@@ -171,8 +191,21 @@ const Profile = () => {
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
-                  <div className="rectangle-button-amount">
-                    СУММА
+                  <div className="rectangle-button-amount" onClick={handleAmountClick}>
+                      {
+                        isEditing ? ( 
+                          <input 
+                            type="text" 
+                            value={amount} 
+                            onChange={handleAmountChange}
+                            onKeyDown={handleKeyDown}
+                            onBlur={handleBlur}
+                            autoFocus
+                            className="amount-input"
+                            placeholder="Введите сумму"
+                          /> ) : ( 
+                        amount || "СУММА" 
+                      )}
                   </div>
                   <div className="rectangle-buttonDepo-depoSection">
                     ПОПОЛНИТЬ
