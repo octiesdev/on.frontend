@@ -826,7 +826,7 @@ button[class^="go157313249"] {
 
 #ton-connect-button {
   width: 55% !important;     
-  margin: 1.6vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
+  margin: 1.73vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
 }
 
 /* 🔥 Оставляем стили кнопки даже после подключения кошелька */
@@ -836,7 +836,7 @@ button[data-tc-dropdown-button="true"] {
   border-radius: 8px !important;
   font-size: 1.4vh !important;
   width: 90% !important;
-  height: 4vh !important;
+  height: 3.75vh !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
