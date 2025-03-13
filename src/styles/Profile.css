@@ -856,9 +856,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   color: #000;
 }
 
-button[data-tc-button="true"] svg {
-  display: none !important;
-}
+
 
 @font-face {
   font-family: 'MullerMedium';
