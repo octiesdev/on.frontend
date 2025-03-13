@@ -792,12 +792,16 @@ isolation: isolate;
 }
 
 button[data-tc-button="true"] {
-  border-radius: 1.9vh;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 1.6vh 1vh 1vh 0.5vh;
+  background-color: #c91b1b !important; /* Изменение цвета фона */
+  color: #fff !important; /* Изменение цвета текста */
+  border-radius: 8px !important; /* Скругление углов */
+  font-size: 14px !important; /* Изменение размера шрифта */
+  width: 150px !important; /* Ширина кнопки */
+  height: 40px !important; /* Высота кнопки */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 1.6vh 1vh 1vh 0.5vh !important;
 }
 
 button[data-tc-button="true"] div[data-tc-text="true"] {
