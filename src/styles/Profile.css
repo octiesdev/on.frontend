@@ -820,12 +820,12 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 }
 
 /* 1. Скрываем стандартную иконку ТОЛЬКО в кнопке */
-#ton-connect-button [data-tc-icon-button="true"] {
+#ton-connect-button button[data-tc-icon-button="true"] {
   display: none !important;
 }
 
 /* 2. Добавляем свою иконку */
-#ton-connect-button button[data-tc-button="true"] {
+#ton-connect-button button[data-tc-icon-button="true"] {
   background-image: url("/assets/onex-img-all.png"); /* Путь к кастомной иконке */
   background-position: 10px center;
   background-repeat: no-repeat;
