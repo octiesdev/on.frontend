@@ -201,24 +201,21 @@ const Profile = () => {
         moveCursorToEnd(e.target);
     }}
     onInput={(e) => {
-        let newValue = e.target.textContent.replace(/\D/g, ""); // Разрешаем только числа
-        if (newValue === "") {
-            setAmount("СУММА"); // 🔥 Автоматически возвращаем "СУММА"
-        } else {
-            setAmount(newValue);
-        }
-        e.target.textContent = amount; 
+        let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
+        if (!newValue) newValue = "СУММА"; // 🔥 Если пусто, вернуть "СУММА"
+        setAmount(newValue);
+        e.target.textContent = newValue;
         moveCursorToEnd(e.target);
     }}
     onBlur={(e) => {
-        if (e.target.textContent.trim() === "") {
-            setAmount("СУММА"); // 🔥 Если пусто, возвращаем "СУММА"
+        if (!e.target.textContent.trim()) {
+            setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
         }
     }}
     onKeyDown={(e) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            e.target.blur(); // 🔥 Закрываем инпут при нажатии Enter
+            e.target.blur(); // 🔥 Закрываем редактирование при нажатии Enter
         }
     }}
 >
