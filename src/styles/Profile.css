@@ -866,26 +866,33 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 }
 
 .minimum-deposit-text {
-  color: white;
-  transition: color 0.3s ease;
+  color: rgba(200, 200, 200, 1); /* Серый цвет (нейтральный) */
 }
 
 .minimum-deposit-text.error {
-  color: red;
+  color: red; /* ❌ Красный цвет, если сумма < 5 */
 }
 
-/* 🔥 Стили кнопки ПОПОЛНИТЬ */
+.minimum-deposit-text.neutral {
+  color: #888; /* 🔥 Серый цвет для начального состояния */
+}
+
 .rectangle-buttonDepo-depoSection {
   background: rgba(255, 255, 255, 0.15);
   color: #505050;
   border: 1px solid rgba(80, 80, 80, 1);
-  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 .rectangle-buttonDepo-depoSection.valid {
   background: rgba(0, 255, 38, 0.15);
   color: #1FFF02;
   border: 1px solid rgba(31, 255, 2, 1);
+}
+
+.rectangle-buttonDepo-depoSection.neutral {
+  background: rgba(200, 200, 200, 0.15); /* Серый нейтральный */
+  color: #888;
+  border: 1px solid rgba(150, 150, 150, 1);
 }
 
 

@@ -22,7 +22,9 @@ const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
-    const [isValidAmount, setIsValidAmount] = useState(false); // Валидация числа (>= 5)
+    // const [isValidAmount, setIsValidAmount] = useState(false); // Валидация числа (>= 5)
+    const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
+    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -201,19 +203,22 @@ const Profile = () => {
                       moveCursorToEnd(e.target);
                   }}
                   onInput={(e) => {
-                      let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
-
-                      if (!newValue) {
-                          setAmount(""); // 🔥 Если пусто, вернуть "СУММА"
-                          setIsValidAmount(false); // ❌ Число меньше 5 — невалидное
-                      } else {
-                          setIsValidAmount(parseInt(newValue) >= 5); // ✅ Число валидное, если 5 или больше
-                      }
-
-                      setAmount(newValue);
-                      e.target.textContent = newValue;
-                      moveCursorToEnd(e.target);
-                  }}
+                    let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
+                
+                    if (!newValue) {
+                        setAmount(""); 
+                        setIsValidAmount(false); // ❌ Число меньше 5 - невалидное
+                        setIsNeutral(true); // 🔥 Возвращаем нейтральное состояние
+                    } else {
+                        const isValid = parseInt(newValue) >= 5;
+                        setIsValidAmount(isValid);
+                        setIsNeutral(false); // ❌ Убираем нейтральное состояние
+                    }
+                
+                    setAmount(newValue);
+                    e.target.textContent = newValue;
+                    moveCursorToEnd(e.target);
+                }}
                   onBlur={(e) => {
                       if (!e.target.textContent.trim()) {
                           setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
@@ -229,16 +234,16 @@ const Profile = () => {
                   }}>
                     {amount}
                 </div>
-                    <div className={`rectangle-buttonDepo-depoSection ${isValidAmount ? "valid" : ""}`}>
-                      ПОПОЛНИТЬ
-                    </div>
+                <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}>
+                  ПОПОЛНИТЬ
+                </div>
                 </div>
                 <div className="number-OnexNode-deposit-block"> 
                   <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
                   <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
-                  <p className={`minimum-deposit-text ${!isValidAmount ? "error" : ""}`}>
+                  <p className={`minimum-deposit-text ${isNeutral ? "neutral" : !isValidAmount ? "error" : ""}`}>
                     2. Минимальный депозит 5 TON.
                   </p>
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
