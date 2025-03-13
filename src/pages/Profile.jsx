@@ -216,7 +216,6 @@ const Profile = () => {
     }}
     onBlur={(e) => {
         if (!e.target.textContent.trim()) {
-            setAmount(""); // 🔥 Если поле пустое, вернуть "СУММА"
             setIsValidAmount(false);
             e.target.blur(); // 🔥 Явно убираем фокус, если поле пустое
         }
