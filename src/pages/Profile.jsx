@@ -22,6 +22,7 @@ const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
+    const [isValidAmount, setIsValidAmount] = useState(true); // Валидация числа (>= 5)
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -37,7 +38,18 @@ const Profile = () => {
       range.collapse(false); // Устанавливаем курсор в конец
       selection.removeAllRanges();
       selection.addRange(range);
-  };
+    };
+
+    // ✅ Завершаем ввод (Enter / Потеря фокуса)
+    const finalizeAmount = (e) => {
+      if (!amount.trim() || amount === "СУММА") {
+          setAmount("СУММА");
+          setIsValidAmount(true); // Убираем подсветку ошибки
+      } else {
+          let num = parseInt(amount);
+          setIsValidAmount(num >= 5); // Проверка на минимум 5 TON
+      }
+    };
 
 
   return (
@@ -182,35 +194,40 @@ const Profile = () => {
                                         className="rectangle-button-amount"
                                         contentEditable={true}
                                         suppressContentEditableWarning={true}
-                                        onBlur={(e) => {
-                                            if (!e.target.textContent.trim()) {
-                                                e.target.textContent = "СУММА";
-                                            }
-                                        }}
+                                        onBlur={finalizeAmount}
                                         onFocus={(e) => {
-                                            if (e.target.textContent === "СУММА") {
-                                                e.target.textContent = "";
-                                            }
+                                            if (amount === "СУММА") setAmount(""); 
                                             moveCursorToEnd(e.target);
                                         }}
                                         onInput={(e) => {
-                                            e.target.textContent = e.target.textContent.replace(/\D/g, ""); // Только цифры
-                                            setAmount(e.target.textContent);
+                                            let newValue = e.target.textContent.replace(/\D/g, ""); 
+                                            setAmount(newValue || "СУММА");
+                                            setIsValidAmount(parseInt(newValue) >= 5);
+                                            e.target.textContent = newValue || "СУММА";
                                             moveCursorToEnd(e.target);
+                                        }}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter") {
+                                                e.preventDefault();
+                                                finalizeAmount(e);
+                                                e.target.blur();
+                                            }
                                         }}
                                     >
                                         {amount}
-                  </div>
-                  <div className="rectangle-buttonDepo-depoSection">
-                    ПОПОЛНИТЬ
-                  </div>
+                    </div>
+                    <div className={`rectangle-buttonDepo-depoSection ${isValidAmount ? "valid" : ""}`}>
+                      ПОПОЛНИТЬ
+                    </div>
                 </div>
                 <div className="number-OnexNode-deposit-block"> 
                   <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
                   <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
-                  <p>2. Минимальный депозит 5 TON. </p>
+                  <p className={`minimum-deposit-text ${!isValidAmount ? "error" : ""}`}>
+                    2. Минимальный депозит 5 TON.
+                  </p>
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
                 </div>
               </div>
