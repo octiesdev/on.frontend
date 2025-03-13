@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
@@ -34,6 +34,27 @@ const Profile = () => {
     const [tonConnectUI] = useTonConnectUI();
 
 
+  useEffect(() => {
+    setTimeout(() => {
+        const button = document.querySelector("#ton-connect-button button[data-tc-button='true']");
+        if (button) {
+            // Удаляем стандартную иконку
+            const icon = button.querySelector("[data-tc-icon-button='true']");
+            if (icon) icon.remove();
+
+            // Создаем новую иконку
+            const newIcon = document.createElement("img");
+            newIcon.src = "/assets/onex-img-all.png";
+            newIcon.style.width = "24px";
+            newIcon.style.height = "24px";
+            newIcon.style.marginRight = "10px";
+
+            button.prepend(newIcon); // Добавляем иконку в начало кнопки
+        }
+    }, 1000); // Ждем секунду, пока кнопка загрузится
+  }, []);
+
+
   return (
     <div className="App">
       {/* Фон */}
@@ -50,7 +71,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <TonConnectButton/>
+              <TonConnectButton img src={buttonPartners}/>
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
