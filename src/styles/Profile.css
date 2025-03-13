@@ -63,7 +63,7 @@ isolation: isolate;
 
 .HeaderButtonsContainer{
   height: 100%;
-  margin-right: 1.7vh;
+  margin-right: 1.2vh;
   margin-top: 0.5vh;
   display: flex;
   align-items: center;
@@ -795,13 +795,13 @@ button[data-tc-button="true"] {
   background-color: #c91b1b !important; /* Изменение цвета фона */
   color: #fff !important; /* Изменение цвета текста */
   border-radius: 8px !important; /* Скругление углов */
-  font-size: 14px !important; /* Изменение размера шрифта */
-  width: 150px !important; /* Ширина кнопки */
-  height: 40px !important; /* Высота кнопки */
+  font-size: 1.4vh !important; /* Изменение размера шрифта */
+  width: 90% !important; /* Ширина кнопки */
+  height: 4vh !important; /* Высота кнопки */
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  margin: 1.6vh 1vh 1vh 0.5vh !important;
+  justify-self: center;
 }
 
 button[data-tc-button="true"] div[data-tc-text="true"] {
@@ -813,9 +813,8 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 }
 
 #ton-connect-button {
-  max-width: 50% !important;          /* Ограничиваем максимальную ширину */
-  display: flex;            /* Для выравнивания */
-  justify-content: center;  /* Центрирование контента */
+  width: 55% !important;     
+  margin: 1.6vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
 }
 
 
