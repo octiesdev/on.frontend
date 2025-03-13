@@ -791,6 +791,19 @@ isolation: isolate;
   justify-content: center;
 }
 
+#ton-connect-button button {
+  background-color: #000; /* Фон кнопки */
+  color: #fff; /* Цвет текста */
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+#ton-connect-button button:hover {
+  background-color: #333;
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
