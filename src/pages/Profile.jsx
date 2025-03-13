@@ -21,7 +21,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
-    const [amount, setAmount] = useState("СУММА"); // Минимальная сумма 5 TON
+    const [amount, setAmount] = useState("5"); // Минимальная сумма 5 TON
     const [isAmountValid, setIsAmountValid] = useState(true); // Проверка минимальной суммы
 
     const navigate = useNavigate();
@@ -195,36 +195,46 @@ const Profile = () => {
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
                 <div
-                    className="rectangle-button-amount"
-                    contentEditable={true}
-                    suppressContentEditableWarning={true}
-                    onFocus={(e) => {
-                        moveCursorToEnd(e.target);
-                    }}
-                    onInput={(e) => {
-                        let newValue = e.target.textContent.replace(/\D/g, ""); // Только числа
-                        setAmount(newValue);
+                  className="rectangle-button-amount"
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                  onFocus={(e) => {
+                      if (amount === "СУММА") {
+                          setAmount(""); // Очищаем поле при фокусе
+                      }
+                      moveCursorToEnd(e.target);
+                  }}
+                  onInput={(e) => {
+                      let newValue = e.target.textContent.replace(/[^0-9]/g, ""); // ❌ Оставляем только числа (0-9)
+                      
+                      if (newValue === "") {
+                          setAmount("СУММА"); // Возвращаем "СУММА", если поле пустое
+                          setIsAmountValid(true); // Не выделяем ошибку
+                      } else {
+                          setAmount(newValue);
+                          setIsAmountValid(parseInt(newValue) >= 5);
+                      }
 
-                        // Проверяем минимальную сумму
-                        if (newValue === "" || parseInt(newValue) < 5) {
-                            setIsAmountValid(false);
-                        } else {
-                            setIsAmountValid(true);
-                        }
-
-                        moveCursorToEnd(e.target);
-                    }}
-                    onBlur={finalizeAmount} // При потере фокуса
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            e.preventDefault();
-                            finalizeAmount(e);
-                            e.target.blur();
-                        }
-                    }}
-                  >
+                      e.target.textContent = newValue || "СУММА"; // Вставляем изменённый текст
+                      moveCursorToEnd(e.target);
+                  }}
+                  onBlur={(e) => {
+                      if (amount === "" || amount === "СУММА") {
+                          setAmount("СУММА"); // Если поле пустое, возвращаем "СУММА"
+                      } else if (parseInt(amount) < 5) {
+                          setIsAmountValid(false); // Подсвечиваем ошибку
+                      }
+                  }}
+                  onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                          e.preventDefault();
+                          finalizeAmount(e);
+                          e.target.blur();
+                      }
+                  }}
+                >
                     {amount}
-                  </div>
+              </div>
                   <div className="rectangle-buttonDepo-depoSection">
                     ПОПОЛНИТЬ
                   </div>
