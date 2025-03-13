@@ -26,7 +26,7 @@ const AmbasProgram = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners"/>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
+              <TonConnectButton/>
             </div>
         </div>
         <div className="mainambasProgramPageContainer">  

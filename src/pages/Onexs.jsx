@@ -33,7 +33,7 @@ const Onexs = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected"/>
+              <TonConnectButton/>
             </div>
         </div>
         <div className="mainTasksPageContainer">  
