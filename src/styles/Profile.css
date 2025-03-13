@@ -797,6 +797,7 @@ button[data-tc-button="true"] {
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin: 1.6vh 1vh 1vh 0.5vh;
 }
 
 button[data-tc-button="true"] div[data-tc-text="true"] {
@@ -807,12 +808,7 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   display: block !important; /* Гарантирует, что стиль применяется */
 }
 
-.ton-connect-button { 
-  
-  height: 55%;
-  margin: 1.6vh 1vh 1vh 0.5vh; 
 
-}
 
 @font-face {
   font-family: 'MullerMedium';
