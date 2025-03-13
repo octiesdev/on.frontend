@@ -821,6 +821,7 @@ div[class^="go3572451881"] {
 
 div[class^="go157313249"] {
   padding: 12px 16px;
+  min-width: none;
 }
 
 #ton-connect-button {
