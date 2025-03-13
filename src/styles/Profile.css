@@ -815,6 +815,10 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   color: #000;
 }
 
+div[class^="go3572451881"] {
+  width: 90%;
+}
+
 #ton-connect-button {
   width: 55% !important;     
   margin: 1.6vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
