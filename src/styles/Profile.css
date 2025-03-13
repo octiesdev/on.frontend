@@ -812,6 +812,11 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   display: block !important; /* Гарантирует, что стиль применяется */
 }
 
+#ton-connect-button {
+  max-width: 50% !important;          /* Ограничиваем максимальную ширину */
+  display: flex;            /* Для выравнивания */
+  justify-content: center;  /* Центрирование контента */
+}
 
 
 @font-face {
