@@ -797,25 +797,7 @@ button[data-tc-button="true"] {
   border-radius: 1.9vh;
   display: flex;
   justify-content: center;
-}
-
-div [data-tc-text="true"] {
-  display: none !important;
-}
-
-/* Убираем стандартную иконку */
-[data-tc-icon-button="true"] svg {
-  display: none !important;
-}
-
-/* Добавляем кастомную иконку */
-[data-tc-icon-button="true"] {
-  background-image: url('/assets/custom-wallet-icon.png'); /* Путь к новой иконке */
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 50px; /* Размер кнопки */
-  height: 50px;
-  border: none;
+  text-align: center;
 }
 
 @font-face {
