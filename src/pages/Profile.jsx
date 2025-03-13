@@ -21,7 +21,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
-    const [amount, setAmount] = useState("СУММА")
+    const [amount, setAmount] = useState("СУММА");
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -30,15 +30,14 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    // ✅ Перемещение курсора в конец
     const moveCursorToEnd = (element) => {
       const range = document.createRange();
       const selection = window.getSelection();
       range.selectNodeContents(element);
-      range.collapse(false);
+      range.collapse(false); // Устанавливаем курсор в конец
       selection.removeAllRanges();
       selection.addRange(range);
-    };
+  };
 
 
   return (
@@ -179,25 +178,29 @@ const Profile = () => {
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
-                <div className="rectangle-button-amount"
-                    contentEditable={true}
-                    suppressContentEditableWarning={true}
-                    onBlur={(e) => {
-                      if (!e.target.textContent.trim()) {
-                        e.target.textContent = "Введите сумму";
-                      }
-                    }}
-                    onFocus={(e) => {
-                      if (e.target.textContent === "СУММА") {
-                        e.target.textContent = "";
-                      }
-                    }}
-                    onInput={(e) => {
-                      e.target.textContent = e.target.textContent.replace(/\D/g, ""); // Только числа
-                      setAmount(e.target.textContent);
-                    }}>
-                  СУММА
-                </div>
+                  <div
+                                        className="rectangle-button-amount"
+                                        contentEditable={true}
+                                        suppressContentEditableWarning={true}
+                                        onBlur={(e) => {
+                                            if (!e.target.textContent.trim()) {
+                                                e.target.textContent = "СУММА";
+                                            }
+                                        }}
+                                        onFocus={(e) => {
+                                            if (e.target.textContent === "СУММА") {
+                                                e.target.textContent = "";
+                                            }
+                                            moveCursorToEnd(e.target);
+                                        }}
+                                        onInput={(e) => {
+                                            e.target.textContent = e.target.textContent.replace(/\D/g, ""); // Только цифры
+                                            setAmount(e.target.textContent);
+                                            moveCursorToEnd(e.target);
+                                        }}
+                                    >
+                                        {amount}
+                  </div>
                   <div className="rectangle-buttonDepo-depoSection">
                     ПОПОЛНИТЬ
                   </div>
