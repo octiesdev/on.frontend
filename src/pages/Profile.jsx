@@ -191,34 +191,39 @@ const Profile = () => {
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
-                  <div
-                    className="rectangle-button-amount"
-                    contentEditable={true}
-                    suppressContentEditableWarning={true}
-                    spellCheck={false}  // ❌ Отключает проверку орфографии
-                    onFocus={(e) => {
-                        if (amount === "СУММА") setAmount(""); // Очищаем "СУММА" при фокусе
-                        moveCursorToEnd(e.target);
-                    }}
-                    onInput={(e) => {
-                        let newValue = e.target.textContent.replace(/\D/g, ""); // Разрешаем только числа
-                        if (newValue === "") {
-                            setAmount("СУММА"); // Если поле пустое, возвращаем "СУММА"
-                            e.target.blur(); // 🔥 Автоматически убираем фокус (закрываем инпут)
-                        } else {
-                            setAmount(newValue);
-                        }
-                        e.target.textContent = newValue || "СУММА"; 
-                        moveCursorToEnd(e.target);
-                    }}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            e.preventDefault();
-                            e.target.blur(); // 🔥 Закрываем инпут при нажатии Enter
-                        }
-                    }}>
-                    {amount}
-                  </div>
+                <div
+    className="rectangle-button-amount"
+    contentEditable={true}
+    suppressContentEditableWarning={true}
+    spellCheck={false}  // ❌ Отключаем проверку орфографии
+    onFocus={(e) => {
+        if (amount === "СУММА") setAmount(""); // Очищаем "СУММА" при фокусе
+        moveCursorToEnd(e.target);
+    }}
+    onInput={(e) => {
+        let newValue = e.target.textContent.replace(/\D/g, ""); // Разрешаем только числа
+        if (newValue === "") {
+            setAmount("СУММА"); // 🔥 Автоматически возвращаем "СУММА"
+        } else {
+            setAmount(newValue);
+        }
+        e.target.textContent = amount; 
+        moveCursorToEnd(e.target);
+    }}
+    onBlur={(e) => {
+        if (e.target.textContent.trim() === "") {
+            setAmount("СУММА"); // 🔥 Если пусто, возвращаем "СУММА"
+        }
+    }}
+    onKeyDown={(e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            e.target.blur(); // 🔥 Закрываем инпут при нажатии Enter
+        }
+    }}
+>
+    {amount}
+</div>
                     <div className={`rectangle-buttonDepo-depoSection ${isValidAmount ? "valid" : ""}`}>
                       ПОПОЛНИТЬ
                     </div>
