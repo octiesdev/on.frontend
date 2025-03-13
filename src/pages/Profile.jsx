@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { TonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -30,8 +31,19 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-    const walletAddress = useTonAddress();
-    const [tonConnectUI] = useTonConnectUI();
+
+    const tonConnectUI = new TonConnectUI({
+      manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+      buttonRootId: "ton-connect-button" // Указываем, куда рендерить кнопку
+    });
+
+    useEffect(() => {
+      tonConnectUI.setButtonOptions({
+        style: "white", // Стилизация кнопки (white, dark)
+        size: "m", // Размер (s, m, l)
+        theme: "dark" // Тема (light, dark)
+      });
+    }, []);
 
 
   return (
