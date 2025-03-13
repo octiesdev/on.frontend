@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
-import { TonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -23,7 +22,6 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
-    const [tonConnectUI, setTonConnectUI] = useState(null);
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
@@ -32,25 +30,8 @@ const Profile = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
 
-
-    useEffect(() => {
-      const initTonConnect = () => {
-          console.log("⏳ Ждем рендеринга кнопки...");
-          if (document.getElementById("ton-connect-button")) {
-              console.log("✅ Кнопка найдена, инициализируем TonConnect");
-              const instance = new TonConnectUI({
-                  manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
-                  buttonRootId: "ton-connect-button",
-              });
-              setTonConnectUI(instance);
-          } else {
-              console.warn("⏳ Кнопка не найдена, пробуем снова...");
-              setTimeout(initTonConnect, 500); // Повторяем попытку через 500ms
-          }
-      };
-
-      initTonConnect();
-  }, []);
+    const walletAddress = useTonAddress();
+    const [tonConnectUI] = useTonConnectUI();
 
 
   return (
@@ -69,7 +50,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <div id="ton-connect-button" className="headerButtonPartners"></div>
+              <TonConnectButton />
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
