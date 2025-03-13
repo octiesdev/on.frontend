@@ -233,6 +233,7 @@ const Profile = () => {
                       }
                   }}
                 >
+                  СУММА
               </div>
               <div
                     className="rectangle-buttonDepo-depoSection"
