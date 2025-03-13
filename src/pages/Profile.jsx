@@ -194,12 +194,22 @@ const Profile = () => {
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
                 <div className="rectangle-button-amount"
-                  contentEditable={true}
-                  suppressContentEditableWarning={true}
-                  onBlur={(e) => console.log("Введенное значение:", e.target.textContent)}
-                  onInput={(e) => {
-                    e.target.textContent = e.target.textContent.replace(/\D/g, ""); // Убирает все нечисловые символы
-                  }}>
+                    contentEditable={true}
+                    suppressContentEditableWarning={true}
+                    onBlur={(e) => {
+                      if (!e.target.textContent.trim()) {
+                        e.target.textContent = "СУММА";
+                      }
+                    }}
+                    onFocus={(e) => {
+                      if (e.target.textContent === "СУММА") {
+                        e.target.textContent = "";
+                      }
+                    }}
+                    onInput={(e) => {
+                      e.target.textContent = e.target.textContent.replace(/\D/g, ""); // Только числа
+                      setAmount(e.target.textContent);
+                    }}>
                   СУММА
                 </div>
                   <div className="rectangle-buttonDepo-depoSection">
