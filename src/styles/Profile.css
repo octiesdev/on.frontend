@@ -739,10 +739,10 @@ isolation: isolate;
   text-align: center;
 }
 
-/* Добавляем невидимый символ для фиксации курсора по центру */
-.rectangle-button-amount:empty::before {
-  content: " ";  /* Невидимый символ */
-  display: inline-block;
+/* Убираем автоматические стили contentEditable */
+.rectangle-button-amount:focus {
+  outline: none;
+  caret-color: white; /* Цвет курсора */
 }
 
 .rectangle-buttonDepo-depoSection {
