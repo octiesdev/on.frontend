@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTonAddress, useTonConnectModal, useTonConnectUI } from "@tonconnect/ui-react";
+import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -59,7 +59,7 @@ const Profile = () => {
           </div>
             <div className="HeaderButtonsContainer">  
               <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
-              <img src={buttonConnectWallet} alt="" className="headerConnectWalletConnected" onClick={handleWalletClick}/>
+              <TonConnectButton />
             </div>
         </div>
         <div className="mainProfilePageContainer"> 
