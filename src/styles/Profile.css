@@ -874,7 +874,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 }
 
 .minimum-deposit-text.neutral {
-  color: #888; /* 🔥 Серый цвет для начального состояния */
+  color: rgba(200, 200, 200, 1); /* 🔥 Серый цвет для начального состояния */
 }
 
 .rectangle-buttonDepo-depoSection {
@@ -890,7 +890,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 }
 
 .rectangle-buttonDepo-depoSection.neutral {
-  background: rgba(200, 200, 200, 0.15); /* Серый нейтральный */
+  background: rgba(255, 255, 255, 0.15); /* Серый нейтральный */
   color: #888;
   border: 1px solid rgba(150, 150, 150, 1);
 }
