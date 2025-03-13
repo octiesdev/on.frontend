@@ -794,6 +794,7 @@ isolation: isolate;
 button[data-tc-button="true"] {
   border-radius: 1.9vh;
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
