@@ -53,9 +53,9 @@ const Profile = () => {
               const buttonText = button.querySelector("div[data-tc-text='true']");
               if (buttonText) {
                   if (buttonText.textContent.includes("Connect Wallet")) {
-                      buttonText.textContent = "Подключить кошелек";
+                      buttonText.textContent = "";
                   } else {
-                      buttonText.textContent = "Кошелек подключен";
+                      buttonText.textContent = "";
                   }
               }
           }
