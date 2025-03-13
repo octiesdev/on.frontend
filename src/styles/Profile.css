@@ -817,6 +817,9 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 
 div[class^="go3572451881"] {
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button[class^="go157313249"] {
@@ -854,7 +857,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 }
 
 button[data-tc-button="true"] svg {
-    display: none !important;
+  display: none !important;
 }
 
 @font-face {
