@@ -66,6 +66,22 @@ const Profile = () => {
       return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+        const buttonContainer = document.querySelector("#ton-connect-button");
+        const buttonWrapper = buttonContainer?.querySelector("div[class^='go']"); // 🔥 Автоматически находим обертку
+
+        if (buttonWrapper) {
+            buttonWrapper.style.width = "auto";
+            buttonWrapper.style.display = "flex";
+            buttonWrapper.style.flexDirection = "row"; // ❌ Убираем column
+            buttonWrapper.style.alignItems = "center";
+            buttonWrapper.style.justifyContent = "center";
+            buttonWrapper.style.position = "relative"; 
+        }
+    }, 1000); // ⏳ Ждем секунду, пока TonConnect создаст обертку
+  }, []);
+
 
   return (
     <div className="App">

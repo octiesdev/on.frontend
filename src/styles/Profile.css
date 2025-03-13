@@ -820,6 +820,16 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   margin: 1.6vh 0vh 1vh 0vh !important;     /* Ограничиваем максимальную ширину */
 }
 
+/* ✅ Исправляем `.go3572451881` */
+div[class^="go"] {
+  width: auto !important;      /* Убираем fit-content */
+  display: flex !important;    
+  flex-direction: row !important; /* Убираем column */
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important; 
+}
+
 @font-face {
   font-family: 'MullerMedium';
   src: url('/assets/fonts/MullerMedium.ttf') format('truetype');
