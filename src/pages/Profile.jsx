@@ -22,7 +22,7 @@ const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
-    const [isValidAmount, setIsValidAmount] = useState(true); // Валидация числа (>= 5)
+    const [isValidAmount, setIsValidAmount] = useState(false); // Валидация числа (>= 5)
 
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
