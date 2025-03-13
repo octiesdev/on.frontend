@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/OnAmbasProgram.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
