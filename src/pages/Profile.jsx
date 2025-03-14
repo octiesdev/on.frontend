@@ -98,6 +98,11 @@ const Profile = () => {
     }, []);
 
     const sendTransaction = async (amountToSend) => {
+      if (tonConnectUI.network !== "testnet") {
+        console.error("❌ Ошибка: Вы подключены к mainnet, переключитесь на testnet!");
+      } else {
+        console.log("✅ Вы подключены к testnet!");
+      }
       try {
           const userId = new URLSearchParams(window.location.search).get("userId");
           if (!userId) {
