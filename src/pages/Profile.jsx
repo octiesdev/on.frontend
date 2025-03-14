@@ -61,16 +61,18 @@ const Profile = () => {
     };
 
     useEffect(() => {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("userId");
-  
-      console.log("📌 userId из URL:", id); // Проверяем, что userId есть
-  
-      if (id) {
-        fetchBalance(id);
-      } else {
-        console.error("❌ Ошибка: userId не найден в URL!");
-      }
+      setTimeout(() => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("userId");
+    
+        console.log("📌 userId из URL после задержки:", id);
+    
+        if (id) {
+          fetchBalance(id);
+        } else {
+          console.error("❌ Ошибка: userId не найден в URL!");
+        }
+      }, 500); // Добавляем небольшую задержку
     }, []);
 
     // ✅ Функция для получения баланса с бэка
