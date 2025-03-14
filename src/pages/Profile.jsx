@@ -32,7 +32,10 @@ const Profile = () => {
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
-    const [tonConnectUI] = useTonConnectUI(); // Инициализируем TonConnect
+    const [tonConnectUI] = useTonConnectUI({
+      manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+      network: "testnet" // ✅ Используем тестовую сеть
+    }); // Инициализируем TonConnect
 
 
     const handleSupportClick = () => {
