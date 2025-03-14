@@ -30,10 +30,17 @@ const Profile = () => {
 
     const navigate = useNavigate();
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
-    const [tonConnectUI] = useTonConnectUI({
-      manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json",
-      network: "testnet"
-    }); // Инициализируем TonConnect
+
+    const [tonConnectUI] = useTonConnectUI();
+
+    useEffect(() => {
+        console.log("🌍 Подключенная сеть:", tonConnectUI.network);
+        if (tonConnectUI.setOptions) {
+            tonConnectUI.setOptions({ network: "testnet" });
+        } else {
+            console.error("❌ Ошибка: tonConnectUI.setOptions не найден!");
+        }
+    }, [tonConnectUI]);
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
@@ -47,19 +54,6 @@ const Profile = () => {
       selection.removeAllRanges();
       selection.addRange(range);
     };
-
-
-    // ✅ Завершаем ввод (Enter / Потеря фокуса)
-    const finalizeAmount = (e) => {
-      if (!amount.trim() || amount === "СУММА") {
-          setAmount("СУММА");
-          setIsValidAmount(true); // Убираем подсветку ошибки
-      } else {
-          let num = parseInt(amount);
-          setIsValidAmount(num >= 2); // Проверка на минимум 5 TON
-      }
-    };
-
 
     useEffect(() => {
       setTimeout(() => {
@@ -100,37 +94,37 @@ const Profile = () => {
 
 
     const encodeMemo = (text) => {
-      const encoder = new TextEncoder();
-      return Buffer.from(encoder.encode(text)).toString("base64");
+      return `0x${Buffer.from(new TextEncoder().encode(text)).toString("hex")}`;
     };
     
+
     const sendTransaction = async (amountToSend) => {
       try {
-        const userId = new URLSearchParams(window.location.search).get("userId");
-        if (!userId) {
-          console.error("❌ Ошибка: userId не найден!");
-          return;
-        }
-    
-        const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-        const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // **Ваш адрес**
-    
-        const transaction = {
-          validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
-          messages: [
-            {
-              address: destinationAddress,
-              amount: amountInNanoTON.toString(),
-              payload: encodeMemo(`Deposit from user ${userId}`), // ✅ Правильное кодирование MEMO
-            },
-          ],
-        };
-    
-        console.log("📌 Отправка транзакции:", transaction);
-        await tonConnectUI.sendTransaction(transaction);
-        console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+          const userId = new URLSearchParams(window.location.search).get("userId");
+          if (!userId) {
+              console.error("❌ Ошибка: userId не найден!");
+              return;
+          }
+
+          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
+
+          const transaction = {
+              validUntil: Math.floor(Date.now() / 1000) + 600,
+              messages: [
+                  {
+                      address: destinationAddress,
+                      amount: amountInNanoTON.toString(),
+                      payload: encodeMemo(`Deposit from user ${userId}`),
+                  },
+              ],
+          };
+
+          console.log("📌 Отправка транзакции:", transaction);
+          await tonConnectUI.sendTransaction(transaction);
+          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
-        console.error("❌ Ошибка при отправке транзакции:", error);
+          console.error("❌ Ошибка при отправке транзакции:", error);
       }
     };
 
