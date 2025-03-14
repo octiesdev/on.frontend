@@ -98,6 +98,10 @@ const Profile = () => {
     }, []);
 
     const sendTransaction = async (amountToSend) => {
+      if (!tonConnectUI || !tonConnectUI.sendTransaction) {
+        console.error("❌ Ошибка: tonConnectUI.sendTransaction не найден!");
+        return;
+      }
       try {
           const userId = new URLSearchParams(window.location.search).get("userId");
           if (!userId) {
