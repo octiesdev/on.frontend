@@ -67,9 +67,9 @@ const Profile = () => {
       console.log("📌 userId из URL:", id); // Проверяем, что userId есть
   
       if (id) {
-          fetchBalance(id);
+        fetchBalance(id);
       } else {
-          console.error("❌ Ошибка: userId не найден в URL!");
+        console.error("❌ Ошибка: userId не найден в URL!");
       }
     }, []);
 
