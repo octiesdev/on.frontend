@@ -19,6 +19,8 @@ if (typeof window !== "undefined") {
   window.Buffer = Buffer;
 }
 
+console.log("Buffer loaded:", Buffer);
+console.log("Buffer test:", Buffer.from("Hello", "utf-8").toString("base64"));
 
 const API_URL = "https://1xback-production.up.railway.app"; 
 
@@ -81,37 +83,42 @@ const Profile = () => {
     };
 
 
+    useEffect(() => {
+        fetchBalance();
+    }, []);
+
+
     const encodeMemo = (text) => {
-      const encoder = new TextEncoder();
-      return btoa(String.fromCharCode(...encoder.encode(text))); // Base64 в браузере
+      const cell = new Cell();
+      cell.bits.writeUint(0, 32); // 👈 Если нужно пустое начальное поле
+      cell.bits.writeString(text); // 👈 Записываем строку напрямую
+      return cell.toBoc().toString("base64");
     };
     
     const sendTransaction = async (amountToSend) => {
       try {
-          if (!userWalletAddress) {
-              console.error("❌ Ошибка: Кошелёк не подключен!");
-              return;
-          }
-
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
+  
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-
-          // Создаём payload в формате BOC
-          const payload = encodeMemo(`Deposit from user ${userId}`);
-
+  
+          // ✅ Создаем ячейку и кодируем в BOC (правильный формат для TonKeeper)
+          const cell = new Cell();
+          cell.bits.writeBuffer(Buffer.from(`Deposit from user ${userId}`, "utf-8"));
+          const payload = cell.toBoc().toString("base64"); 
+  
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600,
+              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payload,
+                      payload: payload, // ✅ Теперь payload в нужном формате
                   },
               ],
           };
-
-          console.log("📌 Отправка транзакции:", transaction);
+  
+          console.log("📌 Отправка транзакции с payload:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
