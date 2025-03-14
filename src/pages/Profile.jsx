@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { Cell } from "@ton/core";
 import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
@@ -97,24 +98,31 @@ const Profile = () => {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
   
+          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+  
+          // ✅ Создаем ячейку и кодируем в BOC (правильный формат для TonKeeper)
+          const cell = new Cell();
+          cell.bits.writeBuffer(Buffer.from(`Deposit from user ${userId}`, "utf-8"));
+          const payload = cell.toBoc().toString("base64"); 
+  
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
+                      payload: payload, // ✅ Теперь payload в нужном формате
                   },
               ],
           };
   
-          console.log("📌 Отправка транзакции без payload:", transaction);
+          console.log("📌 Отправка транзакции с payload:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error);
       }
   };
-
 
   return (
     <div className="App">
