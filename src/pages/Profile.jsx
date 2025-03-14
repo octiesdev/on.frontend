@@ -92,6 +92,12 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
+          const userId = new URLSearchParams(window.location.search).get("userId");
+          if (!userId) {
+              console.error("❌ Ошибка: userId не найден!");
+              return;
+          }
+  
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Адрес получателя
   
@@ -101,6 +107,7 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
+                      payload: Buffer.from(`Deposit from user ${userId}`).toString("base64"), // 🔥 MEMO с userId
                   },
               ],
           };
