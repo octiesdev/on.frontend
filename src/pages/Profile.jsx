@@ -89,7 +89,9 @@ const Profile = () => {
 
 
     const encodeMemo = (text) => {
-      return btoa(text); // ✅ Работает в браузере
+      const encoder = new TextEncoder();
+      const encoded = encoder.encode(text);
+      return Buffer.from(encoded).toString("base64"); // Кодируем в Base64
     };
     
     const sendTransaction = async (amountToSend) => {
@@ -103,13 +105,15 @@ const Profile = () => {
         const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
         const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
     
+        const payload = encodeMemo(`Deposit from user ${userId}`);
+    
         const transaction = {
-          validUntil: Math.floor(Date.now() / 1000) + 600,
+          validUntil: Math.floor(Date.now() / 1000) + 600, // Транзакция действует 10 минут
           messages: [
             {
               address: destinationAddress,
               amount: amountInNanoTON.toString(),
-              payload: encodeMemo(`Deposit from user ${userId}`),
+              payload, // Теперь payload точно кодируется правильно!
             },
           ],
         };
