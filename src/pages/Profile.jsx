@@ -34,14 +34,6 @@ const Profile = () => {
       manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json"
     }); // Инициализируем TonConnect
 
-    // ⚡ Дополнительно можно проверить текущую сеть:
-useEffect(() => {
-  console.log("📡 Подключены к сети:", tonConnectUI.network);
-  if (tonConnectUI.network !== "testnet") {
-    console.error("❌ Ошибка: TonConnect использует Mainnet, ожидается Testnet!");
-  }
-}, [tonConnectUI]);
-
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
@@ -106,11 +98,6 @@ useEffect(() => {
     }, []);
 
     const sendTransaction = async (amountToSend) => {
-      if (tonConnectUI.network !== "testnet") {
-        console.error("❌ Ошибка: Вы подключены к mainnet, переключитесь на testnet!");
-      } else {
-        console.log("✅ Вы подключены к testnet!");
-      }
       try {
           const userId = new URLSearchParams(window.location.search).get("userId");
           if (!userId) {
@@ -119,7 +106,7 @@ useEffect(() => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0); // ✅ Переводим TON → наноTON
-          const destinationAddress = "0QCe7wPPv5XKiARa13Yv9bNXzw_da7cYYsjFg5BeLvRBPjxA"; // ✅ Твой кошелек
+          const destinationAddress = "UQBpWRCUKj0HcNlp9JIyByKAw21Eo7s6TEBYEuIe-laVcBzc"; // ✅ Твой кошелек
   
           // 📌 Структура запроса
           const transaction = {
