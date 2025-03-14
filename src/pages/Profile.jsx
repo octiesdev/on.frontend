@@ -22,7 +22,7 @@ const Profile = () => {
     const [balance, setBalance] = useState("0.00"); // 🔥 Храним баланс
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
-    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
+    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидое изначально 
 
     const navigate = useNavigate();
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
