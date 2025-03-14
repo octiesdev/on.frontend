@@ -123,15 +123,13 @@ const Profile = () => {
         // Конвертируем сумму в NanoTON (1 TON = 10⁹ NanoTON)
         const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
     
-        // ✅ Убедимся, что `destinationAddress` в правильном формате
-        const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // **Замените на свой кошелек**
     
         // Формируем объект транзакции
         const transaction = {
           validUntil: Math.floor(Date.now() / 1000) + 600, // ✅ Время в секундах (10 минут)
           messages: [
             {
-              address: destinationAddress, // ✅ Адрес назначения
+              address: "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs", // ✅ Адрес назначения
               amount: amountInNanoTON.toString(), // ✅ Сумма в виде строки
               payload: btoa(userId), // ✅ Кодируем userId в Base64 (MEMO)
             },
