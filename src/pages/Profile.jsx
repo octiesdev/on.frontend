@@ -33,10 +33,6 @@ const Profile = () => {
 
     const [tonConnectUI] = useTonConnectUI();
 
-    useEffect(() => {
-      tonConnectUI.setOptions({ network: "testnet" }); // Или "mainnet"
-    }, [tonConnectUI]);
-
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
