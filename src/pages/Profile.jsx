@@ -2,17 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { Cell } from "@ton/core";
-import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
-import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
-import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import Footer from "../Footer"; // Подключаем футер
-import onexIMG from "../assets/onex-circle.png";
-import blumIMG from "../assets/blum-circle.png";
-import pawsIMG from "../assets/paws-circle.png";
-import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
@@ -20,6 +13,13 @@ import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
+
+if (typeof window !== "undefined") {
+  window.Buffer = Buffer;
+}
+
+console.log("Buffer loaded:", Buffer);
+console.log("Buffer test:", Buffer.from("Hello", "utf-8").toString("base64"));
 
 const API_URL = "https://1xback-production.up.railway.app"; 
 
@@ -82,41 +82,38 @@ const Profile = () => {
     };
 
 
-    useEffect(() => {
-        fetchBalance();
-    }, []);
-
-
     const encodeMemo = (text) => {
       const cell = new Cell();
-      cell.bits.writeBuffer(Buffer.from(text, "utf-8")); // 👈 Теперь Buffer точно доступен
-      return cell.toBoc().toString("base64");
+      cell.bits.writeString(text); 
+      return cell.toBoc().toString("base64"); 
     };
     
     const sendTransaction = async (amountToSend) => {
       try {
+          if (!userWalletAddress) {
+              console.error("❌ Ошибка: Кошелёк не подключен!");
+              return;
+          }
+
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-  
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-  
-          // ✅ Создаем ячейку и кодируем в BOC (правильный формат для TonKeeper)
-          const cell = new Cell();
-          cell.bits.writeBuffer(Buffer.from(`Deposit from user ${userId}`, "utf-8"));
-          const payload = cell.toBoc().toString("base64"); 
-  
+
+          // Создаём payload в формате BOC
+          const payload = encodeMemo(`Deposit from user ${userId}`);
+
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
+              validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payload, // ✅ Теперь payload в нужном формате
+                      payload: payload,
                   },
               ],
           };
-  
-          console.log("📌 Отправка транзакции с payload:", transaction);
+
+          console.log("📌 Отправка транзакции:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
