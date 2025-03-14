@@ -92,35 +92,26 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
-        const userId = new URLSearchParams(window.location.search).get("userId");
-        if (!userId) {
-          console.error("❌ Ошибка: userId не найден!");
-          return;
-        }
-    
-        const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-        const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
-    
-        const payload = encodeMemo(`Deposit from user ${userId}`);
-    
-        const transaction = {
-          validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
-          messages: [
-            {
-              address: destinationAddress,
-              amount: amountInNanoTON.toString(),
-              payload,
-            },
-          ],
-        };
-    
-        console.log("📌 Отправка транзакции:", transaction);
-        await tonConnectUI.sendTransaction(transaction);
-        console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Адрес получателя
+  
+          const transaction = {
+              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
+              messages: [
+                  {
+                      address: destinationAddress,
+                      amount: amountInNanoTON.toString(),
+                  },
+              ],
+          };
+  
+          console.log("📌 Отправка транзакции:", transaction);
+          await tonConnectUI.sendTransaction(transaction);
+          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
-        console.error("❌ Ошибка при отправке транзакции:", error);
+          console.error("❌ Ошибка при отправке транзакции:", error);
       }
-    };
+  };
 
 
   return (
