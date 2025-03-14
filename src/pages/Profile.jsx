@@ -95,7 +95,7 @@ const Profile = () => {
     const sendTransaction = async (amountToSend) => {
       try {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
+          const destinationAddress = "0QCe7wPPv5XKiARa13Yv9bNXzw_da7cYYsjFg5BeLvRBPjxA";
           
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
   
