@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { beginCell, toNano } from "@ton/core"; 
+// import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -13,6 +14,10 @@ import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
+
+// if (typeof window !== "undefined") {
+//   window.Buffer = Buffer;
+// }
 
 const API_URL = "https://1xback-production.up.railway.app"; 
 
