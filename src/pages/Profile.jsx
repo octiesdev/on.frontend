@@ -18,9 +18,12 @@ import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
 
+const API_URL = "https://1xback-production.up.railway.app"; 
+
 const Profile = () => {
     // Состояние для переключения между разделами
     const [activeSection, setActiveSection] = useState("default");
+    const [balance, setBalance] = useState("0.00"); // 🔥 Храним баланс
     const [amount, setAmount] = useState("СУММА");
     // const [isValidAmount, setIsValidAmount] = useState(false); // Валидация числа (>= 5)
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
@@ -54,6 +57,32 @@ const Profile = () => {
       }
     };
 
+    // ✅ Получаем `userId` из URL (который передали из Telegram бота)
+    useEffect(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get("userId");
+
+      if (userId) {
+          fetchBalance(userId);
+      }
+    }, []);
+
+    // 🔥 Функция загрузки баланса
+    const fetchBalance = async (userId) => {
+        try {
+            const response = await fetch(API_URL);
+            const users = await response.json();
+
+            // Ищем пользователя по `telegramId`
+            const user = users.find(u => u.telegramId === userId);
+            if (user) {
+                setBalance(parseFloat(user.balance).toFixed(2)); // ✅ Всегда 2 знака после запятой
+            }
+        } catch (error) {
+            console.error("Ошибка при загрузке баланса:", error);
+        }
+    };
+
 
   return (
     <div className="App">
@@ -79,7 +108,7 @@ const Profile = () => {
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
                 <h2>
-                <span className="text-in-rectangle">385.57</span>
+                <span className="text-in-rectangle">{balance}</span>
                   <div className="rectangle-info-profile-ton">
                     TON
                   </div>
