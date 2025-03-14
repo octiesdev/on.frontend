@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -93,14 +94,12 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
-          const userId = new URLSearchParams(window.location.search).get("userId");
-          if (!userId) {
-              console.error("❌ Ошибка: userId не найден!");
-              return;
-          }
-  
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Адрес получателя
+          
+          // Кодируем userId в Base64
+          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+          const payload = base64Encode(`Deposit from user ${userId}`);
   
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
@@ -108,7 +107,7 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: Buffer.from(`Deposit from user ${userId}`).toString("base64"), // 🔥 MEMO с userId
+                      payload: payload, // Передаем корректно закодированное значение
                   },
               ],
           };
