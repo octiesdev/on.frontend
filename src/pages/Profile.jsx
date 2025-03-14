@@ -60,13 +60,16 @@ const Profile = () => {
       }
     };
 
-    // ✅ Получаем `userId` из URL (который передали из Telegram бота)
     useEffect(() => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const userId = urlParams.get("userId");
-
-      if (userId) {
-          fetchBalance(userId);
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("userId");
+  
+      console.log("📌 userId из URL:", id); // Проверяем, что userId есть
+  
+      if (id) {
+          fetchBalance(id);
+      } else {
+          console.error("❌ Ошибка: userId не найден в URL!");
       }
     }, []);
 
