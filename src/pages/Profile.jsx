@@ -115,7 +115,7 @@ const Profile = () => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0); // ✅ Переводим TON → наноTON
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // ✅ Твой кошелек
+          const destinationAddress = "0QCe7wPPv5XKiARa13Yv9bNXzw_da7cYYsjFg5BeLvRBPjxA"; // ✅ Твой кошелек
   
           // 📌 Структура запроса
           const transaction = {
