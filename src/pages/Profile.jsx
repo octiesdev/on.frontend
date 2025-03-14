@@ -99,49 +99,35 @@ const Profile = () => {
     }, []);
 
 
+    const encodeMemo = (text) => {
+      const encoder = new TextEncoder();
+      return Buffer.from(encoder.encode(text)).toString("base64");
+    };
+    
     const sendTransaction = async (amountToSend) => {
       try {
-        // Проверяем, есть ли TonConnect и его методы
-        if (!tonConnectUI || typeof tonConnectUI.sendTransaction !== "function") {
-          console.error("❌ Ошибка: tonConnectUI.sendTransaction не найден!");
-          return;
-        }
-    
-        // Получаем `userId` из URL
         const userId = new URLSearchParams(window.location.search).get("userId");
         if (!userId) {
           console.error("❌ Ошибка: userId не найден!");
           return;
         }
     
-        // Проверяем текущую сеть
-        console.log("Текущая сеть:", tonConnectUI?.network);
-        if (!tonConnectUI?.network || tonConnectUI.network !== "testnet") {
-          console.error("❌ Ошибка: Вы подключены к mainnet, переключитесь на testnet!");
-          return;
-        }
-    
-        // Конвертируем сумму в NanoTON (1 TON = 10⁹ NanoTON)
         const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
+        const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // **Ваш адрес**
     
-    
-        // Формируем объект транзакции
         const transaction = {
-          validUntil: Math.floor(Date.now() / 1000) + 600, // ✅ Время в секундах (10 минут)
+          validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
           messages: [
             {
-              address: "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs", // ✅ Адрес назначения
-              amount: amountInNanoTON.toString(), // ✅ Сумма в виде строки
-              payload: btoa(userId), // ✅ Кодируем userId в Base64 (MEMO)
+              address: destinationAddress,
+              amount: amountInNanoTON.toString(),
+              payload: encodeMemo(`Deposit from user ${userId}`), // ✅ Правильное кодирование MEMO
             },
           ],
         };
     
         console.log("📌 Отправка транзакции:", transaction);
-    
-        // ✅ Отправляем транзакцию через TonConnect
         await tonConnectUI.sendTransaction(transaction);
-    
         console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
         console.error("❌ Ошибка при отправке транзакции:", error);
