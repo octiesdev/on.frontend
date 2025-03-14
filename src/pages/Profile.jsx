@@ -33,7 +33,7 @@ const Profile = () => {
     console.log("navigate function:", navigate);
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
     const [tonConnectUI] = useTonConnectUI({
-      manifestUrl: "https://resilient-madeleine-9ff7c2.netlify.app/tonconnect-manifest.json",
+      manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json",
       network: "testnet" // ✅ Используем тестовую сеть
     }); // Инициализируем TonConnect
 
