@@ -88,9 +88,9 @@ const Profile = () => {
 
 
     const encodeMemo = (text) => {
-      const encoder = new TextEncoder();
-      const encoded = encoder.encode(text);
-      return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
+      const cell = new Cell();
+      cell.bits.writeBuffer(Buffer.from(text, "utf-8")); // 👈 Теперь Buffer точно доступен
+      return cell.toBoc().toString("base64");
     };
     
     const sendTransaction = async (amountToSend) => {
