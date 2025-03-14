@@ -35,11 +35,6 @@ const Profile = () => {
       network: "testnet"
     }); // Инициализируем TonConnect
 
-    useEffect(() => {
-      tonConnectUI.setOptions({ network: "testnet" });
-      console.log("✅ Принудительно установили Testnet");
-    }, []);
-
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
