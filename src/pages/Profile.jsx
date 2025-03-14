@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
-import { beginCell, toNano } from "@ton/core"; 
+import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
 import { Buffer } from "buffer";
+import { beginCell, toNano } from "@ton/core"; 
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
+import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import Footer from "../Footer"; // Подключаем футер
+import onexIMG from "../assets/onex-circle.png";
+import blumIMG from "../assets/blum-circle.png";
+import pawsIMG from "../assets/paws-circle.png";
+import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
@@ -14,10 +20,6 @@ import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
-
-if (typeof window !== "undefined") {
-  window.Buffer = Buffer;
-}
 
 const API_URL = "https://1xback-production.up.railway.app"; 
 
@@ -27,7 +29,7 @@ const Profile = () => {
     const [balance, setBalance] = useState("0.00"); // 🔥 Храним баланс
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
-    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидое изначально 
+    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
 
     const navigate = useNavigate();
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
@@ -78,38 +80,51 @@ const Profile = () => {
           console.error("Ошибка при получении баланса:", error);
       }
     };
+
+
+    useEffect(() => {
+        fetchBalance();
+    }, []);
+
+
+    const encodeMemo = (text) => {
+      const encoder = new TextEncoder();
+      const encoded = encoder.encode(text);
+      return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
+    };
     
+
     const sendTransaction = async (amountToSend) => {
-      try {
-          const amountInNanoTON = toNano(amountToSend).toString(); // ✅ Переводим в нанотон
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-  
-          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-  
-          // ✅ Создаём ячейку (cell) для payload
-          const body = beginCell()
-              .storeUint(0, 32) // 🔥 32 бита пустых (обязательный префикс)
-              .storeStringTail(`Deposit from user ${userId}`) // 🔥 Записываем комментарий
-              .endCell();
-  
-          const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600,
-              messages: [
-                  {
-                      address: destinationAddress,
-                      amount: amountInNanoTON,
-                      payload: body.toBoc().toString("base64"), // ✅ Преобразуем payload в BOC (base64)
-                  },
-              ],
-          };
-  
-          console.log("📌 Отправка транзакции:", transaction);
-          await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
-      } catch (error) {
-          console.error("❌ Ошибка при отправке транзакции:", error);
-      }
-  };
+        try {
+            const amountInNanoTON = toNano(amountToSend).toString(); // ✅ Переводим в нанотоны
+            const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
+    
+            const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+    
+            // ✅ Создаём ячейку (cell) для payload
+            const body = beginCell()
+                .storeUint(0, 32) // 🔥 32 бита пустых (обязательный префикс)
+                .storeStringTail(`Deposit from user ${userId}`) // 🔥 Записываем комментарий
+                .endCell();
+    
+            const transaction = {
+                validUntil: Math.floor(Date.now() / 1000) + 600,
+                messages: [
+                    {
+                        address: destinationAddress,
+                        amount: amountInNanoTON,
+                        payload: body.toBoc().toString("base64"), // ✅ Преобразуем payload в BOC (base64)
+                    },
+                ],
+            };
+    
+            console.log("📌 Отправка транзакции:", transaction);
+            await tonConnectUI.sendTransaction(transaction);
+            console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+        } catch (error) {
+            console.error("❌ Ошибка при отправке транзакции:", error);
+        }
+    };
 
 
   return (
