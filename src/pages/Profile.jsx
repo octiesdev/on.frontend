@@ -95,49 +95,34 @@ const Profile = () => {
         fetchBalance();
     }, []);
 
-    // ✅ Отправка транзакции
-    const sendTransaction = async () => {
+    const sendTransaction = async (amountToSend) => {
       try {
-          if (!userWalletAddress) {
-              console.error("❌ Ошибка: Кошелек не подключен!");
-              return;
-          }
-
           const userId = new URLSearchParams(window.location.search).get("userId");
           if (!userId) {
               console.error("❌ Ошибка: userId не найден!");
               return;
           }
-
-          const amountInTON = parseFloat(amount); 
-          if (isNaN(amountInTON) || amountInTON < 2) {
-              console.error("❌ Ошибка: Минимальная сумма 2 TON");
-              return;
-          }
-
-          const amountInNanoTON = (amountInTON * 1e9).toFixed(0); 
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; 
-
+  
+          const amountInTON = parseFloat(amountToSend);
+          const amountInNanoTON = (amountInTON * 1e9).toFixed(0);
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
+  
           const transaction = {
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: btoa(userId), // 🔥 Кодируем userId в Base64 (MEMO)
+                      payload: btoa(userId), // Закодируем userId в Base64 (MEMO)
                   },
               ],
           };
-
+  
           await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция на сумму ${amountInTON} TON успешно отправлена!`);
-
-          // 🔥 Автообновление баланса после транзакции
-          await fetchBalance();
-
+          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error);
       }
-  };
+    };
 
 
   return (
@@ -320,10 +305,11 @@ const Profile = () => {
                     {amount}
                 </div>
                 <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}
-                    onClick={() => {
-                      if (isValidAmount) {
-                        sendTransaction(amount); // ✅ Передаем текущий `amount` в транзакцию
-                      }
+                  onClick={() => {
+                    if (isValidAmount) {
+                      console.log("🔥 Вызов sendTransaction с amount:", amount);
+                      sendTransaction(amount);
+                    }
                     }}>
                   ПОПОЛНИТЬ
                 </div>
