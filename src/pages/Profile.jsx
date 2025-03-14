@@ -14,12 +14,6 @@ import dollarIMG from "../assets/dollar-img.png";
 import receiveIMG from "../assets/receive-icon.png";
 import onexlogoIMG from "../assets/onex-img-all.png";
 
-if (typeof window !== "undefined") {
-  window.Buffer = Buffer;
-}
-
-console.log("Buffer loaded:", Buffer);
-console.log("Buffer test:", Buffer.from("Hello", "utf-8").toString("base64"));
 
 const API_URL = "https://1xback-production.up.railway.app"; 
 
