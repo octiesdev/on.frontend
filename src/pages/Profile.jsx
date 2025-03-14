@@ -37,7 +37,7 @@ const Profile = () => {
       const range = document.createRange();
       const selection = window.getSelection();
       range.selectNodeContents(element);
-      range.collapse(false); // Устанавливаем курсор в конец
+      range.collapse(false); // Устанавливаем курсор в коне
       selection.removeAllRanges();
       selection.addRange(range);
     };
