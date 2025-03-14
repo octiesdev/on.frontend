@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
