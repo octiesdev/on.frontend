@@ -32,7 +32,7 @@ const Profile = () => {
     const navigate = useNavigate();
     console.log("navigate function:", navigate);
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
-    const tonConnectUI = useTonConnectUI(); // Инициализируем TonConnect
+    const [tonConnectUI] = useTonConnectUI(); // Инициализируем TonConnect
 
 
     const handleSupportClick = () => {
