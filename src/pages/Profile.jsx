@@ -97,38 +97,57 @@ const Profile = () => {
         fetchBalance();
     }, []);
 
+
     const sendTransaction = async (amountToSend) => {
       try {
-          const userId = new URLSearchParams(window.location.search).get("userId");
-          if (!userId) {
-              console.error("❌ Ошибка: userId не найден!");
-              return;
-          }
-  
-          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0); // ✅ Переводим TON → наноTON
-          const destinationAddress = "UQBpWRCUKj0HcNlp9JIyByKAw21Eo7s6TEBYEuIe-laVcBzc"; // ✅ Твой кошелек
-  
-          // 📌 Структура запроса
-          const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 300, // ✅ Время в секундах (5 мин)
-              messages: [
-                  {
-                      address: destinationAddress, // ✅ Адрес назначения
-                      amount: amountInNanoTON.toString(), // ✅ Сумма в виде строки
-                      payload: btoa(userId), // ✅ Кодируем userId в Base64 (MEMO)
-                  },
-              ],
-          };
-  
-          console.log("📌 Отправка транзакции:", transaction);
-  
-          // ✅ Отправляем транзакцию через TonConnect
-          await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+        // Проверяем, есть ли TonConnect и его методы
+        if (!tonConnectUI || typeof tonConnectUI.sendTransaction !== "function") {
+          console.error("❌ Ошибка: tonConnectUI.sendTransaction не найден!");
+          return;
+        }
+    
+        // Получаем `userId` из URL
+        const userId = new URLSearchParams(window.location.search).get("userId");
+        if (!userId) {
+          console.error("❌ Ошибка: userId не найден!");
+          return;
+        }
+    
+        // Проверяем текущую сеть
+        console.log("Текущая сеть:", tonConnectUI?.network);
+        if (!tonConnectUI?.network || tonConnectUI.network !== "testnet") {
+          console.error("❌ Ошибка: Вы подключены к mainnet, переключитесь на testnet!");
+          return;
+        }
+    
+        // Конвертируем сумму в NanoTON (1 TON = 10⁹ NanoTON)
+        const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
+    
+        // ✅ Убедимся, что `destinationAddress` в правильном формате
+        const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // **Замените на свой кошелек**
+    
+        // Формируем объект транзакции
+        const transaction = {
+          validUntil: Math.floor(Date.now() / 1000) + 600, // ✅ Время в секундах (10 минут)
+          messages: [
+            {
+              address: destinationAddress, // ✅ Адрес назначения
+              amount: amountInNanoTON.toString(), // ✅ Сумма в виде строки
+              payload: btoa(userId), // ✅ Кодируем userId в Base64 (MEMO)
+            },
+          ],
+        };
+    
+        console.log("📌 Отправка транзакции:", transaction);
+    
+        // ✅ Отправляем транзакцию через TonConnect
+        await tonConnectUI.sendTransaction(transaction);
+    
+        console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
-          console.error("❌ Ошибка при отправке транзакции:", error);
+        console.error("❌ Ошибка при отправке транзакции:", error);
       }
-  };
+    };
 
 
   return (
