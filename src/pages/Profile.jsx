@@ -21,16 +21,14 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    // Состояние для переключения между разделами
+
     const [activeSection, setActiveSection] = useState("default");
     const [balance, setBalance] = useState("0.00"); // 🔥 Храним баланс
     const [amount, setAmount] = useState("СУММА");
-    // const [isValidAmount, setIsValidAmount] = useState(false); // Валидация числа (>= 5)
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
     const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
 
     const navigate = useNavigate();
-    console.log("navigate function:", navigate);
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
     const [tonConnectUI] = useTonConnectUI({
       manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json",
@@ -63,6 +61,7 @@ const Profile = () => {
       }
     };
 
+
     useEffect(() => {
       setTimeout(() => {
         const params = new URLSearchParams(window.location.search);
@@ -75,10 +74,10 @@ const Profile = () => {
         } else {
           console.error("❌ Ошибка: userId не найден в URL!");
         }
-      }, 500); // Добавляем небольшую задержку
+      }, 500); 
     }, []);
 
-    // ✅ Функция для получения баланса с бэка
+
     const fetchBalance = async () => {
       try {
           const userId = new URLSearchParams(window.location.search).get("userId"); // Получаем userId из URL
@@ -95,7 +94,7 @@ const Profile = () => {
       }
     };
 
-    // ✅ Вызываем `fetchBalance()` при загрузке страницы
+
     useEffect(() => {
         fetchBalance();
     }, []);
