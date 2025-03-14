@@ -73,18 +73,6 @@ const Profile = () => {
           console.error("Ошибка при получении баланса:", error);
       }
     };
-
-
-    useEffect(() => {
-        fetchBalance();
-    }, []);
-
-
-    const encodeMemo = (text) => {
-      const encoder = new TextEncoder();
-      const encoded = encoder.encode(text);
-      return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
-    };
     
     const sendTransaction = async (amountToSend) => {
       try {
