@@ -76,7 +76,7 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
-          const amountInNanoTON = toNano(amountToSend).toString(); // ✅ Переводим в нанотоны
+          const amountInNanoTON = toNano(amountToSend).toString(); // ✅ Переводим в нанотон
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
