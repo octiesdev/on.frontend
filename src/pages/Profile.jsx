@@ -31,10 +31,12 @@ const Profile = () => {
     const navigate = useNavigate();
     const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
     const [tonConnectUI] = useTonConnectUI({
-      manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json",
-      network: "testnet" // ✅ Используем тестовую сеть
+      manifestUrl: "https://viber-redirect.netlify.app/tonconnect-manifest.json"
     }); // Инициализируем TonConnect
 
+    useEffect(() => {
+      console.log("🔥 Текущая сеть TonConnect:", tonConnectUI.network);
+    }, [tonConnectUI]);
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
