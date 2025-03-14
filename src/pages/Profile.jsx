@@ -67,21 +67,27 @@ const Profile = () => {
       }
     }, []);
 
-    // 🔥 Функция загрузки баланса
-    const fetchBalance = async (userId) => {
-        try {
-            const response = await fetch(API_URL);
-            const users = await response.json();
+    // ✅ Функция для получения баланса с бэка
+    const fetchBalance = async () => {
+      try {
+          const userId = new URLSearchParams(window.location.search).get("userId"); // Получаем userId из URL
+          if (!userId) return;
 
-            // Ищем пользователя по `telegramId`
-            const user = users.find(u => u.telegramId === userId);
-            if (user) {
-                setBalance(parseFloat(user.balance).toFixed(2)); // ✅ Всегда 2 знака после запятой
-            }
-        } catch (error) {
-            console.error("Ошибка при загрузке баланса:", error);
-        }
+          const response = await fetch(`${API_URL}/get-balance?userId=${userId}`);
+          const data = await response.json();
+
+          if (response.ok && data.balance !== undefined) {
+              setBalance(parseFloat(data.balance).toFixed(2)); // Устанавливаем баланс с округлением
+          }
+      } catch (error) {
+          console.error("Ошибка при получении баланса:", error);
+      }
     };
+
+    // ✅ Вызываем `fetchBalance()` при загрузке страницы
+    useEffect(() => {
+        fetchBalance();
+    }, []);
 
 
   return (
