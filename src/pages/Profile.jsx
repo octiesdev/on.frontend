@@ -99,17 +99,13 @@ const Profile = () => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Используем EQ, а не 0Q
+          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn"; // Проверь, что это правильный адрес!
   
-          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-          console.log("➡ userId:", userId);
+          console.log("➡ Формируем payload с текстом 'deposit'");
   
-          // ✅ Кодируем `userWalletAddress` в Base64
-          const payloadText = `deposit:${userWalletAddress}`;
-          const payloadBytes = new TextEncoder().encode(payloadText);
-          const payloadBase64 = btoa(String.fromCharCode(...payloadBytes)); // 🔥 Base64 вместо HEX
-  
-          console.log("➡ Payload (Base64):", payloadBase64);
+          // ✅ Конвертируем "deposit" в hex (без Buffer)
+          const payloadHex = Buffer.from("deposit", "utf8").toString("hex");
+          console.log("➡ Payload (Hex):", payloadHex);
   
           // ✅ Формируем транзакцию
           const transaction = {
@@ -118,7 +114,7 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payloadBase64 // ✅ Теперь `payload` в Base64
+                      payload: payloadHex // ✅ Теперь payload - это просто "deposit" в hex
                   },
               ],
           };
