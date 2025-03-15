@@ -90,9 +90,10 @@ const Profile = () => {
       try {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-          
+  
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
   
+          console.log("🔥 Вызов sendTransaction с amount:", amountToSend);
           console.log("🛠️ Создаю payload...");
   
           // ✅ Создаём payload
@@ -103,7 +104,7 @@ const Profile = () => {
   
           console.log("✅ Payload создан:", body);
   
-          // Проверяем, что `body.toBoc()` вернул буфер
+          // Кодируем в base64 без использования Buffer
           const bocBuffer = body.toBoc();
           console.log("📌 BOC Buffer:", bocBuffer);
   
@@ -113,7 +114,7 @@ const Profile = () => {
           console.log("📌 Payload в base64:", payloadBase64);
   
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600,
+              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
