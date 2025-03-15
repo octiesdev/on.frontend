@@ -102,14 +102,16 @@ const Profile = () => {
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Проверь адрес!
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+          console.log("➡ userId:", userId);
   
-
+          // Просто передаём `userId` в payload
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON.toString()
+                      amount: amountInNanoTON.toString(),
+                      payload: userId // 🔥 Передаём `userId` как строку
                   },
               ],
           };
@@ -122,7 +124,6 @@ const Profile = () => {
           console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
   };
-
 
   return (
     <div className="App">
