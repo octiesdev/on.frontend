@@ -85,21 +85,42 @@ const Profile = () => {
       return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
     };
     
-  const sendTransaction = async (amountToSend) => {
+    const sendTransaction = async (amountToSend) => {
       try {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-
+          
+          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+  
+          console.log("🛠️ Создаю payload...");
+  
+          // ✅ Создаём payload
+          const body = beginCell()
+              .storeUint(0, 32) // 32-битный префикс
+              .storeStringTail(`Deposit from user ${userId}`) // Комментарий
+              .endCell();
+  
+          console.log("✅ Payload создан:", body);
+  
+          // ✅ Гарантированное кодирование в base64
+          const payloadBase64 = base64Encode(
+              String.fromCharCode(...new Uint8Array(body.toBoc()))
+          );
+  
+          console.log("📌 Payload в base64:", payloadBase64);
+  
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
+              validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON.toString(),
+                      amount: amountInNanoTON,
+                      payload: payloadBase64, // ✅ Теперь точно работает
                   },
               ],
           };
-          
+  
+          console.log("📌 Отправка транзакции:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
