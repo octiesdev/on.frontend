@@ -22,7 +22,7 @@
     "react-router-dom": "^6.26.0",
     "react-unity-webgl": "^9.5.2",
     "ton": "^13.9.0",
-    "tonweb": "^0.0.66",
+    "tonweb": "^0.0.64",
     "vite": "^5.4.8",
     "web-vitals": "^2.1.4"
   },
