@@ -103,10 +103,16 @@ const Profile = () => {
   
           console.log("➡ Формируем payload с текстом 'deposit'");
   
-          // ✅ Создаём payload без изменений
-          const payloadBytes = new TextEncoder().encode("deposit");
+          // ✅ Шаг 1: Формируем ячейку данных
+          const payloadText = "deposit";
   
-          console.log("➡ Payload (Bytes):", payloadBytes);
+          // ✅ Шаг 2: Преобразуем в BOC (Byte Object Cell) – просто в массив байтов
+          const payloadBytes = new TextEncoder().encode(payloadText);
+  
+          // ✅ Шаг 3: Кодируем в Base64
+          const payloadBase64 = btoa(String.fromCharCode(...payloadBytes));
+  
+          console.log("➡ Payload (Base64):", payloadBase64);
   
           // ✅ Формируем транзакцию
           const transaction = {
@@ -115,7 +121,7 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payloadBytes // ✅ Просто передаём массив байтов
+                      payload: payloadBase64 // ✅ Передаём в Base64 формате
                   },
               ],
           };
