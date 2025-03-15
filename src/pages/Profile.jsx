@@ -102,10 +102,12 @@ const Profile = () => {
   
           console.log("✅ Payload создан:", body);
   
+          // Проверяем, что `body.toBoc()` вернул буфер
+          const bocBuffer = body.toBoc();
+          console.log("📌 BOC Buffer:", bocBuffer);
+  
           // ✅ Гарантированное кодирование в base64
-          const payloadBase64 = base64Encode(
-              String.fromCharCode(...new Uint8Array(body.toBoc()))
-          );
+          const payloadBase64 = btoa(String.fromCharCode(...new Uint8Array(bocBuffer)));
   
           console.log("📌 Payload в base64:", payloadBase64);
   
