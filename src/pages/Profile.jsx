@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { beginCell, toNano } from "@ton/core"; // ✅ добавил beginCell
 import { Buffer } from "buffer";
+window.Buffer = Buffer; // 🛠️ Добавляем поддержку Buffer
 
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -91,34 +92,37 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
-          const amountInNanoTON = toNano(amountToSend).toString(); // ✅ Переводим в нанотоны
+          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-    
+  
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-    
+  
           // ✅ Создаём ячейку (cell) для payload
           const body = beginCell()
-              .storeUint(0, 32) // 🔥 32 бита пустых (обязательный префикс)
-              .storeStringTail(`Deposit from user ${userId}`) // 🔥 Записываем комментарий
+              .storeUint(0, 32) // 32-битный префикс
+              .storeStringTail(`Deposit from user ${userId}`) // Комментарий для отслеживания
               .endCell();
-    
+  
+          const payloadBase64 = Buffer.from(body.toBoc()).toString("base64"); // 🚀 Используем Buffer.from
+  
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON// ✅ Преобразуем payload в BOC (base64)
+                      amount: amountInNanoTON,
+                      payload: payloadBase64, // 🛠️ Исправленный payload
                   },
               ],
           };
-    
-          console.log("📌 Отправка транзакции с payload:", transaction);
+  
+          console.log("📌 Отправка транзакции:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error);
       }
-    };
+  };
 
 
   return (
