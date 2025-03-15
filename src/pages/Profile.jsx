@@ -104,21 +104,17 @@ const Profile = () => {
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
           console.log("➡ userId:", userId);
   
-          // ✅ Кодируем `userWalletAddress` в HEX
-          const payloadText = `deposit:${userWalletAddress}`; // Например: "deposit:EQDabc123..."
-          const payloadBytes = new TextEncoder().encode(payloadText);
-          const payloadHex = Array.from(payloadBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+          // Кодируем `userId` в Base64
+          const encodedUserId = btoa(userId); 
   
-          console.log("➡ Payload (Hex):", payloadHex);
-  
-          // ✅ Формируем транзакцию
+          // Передаём закодированный `userId` в `payload`
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payloadHex // ✅ HEX-представление `userWalletAddress`
+                      payload: encodedUserId // ✅ Теперь payload закодирован
                   },
               ],
           };
