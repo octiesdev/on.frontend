@@ -98,11 +98,6 @@ const Profile = () => {
   
           console.log("🛠️ Создаю payload...");
   
-          // ✅ Создаём payload (ячейку)
-          const body = beginCell()
-              .storeUint(0, 32) // 32-битный префикс (обязательно)
-              .storeStringTail(`Deposit from user ${userId}`) // Комментарий
-              .endCell();
   
           console.log("✅ Payload создан:", body);
 
