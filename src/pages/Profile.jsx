@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { beginCell, toNano } from "@ton/ton";
 import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
@@ -92,24 +93,30 @@ const Profile = () => {
       return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
     };
     
-  const sendTransaction = async (amountToSend) => {
+    const sendTransaction = async (tonConnectUI, amount, userId) => {
       try {
-          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-
+          const amountInNanoTON = toNano(amount);
+          const destinationAddress = "ВАШ_КОШЕЛЕК"; // Адрес, на который приходят переводы
+  
+          // Добавляем memo для идентификации пользователя
+          const body = beginCell()
+              .storeUint(0, 32)
+              .storeStringTail(`Deposit from user ${userId}`)
+              .endCell();
+  
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
+              validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
+                      payload: body.toBoc().toString("base64")
                   },
               ],
           };
-
-          console.log("📌 Отправка транзакции без payload:", transaction);
+  
           await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+          console.log(`✅ Транзакция на сумму ${amount} TON отправлена!`);
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error);
       }
