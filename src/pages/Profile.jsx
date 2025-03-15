@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { beginCell, toNano } from "@ton/core"; // ✅ добавил beginCell
+import { Buffer } from "buffer";
 
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -107,7 +108,7 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON,
-                      payload: body.toBoc().toString("base64"), // ✅ Преобразуем payload в BOC (base64)
+                      payload: Buffer.from(body.toBoc()).toString("base64"), // ✅ Преобразуем payload в BOC (base64)
                   },
               ],
           };
