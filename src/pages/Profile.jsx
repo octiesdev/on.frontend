@@ -96,14 +96,6 @@ const Profile = () => {
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
   
-          console.log("🛠️ Создаю payload...");
-  
-  
-          console.log("✅ Payload создан:", body);
-
-  
-          console.log("📌 Payload в base64:", payloadBase64);
-  
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
