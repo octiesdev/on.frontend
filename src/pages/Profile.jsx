@@ -107,8 +107,7 @@ const Profile = () => {
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON,
-                      payload: Buffer.from(body.toBoc()).toString("base64"), // ✅ Преобразуем payload в BOC (base64)
+                      amount: amountInNanoTON// ✅ Преобразуем payload в BOC (base64)
                   },
               ],
           };
