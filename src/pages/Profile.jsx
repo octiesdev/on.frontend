@@ -1,3 +1,9 @@
+import { Buffer } from "buffer";
+
+if (typeof window !== "undefined") {
+  window.Buffer = window.Buffer || Buffer;
+}
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
