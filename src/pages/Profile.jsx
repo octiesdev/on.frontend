@@ -105,9 +105,7 @@ const Profile = () => {
               .endCell();
   
           console.log("✅ Payload создан:", body);
-  
-          // ✅ Исправляем кодирование payload
-          const payloadBase64 = Buffer.from(body.toBoc({ idx: 1 })).toString("base64");
+
   
           console.log("📌 Payload в base64:", payloadBase64);
   
@@ -116,8 +114,7 @@ const Profile = () => {
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON,
-                      payload: payloadBase64, // ✅ Теперь должно работать
+                      amount: amountInNanoTON
                   },
               ],
           };
