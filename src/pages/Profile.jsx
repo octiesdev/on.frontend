@@ -95,7 +95,7 @@ const Profile = () => {
     const sendTransaction = async (amountToSend) => {
       try {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown"; // Получаем userId
           const payloadText = `deposit:${userId}`;
