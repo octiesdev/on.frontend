@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
-import { beginCell } from "@ton/core"; // Убедись, что библиотека установлена
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -98,27 +97,26 @@ const Profile = () => {
           if (!userWalletAddress) throw new Error("❌ Ошибка: Кошелёк не подключён!");
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // 💰 Адрес кошелька для получения депозита
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // 💰 Адрес получателя
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
           console.log("➡ Отправляем userId:", userId);
   
-          // 📌 Создаём payload (комментарий) в виде ячейки (cell)
-          const body = beginCell()
-              .storeUint(0, 32) // 32-битный заголовок (чтобы TON понимал, что это текст)
-              .storeStringTail(`deposit:${userId}`) // Сам текст
-              .endCell();
+          // 🔥 **Правильный способ кодирования комментария**
+          const commentText = `deposit:${userId}`;
+          const commentBytes = new TextEncoder().encode(commentText); // Переводим в байты
+          const commentBase64 = btoa(String.fromCharCode(...commentBytes)); // Кодируем в Base64
   
-          console.log("➡ Payload (Base64):", body.toBoc().toString("base64"));
+          console.log("➡ Комментарий (Base64):", commentBase64);
   
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
-                      address: destinationAddress, // 💰 Отправляем на обычный кошелёк
-                      amount: amountInNanoTON.toString(),
+                      address: destinationAddress, // 💰 Адрес получателя (обычный кошелек)
+                      amount: amountInNanoTON.toString(), // 📌 Сумма перевода
                       stateInit: null, // 🔥 ОТКЛЮЧАЕМ СМАРТ-КОНТРАКТ
-                      payload: body.toBoc().toString("base64") // 🔥 Передаём комментарий
+                      payload: commentBase64, // ✅ **Передаём комментарий**
                   },
               ],
           };
