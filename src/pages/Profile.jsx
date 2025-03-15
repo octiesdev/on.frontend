@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
+import { beginCell } from "@ton/core"; // Убедись, что библиотека установлена
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
@@ -94,29 +95,35 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
-          if (!userWalletAddress) {
-              throw new Error("❌ Ошибка: Кошелёк не подключён!");
-          }
+          if (!userWalletAddress) throw new Error("❌ Ошибка: Кошелёк не подключён!");
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // ✅ Адрес для тестирования
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // 💰 Адрес кошелька для получения депозита
   
-          console.log("➡ Формируем payload с текстом 'deposit'");
-
+          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
+          console.log("➡ Отправляем userId:", userId);
   
-          // ✅ Формируем транзакцию
+          // 📌 Создаём payload (комментарий) в виде ячейки (cell)
+          const body = beginCell()
+              .storeUint(0, 32) // 32-битный заголовок (чтобы TON понимал, что это текст)
+              .storeStringTail(`deposit:${userId}`) // Сам текст
+              .endCell();
+  
+          console.log("➡ Payload (Base64):", body.toBoc().toString("base64"));
+  
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
-                      address: destinationAddress,
+                      address: destinationAddress, // 💰 Отправляем на обычный кошелёк
                       amount: amountInNanoTON.toString(),
-      
+                      stateInit: null, // 🔥 ОТКЛЮЧАЕМ СМАРТ-КОНТРАКТ
+                      payload: body.toBoc().toString("base64") // 🔥 Передаём комментарий
                   },
               ],
           };
   
-          console.log("📌 Финальный объект транзакции:", transaction);
+          console.log("📌 Отправляем транзакцию:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция отправлена: ${amountToSend} TON`);
   
