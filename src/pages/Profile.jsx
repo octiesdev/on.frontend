@@ -99,7 +99,7 @@ const Profile = () => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn"; // Проверь, что это правильный адрес!
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Проверь, что это правильный адрес!
   
           console.log("➡ Формируем payload с текстом 'deposit'");
   
