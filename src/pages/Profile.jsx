@@ -99,22 +99,26 @@ const Profile = () => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Проверь адрес!
+          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn"; // Используем EQ, а не 0Q
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
           console.log("➡ userId:", userId);
   
-          // Кодируем `userId` в Base64
-          const encodedUserId = btoa(userId); 
+          // ✅ Кодируем `userWalletAddress` в Base64
+          const payloadText = `deposit:${userWalletAddress}`;
+          const payloadBytes = new TextEncoder().encode(payloadText);
+          const payloadBase64 = btoa(String.fromCharCode(...payloadBytes)); // 🔥 Base64 вместо HEX
   
-          // Передаём закодированный `userId` в `payload`
+          console.log("➡ Payload (Base64):", payloadBase64);
+  
+          // ✅ Формируем транзакцию
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: encodedUserId // ✅ Теперь payload закодирован
+                      payload: payloadBase64 // ✅ Теперь `payload` в Base64
                   },
               ],
           };
