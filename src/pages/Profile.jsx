@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
+import { Buffer } from "buffer";
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
+import buttonConnectWallet from "../assets/buttonConnectWallet.png";
 import Footer from "../Footer"; // Подключаем футер
+import onexIMG from "../assets/onex-circle.png";
+import blumIMG from "../assets/blum-circle.png";
+import pawsIMG from "../assets/paws-circle.png";
+import terminalIMG from "../assets/terminal-circle.png";
 import tonIMG from "../assets/ton-img.png";
 import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
@@ -85,44 +92,22 @@ const Profile = () => {
       return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
     };
     
-    const sendTransaction = async (amountToSend) => {
+  const sendTransaction = async (amountToSend) => {
       try {
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
           const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn";
-          
-          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-  
-          console.log("🛠️ Создаю payload...");
-  
-          // ✅ Создаём payload
-          const body = beginCell()
-              .storeUint(0, 32) // 32-битный префикс
-              .storeStringTail(`Deposit from user ${userId}`) // Комментарий
-              .endCell();
-  
-          console.log("✅ Payload создан:", body);
-  
-          // Проверяем, что `body.toBoc()` вернул буфер
-          const bocBuffer = body.toBoc();
-          console.log("📌 BOC Buffer:", bocBuffer);
-  
-          // ✅ Гарантированное кодирование в base64
-          const payloadBase64 = btoa(String.fromCharCode(...new Uint8Array(bocBuffer)));
-  
-          console.log("📌 Payload в base64:", payloadBase64);
-  
+
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600,
+              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON,
-                      payload: payloadBase64, // ✅ Теперь точно работает
+                      amount: amountInNanoTON.toString(),
                   },
               ],
           };
-  
-          console.log("📌 Отправка транзакции:", transaction);
+
+          console.log("📌 Отправка транзакции без payload:", transaction);
           await tonConnectUI.sendTransaction(transaction);
           console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
       } catch (error) {
