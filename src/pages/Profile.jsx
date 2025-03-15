@@ -94,14 +94,24 @@ const Profile = () => {
     
     const sendTransaction = async (amountToSend) => {
       try {
+          if (!userWalletAddress) {
+              throw new Error("❌ Ошибка: Кошелёк не подключён!");
+          }
+  
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Проверь адрес!
   
-          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown"; // Получаем userId
+          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
           const payloadText = `deposit:${userId}`;
-          const payloadBase64 = btoa(payloadText); // Кодируем в Base64
+          const payloadBytes = new TextEncoder().encode(payloadText); // Кодируем в Uint8Array
+          const payloadBase64 = btoa(String.fromCharCode(...payloadBytes)); // Кодируем в Base64
   
-          console.log(`🔥 Отправка транзакции от userId: ${userId}, amount: ${amountToSend} TON`);
+          console.log("🚀 Отправка транзакции...");
+          console.log("➡ userId:", userId);
+          console.log("➡ Сумма TON:", amountToSend);
+          console.log("➡ Сумма в nanoTON:", amountInNanoTON);
+          console.log("➡ Адрес получателя:", destinationAddress);
+          console.log("➡ Payload (Base64):", payloadBase64);
   
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
@@ -109,16 +119,17 @@ const Profile = () => {
                   {
                       address: destinationAddress,
                       amount: amountInNanoTON.toString(),
-                      payload: payloadBase64 // Передаём userId
+                      payload: payloadBase64
                   },
               ],
           };
   
-          console.log("📌 Транзакция:", transaction);
+          console.log("📌 Финальный объект транзакции:", transaction);
           await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция на сумму ${amountToSend} TON успешно отправлена!`);
+          console.log(`✅ Транзакция отправлена: ${amountToSend} TON`);
+  
       } catch (error) {
-          console.error("❌ Ошибка при отправке транзакции:", error);
+          console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
   };
 
