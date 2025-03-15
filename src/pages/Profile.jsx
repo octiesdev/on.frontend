@@ -103,13 +103,7 @@ const Profile = () => {
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
   
-          console.log("🚀 Отправка транзакции...");
-          console.log("➡ userId:", userId);
-          console.log("➡ Сумма TON:", amountToSend);
-          console.log("➡ Сумма в nanoTON:", amountInNanoTON);
-          console.log("➡ Адрес получателя:", destinationAddress);
-          console.log("➡ Payload (Base64):", payloadBase64);
-  
+
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
               messages: [
