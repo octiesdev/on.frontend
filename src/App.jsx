@@ -1,6 +1,3 @@
-import { Buffer } from "buffer";
-window.Buffer = Buffer;
-
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
