@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
-import { beginCell, toNano } from '@ton/ton'
+import { beginCell } from '@ton/ton'
 import "../styles/Profile.css";
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -96,17 +96,20 @@ const Profile = () => {
           console.log("🔥 Вызов sendTransaction с amount:", amountToSend);
           console.log("🛠️ Создаю payload...");
   
-          // ✅ Создаём payload
+                    // ✅ Создаём payload
           const body = beginCell()
-          .storeUint(0, 32) // write 32 zero bits to indicate that a text comment will follow
-          .storeStringTail("Hello, TON!") // write our text comment
-          .endCell();
+            .storeUint(0, 32) // write 32 zero bits to indicate that a text comment will follow
+            .storeStringTail("Hello, TON!") // write our text comment
+            .endCell();
   
           console.log("✅ Payload создан:", body);
   
+          // Кодируем в base64 без использования Buffer
+          const bocBuffer = body.toBoc();
+          console.log("📌 BOC Buffer:", bocBuffer);
   
           // ✅ Гарантированное кодирование в base64
-          const payloadBase64 = body.toBoc().toString("base64") ;
+          const payloadBase64 = btoa(String.fromCharCode(...new Uint8Array(bocBuffer)));
   
           console.log("📌 Payload в base64:", payloadBase64);
   
