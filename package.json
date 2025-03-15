@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@ton/core": "^0.60.1",
+    "@ton/ton": "^15.2.1",
     "@tonconnect/ui": "^2.0.9",
     "@tonconnect/ui-react": "^2.0.12",
     "@vitejs/plugin-react": "^4.3.4",
