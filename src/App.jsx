@@ -1,7 +1,3 @@
-if (typeof window !== "undefined") {
-  window.Buffer = window.Buffer || require("buffer").Buffer;
-}
-
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
