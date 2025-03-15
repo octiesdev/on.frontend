@@ -102,9 +102,6 @@ const Profile = () => {
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Проверь адрес!
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-          const payloadText = `deposit:${userId}`;
-          const payloadBytes = new TextEncoder().encode(payloadText); // Кодируем в Uint8Array
-          const payloadBase64 = btoa(String.fromCharCode(...payloadBytes)); // Кодируем в Base64
   
           console.log("🚀 Отправка транзакции...");
           console.log("➡ userId:", userId);
@@ -118,8 +115,7 @@ const Profile = () => {
               messages: [
                   {
                       address: destinationAddress,
-                      amount: amountInNanoTON.toString(),
-                      payload: payloadBase64
+                      amount: amountInNanoTON.toString()
                   },
               ],
           };
