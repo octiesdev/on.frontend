@@ -99,7 +99,7 @@ const Profile = () => {
           }
   
           const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "EQDmnxDMhId6v1Ofg_h5KR5coWlFG6e86Ro3pc7Tq4CA0-Jn"; // Используем EQ, а не 0Q
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // Используем EQ, а не 0Q
   
           const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
           console.log("➡ userId:", userId);
