@@ -123,9 +123,7 @@ const Profile = () => {
           console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
   };
-  
-  // Использование
-  sendTransaction("1.5", "deposit:12345"); 
+
 
   return (
     <div className="App">
