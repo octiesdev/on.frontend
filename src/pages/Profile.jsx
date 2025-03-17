@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
+import { beginCell, toNano } from "@ton/core";
 import { encode as base64Encode } from "base-64"; // если нужен npm install base-64
 import { Buffer } from "buffer";
 import "../styles/Profile.css";
@@ -92,43 +93,39 @@ const Profile = () => {
       return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
     };
     
-    const sendTransaction = async (amountToSend) => {
+
+    const sendTransaction = async (amountToSend, comment) => {
       try {
-          if (!userWalletAddress) throw new Error("❌ Ошибка: Кошелёк не подключён!");
+          const amountInNanoTON = toNano(amountToSend).toString();
+          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
   
-          const amountInNanoTON = (parseFloat(amountToSend) * 1e9).toFixed(0);
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs"; // 💰 Адрес получателя
-  
-          const userId = new URLSearchParams(window.location.search).get("userId") || "unknown";
-          console.log("➡ Отправляем userId:", userId);
-  
-          // 🔥 **Правильный способ кодирования комментария**
-          const commentText = `deposit:${userId}`;
-          const commentBytes = new TextEncoder().encode(commentText); // Переводим в байты
-          const commentBase64 = btoa(String.fromCharCode(...commentBytes)); // Кодируем в Base64
-  
-          console.log("➡ Комментарий (Base64):", commentBase64);
+          const payloadCell = beginCell()
+              .storeUint(0, 32)  // 32-битный идентификатор (обычная транзакция)
+              .storeStringTail(comment) // Комментарий (например, userId)
+              .endCell();
   
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600, // 10 минут
+              validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
-                      address: destinationAddress, // 💰 Адрес получателя (обычный кошелек)
-                      amount: amountInNanoTON.toString(), // 📌 Сумма перевода
-                      stateInit: null, // 🔥 ОТКЛЮЧАЕМ СМАРТ-КОНТРАКТ
-                      payload: commentBase64, // ✅ **Передаём комментарий**
+                      address: destinationAddress,
+                      amount: amountInNanoTON,
+                      payload: payloadCell.toBoc().toString("base64") // Кодируем в Base64
                   },
               ],
           };
   
-          console.log("📌 Отправляем транзакцию:", transaction);
+          console.log("📌 Отправка транзакции с payload:", transaction);
           await tonConnectUI.sendTransaction(transaction);
-          console.log(`✅ Транзакция отправлена: ${amountToSend} TON`);
-  
+          console.log(`✅ Транзакция с комментарием "${comment}" отправлена!`);
+          
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
   };
+  
+  // Использование
+  sendTransaction("1.5", "deposit:12345"); 
 
   return (
     <div className="App">
