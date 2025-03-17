@@ -1,4 +1,4 @@
-import '"/polyfills.js'
+import "./polyfills.jsx"
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
