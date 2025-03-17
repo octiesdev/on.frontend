@@ -30,11 +30,10 @@ const Profile = () => {
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
     const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
+    const [tonConnectUI] = useTonConnectUI();
+    const [userId, setUserId] = useState("guest");
 
     const navigate = useNavigate();
-    const userWalletAddress = useTonAddress(); // Получаем адрес кошелька пользователя
-
-    const [tonConnectUI] = useTonConnectUI();
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
@@ -86,12 +85,17 @@ const Profile = () => {
         fetchBalance();
     }, []);
 
-
-    const encodeMemo = (text) => {
-      const encoder = new TextEncoder();
-      const encoded = encoder.encode(text);
-      return btoa(String.fromCharCode(...encoded)); // Кодируем в Base64
-    };
+    useEffect(() => {
+      const params = new URLSearchParams(window.location.search);
+      const idFromUrl = params.get("userId");
+      
+      if (idFromUrl) {
+          setUserId(idFromUrl);
+          console.log("✅ userId найден:", idFromUrl);
+      } else {
+          console.error("❌ userId не найден, используется 'guest'");
+      }
+    }, []);
     
 
     const sendTransaction = async (amountToSend, comment) => {
