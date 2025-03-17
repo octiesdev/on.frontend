@@ -307,12 +307,13 @@ const Profile = () => {
                     {amount}
                 </div>
                 <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}
-                  onClick={() => {
-                    if (isValidAmount) {
-                      console.log("🔥 Вызов sendTransaction с amount:", amount);
-                      sendTransaction(amount);
-                    }
-                    }}>
+                    onClick={() => {
+                      if (isValidAmount) {
+                          const userId = new URLSearchParams(window.location.search).get("userId") || "guest"; // Получаем userId
+                          console.log("🔥 Вызов sendTransaction с userId:", userId);
+                          sendTransaction(amount, `deposit:${userId}`);
+                      }
+                  }}>
                   ПОПОЛНИТЬ
                 </div>
                 </div>
