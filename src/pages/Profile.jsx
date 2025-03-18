@@ -141,6 +141,16 @@ const Profile = () => {
       }
     }, [userId]);
 
+    useEffect(() => {
+      if (farmStatus === "зафармлено" && userId) {
+        console.log("🎉 Фарминг завершен! Обновляем баланс...");
+        
+        setTimeout(() => {
+          fetchBalance(userId);
+        }, 500); // 🔥 Даем 500 мс перед обновлением
+      }
+    }, [farmStatus, userId]); // 🔥 Теперь следим и за userId!
+
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
     };
