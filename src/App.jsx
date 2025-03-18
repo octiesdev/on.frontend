@@ -1,4 +1,5 @@
 import "./polyfills.jsx"
+import { UserProvider } from "./context/UserContext"; // Убедись, что путь правильный
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
@@ -11,6 +12,7 @@ import OnAmbasProgram from "./pages/OnAmbasProgram";
 const App = () => {
 
   return (
+    <UserProvider>
     <TonConnectUIProvider 
     manifestUrl="https://viber-redirect.netlify.app/tonconnect-manifest.json">
     <Routes>
@@ -21,6 +23,7 @@ const App = () => {
       <Route path="/onambasProgram" element={<OnAmbasProgram />} />
     </Routes>
     </TonConnectUIProvider>
+    </UserProvider>
   );
 };
 
