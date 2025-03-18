@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance, fetchUserData } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
+    const { userId, balance, fetchBalance } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние

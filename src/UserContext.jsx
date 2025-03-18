@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  
+
   const fetchBalance = async (id) => {
     try {
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
@@ -44,7 +44,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ userId, balance, fetchUserData, fetchBalance }}>
+    <UserContext.Provider value={{ userId, balance, fetchBalance }}>
       {children}
     </UserContext.Provider>
   );
