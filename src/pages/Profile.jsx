@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { beginCell, toNano } from "@ton/core";
+import { useUser } from "../UserContext"; // 🔥 Используем глобальный контекст
 import "../styles/Profile.css";
+
 
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
@@ -18,16 +20,21 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-
+    const { userId, balance, fetchBalance } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
     const [activeSection, setActiveSection] = useState("default");
-    const [balance, setBalance] = useState("0.00"); // 🔥 Храним баланс
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
     const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
     const [tonConnectUI] = useTonConnectUI();
-    const [userId, setUserId] = useState("guest");
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (userId) {
+          fetchBalance(userId); // ✅ Загружаем баланс при загрузке
+      }
+    }, [userId]);
+
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
@@ -42,43 +49,6 @@ const Profile = () => {
       selection.addRange(range);
     };
 
-    useEffect(() => {
-      setTimeout(() => {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("userId");
-    
-        console.log("📌 userId из URL после задержки:", id);
-    
-        if (id) {
-          fetchBalance(id);
-        } else {
-          console.error("❌ Ошибка: userId не найден в URL!");
-        }
-      }, 500); 
-    }, []);
-
-
-    const fetchBalance = async () => {
-      try {
-          const userId = new URLSearchParams(window.location.search).get("userId"); // Получаем userId из URL
-          if (!userId) return;
-
-          const response = await fetch(`${API_URL}/get-balance?userId=${userId}`);
-          const data = await response.json();
-
-          if (response.ok && data.balance !== undefined) {
-              setBalance(parseFloat(data.balance).toFixed(2)); // Устанавливаем баланс с округлением
-          }
-      } catch (error) {
-          console.error("Ошибка при получении баланса:", error);
-      }
-    };
-
-
-    useEffect(() => {
-        fetchBalance();
-    }, []);
-    
 
     const sendTransaction = async (amountToSend, comment) => {
       try {
