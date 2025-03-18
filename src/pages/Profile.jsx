@@ -270,7 +270,7 @@ const Profile = () => {
                 <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}
                     onClick={() => {
                       if (isValidAmount) {
-                          const userId = new URLSearchParams(window.location.search).get("userId") || "guest"; // Получаем userId
+                          const { userId } = useUser();  // Получаем userId
                           console.log("🔥 Вызов sendTransaction с userId:", userId);
                           sendTransaction(amount, `deposit:${userId}`);
                       }
