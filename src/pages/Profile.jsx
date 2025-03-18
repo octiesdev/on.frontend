@@ -27,7 +27,7 @@ const Profile = () => {
     const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
     const [tonConnectUI] = useTonConnectUI();
     const walletAddress = useTonAddress(); // 🔥 Получаем адрес кошелька
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -99,7 +99,6 @@ const Profile = () => {
           .endCell();
   
           const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 600,
               messages: [
                   {
                       address: destinationAddress,
