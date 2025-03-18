@@ -26,8 +26,38 @@ const Profile = () => {
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
     const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
     const [tonConnectUI] = useTonConnectUI();
-
+    const walletAddress = useTonAddress(); // 🔥 Получаем адрес кошелька
+    
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (userId && walletAddress) {
+          updateWalletAddress(userId, walletAddress); // ✅ Обновляем в БД
+      }
+    }, [userId, walletAddress]);
+
+    const updateWalletAddress = async (userId, wallet) => {
+      try {
+          console.log(`📌 Сохранение кошелька ${wallet} для userId: ${userId}`);
+            const response = await fetch("https://1xback-production.up.railway.app/update-wallet", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ userId, walletAddress: wallet })
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                console.log("✅ Кошелек успешно сохранен:", data);
+            } else {
+                console.error("❌ Ошибка при сохранении кошелька:", data.error);
+            }
+        } catch (error) {
+          console.error("❌ Ошибка при обновлении кошелька:", error);
+        }
+    };
+
 
     // ✅ Проверяем `userId` при загрузке
 
