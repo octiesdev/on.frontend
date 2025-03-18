@@ -47,18 +47,10 @@ const Profile = () => {
         console.error("❌ userId отсутствует!");
       }
     }, [userId]);
-
-
+    
     const checkFarmingStatus = async () => {
-      if (!userId) {
-        console.error("❌ Ошибка: userId отсутствует перед запросом!");
-        return;
-      }
-    
-      console.log("📌 Отправляем запрос на /get-farming-status с userId:", userId);
-    
       try {
-        const response = await fetch("https://1xback-production.up.railway.app/get-farming-status", {
+        const response = await fetch(`${API_URL}/get-farming-status`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
@@ -70,24 +62,10 @@ const Profile = () => {
         if (data.success) {
           if (data.status === "зафармлено") {
             setFarmStatus("зафармлено");
-            fetchBalance(userId); // ✅ Обновляем баланс после завершения фарминга
+            fetchBalance(userId); // ✅ Обновляем баланс
           } else if (data.status === "таймер") {
             setFarmStatus("таймер");
             startCountdown(data.farmEndTime);
-    
-            // ✅ Если таймер уже истек, завершаем фарминг
-            if (new Date() >= new Date(data.farmEndTime)) {
-              console.log("⏳ Таймер завершен, отправляем `/finish-farming`");
-              await fetch("https://1xback-production.up.railway.app/finish-farming", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userId }),
-              });
-    
-              // ✅ Перезапрашиваем баланс после успешного завершения фарминга
-              fetchBalance(userId);
-              setFarmStatus("зафармлено");
-            }
           }
         } else {
           console.error("❌ Ошибка: Сервер вернул:", data.error);
