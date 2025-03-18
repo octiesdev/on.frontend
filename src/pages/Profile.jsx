@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance } = useUser(); 
+    const { userId, balance, fetchBalance, fetchUserData } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); 
@@ -40,15 +40,25 @@ const Profile = () => {
     }, [userId, walletAddress]);
 
     useEffect(() => {
-      checkFarmingStatus();
-    }, []);
+      if (userId) {
+        console.log("✅ userId найден:", userId);
+        checkFarmingStatus();
+      } else {
+        console.error("❌ userId отсутствует!");
+      }
+    }, [userId]);
 
 
     const checkFarmingStatus = async () => {
-      try {
-        console.log("📌 Отправка запроса на сервер /get-farming-status с userId:", userId);
+      if (!userId) {
+        console.error("❌ Ошибка: userId отсутствует перед запросом!");
+        return;
+      }
     
-        const response = await fetch(`${API_URL}/get-farming-status`, {
+      console.log("📌 Отправляем запрос на /get-farming-status с userId:", userId);
+    
+      try {
+        const response = await fetch("https://1xback-production.up.railway.app/get-farming-status", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
@@ -127,7 +137,14 @@ const Profile = () => {
         }
     };
 
-
+    useEffect(() => {
+      if (!userId) {
+        console.log("🔄 Загружаем userId...");
+        fetchUserData();
+      } else {
+        console.log("✅ userId найден в контексте:", userId);
+      }
+    }, [userId]);
     // ✅ Проверяем `userId` при загрузке
 
     useEffect(() => {
