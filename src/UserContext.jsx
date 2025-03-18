@@ -7,17 +7,19 @@ export const UserProvider = ({ children }) => {
   const [balance, setBalance] = useState("0.00");
 
   useEffect(() => {
-    fetchUserData(); // ✅ Получаем `userId` с сервера
+    fetchUserData();
   }, []);
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("https://1xback-production.up.railway.app/get-user"); // ✅ Запрос на сервер
+      const response = await fetch("https://1xback-production.up.railway.app/get-user");
       const data = await response.json();
 
-      if (response.ok && data.userId) {
+      if (response.ok && data?.userId) {
         setUserId(data.userId);
-        fetchBalance(data.userId); // ✅ Запрашиваем баланс после получения `userId`
+        fetchBalance(data.userId);
+      } else {
+        console.warn("❌ userId отсутствует в ответе сервера:", data);
       }
     } catch (error) {
       console.error("Ошибка при получении userId:", error);
@@ -25,12 +27,16 @@ export const UserProvider = ({ children }) => {
   };
 
   const fetchBalance = async (id) => {
+    if (!id) return; // ✅ Защита от вызова с `null`
+    
     try {
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
       const data = await response.json();
 
-      if (response.ok && data.balance !== undefined) {
+      if (response.ok && typeof data.balance === "number") {
         setBalance(parseFloat(data.balance).toFixed(2));
+      } else {
+        console.warn("❌ Некорректный баланс:", data);
       }
     } catch (error) {
       console.error("Ошибка при получении баланса:", error);
@@ -39,9 +45,15 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{ userId, balance, fetchBalance }}>
-      {children}
+      {userId !== null ? children : <div>Загрузка...</div>}
     </UserContext.Provider>
   );
 };
 
-export const useUser = () => useContext(UserContext);
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (!context) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
+};
