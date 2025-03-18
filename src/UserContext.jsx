@@ -6,24 +6,30 @@ export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [balance, setBalance] = useState("0.00");
 
+
   useEffect(() => {
-    fetchUserData(); // ✅ Загружаем `userId` при запуске
+    initializeUser();
   }, []);
 
-  const fetchUserData = async () => {
-    try {
-      const response = await fetch("https://1xback-production.up.railway.app/get-user"); // 🔥 Получаем `userId` из БД
-      const data = await response.json();
+  const initializeUser = async () => {
+    // ✅ Проверяем, есть ли `userId` в URL
+    let id = new URLSearchParams(window.location.search).get("userId");
 
-      if (response.ok && data.userId) {
-        setUserId(data.userId);
-        fetchBalance(data.userId);
-      }
-    } catch (error) {
-      console.error("❌ Ошибка при получении userId:", error);
+    // ✅ Если нет в URL, проверяем `sessionStorage`
+    if (!id) {
+      id = sessionStorage.getItem("userId");
+    }
+
+    if (id) {
+      console.log(`✅ Найден userId: ${id}`);
+      setUserId(id);
+      fetchBalance(id);
+    } else {
+      console.error("❌ Ошибка: userId отсутствует!");
     }
   };
 
+  
   const fetchBalance = async (id) => {
     try {
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
