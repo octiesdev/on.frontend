@@ -38,13 +38,7 @@ const Profile = () => {
           updateWalletAddress(userId, walletAddress); 
       }
     }, [userId, walletAddress]);
-
-    useEffect(() => {
-      if (farmStatus === "зафармлено") {
-        console.log("🎉 Фарминг завершен! Обновляем баланс...");
-        fetchBalance(userId);
-      }
-    }, [farmStatus]); // 🔥 Следим за изменением farmStatus
+    
 
     useEffect(() => {
       if (userId) {
