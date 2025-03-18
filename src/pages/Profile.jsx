@@ -30,16 +30,8 @@ const Profile = () => {
 
     const [farmStatus, setFarmStatus] = useState("не активирована");
     const [timeLeft, setTimeLeft] = useState("");
-    const [isFarmed, setIsFarmed] = useState(false);
-
-
+    
     const navigate = useNavigate();
-
-    useEffect(() => {
-      if (farmStatus === "зафармлено") {
-        setIsFarmed(true);
-      }
-    }, [farmStatus]);
 
     useEffect(() => {
       if (userId && walletAddress) {
@@ -333,17 +325,17 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="onexNode-PayButton">
-                    {!isFarmed && farmStatus === "не активирована" && (
+                    {farmStatus === "не активирована" && (
                       <div className="pay-button-profile" onClick={startFarming}>
                         ЗАПУСТИТЬ БЕСПЛАТНО
                       </div>
                     )}
-                    {!isFarmed && farmStatus === "таймер" && (
+                    {farmStatus === "таймер" && (
                       <div className="pay-button-profile">
                         {timeLeft}
                       </div>
                     )}
-                    {isFarmed && (
+                    {farmStatus === "зафармлено" && (
                       <div className="pay-button-profile-farmed">
                         ЗАФАРМЛЕНО
                       </div>
