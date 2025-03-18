@@ -131,7 +131,15 @@ const Profile = () => {
         }
     };
 
-
+    useEffect(() => {
+      if (farmStatus === "зафармлено") {
+        console.log("🎉 Фарминг завершен! Перезагружаем страницу...");
+        
+        setTimeout(() => {
+          window.location.reload(); // 🔥 Полностью перезагружает страницу
+        }, 200); // ✅ Даём 1 сек перед перезагрузкой
+      }
+    }, [farmStatus]); 
 
     useEffect(() => {
       if (userId) {
@@ -140,16 +148,6 @@ const Profile = () => {
           console.error("❌ Ошибка: userId отсутствует!");
       }
     }, [userId]);
-
-    useEffect(() => {
-      if (farmStatus === "зафармлено" && userId) {
-        console.log("🎉 Фарминг завершен! Обновляем баланс...");
-        
-        setTimeout(() => {
-          fetchBalance(userId);
-        }, 500); // 🔥 Даем 500 мс перед обновлением
-      }
-    }, [farmStatus, userId]); // 🔥 Теперь следим и за userId!
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
