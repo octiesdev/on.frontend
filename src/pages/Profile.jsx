@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
+    const { userId, balance, fetchBalance, fetchUserData } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
@@ -30,8 +30,10 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      if (userId) {
-          fetchBalance(userId); // ✅ Загружаем баланс при загрузке
+      if (!userId) {
+          fetchUserData(); // Загружаем `userId` при входе на страницу
+      } else {
+          fetchBalance(userId);
       }
     }, [userId]);
 
@@ -52,6 +54,11 @@ const Profile = () => {
 
     const sendTransaction = async (amountToSend, comment) => {
       try {
+        if (!userId) {
+            console.error("❌ Ошибка: userId отсутствует!");
+            return;
+          }
+
           const amountInNanoTON = toNano(amountToSend).toString();
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
   
