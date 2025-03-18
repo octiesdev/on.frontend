@@ -20,21 +20,83 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance, fetchUserData } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
+    const { userId, balance, fetchBalance } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
-    const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
-    const [isValidAmount, setIsValidAmount] = useState(false); // ❌ Не валидное изначально 
+    const [isNeutral, setIsNeutral] = useState(true); 
+    const [isValidAmount, setIsValidAmount] = useState(false); 
     const [tonConnectUI] = useTonConnectUI();
-    const walletAddress = useTonAddress(); // 🔥 Получаем адрес кошелька
+    const walletAddress = useTonAddress(); 
+
+    const [farmStatus, setFarmStatus] = useState("не активирована");
+    const [farmEndTime, setFarmEndTime] = useState(null);
+    const [timeLeft, setTimeLeft] = useState("");
     
     const navigate = useNavigate();
 
     useEffect(() => {
       if (userId && walletAddress) {
-          updateWalletAddress(userId, walletAddress); // ✅ Обновляем в БД
+          updateWalletAddress(userId, walletAddress); 
       }
     }, [userId, walletAddress]);
+
+    useEffect(() => {
+      checkFarmingStatus();
+    }, []);
+
+
+    const checkFarmingStatus = async () => {
+      try {
+        const response = await fetch("https://1xback-production.up.railway.app/finish-farming", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          setFarmStatus("зафармлено");
+          fetchBalance(userId); // 🔥 Обновляем баланс
+        } else if (data.message === "⏳ Фарм еще не завершен.") {
+          setFarmStatus("таймер");
+          startCountdown(data.farmEndTime);
+        }
+      } catch (error) {
+        console.error("❌ Ошибка при проверке фарминга:", error);
+      }
+    };
+
+    const startFarming = async () => {
+      try {
+        const response = await fetch("https://1xback-production.up.railway.app/start-farming", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          setFarmStatus("таймер");
+          startCountdown(data.farmEndTime);
+        }
+      } catch (error) {
+        console.error("❌ Ошибка при запуске фарминга:", error);
+      }
+    };
+
+    const startCountdown = (endTime) => {
+      const interval = setInterval(() => {
+        const now = new Date();
+        const diff = new Date(endTime) - now;
+        if (diff <= 0) {
+          clearInterval(interval);
+          setFarmStatus("зафармлено");
+        } else {
+          const seconds = Math.floor(diff / 1000);
+          setTimeLeft(`${seconds} сек.`);
+        }
+      }, 1000); // ✅ Обновляем каждую секунду
+    };
 
     const updateWalletAddress = async (userId, wallet) => {
       try {
@@ -243,9 +305,21 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="onexNode-PayButton">
-                    <div className="pay-button-profile">
-                      ЗАПУСТИТЬ БЕСПЛАТНО
-                    </div>
+                    {farmStatus === "не активирована" && (
+                      <div className="pay-button-profile" onClick={startFarming}>
+                        ЗАПУСТИТЬ БЕСПЛАТНО
+                      </div>
+                    )}
+                    {farmStatus === "таймер" && (
+                      <div className="pay-button-profile" style={{ backgroundColor: "orange" }}>
+                        {timeLeft}
+                      </div>
+                    )}
+                    {farmStatus === "зафармлено" && (
+                      <div className="pay-button-profile" style={{ backgroundColor: "green", cursor: "default" }}>
+                        ЗАФАРМЛЕНО
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
