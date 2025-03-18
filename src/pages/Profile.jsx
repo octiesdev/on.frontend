@@ -61,11 +61,11 @@ const Profile = () => {
 
           const amountInNanoTON = toNano(amountToSend).toString();
           const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
-  
+
           const payloadCell = beginCell()
-              .storeUint(0, 32)  // 32-битный идентификатор (обычная транзакция)
-              .storeStringTail(comment) // Комментарий (например, userId)
-              .endCell();
+          .storeUint(0, 32)  
+          .storeStringTail(`deposit:${userId}`) // ✅ Передаем `userId` из контекста
+          .endCell();
   
           const transaction = {
               validUntil: Math.floor(Date.now() / 1000) + 600,
@@ -270,7 +270,6 @@ const Profile = () => {
                 <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}
                     onClick={() => {
                       if (isValidAmount) {
-                          const { userId } = useUser();  // Получаем userId
                           console.log("🔥 Вызов sendTransaction с userId:", userId);
                           sendTransaction(amount, `deposit:${userId}`);
                       }
