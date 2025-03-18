@@ -331,7 +331,7 @@ const Profile = () => {
                       </div>
                     )}
                     {farmStatus === "таймер" && (
-                      <div className="pay-button-profile" style={{ backgroundColor: "orange" }}>
+                      <div className="pay-button-profile">
                         {timeLeft}
                       </div>
                     )}
