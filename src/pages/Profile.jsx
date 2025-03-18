@@ -46,6 +46,8 @@ const Profile = () => {
 
     const checkFarmingStatus = async () => {
       try {
+        console.log("📌 Отправка запроса на сервер /get-farming-status с userId:", userId);
+    
         const response = await fetch(`${API_URL}/get-farming-status`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -53,6 +55,8 @@ const Profile = () => {
         });
     
         const data = await response.json();
+        console.log("📌 Ответ сервера:", data);
+    
         if (data.success) {
           if (data.status === "зафармлено") {
             setFarmStatus("зафармлено");
@@ -60,6 +64,8 @@ const Profile = () => {
             setFarmStatus("таймер");
             startCountdown(data.farmEndTime);
           }
+        } else {
+          console.error("❌ Ошибка: Сервер вернул:", data.error);
         }
       } catch (error) {
         console.error("❌ Ошибка при проверке статуса фарминга:", error);
