@@ -30,10 +30,10 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      if (!userId) {
-          fetchUserData(); // Загружаем `userId` при входе на страницу
-      } else {
+      if (userId) {
           fetchBalance(userId);
+      } else {
+          console.error("❌ Ошибка: userId отсутствует!");
       }
     }, [userId]);
 
