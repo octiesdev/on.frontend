@@ -3,32 +3,34 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userId, setUserId] = useState(null);
-  const [balance, setBalance] = useState("0.00");
+  const [userId, setUserId] = useState(sessionStorage.getItem("userId") || null);
+  const [balance, setBalance] = useState(sessionStorage.getItem("balance") || "0.00");
 
-
+  // ✅ Загружаем `userId` при запуске
   useEffect(() => {
-    initializeUser();
+    if (!userId) {
+      fetchUserData();
+    } else {
+      fetchBalance(userId);
+    }
   }, []);
 
-  const initializeUser = async () => {
-    // ✅ Проверяем, есть ли `userId` в URL
-    let id = new URLSearchParams(window.location.search).get("userId");
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch("https://1xback-production.up.railway.app/get-user");
+      const data = await response.json();
 
-    // ✅ Если нет в URL, проверяем `sessionStorage`
-    if (!id) {
-      id = sessionStorage.getItem("userId");
-    }
-
-    if (id) {
-      console.log(`✅ Найден userId: ${id}`);
-      setUserId(id);
-      fetchBalance(id);
-    } else {
-      console.error("❌ Ошибка: userId отсутствует!");
+      if (response.ok && data.userId) {
+        setUserId(data.userId);
+        sessionStorage.setItem("userId", data.userId); // 🔥 Сохраняем в sessionStorage
+        fetchBalance(data.userId);
+      } else {
+        console.error("❌ Ошибка: userId отсутствует в ответе сервера!");
+      }
+    } catch (error) {
+      console.error("❌ Ошибка при получении userId:", error);
     }
   };
-
 
   const fetchBalance = async (id) => {
     try {
@@ -36,7 +38,9 @@ export const UserProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok && data.balance !== undefined) {
-        setBalance(parseFloat(data.balance).toFixed(2));
+        const formattedBalance = parseFloat(data.balance).toFixed(2);
+        setBalance(formattedBalance);
+        sessionStorage.setItem("balance", formattedBalance); // 🔥 Сохраняем баланс
       }
     } catch (error) {
       console.error("❌ Ошибка при получении баланса:", error);
@@ -44,7 +48,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ userId, balance, fetchBalance }}>
+    <UserContext.Provider value={{ userId, balance, fetchUserData, fetchBalance }}>
       {children}
     </UserContext.Provider>
   );

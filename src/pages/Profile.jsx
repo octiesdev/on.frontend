@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
+    const { userId, balance, fetchBalance, fetchUserData } = useUser(); // 🔥 Берём `userId` и `balance` из контекста
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); // ✅ Начальное нейтральное состояние
@@ -29,14 +29,14 @@ const Profile = () => {
 
     const navigate = useNavigate();
 
+    // ✅ Проверяем `userId` при загрузке
     useEffect(() => {
-      if (userId) {
-          fetchBalance(userId);
+      if (!userId) {
+          fetchUserData(); // 🔥 Если `userId` нет, загружаем
       } else {
-          console.error("❌ Ошибка: userId отсутствует!");
+          fetchBalance(userId);
       }
     }, [userId]);
-
 
     const handleSupportClick = () => {
       window.open("https://t.me/zustrich_lab_hr", "_blank");
