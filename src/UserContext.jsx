@@ -67,9 +67,11 @@ export const UserProvider = ({ children }) => {
       console.log("📌 Получаем баланс для userId:", id);
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
       const data = await response.json();
-
+      console.log("📌 Баланс с сервера:", data);
+  
       if (response.ok && data.balance !== undefined) {
         setBalance(parseFloat(data.balance).toFixed(2));
+        console.log("✅ Новый баланс:", parseFloat(data.balance).toFixed(2));
       } else {
         console.error("❌ Ошибка: баланс отсутствует в ответе сервера!");
       }

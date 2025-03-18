@@ -70,9 +70,24 @@ const Profile = () => {
         if (data.success) {
           if (data.status === "зафармлено") {
             setFarmStatus("зафармлено");
+            fetchBalance(userId); // ✅ Обновляем баланс после завершения фарминга
           } else if (data.status === "таймер") {
             setFarmStatus("таймер");
             startCountdown(data.farmEndTime);
+    
+            // ✅ Если таймер уже истек, завершаем фарминг
+            if (new Date() >= new Date(data.farmEndTime)) {
+              console.log("⏳ Таймер завершен, отправляем `/finish-farming`");
+              await fetch("https://1xback-production.up.railway.app/finish-farming", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId }),
+              });
+    
+              // ✅ Перезапрашиваем баланс после успешного завершения фарминга
+              fetchBalance(userId);
+              setFarmStatus("зафармлено");
+            }
           }
         } else {
           console.error("❌ Ошибка: Сервер вернул:", data.error);
