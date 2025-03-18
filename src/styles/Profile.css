@@ -640,6 +640,22 @@ isolation: isolate;
   border-radius: 1vh;
 }
 
+.pay-button-profile-farmed {
+  background-color: rgba(0, 255, 38, 0.15);
+  color: #1FFF02;
+  border: 1px solid rgba(31, 255, 2, 1);
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.7vh;
+  font-family: "MullerExtraBold", sans-serif;
+  border-radius: 1vh;
+}
+
 .highlight-text {
   color: #1FFF02; /* Задаём нужный цвет (например, золотой) */
 }

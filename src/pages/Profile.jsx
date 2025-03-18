@@ -336,7 +336,7 @@ const Profile = () => {
                       </div>
                     )}
                     {farmStatus === "зафармлено" && (
-                      <div className="pay-button-profile" style={{ backgroundColor: "green", cursor: "default" }}>
+                      <div className="pay-button-profile-farmed">
                         ЗАФАРМЛЕНО
                       </div>
                     )}
