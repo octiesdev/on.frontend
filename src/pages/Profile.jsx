@@ -88,7 +88,7 @@ const Profile = () => {
           const seconds = Math.floor(diff / 1000);
           setTimeLeft(`${seconds} сек.`);
         }
-      }, 1000);
+      }, );
     };
     
     const startFarming = async () => {
