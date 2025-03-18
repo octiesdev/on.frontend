@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance, fetchUserData } = useUser(); 
+    const { userId, balance, fetchBalance } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); 
@@ -137,15 +137,7 @@ const Profile = () => {
         }
     };
 
-    useEffect(() => {
-      if (!userId) {
-        console.log("🔄 Загружаем userId...");
-        fetchUserData();
-      } else {
-        console.log("✅ userId найден в контексте:", userId);
-      }
-    }, [userId]);
-    // ✅ Проверяем `userId` при загрузке
+
 
     useEffect(() => {
       if (userId) {
