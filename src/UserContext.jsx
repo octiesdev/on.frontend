@@ -13,38 +13,58 @@ export const UserProvider = ({ children }) => {
   const fetchUserData = async () => {
     try {
       const tg = window.Telegram?.WebApp;
-      const initData = tg?.initData; // ✅ Получаем подписанные данные
+      const telegramId = tg?.initDataUnsafe?.user?.id;
 
-      if (!initData) {
-        console.error("❌ Ошибка: `initData` отсутствует!");
+      if (telegramId) {
+        console.log("✅ `userId` из Telegram.WebApp:", telegramId);
+        setUserId(telegramId);
+        await registerUser(telegramId); // ✅ Отправляем на бэкенд
+        fetchBalance(telegramId);
         return;
       }
 
-      console.log("✅ `initData` получен:", initData);
-
-      const response = await fetch("https://1xback-production.up.railway.app/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ initData })
+      console.log("🔄 `userId` не найден в WebApp, загружаем с сервера...");
+      const response = await fetch("https://1xback-production.up.railway.app/get-user", {
+        headers: { "x-telegram-id": telegramId || "" }
       });
-
       const data = await response.json();
 
       if (response.ok && data.userId) {
-        console.log("✅ Получен userId:", data.userId);
         setUserId(data.userId);
         fetchBalance(data.userId);
       } else {
-        console.error("❌ Ошибка при аутентификации:", data.error);
+        console.error("❌ Ошибка: userId отсутствует в ответе сервера!");
       }
     } catch (error) {
-      console.error("❌ Ошибка при запросе userId:", error);
+      console.error("❌ Ошибка при получении userId:", error);
+    }
+  };
+
+  const registerUser = async (telegramId) => {
+    try {
+      console.log("📌 Отправка `telegramId` на сервер:", telegramId);
+      const response = await fetch("https://1xback-production.up.railway.app/register-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ telegramId })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log("✅ Пользователь зарегистрирован или уже существует:", data);
+      } else {
+        console.error("❌ Ошибка при регистрации:", data.error);
+      }
+    } catch (error) {
+      console.error("❌ Ошибка при отправке `telegramId` на сервер:", error);
     }
   };
 
   const fetchBalance = async (id) => {
     try {
-      console.log("📌 Запрос баланса для userId:", id);
+      console.log("📌 Получаем баланс для userId:", id);
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
       const data = await response.json();
 
