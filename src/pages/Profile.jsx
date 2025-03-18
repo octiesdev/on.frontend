@@ -29,7 +29,6 @@ const Profile = () => {
     const walletAddress = useTonAddress(); 
 
     const [farmStatus, setFarmStatus] = useState("не активирована");
-    const [farmEndTime, setFarmEndTime] = useState(null);
     const [timeLeft, setTimeLeft] = useState("");
     
     const navigate = useNavigate();
@@ -47,33 +46,49 @@ const Profile = () => {
 
     const checkFarmingStatus = async () => {
       try {
-        const response = await fetch("https://1xback-production.up.railway.app/finish-farming", {
+        const response = await fetch(`${API_URL}/get-farming-status`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
         });
-
+    
         const data = await response.json();
         if (data.success) {
-          setFarmStatus("зафармлено");
-          fetchBalance(userId); // 🔥 Обновляем баланс
-        } else if (data.message === "⏳ Фарм еще не завершен.") {
-          setFarmStatus("таймер");
-          startCountdown(data.farmEndTime);
+          if (data.status === "зафармлено") {
+            setFarmStatus("зафармлено");
+          } else if (data.status === "таймер") {
+            setFarmStatus("таймер");
+            startCountdown(data.farmEndTime);
+          }
         }
       } catch (error) {
-        console.error("❌ Ошибка при проверке фарминга:", error);
+        console.error("❌ Ошибка при проверке статуса фарминга:", error);
       }
     };
-
+    
+    const startCountdown = (endTime) => {
+      const interval = setInterval(() => {
+        const now = new Date();
+        const diff = new Date(endTime) - now;
+    
+        if (diff <= 0) {
+          clearInterval(interval);
+          setFarmStatus("зафармлено");
+        } else {
+          const seconds = Math.floor(diff / 1000);
+          setTimeLeft(`${seconds} сек.`);
+        }
+      }, 1000);
+    };
+    
     const startFarming = async () => {
       try {
-        const response = await fetch("https://1xback-production.up.railway.app/start-farming", {
+        const response = await fetch(`${API_URL}/start-farming`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
         });
-
+    
         const data = await response.json();
         if (data.success) {
           setFarmStatus("таймер");
@@ -82,20 +97,6 @@ const Profile = () => {
       } catch (error) {
         console.error("❌ Ошибка при запуске фарминга:", error);
       }
-    };
-
-    const startCountdown = (endTime) => {
-      const interval = setInterval(() => {
-        const now = new Date();
-        const diff = new Date(endTime) - now;
-        if (diff <= 0) {
-          clearInterval(interval);
-          setFarmStatus("зафармлено");
-        } else {
-          const seconds = Math.floor(diff / 1000);
-          setTimeLeft(`${seconds} сек.`);
-        }
-      }, 1000); // ✅ Обновляем каждую секунду
     };
 
     const updateWalletAddress = async (userId, wallet) => {
