@@ -30,11 +30,12 @@ const Profile = () => {
     const navigate = useNavigate();
 
     // ✅ Проверяем `userId` при загрузке
+
     useEffect(() => {
-      if (!userId) {
-          fetchUserData(); // 🔥 Если `userId` нет, загружаем
-      } else {
+      if (userId) {
           fetchBalance(userId);
+      } else {
+          console.error("❌ Ошибка: userId отсутствует!");
       }
     }, [userId]);
 
