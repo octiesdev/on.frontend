@@ -94,7 +94,7 @@ const Onexs = () => {
             <>
               {onexNodes.filter(node => node.section === "limited").map((node, index, array) => (
                 <div 
-                  className={`onex-node limited ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                  className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
                   key={node._id}
                 >
                   <NodeBlock node={node} index={index} onStartFarming={startFarming} />
