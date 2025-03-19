@@ -291,7 +291,6 @@ const Profile = () => {
                 </h2>
                 <p>
                   ≈ {tonToUsdRate ? (balance * tonToUsdRate).toFixed(2) : "..."} $
-                  <img src={rubIMG}/>
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
