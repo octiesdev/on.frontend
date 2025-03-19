@@ -31,7 +31,7 @@ const Profile = () => {
     const [farmStatus, setFarmStatus] = useState("не активирована");
     const [timeLeft, setTimeLeft] = useState("");
 
-    const [availableNodes, setAvailableNodes] = useState(1); // ✅ Количество доступных нод
+    const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
     
     const navigate = useNavigate();
 
