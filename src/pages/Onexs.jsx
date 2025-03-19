@@ -79,9 +79,9 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes.filter(node => node.section === "all").map((node, index) => (
+              {onexNodes.filter(node => node.section === "all").map((node) => (
                 <div className="onex-node all" key={node._id}>
-                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+                  <NodeBlock node={node} onStartFarming={startFarming} />
                 </div>
               ))}
             </>
@@ -89,9 +89,9 @@ const Onexs = () => {
 
           {selectedCategory === "limited" && (
             <>
-              {onexNodes.filter(node => node.section === "limited").map((node, index) => (
+              {onexNodes.filter(node => node.section === "limited").map((node) => (
                 <div className="onex-node-limited limited" key={node._id}>
-                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+                  <NodeBlock node={node} onStartFarming={startFarming} />
                 </div>
               ))}
             </>
@@ -99,9 +99,9 @@ const Onexs = () => {
 
           {selectedCategory === "my" && (
             <>
-              {userNodes.map((node, index) => (
+              {userNodes.map((node) => (
                 <div className="onex-node-my my" key={node._id}>
-                  <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
+                  <NodeBlock node={node} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
                 </div>
               ))}
             </>
@@ -115,7 +115,7 @@ const Onexs = () => {
 };
 
 // Компонент для отрисовки одной ноды
-const NodeBlock = ({ node, index, onStartFarming, farming, endTime, getRemainingTime }) => {
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime }) => {
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
@@ -126,7 +126,7 @@ const NodeBlock = ({ node, index, onStartFarming, farming, endTime, getRemaining
           <h2>ONEX</h2>
         </div>
         <div className="number-OnexNode">
-          <h2>{index + 1}</h2>
+          <h2>{node.index}</h2> {/* Используем новый формат индекса (01, 02, ...) */}
         </div>
       </div>
       <div className="onexNode-infoBlocks">
@@ -144,8 +144,15 @@ const NodeBlock = ({ node, index, onStartFarming, farming, endTime, getRemaining
           <div className="rewardInTon-block">
             <div className="farming-time-block-MainText">Награда в TON</div>
             <div className="farming-time-block-Description">
-              {node.reward} TON
+              {node.rewardTon} TON
               <img src={tonIMG} />
+            </div>
+          </div>
+          <div className="rewardInOnex-block">
+            <div className="farming-time-block-MainText">Награда в ONEX</div>
+            <div className="farming-time-block-Description">
+              {node.rewardOnex} ONEX
+              <img src={onexIMG} />
             </div>
           </div>
         </div>
