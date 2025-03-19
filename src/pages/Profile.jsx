@@ -55,13 +55,19 @@ const Profile = () => {
 
     const fetchTonToUsdRate = async () => {
       try {
-        const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=toncoin&vs_currencies=usd");
-        const data = await response.json();
+        const response = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=TONUSDT");
     
-        if (response.ok && data.toncoin && data.toncoin.usd) {
-          setTonToUsdRate(data.toncoin.usd);
+        if (!response.ok) {
+          throw new Error(`Ошибка запроса: ${response.status}`);
+        }
+    
+        const data = await response.json();
+        console.log("📌 Binance API ответ:", data);
+    
+        if (data && data.price) {
+          setTonToUsdRate(parseFloat(data.price)); // ✅ Конвертируем в число
         } else {
-          console.error("❌ Ошибка при получении курса TON/USD:", data);
+          console.error("❌ Binance API не вернул курс TON/USD:", data);
         }
       } catch (error) {
         console.error("❌ Ошибка при загрузке курса TON/USD:", error);
