@@ -31,7 +31,7 @@ const Profile = () => {
     const [farmStatus, setFarmStatus] = useState("не активирована");
     const [timeLeft, setTimeLeft] = useState("");
 
-    const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
+    const [availableNodes, setAvailableNodes] = useState(1); // ✅ Количество доступных нод
     
     const navigate = useNavigate();
 
@@ -357,12 +357,17 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="onexNode-PayButton">
-                    {farmStatus === "не активирована" && (
+                    {availableNodes > 0 && farmStatus === "не активирована" && (
                       <div className="pay-button-profile" onClick={startFarming}>
                         ЗАПУСТИТЬ БЕСПЛАТНО
                       </div>
                     )}
-                    {farmStatus === "таймер" && (
+                    {availableNodes === 0 && (
+                      <div className="pay-button-profile-nonAvaliable">
+                        НЕДОСТУПНО
+                      </div>
+                    )}
+                    {farmStatus === "таймер" && availableNodes > 0 && (
                       <div className="pay-button-profile">
                         {timeLeft}
                       </div>
