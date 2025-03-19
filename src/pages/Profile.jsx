@@ -345,7 +345,7 @@ const Profile = () => {
                       </div>  
                     </div>
                     <div className="single-onexNode-infoBlock">
-                      <div className="rewardInTon-block">
+                      <div className={`rewardInTon-block ${farmStatus === "зафармлено" ? "reward-farmed" : ""}`}>
                         <div className="farming-time-block-MainText2">
                           Награда в TON
                         </div>
@@ -380,7 +380,7 @@ const Profile = () => {
                     {/* ✅ Если у пользователя нет активного фарминга и нет доступных нод */}
                     {farmStatus === "не активирована" && availableNodes === 0 && (
                       <div className="pay-button-profile-nonAvaliable">
-                        НЕДОСТУПНО
+                        НЕТ ДОСТУПНЫХ ONEX’s
                       </div>
                     )}
                   </div>

@@ -589,6 +589,11 @@ isolation: isolate;
   align-content: space-between;
 }
 
+/* ✅ Когда фарминг завершен (зафармлено), изменяем цвет фона */
+.rewardInTon-block.reward-farmed {
+  background: rgba(13, 255, 0, 0.2); /* Заменяем цвет фона */
+}
+
 .rewardInTon-block img {
   width: 10%;
   margin-left: 0.3vh;
