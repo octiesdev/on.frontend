@@ -30,6 +30,8 @@ const Profile = () => {
 
     const [farmStatus, setFarmStatus] = useState("не активирована");
     const [timeLeft, setTimeLeft] = useState("");
+
+    const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
     
     const navigate = useNavigate();
 
@@ -49,6 +51,27 @@ const Profile = () => {
       }
     }, [userId]);
     
+    // ✅ Запрос на сервер для получения доступных нод
+    const fetchAvailableNodes = async () => {
+      try {
+        const response = await fetch(`${API_URL}/get-available-nodes`);
+        const data = await response.json();
+
+        if (response.ok) {
+          setAvailableNodes(data.availableNodes); // ✅ Обновляем состояние
+        } else {
+          console.error("❌ Ошибка при получении доступных нод:", data.error);
+        }
+      } catch (error) {
+        console.error("❌ Ошибка при загрузке нод:", error);
+      }
+    };
+
+    // ✅ Запрашиваем количество нод при загрузке страницы
+    useEffect(() => {
+      fetchAvailableNodes();
+    }, []);
+
     const checkFarmingStatus = async () => {
       try {
         const response = await fetch(`${API_URL}/get-farming-status`, {
@@ -103,6 +126,11 @@ const Profile = () => {
         if (data.success) {
           setFarmStatus("таймер");
           startCountdown(data.farmEndTime);
+    
+          // ✅ Обновляем количество нод после запуска
+          fetchAvailableNodes();
+        } else {
+          console.error("❌ Ошибка:", data.error);
         }
       } catch (error) {
         console.error("❌ Ошибка при запуске фарминга:", error);
@@ -308,7 +336,7 @@ const Profile = () => {
                           Доступно ONEX's
                         </div>
                         <div className="farming-time-block-Description2">
-                          <span className="highlight-text">99</span>/100
+                          <span className="highlight-text">{availableNodes}</span>/100
                         </div>
                       </div>  
                     </div>
