@@ -32,6 +32,8 @@ const Profile = () => {
     const [timeLeft, setTimeLeft] = useState("");
 
     const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
+
+    const [tonToUsdRate, setTonToUsdRate] = useState(null); // ✅ Курс TON → USD
     
     const navigate = useNavigate();
 
@@ -50,6 +52,25 @@ const Profile = () => {
         console.error("❌ userId отсутствует!");
       }
     }, [userId]);
+
+    const fetchTonToUsdRate = async () => {
+      try {
+        const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=toncoin&vs_currencies=usd");
+        const data = await response.json();
+    
+        if (response.ok && data.toncoin && data.toncoin.usd) {
+          setTonToUsdRate(data.toncoin.usd);
+        } else {
+          console.error("❌ Ошибка при получении курса TON/USD:", data);
+        }
+      } catch (error) {
+        console.error("❌ Ошибка при загрузке курса TON/USD:", error);
+      }
+    };
+
+    useEffect(() => {
+      fetchTonToUsdRate();
+    }, []); // ✅ Загружаем курс при первом рендере
     
     // ✅ Запрос на сервер для получения доступных нод
     const fetchAvailableNodes = async () => {
@@ -109,7 +130,7 @@ const Profile = () => {
           setFarmStatus("зафармлено");
         } else {
           const seconds = Math.floor(diff / 1000);
-          setTimeLeft(`${seconds} сек.`);
+          setTimeLeft(`${seconds}`);
         }
       }, );
     };
@@ -175,11 +196,11 @@ const Profile = () => {
     
         setTimeout(() => {
           fetchBalance(userId); // 🔥 Первый запрос
-        }, 1000); // ✅ Ждем 1 секунду (чтобы сервер точно обновил баланс)
+        }, ); // ✅ Ждем 1 секунду (чтобы сервер точно обновил баланс)
     
         setTimeout(() => {
           fetchBalance(userId); // 🔥 Второй запрос для надежности
-        }, 3000); // ✅ Через 3 секунды проверяем еще раз
+        }, ); // ✅ Через 3 секунды проверяем еще раз
       }
     }, [farmStatus, userId]); // 🔥 Следим за farmStatus и userId
 
@@ -263,7 +284,7 @@ const Profile = () => {
                   </div>
                 </h2>
                 <p>
-                  ≈ 545.322.79
+                  ≈ {tonToUsdRate ? (balance * tonToUsdRate).toFixed(2) : "..."} $
                   <img src={rubIMG}/>
                 </p>
               </div>
