@@ -262,7 +262,7 @@ button {
   left: 5%;
   height: 28.5%;
   margin-top: 1.5vh;
-
+  margin-bottom: 1.5vh;
 
 
 }
@@ -283,8 +283,8 @@ button {
   width: 90%;
   left: 5%;
   height: 28.5%;
-
-
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
 
 
 }
