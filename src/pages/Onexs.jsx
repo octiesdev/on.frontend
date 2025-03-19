@@ -79,11 +79,14 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes.filter(node => node.section === "all").map((node) => (
-                <div className="onex-node all" key={node._id}>
-                  <NodeBlock node={node} onStartFarming={startFarming} />
-                </div>
-              ))}
+            {onexNodes.filter(node => node.section === "all").map((node, index, array) => (
+              <div 
+                className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                key={node._id}
+              >
+                <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+              </div>
+            ))}
             </>
           )}
 
