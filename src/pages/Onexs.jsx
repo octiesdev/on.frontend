@@ -90,7 +90,7 @@ const Onexs = () => {
           {selectedCategory === "limited" && (
             <>
               {onexNodes.filter(node => node.section === "limited").map((node, index) => (
-                <div className="onex-node limited" key={node._id}>
+                <div className="onex-node-limited limited" key={node._id}>
                   <NodeBlock node={node} index={index} onStartFarming={startFarming} />
                 </div>
               ))}
@@ -100,7 +100,7 @@ const Onexs = () => {
           {selectedCategory === "my" && (
             <>
               {userNodes.map((node, index) => (
-                <div className="onex-node my" key={node._id}>
+                <div className="onex-node-my my" key={node._id}>
                   <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
                 </div>
               ))}
