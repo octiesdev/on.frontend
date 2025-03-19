@@ -357,24 +357,30 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="onexNode-PayButton">
-                    {availableNodes > 0 && farmStatus === "не активирована" && (
-                      <div className="pay-button-profile" onClick={startFarming}>
-                        ЗАПУСТИТЬ БЕСПЛАТНО
-                      </div>
-                    )}
-                    {availableNodes === 0 && (
-                      <div className="pay-button-profile-nonAvaliable">
-                        НЕДОСТУПНО
-                      </div>
-                    )}
-                    {farmStatus === "таймер" && availableNodes > 0 && (
+                    {farmStatus === "таймер" && (
                       <div className="pay-button-profile">
                         {timeLeft}
                       </div>
                     )}
+
+                    {/* ✅ Если у пользователя завершился фарминг, показываем кнопку "ЗАФАРМЛЕНО" */}
                     {farmStatus === "зафармлено" && (
                       <div className="pay-button-profile-farmed">
                         ЗАФАРМЛЕНО
+                      </div>
+                    )}
+
+                    {/* ✅ Если у пользователя нет активного фарминга и доступны ноды */}
+                    {farmStatus === "не активирована" && availableNodes > 0 && (
+                      <div className="pay-button-profile" onClick={startFarming}>
+                        ЗАПУСТИТЬ БЕСПЛАТНО
+                      </div>
+                    )}
+
+                    {/* ✅ Если у пользователя нет активного фарминга и нет доступных нод */}
+                    {farmStatus === "не активирована" && availableNodes === 0 && (
+                      <div className="pay-button-profile-nonAvaliable">
+                        НЕДОСТУПНО
                       </div>
                     )}
                   </div>
