@@ -79,22 +79,25 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-            {onexNodes.filter(node => node.section === "all").map((node, index, array) => (
-              <div 
-                className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                key={node._id}
-              >
-                <NodeBlock node={node} index={index} onStartFarming={startFarming} />
-              </div>
-            ))}
+              {onexNodes.filter(node => node.section === "all").map((node, index, array) => (
+                <div 
+                  className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                  key={node._id}
+                >
+                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+                </div>
+              ))}
             </>
           )}
 
           {selectedCategory === "limited" && (
             <>
-              {onexNodes.filter(node => node.section === "limited").map((node) => (
-                <div className="onex-node-limited limited" key={node._id}>
-                  <NodeBlock node={node} onStartFarming={startFarming} />
+              {onexNodes.filter(node => node.section === "limited").map((node, index, array) => (
+                <div 
+                  className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
+                  key={node._id}
+                >
+                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
                 </div>
               ))}
             </>
@@ -102,9 +105,12 @@ const Onexs = () => {
 
           {selectedCategory === "my" && (
             <>
-              {userNodes.map((node) => (
-                <div className="onex-node-my my" key={node._id}>
-                  <NodeBlock node={node} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
+              {userNodes.map((node, index, array) => (
+                <div 
+                  className={`onex-node-my my ${index === array.length - 1 ? "onex-node-my-last" : ""}`} 
+                  key={node._id}
+                >
+                  <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
                 </div>
               ))}
             </>
