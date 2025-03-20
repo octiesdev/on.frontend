@@ -25,7 +25,7 @@ const Onexs = () => {
 
   // Загружаем ноды с сервера
   useEffect(() => {
-    fetch(`${API_URL}/onex-nodes:nodeId`)
+    fetch(`${API_URL}/onex-nodes/:nodeId`)
       .then((res) => res.json())
       .then((data) => {
         setOnexNodes(data);
