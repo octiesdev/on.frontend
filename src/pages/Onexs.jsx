@@ -115,6 +115,38 @@ const Onexs = () => {
     return () => clearInterval(interval); // Очистка интервала при уходе со страницы
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // 🔥 Обновляем статус нод и таймер
+      setUserNodes((prevNodes) =>
+        prevNodes.map((node) => ({
+          ...node,
+          status: new Date(node.farmEndTime) <= Date.now() ? "зафармлено" : "таймер",
+          remainingTime: getRemainingTime(node.farmEndTime)
+        }))
+      );
+  
+      // 🔥 Автоматически проверяем статус фарминга и обновляем баланс
+      if (userId) {
+        fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              console.log("✅ Обновлены активные ноды и баланс");
+              setUserNodes(data.activePaidNodes); // 🔄 Обновляем список нод
+            }
+          })
+          .catch((err) => console.error("❌ Ошибка обновления статуса:", err));
+      }
+    }, 5000); // ✅ Обновляем каждые 5 секунд
+  
+    return () => clearInterval(interval);
+  }, [userId]);
+
   return (
     <div className="App">
       <div className="ONEXs_Window">
