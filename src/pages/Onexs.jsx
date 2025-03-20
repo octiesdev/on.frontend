@@ -20,6 +20,8 @@ const Onexs = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [onexNodes, setOnexNodes] = useState([]);
   const [userNodes, setUserNodes] = useState([]);
+  const [purchasedNodes, setPurchasedNodes] = useState([]); // 🔥 История купленных нод
+
 
   const navigate = useNavigate();
 
@@ -33,7 +35,27 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
 
-  
+  useEffect(() => {
+    if (!userId) return;
+
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+        if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
+        
+        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-history?userId=${userId}`);
+        const historyData = await historyResponse.json();
+        if (Array.isArray(historyData.purchasedPaidNodes)) setPurchasedNodes(historyData.purchasedPaidNodes);
+
+      } catch (error) {
+        console.error("Ошибка при загрузке данных пользователя:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [userId]);
+
 
   const startPaidFarming = async (node) => {
     if (!userId) {
@@ -179,14 +201,26 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes.filter(node => node.section === "all").map((node, index, array) => (
-                <div 
-                  className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                  key={node._id}
-                >
-                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
-                </div>
-              ))}
+              {onexNodes
+                .filter(node => node.section === "all")
+                .map((node, index, array) => {
+                  // ✅ Проверяем, была ли нода куплена хотя бы раз
+                  const isFarmed = purchasedNodes.some(n => n.nodeId === node._id);
+
+                  return (
+                    <div 
+                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                      key={node._id}
+                    >
+                      <NodeBlock 
+                        node={node} 
+                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                        onStartFarming={startPaidFarming} 
+                      />
+                    </div>
+                  );
+                })
+              }
             </>
           )}
 
