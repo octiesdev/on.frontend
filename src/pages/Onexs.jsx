@@ -170,13 +170,13 @@ const Onexs = () => {
   }, []);
 
   useEffect(() => {
-    setUserNodes((prevNodes) =>
-      prevNodes.map((node) => ({
-        ...node,
-        status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
-      }))
-    );
-  }, [purchasedNodes]); // 🔥 Следим за `purchasedNodes`
+  setUserNodes((prevNodes) =>
+    prevNodes.map((node) => ({
+      ...node,
+      status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
+    }))
+  );
+}, [purchasedNodes]); // 🔥 Следим за `purchasedNodes`
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -349,6 +349,8 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
       <div className="onexNode-PayButton">
         {isFarmed ? (
           <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+        ) : node.status === "таймер" ? (
+          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
