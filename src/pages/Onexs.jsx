@@ -123,6 +123,17 @@ const Onexs = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("📌 purchasedNodes обновлен:", purchasedNodes);
+  
+    setUserNodes((prevNodes) =>
+      prevNodes.map((node) => ({
+        ...node,
+        status: purchasedNodes.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
+      }))
+    );
+  }, [purchasedNodes]); // 🔥 Следим за purchasedNodes
+
   // ✅ Загружаем активные платные ноды пользователя
   useEffect(() => {
     if (!userId) return;
@@ -302,7 +313,8 @@ const Onexs = () => {
 };
 
 // Компонент для отрисовки одной ноды
-const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed, purchasedNodes }) => {
+  const isFarmed = purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) || false;
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
