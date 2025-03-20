@@ -85,15 +85,14 @@ const Onexs = () => {
     }
   };
 
-  // ✅ Загружаем активные платные ноды пользователя
   useEffect(() => {
-    if (!userId) return;
-
+    if (!userId) return; // ✅ Добавляем защиту от null
+  
     const fetchActiveNodes = async () => {
       try {
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
-
+  
         if (Array.isArray(data.activePaidNodes)) {
           setUserNodes(data.activePaidNodes);
         }
@@ -101,7 +100,7 @@ const Onexs = () => {
         console.error("Ошибка при загрузке активных нод:", error);
       }
     };
-
+  
     fetchActiveNodes();
   }, [userId]);
 
