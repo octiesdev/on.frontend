@@ -262,7 +262,7 @@ const Onexs = () => {
 };
 
 // Компонент для отрисовки одной ноды
-const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime }) => {
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
