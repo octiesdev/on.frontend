@@ -40,32 +40,54 @@ const Onexs = () => {
   
     const fetchUserData = async () => {
       try {
-        console.log("📌 Запрашиваем активные платные ноды...");
+        // Загружаем активные платные ноды
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
         if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
-    
-        console.log("📌 Запрашиваем историю зафармленных нод...");
+  
+        // Загружаем историю купленных нод
         const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
         });
-    
         const historyData = await historyResponse.json();
-        console.log("📌 Полученные `purchasedPaidNodes`:", historyData.purchasedPaidNodes);
-    
+  
         if (Array.isArray(historyData.purchasedPaidNodes)) {
-          setPurchasedNodes(historyData.purchasedPaidNodes);
+          setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
         }
+  
       } catch (error) {
         console.error("❌ Ошибка при загрузке данных пользователя:", error);
       }
     };
   
     fetchUserData();
-  }, [userId]);
+  }, [userId]); // 🔥 Обновление при изменении `userId`
 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setUserNodes((prevNodes) =>
+        prevNodes.map((node) => ({
+          ...node,
+          status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
+          remainingTime: getRemainingTime(node.farmEndTime)
+        }))
+      );
+    }, 5000); // 🔥 Обновляем статус каждые 5 секунд
+  
+    return () => clearInterval(interval);
+  }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
+
+
+  useEffect(() => {
+    console.log("📌 purchasedPaidNodes:", purchasedNodes);
+  }, [purchasedNodes]);
+
+  console.log("📌 isFarmed:", node._id, purchasedNodes.some(n => String(n.nodeId) === String(node._id)));
+
+  console.log("📌 История купленных нод:", historyData.purchasedPaidNodes);
 
   const startPaidFarming = async (node) => {
     if (!userId) {
