@@ -33,6 +33,7 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
 
+  
 
   const startPaidFarming = async (node) => {
     if (!userId) {
@@ -50,10 +51,16 @@ const Onexs = () => {
       const data = await response.json();
   
       if (data.success) {
-        console.log("✅ Платная нода запущена!");
+        console.log("✅ Платная нода запущена успешно:", data);
   
-        // 🔥 Обновляем список активных нод после запуска
-        fetchActiveNodes();
+        // 🔥 Немедленно добавляем новую ноду в userNodes
+        setUserNodes((prevNodes) => [...prevNodes, { 
+          ...node, 
+          status: "таймер", 
+          farmEndTime: data.farmEndTime 
+        }]);
+  
+        console.log("📌 Обновлен список активных нод (userNodes):", userNodes);
       } else {
         console.error("❌ Ошибка:", data.error);
       }
