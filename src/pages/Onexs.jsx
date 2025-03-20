@@ -162,7 +162,10 @@ const Onexs = () => {
       if (userId) {
         fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+           },
           body: JSON.stringify({ userId }),
         })
           .then((res) => res.json())
