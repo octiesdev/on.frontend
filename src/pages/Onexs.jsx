@@ -213,7 +213,7 @@ const Onexs = () => {
                 .filter(node => node.section === "all")
                 .map((node, index, array) => {
                   // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = purchasedNodes.some(n => n.nodeId === node._id);
+                  const isFarmed = purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) || false;
 
                   return (
                     <div 
