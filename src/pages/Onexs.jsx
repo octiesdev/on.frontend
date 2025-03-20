@@ -168,7 +168,6 @@ const Onexs = () => {
   );
 };
 
-// 🔥 Компонент для отображения одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime }) => {
   return (
     <div className="info-onexs-nameText">
@@ -186,11 +185,22 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime })
             <div className="farming-time-block-MainText">Награда в TON</div>
             <div className="farming-time-block-Description">{node.rewardTon} TON</div>
           </div>
+          <div className="rewardInOnex-block">
+            <div className="farming-time-block-MainText">Награда в ONEX</div>
+            <div className="farming-time-block-Description">{node.rewardOnex} ONEX</div>
+          </div>
         </div>
       </div>
 
+      {/* 🔥 Кнопка запуска или таймер */}
       <div className="onexNode-PayButton">
-        {farming ? <div className="pay-button">{getRemainingTime(endTime)}</div> : <div className="pay-button" onClick={() => onStartFarming(node)}>Запустить</div>}
+        {farming ? (
+          <div className="pay-button">{getRemainingTime(endTime)}</div>
+        ) : (
+          <div className="pay-button" onClick={() => onStartFarming(node)}>
+            ЗАПУСТИТЬ ЗА {node.stake} TON
+          </div>
+        )}
       </div>
     </div>
   );
