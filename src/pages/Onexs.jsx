@@ -64,7 +64,7 @@ const Onexs = () => {
   
     fetchUserData();
   }, [userId]); // 🔥 Обновление при изменении `userId`
-
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,14 +80,6 @@ const Onexs = () => {
     return () => clearInterval(interval);
   }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
 
-
-  useEffect(() => {
-    console.log("📌 purchasedPaidNodes:", purchasedNodes);
-  }, [purchasedNodes]);
-
-  console.log("📌 isFarmed:", node._id, purchasedNodes.some(n => String(n.nodeId) === String(node._id)));
-
-  console.log("📌 История купленных нод:", historyData.purchasedPaidNodes);
 
   const startPaidFarming = async (node) => {
     if (!userId) {
@@ -122,17 +114,6 @@ const Onexs = () => {
       console.error("❌ Ошибка при запуске платного фарминга:", error);
     }
   };
-
-  useEffect(() => {
-    console.log("📌 purchasedNodes обновлен:", purchasedNodes);
-  
-    setUserNodes((prevNodes) =>
-      prevNodes.map((node) => ({
-        ...node,
-        status: purchasedNodes.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
-      }))
-    );
-  }, [purchasedNodes]); // 🔥 Следим за purchasedNodes
 
   // ✅ Загружаем активные платные ноды пользователя
   useEffect(() => {
@@ -179,15 +160,6 @@ const Onexs = () => {
   
     return () => clearInterval(interval); // Очистка интервала при уходе со страницы
   }, []);
-
-  useEffect(() => {
-  setUserNodes((prevNodes) =>
-    prevNodes.map((node) => ({
-      ...node,
-      status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
-    }))
-  );
-}, [purchasedNodes]); // 🔥 Следим за `purchasedNodes`
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -313,8 +285,7 @@ const Onexs = () => {
 };
 
 // Компонент для отрисовки одной ноды
-const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed, purchasedNodes }) => {
-  const isFarmed = purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) || false;
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
