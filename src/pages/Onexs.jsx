@@ -34,26 +34,26 @@ const Onexs = () => {
   }, []);
 
 
-  // ✅ Запуск платного фарминга
   const startPaidFarming = async (node) => {
     if (!userId) {
       console.error("❌ Ошибка: userId отсутствует!");
       return;
     }
-
+  
     try {
       const response = await fetch(`${API_URL_MAIN}/start-paid-farming`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, nodeId: node._id }),
       });
-
+  
       const data = await response.json();
-
+  
       if (data.success) {
-        if (Array.isArray(data.activePaidNodes)) {
-          setUserNodes(data.activePaidNodes);
-        }
+        console.log("✅ Платная нода запущена!");
+  
+        // 🔥 Обновляем список активных нод после запуска
+        fetchActiveNodes();
       } else {
         console.error("❌ Ошибка:", data.error);
       }
@@ -82,11 +82,10 @@ const Onexs = () => {
     fetchActiveNodes();
   }, [userId]);
 
-  // ✅ Отображаем оставшееся время
   const getRemainingTime = (endTime) => {
-    const diff = new Date(endTime) - Date.now();
+    const diff = new Date(endTime).getTime() - Date.now();
     if (diff <= 0) return "ЗАФАРМЛЕНО";
-
+  
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     return `${hours}ч ${minutes}м`;
