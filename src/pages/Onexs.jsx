@@ -86,13 +86,16 @@ const Onexs = () => {
   };
 
   useEffect(() => {
-    if (!userId) return; // ✅ Добавляем защиту от null
+    if (!userId) return;
   
     const fetchActiveNodes = async () => {
       try {
+        console.log("📌 Запрашиваем активные ноды...");
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
   
+        console.log("📌 Ответ сервера:", data);
+        
         if (Array.isArray(data.activePaidNodes)) {
           setUserNodes(data.activePaidNodes);
         }
