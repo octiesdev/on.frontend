@@ -169,7 +169,7 @@ const Onexs = () => {
                 <button className={`all-button ${selectedCategory === "all" ? "active" : ""}`}
                   onClick={() => setSelectedCategory("all")}>Все</button>
                 <button className={`my-button ${selectedCategory === "my" ? "active" : ""}`}
-                  onClick={() => setSelectedCategory("my")}>Мои</button>
+                  onClick={() => setSelectedCategory("my")}>Активные</button>
                 <button className={`limited-button ${selectedCategory === "limited" ? "active" : ""}`}
                   onClick={() => setSelectedCategory("limited")}>Ограниченные</button>
               </div>
