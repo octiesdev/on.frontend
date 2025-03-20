@@ -36,28 +36,33 @@ const Onexs = () => {
   }, []);
 
   useEffect(() => {
-    if (Array.isArray(purchasedNodes) && purchasedNodes.length === 0) {
-      const fetchUserData = async () => {
-        try {
-          const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId }),
-          });
-          const historyData = await historyResponse.json();
+    if (!userId) return;
   
-          if (Array.isArray(historyData.purchasedPaidNodes)) {
-            setPurchasedNodes(historyData.purchasedPaidNodes);
-          }
+    const fetchUserData = async () => {
+      try {
+        // Загружаем активные платные ноды
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+        if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
   
-        } catch (error) {
-          console.error("Ошибка при загрузке истории купленных нод:", error);
+        // Загружаем историю купленных нод
+        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+        const historyData = await historyResponse.json();
+        if (Array.isArray(historyData.purchasedPaidNodes)) {
+          setPurchasedNodes(historyData.purchasedPaidNodes);
         }
-      };
   
-      fetchUserData();
-    }
-  }, [userId, purchasedNodes]);
+      } catch (error) {
+        console.error("Ошибка при загрузке данных пользователя:", error);
+      }
+    };
+  
+    fetchUserData();
+  }, [userId]);
 
 
   const startPaidFarming = async (node) => {
