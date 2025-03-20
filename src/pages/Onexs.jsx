@@ -48,7 +48,7 @@ const Onexs = () => {
         console.log("📌 Запрашиваем историю зафармленных нод...");
         const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify({ userId }),
         });
     
