@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton } from "@tonconnect/ui-react";
+import { useUser } from "../UserContext"; // ✅ Используем глобальный контекст для userId
 import "../styles/Onexs.css";
+
 import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import tonIMG from "../assets/ton-img.png";
@@ -10,7 +12,11 @@ import Footer from "../Footer";
 
 const API_URL = "https://adminviber1x-production.up.railway.app"; // Укажите правильный адрес сервера
 
+const API_URL_MAIN = "https://1xback-production.up.railway.app"; 
+
+
 const Onexs = () => {
+  const { userId } = useUser(); // ✅ Получаем userId из контекста
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [onexNodes, setOnexNodes] = useState([]);
   const [userNodes, setUserNodes] = useState([]);
@@ -27,21 +33,59 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
 
-  // Запуск ноды (перенос в "my")
-  const startFarming = (node) => {
-    if (userNodes.some((n) => n._id === node._id)) return;
 
-    // Создаем таймер окончания фарминга
-    const endTime = Date.now() + node.days * 24 * 60 * 60 * 1000;
-    
-    setUserNodes([...userNodes, { ...node, farmEndTime: endTime }]);
+  // ✅ Запуск платного фарминга
+  const startPaidFarming = async (node) => {
+    if (!userId) {
+      console.error("❌ Ошибка: userId отсутствует!");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL_MAIN}/start-paid-farming`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, nodeId: node._id }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        if (Array.isArray(data.activePaidNodes)) {
+          setUserNodes(data.activePaidNodes);
+        }
+      } else {
+        console.error("❌ Ошибка:", data.error);
+      }
+    } catch (error) {
+      console.error("❌ Ошибка при запуске платного фарминга:", error);
+    }
   };
 
-  // Отображаем оставшееся время таймера
-  const getRemainingTime = (endTime) => {
-    const diff = endTime - Date.now();
-    if (diff <= 0) return "ЗАФАРМЛЕНО";
+  // ✅ Загружаем активные платные ноды пользователя
+  useEffect(() => {
+    if (!userId) return;
 
+    const fetchActiveNodes = async () => {
+      try {
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+
+        if (Array.isArray(data.activePaidNodes)) {
+          setUserNodes(data.activePaidNodes);
+        }
+      } catch (error) {
+        console.error("Ошибка при загрузке активных нод:", error);
+      }
+    };
+
+    fetchActiveNodes();
+  }, [userId]);
+
+  const getRemainingTime = (endTime) => {
+    const diff = new Date(endTime).getTime() - Date.now();
+    if (diff <= 0) return "ЗАФАРМЛЕНО";
+  
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     return `${hours}ч ${minutes}м`;
@@ -84,7 +128,7 @@ const Onexs = () => {
                   className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
                   key={node._id}
                 >
-                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
                 </div>
               ))}
             </>
@@ -97,7 +141,7 @@ const Onexs = () => {
                   className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
                   key={node._id}
                 >
-                  <NodeBlock node={node} index={index} onStartFarming={startFarming} />
+                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
                 </div>
               ))}
             </>
