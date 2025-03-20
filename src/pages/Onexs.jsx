@@ -91,6 +91,27 @@ const Onexs = () => {
     return `${hours}ч ${minutes}м`;
   };
 
+  const fetchPaidFarmingHistory = async () => {
+    try {
+      const response = await fetch(`${API_URL_MAIN}/get-paid-farming-history?userId=${userId}`);
+      const data = await response.json();
+  
+      if (data.history) {
+        console.log("✅ История платного фарминга:", data.history);
+        setPaidFarmingHistory(data.history);
+      }
+    } catch (error) {
+      console.error("❌ Ошибка при загрузке истории платного фарминга:", error);
+    }
+  };
+  
+  // ✅ Автоматически загружаем историю при загрузке страницы
+  useEffect(() => {
+    if (userId) {
+      fetchPaidFarmingHistory();
+    }
+  }, [userId]);
+
   return (
     <div className="App">
       <div className="ONEXs_Window">
