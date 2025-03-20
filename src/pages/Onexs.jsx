@@ -162,6 +162,17 @@ const Onexs = () => {
   }, []);
 
   useEffect(() => {
+    console.log("📌 purchasedNodes обновлен:", purchasedNodes);
+  
+    setOnexNodes((prevNodes) =>
+      prevNodes.map((node) => ({
+        ...node,
+        status: purchasedNodes.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
+      }))
+    );
+  }, [purchasedNodes]); // 🔥 Следим за purchasedNodes
+
+  useEffect(() => {
     const interval = setInterval(() => {
       // 🔥 Обновляем статус нод и таймер
       setUserNodes((prevNodes) =>
@@ -241,7 +252,7 @@ const Onexs = () => {
                     >
                       <NodeBlock 
                         node={node} 
-                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                        purchasedNodes={purchasedNodes} // 🔥 Передаём для обновления кнопки
                         onStartFarming={startPaidFarming} 
                       />
                     </div>
@@ -285,7 +296,12 @@ const Onexs = () => {
 };
 
 // Компонент для отрисовки одной ноды
-const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed, purchasedNodes }) => {
+  const isFarmed = purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) || false;
+
+
+  console.log(`📌 Проверка isFarmed: nodeId = ${node._id}, farmed = ${isFarmed}`);
+
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
