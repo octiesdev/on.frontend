@@ -65,31 +65,6 @@ const Onexs = () => {
   }, [userId]);
 
 
-  useEffect(() => {
-    if (purchasedNodes.length === 0) {
-      const fetchPurchasedNodes = async () => {
-        try {
-          const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId }),
-          });
-  
-          const historyData = await historyResponse.json();
-  
-          if (Array.isArray(historyData.purchasedPaidNodes)) {
-            setPurchasedNodes(historyData.purchasedPaidNodes);
-          }
-        } catch (error) {
-          console.error("Ошибка при загрузке истории купленных нод:", error);
-        }
-      };
-  
-      fetchPurchasedNodes();
-    }
-  }, [userId, purchasedNodes]);
-
-
   const startPaidFarming = async (node) => {
     if (!userId) {
       console.error("❌ Ошибка: userId отсутствует!");
@@ -239,7 +214,6 @@ const Onexs = () => {
                 .map((node, index, array) => {
                   // ✅ Проверяем, была ли нода куплена хотя бы раз
                   const isFarmed = purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) || false;
-                  console.log(`Нода ${node._id} - зафармлена: ${isFarmed}`);
 
                   return (
                     <div 
@@ -293,8 +267,6 @@ const Onexs = () => {
 
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
-  console.log(`NodeBlock: ${node._id}, isFarmed: ${isFarmed}`); // Лог для проверки
-  
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
