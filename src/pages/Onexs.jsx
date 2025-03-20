@@ -37,22 +37,26 @@ const Onexs = () => {
 
   useEffect(() => {
     if (!userId) return;
-
+  
     const fetchUserData = async () => {
       try {
+        // Загружаем активные платные ноды
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
         if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
-        
+  
+        // Загружаем историю купленных нод
         const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-history?userId=${userId}`);
         const historyData = await historyResponse.json();
-        if (Array.isArray(historyData.purchasedPaidNodes)) setPurchasedNodes(historyData.purchasedPaidNodes);
-
+        if (Array.isArray(historyData.purchasedPaidNodes)) {
+          setPurchasedNodes(historyData.purchasedPaidNodes);
+        }
+  
       } catch (error) {
         console.error("Ошибка при загрузке данных пользователя:", error);
       }
     };
-
+  
     fetchUserData();
   }, [userId]);
 
@@ -164,7 +168,7 @@ const Onexs = () => {
           })
           .catch((err) => console.error("❌ Ошибка обновления статуса:", err));
       }
-    }, 5000); // ✅ Обновляем каждые 5 секунд
+    }, 5000);
   
     return () => clearInterval(interval);
   }, [userId]);
@@ -205,7 +209,7 @@ const Onexs = () => {
                 .filter(node => node.section === "all")
                 .map((node, index, array) => {
                   // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = purchasedNodes.some(n => n.nodeId === node._id);
+                  const isFarmed = purchasedNodes.some(n => n.nodeId.toString() === node._id);
 
                   return (
                     <div 
@@ -303,12 +307,14 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime })
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {node.status === "таймер" ? (
-          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
+        {isFarmed ? (
+          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div> // 🔥 Если куплена, показываем "ЗАФАРМЛЕНО"
+        ) : node.status === "таймер" ? (
+          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div> // 🔥 Показываем таймер, если активна
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
-          </div>
+          </div> // 🔥 Показываем кнопку запуска, если нода не была куплена
         )}
       </div>
     </div>
