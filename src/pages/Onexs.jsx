@@ -46,7 +46,11 @@ const Onexs = () => {
         if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
   
         // Загружаем историю купленных нод
-        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status?userId=${userId}`);
+        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
         const historyData = await historyResponse.json();
         if (Array.isArray(historyData.purchasedPaidNodes)) {
           setPurchasedNodes(historyData.purchasedPaidNodes);
