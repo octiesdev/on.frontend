@@ -90,19 +90,30 @@ const Onexs = () => {
   }, [userId]);
 
   const getRemainingTime = (endTime) => {
-    const diff = new Date(endTime).getTime() - Date.now();
-    if (diff <= 0) return "ЗАФАРМЛЕНО";
+    const now = Date.now();
+    const diff = new Date(endTime).getTime() - now;
   
-    // 🟢 Если фарминг меньше 1 дня, показываем секунды
-    if (diff < 60 * 60 * 1000) { 
-      const seconds = Math.floor(diff / 1000);
-      return `${seconds} сек.`;
-    }
+    if (diff <= 0) return "ЗАФАРМЛЕНО";
   
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    return `${hours}ч ${minutes}м`;
+    const seconds = Math.floor((diff / 1000) % 60);
+  
+    return `${hours}ч ${minutes}м ${seconds}с`;
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setUserNodes((prevNodes) => 
+        prevNodes.map((node) => ({
+          ...node,
+          remainingTime: getRemainingTime(node.farmEndTime),
+        }))
+      );
+    }, 1000); // 🔥 Обновляем каждую секунду
+  
+    return () => clearInterval(interval); // Очистка интервала при уходе со страницы
+  }, []);
 
   return (
     <div className="App">
@@ -226,8 +237,8 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime })
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {farming ? (
-          <div className="pay-button">{getRemainingTime(endTime)}</div>
+        {node.status === "таймер" ? (
+          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
