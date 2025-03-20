@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TonConnectButton } from "@tonconnect/ui-react";
-import { useUser } from "../UserContext"; // ✅ Используем глобальный контекст для userId
+import { useUser } from "../UserContext"; 
 import "../styles/Onexs.css";
 
 import logo from "../assets/logo.png";
@@ -10,13 +10,11 @@ import tonIMG from "../assets/ton-img.png";
 import onexIMG from "../assets/onex-circle.png";
 import Footer from "../Footer";
 
-const API_URL = "https://adminviber1x-production.up.railway.app"; // Укажите правильный адрес сервера
-
+const API_URL = "https://adminviber1x-production.up.railway.app"; 
 const API_URL_MAIN = "https://1xback-production.up.railway.app"; 
 
-
 const Onexs = () => {
-  const { userId } = useUser(); // ✅ Получаем userId из контекста
+  const { userId, fetchBalance } = useUser(); 
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [onexNodes, setOnexNodes] = useState([]);
   const [userNodes, setUserNodes] = useState([]);
@@ -28,10 +26,10 @@ const Onexs = () => {
       try {
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
-  
+
         if (Array.isArray(data.activePaidNodes)) {
           setUserNodes(data.activePaidNodes);
-  
+
           // ✅ Если у пользователя есть зафармленные ноды - обновляем баланс
           if (data.activePaidNodes.some(n => n.status === "зафармлено")) {
             console.log("🎉 Найдены завершенные ноды! Обновляем баланс...");
@@ -42,11 +40,11 @@ const Onexs = () => {
         console.error("Ошибка при загрузке активных нод:", error);
       }
     };
-  
+
     fetchActiveNodes();
   }, [userId]);
 
-  // Загружаем ноды с сервера
+  // ✅ Загружаем ноды с сервера
   useEffect(() => {
     fetch(`${API_URL}/onex-nodes`)
       .then((res) => res.json())
@@ -55,7 +53,6 @@ const Onexs = () => {
       })
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
-
 
   // ✅ Запуск платного фарминга
   const startPaidFarming = async (node) => {
@@ -85,15 +82,16 @@ const Onexs = () => {
     }
   };
 
+  // ✅ Запрос на обновление статуса нод
   useEffect(() => {
     if (!userId) return;
-  
+
     const fetchActiveNodes = async () => {
       try {
         console.log("📌 Запрашиваем активные ноды...");
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
-  
+
         console.log("📌 Ответ сервера:", data);
         
         if (Array.isArray(data.activePaidNodes)) {
@@ -103,10 +101,11 @@ const Onexs = () => {
         console.error("Ошибка при загрузке активных нод:", error);
       }
     };
-  
+
     fetchActiveNodes();
   }, [userId]);
 
+  // ✅ Функция для получения оставшегося времени
   const getRemainingTime = (endTime) => {
     const diff = new Date(endTime).getTime() - Date.now();
     if (diff <= 0) return "ЗАФАРМЛЕНО";
@@ -148,45 +147,16 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes.filter(node => node.section === "all").map((node, index, array) => (
-                <div 
-                  className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                  key={node._id}
-                >
-                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
-                </div>
-              ))}
-            </>
-          )}
-
-          {selectedCategory === "limited" && (
-            <>
-              {onexNodes.filter(node => node.section === "limited").map((node, index, array) => (
-                <div 
-                  className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
-                  key={node._id}
-                >
-                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
-                </div>
+              {onexNodes.filter(node => node.section === "all").map((node) => (
+                <NodeBlock key={node._id} node={node} onStartFarming={startPaidFarming} />
               ))}
             </>
           )}
 
           {selectedCategory === "my" && (
             <>
-              {userNodes.map((node, index, array) => (
-                <div 
-                  className={`onex-node-my my ${index === array.length - 1 ? "onex-node-my-last" : ""}`} 
-                  key={node._id}
-                >
-                  <NodeBlock 
-                    node={node} 
-                    index={index} 
-                    farming={node.status === "таймер"} 
-                    endTime={node.farmEndTime} 
-                    getRemainingTime={getRemainingTime} 
-                  />
-                </div>
+              {userNodes.map((node) => (
+                <NodeBlock key={node._id} node={node} farming={node.status === "таймер"} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
               ))}
             </>
           )}
@@ -198,7 +168,7 @@ const Onexs = () => {
   );
 };
 
-// Компонент для отрисовки одной ноды
+// 🔥 Компонент для отображения одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime }) => {
   return (
     <div className="info-onexs-nameText">
@@ -209,48 +179,18 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime })
           <img src={onexIMG} />
           <h2>ONEX</h2>
         </div>
-        <div className="number-OnexNode">
-          <h2>{node.index}</h2> {/* Используем новый формат индекса (01, 02, ...) */}
-        </div>
       </div>
       <div className="onexNode-infoBlocks">
-        <div className="first-onexNode-infoBlock">
-          <div className="farming-time-block">
-            <div className="farming-time-block-MainText">Период фарминга</div>
-            <div className="farming-time-block-Description">{node.days} дней</div>
-          </div>
-          <div className="apy-info-block">
-            <div className="farming-time-block-MainText">APY</div>
-            <div className="farming-time-block-Description">{node.apy}%</div>
-          </div>
-        </div>
         <div className="single-onexNode-infoBlock">
           <div className="rewardInTon-block">
             <div className="farming-time-block-MainText">Награда в TON</div>
-            <div className="farming-time-block-Description">
-              {node.rewardTon} TON
-              <img src={tonIMG} />
-            </div>
-          </div>
-          <div className="rewardInOnex-block">
-            <div className="farming-time-block-MainText">Награда в ONEX</div>
-            <div className="farming-time-block-Description">
-              {node.rewardOnex} ONEX
-              <img src={onexIMG} />
-            </div>
+            <div className="farming-time-block-Description">{node.rewardTon} TON</div>
           </div>
         </div>
       </div>
 
-      {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {farming ? (
-          <div className="pay-button">{getRemainingTime(endTime)}</div>
-        ) : (
-          <div className="pay-button" onClick={() => onStartFarming(node)}>
-            ЗАПУСТИТЬ ЗА {node.stake} TON
-          </div>
-        )}
+        {farming ? <div className="pay-button">{getRemainingTime(endTime)}</div> : <div className="pay-button" onClick={() => onStartFarming(node)}>Запустить</div>}
       </div>
     </div>
   );
