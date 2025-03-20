@@ -86,6 +86,12 @@ const Onexs = () => {
     const diff = new Date(endTime).getTime() - Date.now();
     if (diff <= 0) return "ЗАФАРМЛЕНО";
   
+    // 🟢 Если фарминг меньше 1 дня, показываем секунды
+    if (diff < 60 * 60 * 1000) { 
+      const seconds = Math.floor(diff / 1000);
+      return `${seconds} сек.`;
+    }
+  
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     return `${hours}ч ${minutes}м`;
