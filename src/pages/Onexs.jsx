@@ -16,37 +16,14 @@ const API_URL_MAIN = "https://1xback-production.up.railway.app";
 
 
 const Onexs = () => {
-  const { userId, fetchBalance } = useUser(); 
+  const { userId } = useUser(); // ✅ Получаем userId из контекста
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [onexNodes, setOnexNodes] = useState([]);
   const [userNodes, setUserNodes] = useState([]);
-  
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchActiveNodes = async () => {
-      try {
-        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
-        const data = await response.json();
-
-        if (Array.isArray(data.activePaidNodes)) {
-          setUserNodes(data.activePaidNodes);
-
-          // ✅ Если у пользователя есть зафармленные ноды - обновляем баланс
-          if (data.activePaidNodes.some(n => n.status === "зафармлено")) {
-            console.log("🎉 Найдены завершенные ноды! Обновляем баланс...");
-            fetchBalance(userId);
-          }
-        }
-      } catch (error) {
-        console.error("Ошибка при загрузке активных нод:", error);
-      }
-    };
-
-    fetchActiveNodes();
-  }, [userId]);
-
-  // ✅ Загружаем ноды с сервера
+  // Загружаем ноды с сервера
   useEffect(() => {
     fetch(`${API_URL}/onex-nodes`)
       .then((res) => res.json())
@@ -55,6 +32,7 @@ const Onexs = () => {
       })
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
+
 
   // ✅ Запуск платного фарминга
   const startPaidFarming = async (node) => {
@@ -84,18 +62,15 @@ const Onexs = () => {
     }
   };
 
-  // ✅ Запрос на обновление статуса нод
+  // ✅ Загружаем активные платные ноды пользователя
   useEffect(() => {
     if (!userId) return;
 
     const fetchActiveNodes = async () => {
       try {
-        console.log("📌 Запрашиваем активные ноды...");
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
 
-        console.log("📌 Ответ сервера:", data);
-        
         if (Array.isArray(data.activePaidNodes)) {
           setUserNodes(data.activePaidNodes);
         }
@@ -107,11 +82,11 @@ const Onexs = () => {
     fetchActiveNodes();
   }, [userId]);
 
-  // ✅ Функция для получения оставшегося времени
+  // ✅ Отображаем оставшееся время
   const getRemainingTime = (endTime) => {
-    const diff = new Date(endTime).getTime() - Date.now();
+    const diff = new Date(endTime) - Date.now();
     if (diff <= 0) return "ЗАФАРМЛЕНО";
-  
+
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     return `${hours}ч ${minutes}м`;
@@ -180,13 +155,7 @@ const Onexs = () => {
                   className={`onex-node-my my ${index === array.length - 1 ? "onex-node-my-last" : ""}`} 
                   key={node._id}
                 >
-                  <NodeBlock 
-                    node={node} 
-                    index={index} 
-                    farming={node.status === "таймер"} 
-                    endTime={node.farmEndTime} 
-                    getRemainingTime={getRemainingTime} 
-                  />
+                  <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
                 </div>
               ))}
             </>
@@ -257,4 +226,4 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime })
   );
 };
 
-export default Onexs;
+export default Onexs; 
