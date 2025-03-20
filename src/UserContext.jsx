@@ -18,20 +18,20 @@ export const UserProvider = ({ children }) => {
       if (telegramId) {
         console.log("✅ `userId` из Telegram.WebApp:", telegramId);
         setUserId(telegramId);
-        await registerUser(telegramId); // ✅ Отправляем на бэкенд
-        fetchBalance(telegramId);
+        await registerUser(telegramId);
         return;
       }
 
       console.log("🔄 `userId` не найден в WebApp, загружаем с сервера...");
       const response = await fetch("https://1xback-production.up.railway.app/get-user", {
-        headers: { "x-telegram-id": telegramId || "" }
+        headers: { "x-telegram-id": telegramId ? telegramId.toString() : "" } // ✅ Фикс
       });
+
       const data = await response.json();
 
       if (response.ok && data.userId) {
+        console.log("✅ Получен userId с сервера:", data.userId);
         setUserId(data.userId);
-        fetchBalance(data.userId);
       } else {
         console.error("❌ Ошибка: userId отсутствует в ответе сервера!");
       }
@@ -45,9 +45,7 @@ export const UserProvider = ({ children }) => {
       console.log("📌 Отправка `telegramId` на сервер:", telegramId);
       const response = await fetch("https://1xback-production.up.railway.app/register-user", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ telegramId })
       });
 
@@ -63,6 +61,11 @@ export const UserProvider = ({ children }) => {
   };
 
   const fetchBalance = async (id) => {
+    if (!id) {
+      console.error("❌ Ошибка: userId не определен, пропускаем `fetchBalance`.");
+      return;
+    }
+
     try {
       console.log("📌 Получаем баланс для userId:", id);
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
@@ -79,6 +82,13 @@ export const UserProvider = ({ children }) => {
       console.error("❌ Ошибка при получении баланса:", error);
     }
   };
+
+  useEffect(() => {
+    if (userId) {
+      console.log("✅ userId получен, загружаем баланс...");
+      fetchBalance(userId);
+    }
+  }, [userId]); // ✅ Теперь баланс запрашивается только после загрузки userId
 
   return (
     <UserContext.Provider value={{ userId, balance, fetchBalance }}>
