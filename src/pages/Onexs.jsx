@@ -23,6 +23,29 @@ const Onexs = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchActiveNodes = async () => {
+      try {
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+  
+        if (Array.isArray(data.activePaidNodes)) {
+          setUserNodes(data.activePaidNodes);
+  
+          // ✅ Если у пользователя есть зафармленные ноды - обновляем баланс
+          if (data.activePaidNodes.some(n => n.status === "зафармлено")) {
+            console.log("🎉 Найдены завершенные ноды! Обновляем баланс...");
+            fetchBalance(userId);
+          }
+        }
+      } catch (error) {
+        console.error("Ошибка при загрузке активных нод:", error);
+      }
+    };
+  
+    fetchActiveNodes();
+  }, [userId]);
+
   // Загружаем ноды с сервера
   useEffect(() => {
     fetch(`${API_URL}/onex-nodes`)
@@ -91,27 +114,6 @@ const Onexs = () => {
     return `${hours}ч ${minutes}м`;
   };
 
-  const fetchPaidFarmingHistory = async () => {
-    try {
-      const response = await fetch(`${API_URL_MAIN}/get-paid-farming-history?userId=${userId}`);
-      const data = await response.json();
-  
-      if (data.history) {
-        console.log("✅ История платного фарминга:", data.history);
-        setPaidFarmingHistory(data.history);
-      }
-    } catch (error) {
-      console.error("❌ Ошибка при загрузке истории платного фарминга:", error);
-    }
-  };
-  
-  // ✅ Автоматически загружаем историю при загрузке страницы
-  useEffect(() => {
-    if (userId) {
-      fetchPaidFarmingHistory();
-    }
-  }, [userId]);
-
   return (
     <div className="App">
       <div className="ONEXs_Window">
@@ -175,7 +177,13 @@ const Onexs = () => {
                   className={`onex-node-my my ${index === array.length - 1 ? "onex-node-my-last" : ""}`} 
                   key={node._id}
                 >
-                  <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
+                  <NodeBlock 
+                    node={node} 
+                    index={index} 
+                    farming={node.status === "таймер"} 
+                    endTime={node.farmEndTime} 
+                    getRemainingTime={getRemainingTime} 
+                  />
                 </div>
               ))}
             </>
