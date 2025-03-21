@@ -4,6 +4,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
+  const [username, setUsername] = useState(null);
   const [balance, setBalance] = useState("0.00");
 
   useEffect(() => {
@@ -14,11 +15,13 @@ export const UserProvider = ({ children }) => {
     try {
       const tg = window.Telegram?.WebApp;
       const telegramId = tg?.initDataUnsafe?.user?.id;
+      const username = tg?.initDataUnsafe?.user?.username || null; // ✅ Берём username
 
       if (telegramId) {
         console.log("✅ `userId` из Telegram.WebApp:", telegramId);
         setUserId(telegramId);
-        await registerUser(telegramId);
+        setUsername(username);
+        await registerUser(telegramId, username);
         return;
       }
 
@@ -32,6 +35,7 @@ export const UserProvider = ({ children }) => {
       if (response.ok && data.userId) {
         console.log("✅ Получен userId с сервера:", data.userId);
         setUserId(data.userId);
+        setUsername(data.username || null);
       } else {
         console.error("❌ Ошибка: userId отсутствует в ответе сервера!");
       }
