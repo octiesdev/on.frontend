@@ -226,28 +226,21 @@ const Onexs = () => {
 
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
-            <>
-              {onexNodes
-                .filter(node => node.section === "all")
-                .map((node, index, array) => {
-                  // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+           <>
+           {onexNodes.map((node) => {
+             // ✅ Проверяем, была ли нода зафармлена
+             const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
-                  return (
-                    <div 
-                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                      key={node._id}
-                    >
-                      <NodeBlock 
-                        node={node} 
-                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
-                        onStartFarming={startPaidFarming} 
-                      />
-                    </div>
-                  );
-                })
-              }
-            </>
+             return (
+               <NodeBlock 
+                 key={node._id} 
+                 node={node} 
+                 isFarmed={isFarmed} 
+                 onStartFarming={startPaidFarming} 
+               />
+             );
+            })}
+          </>
           )}
 
           {selectedCategory === "limited" && (
@@ -329,15 +322,13 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {isFarmed ? (
-          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-        ) : node.status === "таймер" ? (
-          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
-        ) : (
-          <div className="pay-button" onClick={() => onStartFarming(node)}>
-            ЗАПУСТИТЬ ЗА {node.stake} TON
-          </div>
-        )}
+      {isFarmed ? (
+        <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+      ) : farming ? (
+        <div className="pay-button">{getRemainingTime(endTime)}</div>
+      ) : (
+        <div className="pay-button" onClick={() => onStartFarming(node)}>ЗАПУСТИТЬ</div>
+      )}
       </div>
     </div>
   );
