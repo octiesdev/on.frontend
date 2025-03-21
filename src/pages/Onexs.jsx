@@ -243,11 +243,11 @@ const Onexs = () => {
             <>
               {onexNodes
                 .filter(node => node.section === "all")
-                .map((node, index, array) => {
+                .map((node, index, filteredNodes) => {
                   const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                   return (
-                    <div className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} key={node._id}>
+                    <div className={`onex-node all ${index === filteredNodes.length - 1 ? "onex-node-last" : ""}`} key={node._id}>
                       <NodeBlock 
                         node={node} 
                         isFarmed={isFarmed} 
