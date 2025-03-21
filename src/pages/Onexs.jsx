@@ -64,20 +64,21 @@ const Onexs = () => {
   
     fetchUserData();
   }, [userId]); // 🔥 Обновление при изменении `userId`
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setUserNodes((prevNodes) =>
-        prevNodes.map((node) => ({
-          ...node,
-          status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
-          remainingTime: getRemainingTime(node.farmEndTime)
-        }))
-      );
-    }, 5000); // 🔥 Обновляем статус каждые 5 секунд
   
-    return () => clearInterval(interval);
-  }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
+  // 🔥 Обновляем onexNodes, добавляя статус "зафармлено", если нода уже куплена
+  useEffect(() => {
+    if (!purchasedNodes.length) return;
+
+    setOnexNodes((prevNodes) =>
+      prevNodes.map((node) => {
+        const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+        return {
+          ...node,
+          status: isFarmed ? "зафармлено" : node.status
+        };
+      })
+    );
+  }, [purchasedNodes]); 
 
 
   const startPaidFarming = async (node) => {
