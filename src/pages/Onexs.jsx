@@ -16,12 +16,12 @@ const Onexs = () => {
   const { userId } = useUser();
   const navigate = useNavigate();
   
-  const [onexNodes, setOnexNodes] = useState([]);   // Все ноды
-  const [userNodes, setUserNodes] = useState([]);   // Активные ноды пользователя
-  const [purchasedNodes, setPurchasedNodes] = useState([]); // Купленные ноды
+  const [onexNodes, setOnexNodes] = useState([]);   
+  const [userNodes, setUserNodes] = useState([]);   
+  const [purchasedNodes, setPurchasedNodes] = useState([]); 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // 📌 Загружаем ВСЕ ноды с сервера
+  // 📌 Загружаем ВСЕ ноды
   useEffect(() => {
     fetch(`${API_URL_MAIN}/onex-nodes`)
       .then((res) => res.json())
@@ -51,7 +51,7 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки купленных нод:", error));
   }, [userId]);
 
-  // 🔥 Обновляем статус нод в `all`, если они были зафармлены
+  // 🔥 Обновляем ноды в `all`, если они были зафармлены
   useEffect(() => {
     if (!purchasedNodes.length) return;
 
@@ -119,24 +119,20 @@ const Onexs = () => {
         </div>
 
         <div className="mainTasksPageContainer">
-          <div className="info-onexs-block">
-            <h2>ONEXs</h2>
-            <p>Активируй и зарабатывай TON и ONEX!</p>
-            <div className="section-buttons">
-              <button className={selectedCategory === "all" ? "active" : ""} onClick={() => setSelectedCategory("all")}>Все</button>
-              <button className={selectedCategory === "my" ? "active" : ""} onClick={() => setSelectedCategory("my")}>Активные</button>
-            </div>
+          <h2>ONEXs</h2>
+          <div className="section-buttons">
+            <button className={selectedCategory === "all" ? "active" : ""} onClick={() => setSelectedCategory("all")}>Все</button>
+            <button className={selectedCategory === "my" ? "active" : ""} onClick={() => setSelectedCategory("my")}>Активные</button>
           </div>
 
           {/* 🔥 Отображаем секцию "Все" */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes.map((node) => {
-                const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
-                return (
-                  <NodeBlock key={node._id} node={node} isFarmed={isFarmed} onStartFarming={startPaidFarming} />
-                );
-              })}
+              {onexNodes
+                .filter(node => !purchasedNodes.some(n => String(n.nodeId) === String(node._id))) // ✅ Фильтруем зафармленные
+                .map((node) => (
+                  <NodeBlock key={node._id} node={node} onStartFarming={startPaidFarming} />
+              ))}
             </>
           )}
 
@@ -157,19 +153,17 @@ const Onexs = () => {
 };
 
 // Компонент для отображения ноды
-const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => (
+const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime }) => (
   <div className="info-onexs-nameText">
-    <div className="onexNode-infoBlocks">
-      <h3>Фарминг: {node.days} дней | APY: {node.apy}%</h3>
-      <div className="onexNode-PayButton">
-        {isFarmed ? (
-          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-        ) : farming ? (
-          <div className="pay-button">{getRemainingTime(endTime)}</div>
-        ) : (
-          <div className="pay-button" onClick={() => onStartFarming(node)}>ЗАПУСТИТЬ</div>
-        )}
-      </div>
+    <h3>Фарминг: {node.days} дней | APY: {node.apy}%</h3>
+    <div className="onexNode-PayButton">
+      {node.status === "зафармлено" ? (
+        <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+      ) : farming ? (
+        <div className="pay-button">{getRemainingTime(endTime)}</div>
+      ) : (
+        <div className="pay-button" onClick={() => onStartFarming(node)}>ЗАПУСТИТЬ</div>
+      )}
     </div>
   </div>
 );
