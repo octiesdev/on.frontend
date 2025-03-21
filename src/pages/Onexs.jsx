@@ -243,7 +243,7 @@ const Onexs = () => {
             <>
               {onexNodes
                 .filter(node => node.section === "all")
-                .map((node, index) => {
+                .map((node, index, array) => {
                   const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                   return (
