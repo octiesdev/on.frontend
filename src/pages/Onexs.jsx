@@ -238,25 +238,19 @@ const Onexs = () => {
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
-              {onexNodes
-                .filter(node => node.section === "all")
-                .map((node, index, array) => {
-                  // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
-
-                  return (
-                    <div 
-                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                      key={node._id}
-                    >
-                      <NodeBlock 
-                        node={node} 
-                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
-                        onStartFarming={startPaidFarming} 
-                      />
+    {onexNodes
+      .filter(node => !purchasedNodes.some(n => String(n.nodeId) === String(node._id))) // 🔥 Фильтруем зафармленные
+      .map((node, index, array) => (
+        <div 
+          className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+          key={node._id}
+        >
+          <NodeBlock 
+            node={node} 
+            onStartFarming={startPaidFarming} 
+          />
                     </div>
-                  );
-                })
+                ))
               }
             </>
           )}
