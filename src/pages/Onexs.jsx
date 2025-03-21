@@ -66,27 +66,39 @@ const Onexs = () => {
   }, [userId]); // Запрос идёт при изменении `userId`
 
   useEffect(() => {
-    if (!userId) return;
+    const interval = setInterval(() => {
+      setUserNodes((prevNodes) =>
+        prevNodes.map((node) => ({
+          ...node,
+          status: new Date(node.farmEndTime) <= Date.now() ? "зафармлено" : "таймер",
+          remainingTime: getRemainingTime(node.farmEndTime)
+        }))
+      );
   
-    const fetchPurchasedNodes = async () => {
-      try {
-        const response = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+      if (userId) {
+        fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
           body: JSON.stringify({ userId }),
-        });
-        const data = await response.json();
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              console.log("✅ Обновлены активные ноды и баланс");
   
-        if (Array.isArray(data.purchasedPaidNodes)) {
-          setPurchasedNodes(data.purchasedPaidNodes); // ✅ Загружаем зафармленные ноды
-        }
-      } catch (error) {
-        console.error("❌ Ошибка при загрузке истории нод:", error);
+              setUserNodes(data.activePaidNodes); // 🔄 Обновляем список активных нод
+              setPurchasedNodes(data.purchasedPaidNodes); // 🔥 Обновляем `purchasedNodes` (важно!)
+            }
+          })
+          .catch((err) => console.error("❌ Ошибка обновления статуса:", err));
       }
-    };
+    }, 5000);
   
-    fetchPurchasedNodes();
-  }, [userId]); // Запрос идёт при изменении `userId`
+    return () => clearInterval(interval);
+  }, [userId]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -197,6 +209,19 @@ const Onexs = () => {
   
     return () => clearInterval(interval);
   }, [userId]);
+
+  useEffect(() => {
+    if (!purchasedNodes.length) return;
+  
+    console.log("📌 Обновляем onexNodes, т.к. изменился purchasedNodes:", purchasedNodes);
+  
+    setOnexNodes((prevNodes) =>
+      prevNodes.map((node) => ({
+        ...node,
+        status: purchasedNodes.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
+      }))
+    );
+  }, [purchasedNodes]); // 🔥 Следим за обновлениями purchasedNodes
 
   return (
     <div className="App">
@@ -329,15 +354,15 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-      {isFarmed ? (
-        <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-      ) : node.status === "таймер" ? (
-        <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
-      ) : (
-        <div className="pay-button" onClick={() => onStartFarming(node)}>
-          ЗАПУСТИТЬ ЗА {node.stake} TON
-        </div>
-      )}
+      {node.status === "зафармлено" ? (
+          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+        ) : farming ? (
+          <div className="pay-button">{getRemainingTime(endTime)}</div>
+        ) : (
+          <div className="pay-button" onClick={() => onStartFarming(node)}>
+            ЗАПУСТИТЬ ЗА {node.stake} TON
+          </div>
+        )}
       </div>
     </div>
   );
