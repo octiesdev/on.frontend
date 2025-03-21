@@ -329,7 +329,7 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {isFarmed ? (
+        {node.status === "зафармлено" ? (
           <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
         ) : node.status === "таймер" ? (
           <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
