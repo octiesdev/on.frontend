@@ -35,71 +35,49 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
 
-  // ✅ Добавляем зафармленные ноды в onexNodes
-  useEffect(() => {
-    setOnexNodes((prevNodes) =>
-      prevNodes.map((node) => ({
-        ...node,
-        status: purchasedNodes.some((n) => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
-      }))
-    );
-  }, [purchasedNodes]);
-
   useEffect(() => {
     if (!userId) return;
   
-    const fetchActiveNodes = async () => {
+    const fetchUserData = async () => {
       try {
+        // Загружаем активные платные ноды
         const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
         const data = await response.json();
+        if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
   
-        if (Array.isArray(data.activePaidNodes)) {
-          setUserNodes(data.activePaidNodes); // ✅ Загружаем активные ноды
+        // Загружаем историю купленных нод
+        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+        const historyData = await historyResponse.json();
+  
+        if (Array.isArray(historyData.purchasedPaidNodes)) {
+          setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
         }
+  
       } catch (error) {
-        console.error("❌ Ошибка при загрузке активных нод:", error);
+        console.error("❌ Ошибка при загрузке данных пользователя:", error);
       }
     };
   
-    fetchActiveNodes();
-  }, [userId]); // Запрос идёт при изменении `userId`
+    fetchUserData();
+  }, [userId]); // 🔥 Обновление при изменении `userId`
 
   useEffect(() => {
     const interval = setInterval(() => {
       setUserNodes((prevNodes) =>
         prevNodes.map((node) => ({
           ...node,
-          status: new Date(node.farmEndTime) <= Date.now() ? "зафармлено" : "таймер",
+          status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
           remainingTime: getRemainingTime(node.farmEndTime)
         }))
       );
-  
-      if (userId) {
-        fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({ userId }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
-              console.log("✅ Обновлены активные ноды и баланс");
-  
-              setUserNodes(data.activePaidNodes); // 🔄 Обновляем список активных нод
-              setPurchasedNodes(data.purchasedPaidNodes); // 🔥 Обновляем `purchasedNodes` (важно!)
-            }
-          })
-          .catch((err) => console.error("❌ Ошибка обновления статуса:", err));
-      }
-    }, 5000);
+    }, 5000); // 🔥 Обновляем статус каждые 5 секунд
   
     return () => clearInterval(interval);
-  }, [userId]);
-
-
+  }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
 
 
   const startPaidFarming = async (node) => {
@@ -135,6 +113,26 @@ const Onexs = () => {
       console.error("❌ Ошибка при запуске платного фарминга:", error);
     }
   };
+
+  // ✅ Загружаем активные платные ноды пользователя
+  useEffect(() => {
+    if (!userId) return;
+
+    const fetchActiveNodes = async () => {
+      try {
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+
+        if (Array.isArray(data.activePaidNodes)) {
+          setUserNodes(data.activePaidNodes);
+        }
+      } catch (error) {
+        console.error("Ошибка при загрузке активных нод:", error);
+      }
+    };
+
+    fetchActiveNodes();
+  }, [userId]);
 
   const getRemainingTime = (endTime) => {
     const now = Date.now();
@@ -197,7 +195,6 @@ const Onexs = () => {
     return () => clearInterval(interval);
   }, [userId]);
 
-
   return (
     <div className="App">
       <div className="ONEXs_Window">
@@ -212,12 +209,6 @@ const Onexs = () => {
         </div>
 
         <div className="mainTasksPageContainer">
-        {onexNodes.map((node) => {
-            const isFarmed = purchasedNodes.some((n) => String(n.nodeId) === String(node._id));
-            return (
-              <NodeBlock key={node._id} node={node} isFarmed={isFarmed} onStartFarming={startPaidFarming} />
-            );
-          })}
           <div className="info-onexs-block">
             <div className="info-onexs-nameText">
               <h2>ONEXs</h2>
@@ -238,14 +229,18 @@ const Onexs = () => {
             <>
               {onexNodes
                 .filter(node => node.section === "all")
-                .map((node, index, filteredNodes) => {
-                  const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+                .map((node, index, array) => {
+                  // ✅ Проверяем, была ли нода куплена хотя бы раз
+                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                   return (
-                    <div className={`onex-node all ${index === filteredNodes.length - 1 ? "onex-node-last" : ""}`} key={node._id}>
+                    <div 
+                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                      key={node._id}
+                    >
                       <NodeBlock 
                         node={node} 
-                        isFarmed={isFarmed} 
+                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
                         onStartFarming={startPaidFarming} 
                       />
                     </div>
@@ -290,7 +285,6 @@ const Onexs = () => {
 
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
-
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
@@ -335,8 +329,10 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-      {isFarmed ? (
+        {isFarmed ? (
           <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+        ) : node.status === "таймер" ? (
+          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
