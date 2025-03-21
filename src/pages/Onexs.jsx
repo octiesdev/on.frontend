@@ -68,13 +68,24 @@ const Onexs = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setUserNodes((prevNodes) =>
-        prevNodes.map((node) => ({
-          ...node,
-          status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
-          remainingTime: getRemainingTime(node.farmEndTime)
-        }))
+        prevNodes.map((node) => {
+          const farmedNode = purchasedNodes.find(n => String(n.nodeId) === String(node._id));
+          
+          if (farmedNode) {
+            return {
+              ...node,
+              status: "зафармлено", 
+              farmEndTime: farmedNode.farmEndTime
+            };
+          }
+          return {
+            ...node,
+            status: new Date(node.farmEndTime) <= Date.now() ? "зафармлено" : "таймер",
+            remainingTime: getRemainingTime(node.farmEndTime)
+          };
+        })
       );
-    }, 5000); // 🔥 Обновляем статус каждые 5 секунд
+    }, 5000);
   
     return () => clearInterval(interval);
   }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
