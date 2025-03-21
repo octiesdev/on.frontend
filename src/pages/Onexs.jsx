@@ -239,8 +239,12 @@ const Onexs = () => {
                     <div className={`onex-node all ${index === filteredNodes.length - 1 ? "onex-node-last" : ""}`} key={node._id}>
                       <NodeBlock 
                         node={node} 
-                        isFarmed={isFarmed} 
+ 
                         onStartFarming={startPaidFarming} 
+
+                        key={node._id}
+                   
+                        isFarmed={node.isFarmed} 
                       />
                     </div>
                   );
