@@ -56,6 +56,8 @@ const Onexs = () => {
         if (Array.isArray(historyData.purchasedPaidNodes)) {
           setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
           console.log("✅ Загруженные `purchasedPaidNodes`:", historyData.purchasedPaidNodes);
+          console.log("📥 Полученные purchasedPaidNodes:", historyData.purchasedPaidNodes);
+          console.log("🔎 Проверка nodeId:", historyData.purchasedPaidNodes.map(n => String(n.nodeId)));
         }
   
         console.log("📌 Загруженные зафармленные ноды (purchasedNodes):", historyData.purchasedPaidNodes); // ✅ ЛОГ
@@ -233,6 +235,7 @@ const Onexs = () => {
            {onexNodes.map((node) => {
              // ✅ Проверяем, была ли нода зафармлена
              const isFarmed = purchasedNodes.some(n => `${n.nodeId}` === `${node._id}`);
+             console.log(`🔍 Проверяем ноду: ${node._id}, isFarmed = ${isFarmed}`);
 
              console.log(`🔍 Проверяем ноду: ${node._id} (тип: ${typeof node._id})`);
              console.log(`🆔 Сравниваем с ID из purchasedNodes:`, purchasedNodes.map(n => `${n.nodeId} (тип: ${typeof n.nodeId})`));
