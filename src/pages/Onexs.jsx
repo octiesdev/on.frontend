@@ -52,27 +52,44 @@ const Onexs = () => {
   useEffect(() => {
     if (!userId) return;
   
-    const fetchUserData = async () => {
+    const fetchActiveNodes = async () => {
       try {
-        // Запрос истории купленных нод
-        const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
+        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
+        const data = await response.json();
+  
+        if (Array.isArray(data.activePaidNodes)) {
+          setUserNodes(data.activePaidNodes); // ✅ Загружаем активные ноды
+        }
+      } catch (error) {
+        console.error("❌ Ошибка при загрузке активных нод:", error);
+      }
+    };
+  
+    fetchActiveNodes();
+  }, [userId]); // Запрос идёт при изменении `userId`
+
+  useEffect(() => {
+    if (!userId) return;
+  
+    const fetchPurchasedNodes = async () => {
+      try {
+        const response = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
         });
-        const historyData = await historyResponse.json();
+        const data = await response.json();
   
-        if (Array.isArray(historyData.purchasedPaidNodes)) {
-          setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
+        if (Array.isArray(data.purchasedPaidNodes)) {
+          setPurchasedNodes(data.purchasedPaidNodes); // ✅ Загружаем зафармленные ноды
         }
-  
       } catch (error) {
-        console.error("❌ Ошибка при загрузке данных пользователя:", error);
+        console.error("❌ Ошибка при загрузке истории нод:", error);
       }
     };
   
-    fetchUserData();
-  }, [userId]);
+    fetchPurchasedNodes();
+  }, [userId]); // Запрос идёт при изменении `userId`
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -122,26 +139,6 @@ const Onexs = () => {
       console.error("❌ Ошибка при запуске платного фарминга:", error);
     }
   };
-
-  // ✅ Загружаем активные платные ноды пользователя
-  useEffect(() => {
-    if (!userId) return;
-
-    const fetchActiveNodes = async () => {
-      try {
-        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
-        const data = await response.json();
-
-        if (Array.isArray(data.activePaidNodes)) {
-          setUserNodes(data.activePaidNodes);
-        }
-      } catch (error) {
-        console.error("Ошибка при загрузке активных нод:", error);
-      }
-    };
-
-    fetchActiveNodes();
-  }, [userId]);
 
   const getRemainingTime = (endTime) => {
     const now = Date.now();
@@ -290,6 +287,8 @@ const Onexs = () => {
 
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
+
+  const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
@@ -335,12 +334,14 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
       {isFarmed ? (
-          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div> // 🔥 Теперь корректно отображается
-        ) : (
-          <div className="pay-button" onClick={() => onStartFarming(node)}>
-            ЗАПУСТИТЬ ЗА {node.stake} TON
-          </div>
-        )}
+        <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+      ) : node.status === "таймер" ? (
+        <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
+      ) : (
+        <div className="pay-button" onClick={() => onStartFarming(node)}>
+          ЗАПУСТИТЬ ЗА {node.stake} TON
+        </div>
+      )}
       </div>
     </div>
   );
