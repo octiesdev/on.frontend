@@ -232,7 +232,7 @@ const Onexs = () => {
            <>
            {onexNodes.map((node) => {
              // ✅ Проверяем, была ли нода зафармлена
-             const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+             const isFarmed = purchasedNodes.some(n => `${n.nodeId}` === `${node._id}`);
 
              console.log(`🔍 Проверяем ноду: ${node._id} (тип: ${typeof node._id})`);
              console.log(`🆔 Сравниваем с ID из purchasedNodes:`, purchasedNodes.map(n => `${n.nodeId} (тип: ${typeof n.nodeId})`));
