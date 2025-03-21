@@ -57,6 +57,8 @@ const Onexs = () => {
           setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
         }
   
+        console.log("📌 Загруженные зафармленные ноды (purchasedNodes):", historyData.purchasedPaidNodes); // ✅ ЛОГ
+
       } catch (error) {
         console.error("❌ Ошибка при загрузке данных пользователя:", error);
       }
@@ -231,6 +233,8 @@ const Onexs = () => {
              // ✅ Проверяем, была ли нода зафармлена
              const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
+             console.log(`🔍 Проверяем ноду: ${node._id} → ${isFarmed ? "ЗАФАРМЛЕНО" : "НЕ зафармлено"}`);
+
              return (
                <NodeBlock 
                  key={node._id} 
@@ -278,6 +282,8 @@ const Onexs = () => {
 
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
+  console.log(`🎭 Нода ${node._id}: isFarmed = ${isFarmed}`);
+
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
