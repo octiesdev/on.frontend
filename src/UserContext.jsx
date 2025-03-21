@@ -40,13 +40,13 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (telegramId) => {
+  const registerUser = async (telegramId, username) => {
     try {
       console.log("📌 Отправка `telegramId` на сервер:", telegramId);
       const response = await fetch("https://1xback-production.up.railway.app/register-user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ telegramId })
+        body: JSON.stringify({ telegramId, username })
       });
 
       const data = await response.json();
