@@ -251,16 +251,28 @@ const Onexs = () => {
           )}
 
           {selectedCategory === "limited" && (
-            <>
-              {onexNodes.filter(node => node.section === "limited").map((node, index, array) => (
-                <div 
-                  className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
-                  key={node._id}
-                >
-                  <NodeBlock node={node} index={index} onStartFarming={startPaidFarming} />
-                </div>
-              ))}
-            </>
+          <>
+            {onexNodes
+              .filter(node => node.section === "limited")
+              .map((node, index, array) => {
+                // ✅ Проверяем, была ли нода зафармлена
+                const isFarmed = Array.isArray(purchasedNodes) && 
+                                purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+
+                return (
+                  <div 
+                    className={`onex-node-limited limited ${index === array.length - 1 ? "onex-node-limited-last" : ""}`} 
+                    key={node._id}
+                  >
+                    <NodeBlock 
+                      node={node} 
+                      isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                      onStartFarming={startPaidFarming} 
+                    />
+                  </div>
+                );
+              })}
+          </>
           )}
 
           {selectedCategory === "my" && (
