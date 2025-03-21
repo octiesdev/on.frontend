@@ -36,6 +36,20 @@ const Onexs = () => {
   }, []);
 
   useEffect(() => {
+    if (!purchasedNodes.length) return;
+  
+    console.log("📌 Обновляем onexNodes, т.к. изменился purchasedNodes:", purchasedNodes);
+  
+    // Обновляем состояние onexNodes
+    setOnexNodes((prevNodes) =>
+      prevNodes.map((node) => ({
+        ...node,
+        isFarmed: purchasedNodes.some(n => String(n.nodeId) === String(node._id))
+      }))
+    );
+  }, [purchasedNodes]); // 🔥 Следим за обновлениями purchasedNodes
+
+  useEffect(() => {
     if (!userId) return;
   
     const fetchUserData = async () => {
@@ -229,18 +243,14 @@ const Onexs = () => {
             <>
               {onexNodes
                 .filter(node => node.section === "all")
-                .map((node, index, array) => {
-                  // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
+                .map((node, index) => {
+                  const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                   return (
-                    <div 
-                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
-                      key={node._id}
-                    >
+                    <div className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} key={node._id}>
                       <NodeBlock 
                         node={node} 
-                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                        isFarmed={isFarmed} 
                         onStartFarming={startPaidFarming} 
                       />
                     </div>
