@@ -54,12 +54,7 @@ const Onexs = () => {
   
     const fetchUserData = async () => {
       try {
-        // Загружаем активные платные ноды
-        const response = await fetch(`${API_URL_MAIN}/get-active-paid-nodes?userId=${userId}`);
-        const data = await response.json();
-        if (Array.isArray(data.activePaidNodes)) setUserNodes(data.activePaidNodes);
-  
-        // Загружаем историю купленных нод
+        // Запрос истории купленных нод
         const historyResponse = await fetch(`${API_URL_MAIN}/get-paid-farming-status`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -77,7 +72,7 @@ const Onexs = () => {
     };
   
     fetchUserData();
-  }, [userId]); // 🔥 Обновление при изменении `userId`
+  }, [userId]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -339,10 +334,8 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-        {isFarmed ? (
-          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-        ) : node.status === "таймер" ? (
-          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
+      {isFarmed ? (
+          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div> // 🔥 Теперь корректно отображается
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
