@@ -55,13 +55,8 @@ const Onexs = () => {
   
         if (Array.isArray(historyData.purchasedPaidNodes)) {
           setPurchasedNodes(historyData.purchasedPaidNodes); // ✅ Обновляем `purchasedPaidNodes`
-          console.log("✅ Загруженные `purchasedPaidNodes`:", historyData.purchasedPaidNodes);
-          console.log("📥 Полученные purchasedPaidNodes:", historyData.purchasedPaidNodes);
-          console.log("🔎 Проверка nodeId:", historyData.purchasedPaidNodes.map(n => String(n.nodeId)));
         }
   
-        console.log("📌 Загруженные зафармленные ноды (purchasedNodes):", historyData.purchasedPaidNodes); // ✅ ЛОГ
-
       } catch (error) {
         console.error("❌ Ошибка при загрузке данных пользователя:", error);
       }
@@ -231,28 +226,28 @@ const Onexs = () => {
 
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
-           <>
-           {onexNodes.map((node) => {
-             // ✅ Проверяем, была ли нода зафармлена
-             const isFarmed = purchasedNodes.some(n => `${n.nodeId}` === `${node._id}`);
-             console.log(`🔍 Проверяем ноду: ${node._id}, isFarmed = ${isFarmed}`);
+            <>
+              {onexNodes
+                .filter(node => node.section === "all")
+                .map((node, index, array) => {
+                  // ✅ Проверяем, была ли нода куплена хотя бы раз
+                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
-             console.log(`🔍 Проверяем ноду: ${node._id} (тип: ${typeof node._id})`);
-             console.log(`🆔 Сравниваем с ID из purchasedNodes:`, purchasedNodes.map(n => `${n.nodeId} (тип: ${typeof n.nodeId})`));
-             console.log(`🎭 Нода ${node._id}: isFarmed = ${isFarmed}`);
-
-             console.log(`🔍 Проверяем ноду: ${node._id} → ${isFarmed ? "ЗАФАРМЛЕНО" : "НЕ зафармлено"}`);
-
-             return (
-               <NodeBlock 
-                 key={node._id} 
-                 node={node} 
-                 isFarmed={isFarmed} 
-                 onStartFarming={startPaidFarming} 
-               />
-             );
-            })}
-          </>
+                  return (
+                    <div 
+                      className={`onex-node all ${index === array.length - 1 ? "onex-node-last" : ""}`} 
+                      key={node._id}
+                    >
+                      <NodeBlock 
+                        node={node} 
+                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                        onStartFarming={startPaidFarming} 
+                      />
+                    </div>
+                  );
+                })
+              }
+            </>
           )}
 
           {selectedCategory === "limited" && (
@@ -290,8 +285,6 @@ const Onexs = () => {
 
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
-  console.log(`🎭 Нода ${node._id}: isFarmed = ${isFarmed}`);
-
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
@@ -336,13 +329,15 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-      {isFarmed ? (
-        <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-      ) : farming ? (
-        <div className="pay-button">{getRemainingTime(endTime)}</div>
-      ) : (
-        <div className="pay-button" onClick={() => onStartFarming(node)}>ЗАПУСТИТЬ</div>
-      )}
+        {isFarmed ? (
+          <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
+        ) : node.status === "таймер" ? (
+          <div className="pay-button">{node.remainingTime || getRemainingTime(node.farmEndTime)}</div>
+        ) : (
+          <div className="pay-button" onClick={() => onStartFarming(node)}>
+            ЗАПУСТИТЬ ЗА {node.stake} TON
+          </div>
+        )}
       </div>
     </div>
   );
