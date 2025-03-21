@@ -269,7 +269,7 @@ const Onexs = () => {
                   className={`onex-node-my my ${index === array.length - 1 ? "onex-node-my-last" : ""}`} 
                   key={node._id}
                 >
-                  <NodeBlock node={node} index={index} farming={true} endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
+                  <NodeBlock node={node} index={index}        isFarmed={isFarmed}  endTime={node.farmEndTime} getRemainingTime={getRemainingTime} />
                 </div>
               ))}
             </>
