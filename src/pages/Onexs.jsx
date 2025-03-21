@@ -35,13 +35,12 @@ const Onexs = () => {
       .catch((error) => console.error("Ошибка загрузки нод:", error));
   }, []);
 
+  // ✅ Добавляем зафармленные ноды в onexNodes
   useEffect(() => {
-    console.log("📌 Обновляем onexNodes, т.к. изменился purchasedNodes:", purchasedNodes);
-  
     setOnexNodes((prevNodes) =>
       prevNodes.map((node) => ({
         ...node,
-        isFarmed: purchasedNodes.some(n => String(n.nodeId) === String(node._id))
+        status: purchasedNodes.some((n) => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
       }))
     );
   }, [purchasedNodes]);
@@ -100,19 +99,7 @@ const Onexs = () => {
     return () => clearInterval(interval);
   }, [userId]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setUserNodes((prevNodes) =>
-        prevNodes.map((node) => ({
-          ...node,
-          status: purchasedNodes?.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status,
-          remainingTime: getRemainingTime(node.farmEndTime)
-        }))
-      );
-    }, 5000); // 🔥 Обновляем статус каждые 5 секунд
-  
-    return () => clearInterval(interval);
-  }, [userId, purchasedNodes]); // 🔥 Следим за `purchasedNodes`
+
 
 
   const startPaidFarming = async (node) => {
@@ -210,18 +197,6 @@ const Onexs = () => {
     return () => clearInterval(interval);
   }, [userId]);
 
-  useEffect(() => {
-    if (!purchasedNodes.length) return;
-  
-    console.log("📌 Обновляем onexNodes, т.к. изменился purchasedNodes:", purchasedNodes);
-  
-    setOnexNodes((prevNodes) =>
-      prevNodes.map((node) => ({
-        ...node,
-        status: purchasedNodes.some(n => String(n.nodeId) === String(node._id)) ? "зафармлено" : node.status
-      }))
-    );
-  }, [purchasedNodes]); // 🔥 Следим за обновлениями purchasedNodes
 
   return (
     <div className="App">
@@ -237,6 +212,12 @@ const Onexs = () => {
         </div>
 
         <div className="mainTasksPageContainer">
+        {onexNodes.map((node) => {
+            const isFarmed = purchasedNodes.some((n) => String(n.nodeId) === String(node._id));
+            return (
+              <NodeBlock key={node._id} node={node} isFarmed={isFarmed} onStartFarming={startPaidFarming} />
+            );
+          })}
           <div className="info-onexs-block">
             <div className="info-onexs-nameText">
               <h2>ONEXs</h2>
@@ -354,10 +335,8 @@ const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, i
 
       {/* 🔥 Кнопка старта или таймер */}
       <div className="onexNode-PayButton">
-      {node.status === "зафармлено" ? (
+      {isFarmed ? (
           <div className="pay-button-onexs-farmed">ЗАФАРМЛЕНО</div>
-        ) : farming ? (
-          <div className="pay-button">{getRemainingTime(endTime)}</div>
         ) : (
           <div className="pay-button" onClick={() => onStartFarming(node)}>
             ЗАПУСТИТЬ ЗА {node.stake} TON
