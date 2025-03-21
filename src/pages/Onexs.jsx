@@ -36,18 +36,15 @@ const Onexs = () => {
   }, []);
 
   useEffect(() => {
-    if (!purchasedNodes.length) return;
-  
     console.log("📌 Обновляем onexNodes, т.к. изменился purchasedNodes:", purchasedNodes);
   
-    // Обновляем состояние onexNodes
     setOnexNodes((prevNodes) =>
       prevNodes.map((node) => ({
         ...node,
         isFarmed: purchasedNodes.some(n => String(n.nodeId) === String(node._id))
       }))
     );
-  }, [purchasedNodes]); // 🔥 Следим за обновлениями purchasedNodes
+  }, [purchasedNodes]);
 
   useEffect(() => {
     if (!userId) return;
@@ -288,7 +285,6 @@ const Onexs = () => {
 // Компонент для отрисовки одной ноды
 const NodeBlock = ({ node, onStartFarming, farming, endTime, getRemainingTime, isFarmed }) => {
 
-  const isFarmed = purchasedNodes.some(n => String(n.nodeId) === String(node._id));
   return (
     <div className="info-onexs-nameText">
       <div className="info-section-logo">
