@@ -40,6 +40,7 @@ isolation: isolate;
   color: white;
   z-index: 1001;
   animation: fade-in 0.3s forwards;
+  overflow-y: auto;
 }
 
 .Header{
@@ -95,7 +96,7 @@ isolation: isolate;
   height: 89.5%;
   width: 100%;
   margin-top: 2.5vh;
-  overflow: auto;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -864,7 +865,10 @@ isolation: isolate;
   align-items: center;
   justify-content: flex-end!important;
   height: 80%;
-  width: 30%;
+  width: 30%; /* ✅ Убираем жёсткую ширину */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: visible;
 
   font-size: clamp(2.8vh, 3vw, 2vh)!important;
