@@ -496,7 +496,7 @@ const Profile = () => {
             </div>
 
             {depositHistory.map((entry, idx) => (
-              <div key={idx} className="rectangle-button-support">
+              <div key={idx} className="rectangle-deposit-history">
                 <div className="deposit-status">ВВОД выполнен</div>
                 <div className="deposit-amount">
                   {entry.amount} TON <img src={tonIMG} />
