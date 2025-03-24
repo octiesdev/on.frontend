@@ -884,17 +884,19 @@ isolation: isolate;
 
   height: 80%;
   width: 30%;
+  margin-left: 2.8vh;
+  gap: 0.15vh;
 }
 
 .rectangle-deposit-title-MainText {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: end;
 
-  height: 65%;
+  height: 60%;
   width: 100%;
 
-  font-size: 2.5vh;
+  font-size: 2.3vh;
   font-family: MullerBold;
   color: #FFFFFF;
 }
@@ -902,13 +904,13 @@ isolation: isolate;
 .rectangle-deposit-title-Description {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: start;
 
-  height: 35%;
+  height: 40%;
   width: 100%;
 
-  font-size: 1.2vh;
-  font-family: MullerBold;
+  font-size: 1.5vh;
+  font-family: MullerMedium;
   color: #08E500;
 }
 
