@@ -276,26 +276,59 @@ const Profile = () => {
       }
     };
 
-    const handleWithdraw = () => {
+    const handleWithdraw = async () => {
       if (!isValidWithdraw || withdrawAmount === "СУММА") return;
     
       const value = parseFloat(withdrawAmount);
-      const newBalance = balance - value;
     
-      // Обновим баланс локально (серверная логика зависит от реализации)
-      fetchBalance(userId); // чтобы заново подтянуть с сервера
+      try {
+        const response = await fetch(`${API_URL}/create-withdraw-order`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId,
+            amount: value,
+          }),
+        });
     
-      setWithdrawHistory(prev => [
-        { amount: value.toFixed(2), date: new Date().toLocaleString() },
-        ...prev
-      ]);
+        const data = await response.json();
     
-      // Сброс инпута
-      setWithdrawAmount("СУММА");
-      setIsValidWithdraw(false);
+        if (!response.ok) {
+          throw new Error(data.error || "Ошибка сервера");
+        }
     
-      // Можно также отправить данные на сервер (например, POST /withdraw-request)
+        // Обновим баланс после успешного создания ордера
+        await fetchBalance(userId);
+    
+        // Добавим новый ордер в историю (опционально: можно сделать get-withdraw-history)
+        setWithdrawHistory(prev => [
+          {
+            amount: value.toFixed(2),
+            status: "в обработке", // 🔥 На фронте показываем, пока не обновится
+            createdAt: new Date().toLocaleString(),
+          },
+          ...prev,
+        ]);
+    
+        // Очистка
+        setWithdrawAmount("СУММА");
+        setIsValidWithdraw(false);
+    
+        console.log("✅ Запрос на вывод отправлен успешно");
+      } catch (error) {
+        console.error("❌ Ошибка при отправке запроса на вывод:", error.message);
+        alert("Произошла ошибка при создании заявки на вывод.");
+      }
     };
+
+    useEffect(() => {
+      if (!userId) return;
+    
+      fetch(`${API_URL}/get-withdraw-orders?userId=${userId}`)
+        .then(res => res.json())
+        .then(data => setWithdrawHistory(data.orders || []))
+        .catch(err => console.error("❌ Ошибка загрузки истории выводов:", err));
+    }, [userId]);
 
 
   return (
@@ -611,7 +644,7 @@ const Profile = () => {
               >
                 <div className="rectangle-deposit-title">
                   <div className="rectangle-deposit-title-MainText">ВЫВОД</div>
-                  <div className="rectangle-deposit-title-Description">отправлен</div>
+                  <div className="rectangle-deposit-title-Description">{entry.status}</div>
                 </div>
                 <div className="rectangle-deposit-info">
                   {entry.amount} TON <img src={tonIMG} />
