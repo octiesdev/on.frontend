@@ -269,11 +269,9 @@ const Onexs = () => {
           {selectedCategory === "limited" && (
           <>
             {onexNodes
-              .filter(node => node.section === "limited")
+              .filter(node => node.section === "limited" && !isNodeActive(node._id))
               .map((node, index, array) => {
                 // ✅ Проверяем, была ли нода зафармлена
-                const isFarmed = Array.isArray(purchasedNodes) && 
-                                purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                 return (
                   <div 
@@ -282,7 +280,7 @@ const Onexs = () => {
                   >
                     <NodeBlock 
                       node={node} 
-                      isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                      isFarmed={isNodeFarmed(node._id)}
                       onStartFarming={startPaidFarming} 
                     />
                   </div>
