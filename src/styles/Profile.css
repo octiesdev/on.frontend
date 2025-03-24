@@ -906,7 +906,7 @@ isolation: isolate;
   justify-content: flex-start;
   align-items: start;
 
-  height: 40%;
+  height: 40%!important;
   width: 100%;
 
   font-size: 1.5vh;
