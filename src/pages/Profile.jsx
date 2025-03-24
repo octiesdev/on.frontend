@@ -274,28 +274,28 @@ const Profile = () => {
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
+    };
 
-      const handleWithdraw = () => {
-        if (!isValidWithdraw || withdrawAmount === "СУММА") return;
-      
-        const value = parseFloat(withdrawAmount);
-        const newBalance = balance - value;
-      
-        // Обновим баланс локально (серверная логика зависит от реализации)
-        fetchBalance(userId); // чтобы заново подтянуть с сервера
-      
-        setWithdrawHistory(prev => [
-          { amount: value.toFixed(2), date: new Date().toLocaleString() },
-          ...prev
-        ]);
-      
-        // Сброс инпута
-        setWithdrawAmount("СУММА");
-        setIsValidWithdraw(false);
-      
-        // Можно также отправить данные на сервер (например, POST /withdraw-request)
-      };
-  };
+    const handleWithdraw = () => {
+      if (!isValidWithdraw || withdrawAmount === "СУММА") return;
+    
+      const value = parseFloat(withdrawAmount);
+      const newBalance = balance - value;
+    
+      // Обновим баланс локально (серверная логика зависит от реализации)
+      fetchBalance(userId); // чтобы заново подтянуть с сервера
+    
+      setWithdrawHistory(prev => [
+        { amount: value.toFixed(2), date: new Date().toLocaleString() },
+        ...prev
+      ]);
+    
+      // Сброс инпута
+      setWithdrawAmount("СУММА");
+      setIsValidWithdraw(false);
+    
+      // Можно также отправить данные на сервер (например, POST /withdraw-request)
+    };
 
 
   return (
