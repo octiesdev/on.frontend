@@ -21,9 +21,15 @@ const API_URL = "https://1xback-production.up.railway.app";
 const Profile = () => {
     const { userId, balance, fetchBalance } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
+
     const [amount, setAmount] = useState("СУММА");
     const [isNeutral, setIsNeutral] = useState(true); 
     const [isValidAmount, setIsValidAmount] = useState(false); 
+
+    const [withdrawAmount, setWithdrawAmount] = useState("СУММА");
+    const [isValidWithdraw, setIsValidWithdraw] = useState(false);
+    const [withdrawHistory, setWithdrawHistory] = useState([]);
+
     const [tonConnectUI] = useTonConnectUI();
     const walletAddress = useTonAddress(); 
 
@@ -268,6 +274,27 @@ const Profile = () => {
       } catch (error) {
           console.error("❌ Ошибка при отправке транзакции:", error.message || error);
       }
+
+      const handleWithdraw = () => {
+        if (!isValidWithdraw || withdrawAmount === "СУММА") return;
+      
+        const value = parseFloat(withdrawAmount);
+        const newBalance = balance - value;
+      
+        // Обновим баланс локально (серверная логика зависит от реализации)
+        fetchBalance(userId); // чтобы заново подтянуть с сервера
+      
+        setWithdrawHistory(prev => [
+          { amount: value.toFixed(2), date: new Date().toLocaleString() },
+          ...prev
+        ]);
+      
+        // Сброс инпута
+        setWithdrawAmount("СУММА");
+        setIsValidWithdraw(false);
+      
+        // Можно также отправить данные на сервер (например, POST /withdraw-request)
+      };
   };
 
 
@@ -525,10 +552,41 @@ const Profile = () => {
             <div className="deposit-block">
               <div className="info-deposit-nameText100">
                 <div className="rectangle-for-buttons-deposit-block">
-                  <div className="rectangle-button-amount">
-                    СУММА
-                  </div>
-                  <div className="rectangle-buttonWith-withSection">
+                <div
+                  className="rectangle-button-amount"
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                  spellCheck={false}
+                  onFocus={(e) => {
+                    if (withdrawAmount === "СУММА") setWithdrawAmount("");
+                  }}
+                  onInput={(e) => {
+                    const input = e.target.textContent.replace(/\D/g, "");
+                    const value = parseFloat(input);
+
+                    setWithdrawAmount(input);
+                    const isValid = value >= 1 && value <= parseFloat(balance);
+                    setIsValidWithdraw(isValid);
+                  }}
+                  onBlur={(e) => {
+                    if (!e.target.textContent.trim()) {
+                      setWithdrawAmount("СУММА");
+                      setIsValidWithdraw(false);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      e.target.blur();
+                    }
+                  }}
+                >
+                  {withdrawAmount}
+                </div>
+                  <div 
+                    className={`rectangle-buttonWith-withSection ${isValidWithdraw ? "valid" : ""}`}
+                    onClick={handleWithdraw}
+                  >
                     ВЫВЕСТИ
                   </div>
                 </div>
@@ -537,11 +595,30 @@ const Profile = () => {
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
                   <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
-                  <p>2. Обработка вывода может занимать до 24 часов. </p>
+                  <p className={`${!isValidWithdraw && withdrawAmount !== "СУММА" ? "error" : ""}`}>
+                    2. Обработка вывода может занимать до 24 часов. 
+                  </p>
                   <p>3. Минимальная сумма вывода 1 TON.</p>
                 </div>
               </div>
             </div>
+
+            {withdrawHistory.map((entry, idx) => (
+              <div
+                key={idx}
+                className="rectangle-deposit-history"
+                style={{ marginTop: idx === 0 ? "2.8vh" : "1.4vh", background: "rgba(164, 71, 71, 0.15)", borderColor: "red" }}
+              >
+                <div className="rectangle-deposit-title">
+                  <div className="rectangle-deposit-title-MainText">ВЫВОД</div>
+                  <div className="rectangle-deposit-title-Description">отправлен</div>
+                </div>
+                <div className="rectangle-deposit-info">
+                  {entry.amount} TON <img src={tonIMG} />
+                </div>
+              </div>
+            ))}
+
             <div className="rectangle-support">
               В случае каких-либо проблем с выводом, обращайтесь в тех. поддержку.
               <div className="rectangle-button-support" onClick={handleSupportClick}>
