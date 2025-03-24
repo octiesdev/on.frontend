@@ -827,7 +827,7 @@ isolation: isolate;
 .rectangle-support {
   display: flex;
   flex-direction: column;
-  margin-top: 9vh;
+  margin-top: 5vh;
   align-self: center;
   align-items: center;
   justify-content: space-between;
