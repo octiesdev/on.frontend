@@ -101,6 +101,7 @@ const Onexs = () => {
         // 🔥 Немедленно добавляем новую ноду в userNodes
         setUserNodes((prevNodes) => [...prevNodes, { 
           ...node, 
+          nodeId: node._id, 
           status: "таймер", 
           farmEndTime: data.farmEndTime 
         }]);
