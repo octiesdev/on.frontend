@@ -861,14 +861,14 @@ isolation: isolate;
   flex-direction: row;
   margin-right: 1.2vh;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end!important;
   height: 80%;
   width: 30%;
   overflow: visible;
 
-  font-size: clamp(2.5vh, 3vw, 2vh);
+  font-size: clamp(2.5vh, 3vw, 2vh)!important;
   font-family: MullerBold;
-  gap: 1vh;
+  gap: 1vh!important;
 }
 
 .rectangle-deposit-info img {
