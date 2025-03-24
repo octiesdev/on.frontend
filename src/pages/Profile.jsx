@@ -496,7 +496,7 @@ const Profile = () => {
             </div>
 
             {depositHistory.map((entry, idx) => (
-              <div key={idx} className="rectangle-deposit-history" style={{ marginTop: idx === 0 ? "3vh" : "1.4vh" }}>
+              <div key={idx} className="rectangle-deposit-history" style={{ marginTop: idx === 0 ? "2.8vh" : "1.4vh" }}>
                   <div className="rectangle-deposit-title">
                     <div className="rectangle-deposit-title-MainText">
                       ВВОД
