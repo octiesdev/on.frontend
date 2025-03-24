@@ -866,7 +866,7 @@ isolation: isolate;
   width: 20%;
   overflow: visible;
 
-  font-size: 3vh;
+  font-size: clamp(1.4vh, 2.5vw, 2vh);
   font-family: MullerBold;
 }
 
