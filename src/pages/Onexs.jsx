@@ -184,10 +184,16 @@ const Onexs = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+
             if (data.success) {
               console.log("✅ Обновлены активные ноды и баланс");
               setUserNodes(data.activePaidNodes); // 🔄 Обновляем список нод
+            
+            if (Array.isArray(data.purchasedPaidNodes)) {
+              setPurchasedNodes(data.purchasedPaidNodes); // 🔄 Обновляем список зафармленных
             }
+            
+          }
           })
           .catch((err) => console.error("❌ Ошибка обновления статуса:", err));
       }
