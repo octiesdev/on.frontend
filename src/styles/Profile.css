@@ -859,16 +859,16 @@ isolation: isolate;
 .rectangle-deposit-info {
   display: flex;
   flex-direction: row;
-  margin-right: 1.2vh;
+  margin-right: 2.8vh;
   align-items: center;
   justify-content: flex-end!important;
   height: 80%;
   width: 30%;
   overflow: visible;
 
-  font-size: clamp(2.5vh, 3vw, 2vh)!important;
+  font-size: clamp(2.8vh, 3vw, 2vh)!important;
   font-family: MullerBold;
-  gap: 1vh!important;
+  gap: 0.5vh!important;
 }
 
 .rectangle-deposit-info img {
