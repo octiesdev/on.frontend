@@ -8,8 +8,8 @@ body {
 margin: 0;
 width: 100%;
 height: 100vh;
-
-overflow: auto; 
+position: fixed;
+overflow: hidden; 
 isolation: isolate;
 }
 
@@ -17,7 +17,7 @@ isolation: isolate;
   margin: 0;
   width: 100%;
   height: 100vh;
-
+  position: fixed;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -826,6 +826,7 @@ isolation: isolate;
 }
 
 .rectangle-support {
+  flex-shrink: 0; 
   display: flex;
   flex-direction: column;
   margin-top: 5vh;
