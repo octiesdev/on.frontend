@@ -10,7 +10,6 @@ import logo from "../assets/logo.png";
 import buttonPartners from "../assets/buttonPartners.png";
 import Footer from "../Footer"; // Подключаем футер
 import tonIMG from "../assets/ton-img.png";
-import rubIMG from "../assets/rub-icon.png";
 import depoIMG from "../assets/deposit-icon.png";
 import withIMG from "../assets/withdraw-icon.png";
 import dollarIMG from "../assets/dollar-img.png";
@@ -34,8 +33,20 @@ const Profile = () => {
     const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
 
     const [tonToUsdRate, setTonToUsdRate] = useState(null); // ✅ Курс TON → USD
+
+    const [depositHistory, setDepositHistory] = useState([]);
+
     
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!userId) return;
+    
+      fetch(`${API_URL}/get-deposit-history?userId=${userId}`)
+        .then(res => res.json())
+        .then(data => setDepositHistory(data.history || []))
+        .catch(err => console.error("❌ Ошибка загрузки истории:", err));
+    }, [userId]);
 
     useEffect(() => {
       if (userId && walletAddress) {
@@ -483,6 +494,16 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+            
+            {depositHistory.map((entry, idx) => (
+              <div key={idx} className="deposit-history-entry">
+                <div className="deposit-status">ВВОД выполнен</div>
+                <div className="deposit-amount">
+                  {entry.amount} TON <img src={tonIMG} />
+                </div>
+              </div>
+            ))}
+
             <div className="rectangle-support">
               В случае каких-либо проблем с депозитом, обращайтесь в тех. поддержку.
               <div className="rectangle-button-support" onClick={handleSupportClick}>
