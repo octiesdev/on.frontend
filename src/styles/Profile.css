@@ -856,6 +856,24 @@ isolation: isolate;
   border-radius: 1vh;
 }
 
+.rectangle-deposit-info {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1.2vh;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 20%;
+  overflow: visible;
+
+  font-size: 3vh;
+  font-family: MullerBold;
+}
+
+.rectangle-deposit-info img {
+  height: 65%;
+}
+
 .rectangle-button-support {
   background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
