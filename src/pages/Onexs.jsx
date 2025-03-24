@@ -195,6 +195,12 @@ const Onexs = () => {
     return () => clearInterval(interval);
   }, [userId]);
 
+  const isNodeFarmed = (nodeId) =>
+    purchasedNodes.some(n => String(n.nodeId) === String(nodeId));
+  
+  const isNodeActive = (nodeId) =>
+    userNodes.some(n => String(n.nodeId) === String(nodeId));
+
   return (
     <div className="App">
       <div className="ONEXs_Window">
@@ -224,14 +230,17 @@ const Onexs = () => {
             </div>
           </div>
 
+          
+
           {/* 🔥 Отображаем ноды по категориям */}
           {selectedCategory === "all" && (
             <>
+
+            
               {onexNodes
-                .filter(node => node.section === "all")
+                .filter(node => node.section === "all" && !isNodeActive(node._id))
                 .map((node, index, array) => {
                   // ✅ Проверяем, была ли нода куплена хотя бы раз
-                  const isFarmed = Array.isArray(purchasedNodes) && purchasedNodes.some(n => String(n.nodeId) === String(node._id));
 
                   return (
                     <div 
@@ -240,7 +249,7 @@ const Onexs = () => {
                     >
                       <NodeBlock 
                         node={node} 
-                        isFarmed={isFarmed} // ✅ Передаем в NodeBlock
+                        isFarmed={isNodeFarmed(node._id)}
                         onStartFarming={startPaidFarming} 
                       />
                     </div>
