@@ -640,7 +640,7 @@ const Profile = () => {
               <div
                 key={idx}
                 className={`rectangle-deposit-history order-status ${entry.status === "в обработке" ? "processing" : entry.status === "выполнен" ? "completed" : "rejected"}`}
-                style={{ marginTop: idx === 0 ? "2.8vh" : "1.4vh", background: "rgba(164, 71, 71, 0.15)", borderColor: "red" }}
+                style={{ marginTop: idx === 0 ? "2.8vh" : "1.4vh" }}
               >
                 <div className="rectangle-deposit-title">
                   <div className="rectangle-deposit-title-MainText">ВЫВОД</div>
