@@ -1039,6 +1039,24 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   color: red;
 }
 
+/* Стиль для ордера с статусом "в обработке" */
+.order-status.processing {
+  color: #EAFF00;
+  border-color: #EAFF00; /* Оранжевый */
+}
+
+/* Стиль для ордера с статусом "выполнен" */
+.order-status.completed {
+  color: #08E500;
+  border-color: #08E500; /* Зеленый */
+}
+
+/* Стиль для ордера с статусом "отклонен" */
+.order-status.rejected {
+  color: #EA0000;
+  border-color: #EA0000; /* Красный */
+}
+
 
 
 @font-face {
