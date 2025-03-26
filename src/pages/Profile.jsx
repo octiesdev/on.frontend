@@ -587,30 +587,35 @@ const Profile = () => {
                 <div className="rectangle-for-buttons-deposit-block">
                 <div
                   className="rectangle-button-amount"
-                  contentEditable={true}
-                  suppressContentEditableWarning={true}
-                  spellCheck={false}
                   onFocus={(e) => {
-                    if (withdrawAmount === "СУММА") setWithdrawAmount("");
+                    if (amount === "СУММА") setAmount(""); // Очищаем поле при фокусе
                   }}
-                  onInput={(e) => {
-                    const input = e.target.textContent.replace(/\D/g, "");
-                    const value = parseFloat(input);
-
-                    setWithdrawAmount(input);
-                    const isValid = value >= 1 && value <= parseFloat(balance);
-                    setIsValidWithdraw(isValid);
+                  onChange={(e) => {
+                    let newValue = e.target.value.replace(/\D/g, ""); // Оставляем только цифры
+                    
+                    if (!newValue) {
+                      setAmount("");
+                      setIsValidAmount(false);
+                      setIsNeutral(true);
+                    } else {
+                      const isValid = parseInt(newValue) >= 2;
+                      setIsValidAmount(isValid);
+                      setIsNeutral(false);
+                    }
+                    
+                    setAmount(newValue);
                   }}
+                  value={amount}
                   onBlur={(e) => {
-                    if (!e.target.textContent.trim()) {
-                      setWithdrawAmount("СУММА");
-                      setIsValidWithdraw(false);
+                    if (!e.target.value.trim()) {
+                      setAmount("СУММА");
+                      setIsValidAmount(false);
                     }
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       e.preventDefault();
-                      e.target.blur();
+                      e.target.blur(); // Закрываем редактирование при нажатии Enter
                     }
                   }}
                 >
