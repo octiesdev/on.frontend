@@ -876,6 +876,7 @@ isolation: isolate;
   font-size: clamp(2.8vh, 3vw, 2vh)!important;
   font-family: MullerBold;
   gap: 0.65vh!important;
+  color: white
 }
 
 .rectangle-deposit-info img {
@@ -1039,23 +1040,25 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   color: red;
 }
 
-/* Стиль для ордера с статусом "в обработке" */
+
 .order-status.processing {
   color: #EAFF00!important;
-  border-color: #EAFF00; /* Оранжевый */
+  border-color: #EAFF00; 
 }
 
-/* Стиль для ордера с статусом "выполнен" */
 .order-status.completed {
   color: #08E500;
-  border-color: #08E500; /* Зеленый */
-}
+  border-color: #08E500;
+} 
 
-/* Стиль для ордера с статусом "отклонен" */
+ 
 .order-status.rejected {
   color: #EA0000;
-  border-color: #EA0000; /* Красный */
+  border-color: #EA0000; 
 }
+
+
+
 
 
 
