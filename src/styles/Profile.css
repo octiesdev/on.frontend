@@ -1041,7 +1041,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 
 /* Стиль для ордера с статусом "в обработке" */
 .order-status.processing {
-  color: #EAFF00;
+  color: #EAFF00!important;
   border-color: #EAFF00; /* Оранжевый */
 }
 
