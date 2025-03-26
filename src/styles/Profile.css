@@ -1055,7 +1055,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 
  
 .order-status.rejected {
-  color: #EA0000;
+  color: #EA0000!important;
   border-color: #EA0000; 
   background: rgba(190, 82, 82, 0.15);
 }
