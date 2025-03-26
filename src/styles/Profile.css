@@ -855,7 +855,7 @@ isolation: isolate;
 
   background: rgba(71, 164, 94, 0.15);
   color: #FFFFFF;
-  border: 1px solid rgba(8, 229, 0, 1);
+  border: 0.1px solid rgba(8, 229, 0, 1);
   border-radius: 1vh;
 }
 
