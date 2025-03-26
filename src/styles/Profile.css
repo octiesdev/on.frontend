@@ -918,7 +918,7 @@ isolation: isolate;
 
   font-size: 1.5vh;
   font-family: MullerMedium!important;
-  color: #08E500;
+  /* color: #08E500; */
 }
 
 .rectangle-button-support {
