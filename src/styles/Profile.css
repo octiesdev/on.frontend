@@ -1044,17 +1044,20 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 .order-status.processing {
   color: #EAFF00!important;
   border-color: #EAFF00; 
+  background: rgba(197, 181, 9, 0.15);
 }
 
 .order-status.completed {
   color: #08E500;
   border-color: #08E500;
+  background: rgba(71, 164, 94, 0.15);
 } 
 
  
 .order-status.rejected {
   color: #EA0000;
   border-color: #EA0000; 
+  background: rgba(190, 82, 82, 0.15);
 }
 
 
