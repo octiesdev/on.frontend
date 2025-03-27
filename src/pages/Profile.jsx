@@ -561,7 +561,7 @@ const Profile = () => {
                     <div className="rectangle-deposit-title-MainText">
                       ВВОД
                     </div>
-                    <div className="rectangle-deposit-title-Description">
+                    <div className="rectangle-deposit-title-Description2">
                       выполнен
                     </div>
                   </div>
