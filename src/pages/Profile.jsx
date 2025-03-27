@@ -600,6 +600,8 @@ const Profile = () => {
                     setWithdrawAmount(input);
                     const isValid = value >= 1 && value <= parseFloat(balance);
                     setIsValidWithdraw(isValid);
+
+                    moveCursorToEnd(e.target);
                   }}
                   onBlur={(e) => {
                     if (!e.target.textContent.trim()) {
