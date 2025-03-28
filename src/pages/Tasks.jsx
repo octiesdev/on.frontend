@@ -115,10 +115,7 @@ const Tasks = () => {
                     </div>
                   </div>
                   <div className="task-to-be-complete-button">
-                    <a
-                      href={isCompleted ? "#" : task.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div
                       className={
                         isCompleted
                           ? "to-be-complete-button-Completed"
@@ -127,33 +124,29 @@ const Tasks = () => {
                           : "to-be-complete-button"
                       }
                       onClick={(e) => {
-                        if (isCompleted) {
-                          e.preventDefault();
-                          return;
-                        }
+                        if (isCompleted) return;
 
                         if (task.type === "single") {
-                          // Открываем ссылку сразу
+                          // ✅ Мгновенно открываем ссылку
                           window.open(task.link, "_blank");
-                          e.preventDefault();
-                        
-                          // Задержка перед установкой "выполнено"
+
+                          // ⏳ Через 3 секунды — сохраняем статус "выполнено"
                           setTimeout(() => {
                             const updated = [...completedTasks];
                             updated[index] = true;
                             setCompletedTasks(updated);
-                        
+
                             fetch("https://1xback-production.up.railway.app/mark-task-completed", {
                               method: "POST",
                               headers: { "Content-Type": "application/json" },
                               body: JSON.stringify({ userId, taskId: task._id })
                             });
-                          }, 3000); // ⏳ 3 секунды
+                          }, 3000);
                         }
                       }}
                     >
                       {isCompleted ? "ВЫПОЛНЕНО" : "ВЫПОЛНИТЬ"}
-                    </a>
+                    </div>
                     {task.type !== "single" && !isCompleted && (
                       <div className="to-be-check-button" onClick={() => handleCheck(task, index)}>
                         ПРОВЕРИТЬ
