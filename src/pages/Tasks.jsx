@@ -115,7 +115,17 @@ const Tasks = () => {
                     </div>
                   </div>
                   <div className="task-to-be-complete-button">
-                  <div
+                  {task.type === "dual" && !isCompleted ? (
+                    <a
+                      href={task.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="to-be-complete-button"
+                    >
+                      ВЫПОЛНИТЬ
+                    </a>
+                  ) : (
+                    <div
                       className={
                         isCompleted
                           ? "to-be-complete-button-Completed"
@@ -125,17 +135,12 @@ const Tasks = () => {
                       }
                       onClick={(e) => {
                         if (isCompleted) return;
-
                         if (task.type === "single") {
-                          // ✅ Мгновенно открываем ссылку
                           window.open(task.link, "_blank");
-
-                          // ⏳ Через 3 секунды — сохраняем статус "выполнено"
                           setTimeout(() => {
                             const updated = [...completedTasks];
                             updated[index] = true;
                             setCompletedTasks(updated);
-
                             fetch("https://1xback-production.up.railway.app/mark-task-completed", {
                               method: "POST",
                               headers: { "Content-Type": "application/json" },
@@ -147,6 +152,7 @@ const Tasks = () => {
                     >
                       {isCompleted ? "ВЫПОЛНЕНО" : "ВЫПОЛНИТЬ"}
                     </div>
+                  )}
                     {task.type !== "single" && !isCompleted && (
                       <div className="to-be-check-button" onClick={() => handleCheck(task, index)}>
                         ПРОВЕРИТЬ
