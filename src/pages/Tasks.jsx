@@ -80,7 +80,8 @@ const Tasks = () => {
             const isFirst = index === 0;
             const isLast = index === tasks.length - 1;
 
-            const taskClass = `${task.type === "single" ? "onex-task3" : "onex-task"}${isLast ? " onex-task-last" : ""}${isFirst ? " onex-task-first" : ""}`;
+            const baseClass = task.styleClass || (task.type === "single" ? "onex-task3" : "onex-task");
+            const taskClass = `${baseClass}${isLast ? " onex-task-last" : ""}${isFirst ? " onex-task-first" : ""}`;
             
             return (
               <div className={taskClass} key={index}>
