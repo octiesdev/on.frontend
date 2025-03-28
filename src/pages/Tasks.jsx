@@ -84,14 +84,17 @@ const Tasks = () => {
                   <div className="info-section">
                     <div className="infoSection-all-logo">
                       <img src={task.imageUrl} />
-                      <h2>{task.title}</h2>
+                      <h2>ПРИСОЕДИНЯЙСЯ<br/>К {task.title}</h2>
                     </div>
                     <div className="infoSection-all-text">
                       <h2>+{task.points}<br />ONEX</h2>
                     </div>
                   </div>
                   <div className="task-to-be-complete-button">
-                    <div
+                    <a
+                      href={isCompleted ? "#" : task.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={
                         isCompleted
                           ? "to-be-complete-button-Completed"
@@ -99,12 +102,12 @@ const Tasks = () => {
                           ? "to-be-complete-button100"
                           : "to-be-complete-button"
                       }
-                      onClick={() => {
-                        if (!isCompleted) window.open(task.link, "_blank");
+                      onClick={(e) => {
+                        if (isCompleted) e.preventDefault();
                       }}
                     >
                       {isCompleted ? "ВЫПОЛНЕНО" : "ВЫПОЛНИТЬ"}
-                    </div>
+                    </a>
                     {task.type !== "single" && !isCompleted && (
                       <div className="to-be-check-button" onClick={() => handleCheck(task, index)}>
                         ПРОВЕРИТЬ
