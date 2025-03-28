@@ -79,7 +79,7 @@ const Tasks = () => {
             const isCompleted = completedTasks[index];
             
             return (
-              <div className={`onex-task${task.type === "single" ? "3" : ""}`} key={index}>
+              <div className={task.styleClass || "onex-task"} key={index}>
                 <div className="info-tasks-nameText">
                   <div className="info-section">
                     <div className="infoSection-all-logo">
