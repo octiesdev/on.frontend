@@ -110,7 +110,23 @@ const Tasks = () => {
                           : "to-be-complete-button"
                       }
                       onClick={(e) => {
-                        if (isCompleted) e.preventDefault();
+                        if (isCompleted) {
+                          e.preventDefault();
+                          return;
+                        }
+
+                        if (task.type === "single") {
+                          // Ставим completed для этого задания
+                          const updated = [...completedTasks];
+                          updated[index] = true;
+                          setCompletedTasks(updated);
+
+                          // Открываем ссылку в новой вкладке
+                          window.open(task.link, "_blank");
+
+                          // предотвращаем переход по <a>, чтобы не дублировалось
+                          e.preventDefault();
+                        }
                       }}
                     >
                       {isCompleted ? "ВЫПОЛНЕНО" : "ВЫПОЛНИТЬ"}
