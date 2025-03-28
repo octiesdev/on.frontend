@@ -540,6 +540,7 @@ button {
     font-size: 1.9vh;
     font-family: "MullerExtraBold", sans-serif;
     border-radius: 1vh;
+    text-decoration: none; /* 🔥 Убирает подчёркивание */
 }
 
 .to-be-complete-button100 {
@@ -556,6 +557,7 @@ button {
     font-size: 1.9vh;
     font-family: "MullerExtraBold", sans-serif;
     border-radius: 1vh;
+    text-decoration: none; /* 🔥 Убирает подчёркивание */
 }
 
 .to-be-complete-button {
@@ -572,6 +574,7 @@ button {
     font-size: 1.9vh;
     font-family: "MullerExtraBold", sans-serif;
     border-radius: 1vh;
+    text-decoration: none; /* 🔥 Убирает подчёркивание */
 }
 
 .to-be-check-button {
