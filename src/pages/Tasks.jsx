@@ -87,7 +87,9 @@ const Tasks = () => {
                       <h2>ПРИСОЕДИНЯЙСЯ<br/>К {task.title}</h2>
                     </div>
                     <div className="infoSection-all-text">
-                      <h2>+{task.points}<br />ONEX</h2>
+                      {task.points && (
+                        <h2>+{task.points}<br />ONEX</h2>
+                      )}
                     </div>
                   </div>
                   <div className="task-to-be-complete-button">
