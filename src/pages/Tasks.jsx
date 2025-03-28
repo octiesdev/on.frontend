@@ -33,6 +33,27 @@ const Tasks = () => {
       .catch((err) => console.error("Ошибка загрузки заданий:", err));
   }, []);
 
+  const handleCheck = async (task, index) => {
+    try {
+      const response = await fetch("https://1xback-production.up.railway.app/check-subscription", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, chatId: task.chatId }),
+      });
+
+      const data = await response.json();
+      if (data.isSubscribed) {
+        const updated = [...completedTasks];
+        updated[index] = true;
+        setCompletedTasks(updated);
+      } else {
+        alert("❌ Подпишитесь на канал и попробуйте снова.");
+      }
+    } catch (err) {
+      console.error("Ошибка при проверке подписки:", err);
+    }
+  };
+
 
   return (
     <div className="App">
