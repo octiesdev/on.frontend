@@ -32,6 +32,18 @@ const Tasks = () => {
       .then((data) => setTasks(data))
       .catch((err) => console.error("Ошибка загрузки заданий:", err));
   }, []);
+ 
+  useEffect(() => {
+    if (!userId) return;
+ 
+    fetch(`https://1xback-production.up.railway.app/get-completed-tasks?userId=${userId}`)
+      .then(res => res.json())
+      .then(data => {
+        const updated = tasks.map(task => data.completed.includes(task._id));
+        setCompletedTasks(updated);
+      })
+      .catch(err => console.error("Ошибка загрузки выполненных заданий:", err));
+  }, [userId, tasks]);
 
   const handleCheck = async (task, index) => {
     try {
@@ -115,15 +127,20 @@ const Tasks = () => {
                           return;
                         }
 
-                        if (task.type === "single") {
-                          // Ставим completed для этого задания
+                      if (task.type === "single") {
                           const updated = [...completedTasks];
                           updated[index] = true;
                           setCompletedTasks(updated);
-
+ 
+                          fetch("https://1xback-production.up.railway.app/mark-task-completed", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ userId, taskId: task._id })
+                          });
+ 
                           // Открываем ссылку в новой вкладке
                           window.open(task.link, "_blank");
-
+ 
                           // предотвращаем переход по <a>, чтобы не дублировалось
                           e.preventDefault();
                         }
