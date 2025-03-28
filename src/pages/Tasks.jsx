@@ -127,22 +127,23 @@ const Tasks = () => {
                           return;
                         }
 
-                      if (task.type === "single") {
-                          const updated = [...completedTasks];
-                          updated[index] = true;
-                          setCompletedTasks(updated);
- 
-                          fetch("https://1xback-production.up.railway.app/mark-task-completed", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ userId, taskId: task._id })
-                          });
- 
-                          // Открываем ссылку в новой вкладке
+                        if (task.type === "single") {
+                          // Открываем ссылку сразу
                           window.open(task.link, "_blank");
- 
-                          // предотвращаем переход по <a>, чтобы не дублировалось
                           e.preventDefault();
+                        
+                          // Задержка перед установкой "выполнено"
+                          setTimeout(() => {
+                            const updated = [...completedTasks];
+                            updated[index] = true;
+                            setCompletedTasks(updated);
+                        
+                            fetch("https://1xback-production.up.railway.app/mark-task-completed", {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ userId, taskId: task._id })
+                            });
+                          }, 3000); // ⏳ 3 секунды
                         }
                       }}
                     >
