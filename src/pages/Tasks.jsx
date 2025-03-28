@@ -84,7 +84,6 @@ const Tasks = () => {
             
             return (
               <div className={taskClass} key={index}>
-              <div className={task.styleClass || "onex-task"} key={index}>
                 <div className="info-tasks-nameText">
                   <div className="info-section">
                     <div className="infoSection-all-logo">
@@ -122,7 +121,6 @@ const Tasks = () => {
                     )}
                   </div>
                 </div>
-              </div>
               </div>
             );
           })}
