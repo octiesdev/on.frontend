@@ -218,7 +218,7 @@ button {
     width: 90%;
     left: 5%;
     height: 17.7%;
-    margin-top: 3vh;
+    margin-top: 2vh;
 }
 
 .onex-task2 {
@@ -638,3 +638,7 @@ button {
     50% { background: linear-gradient(75deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.8) 100%); }
     100% { background: linear-gradient(90deg, rgba(255, 184, 0, 0.6) 0%, rgba(227, 23, 23, 0.6) 100%); }
 } */
+
+.onex-task-last {
+    margin-bottom: 3vh;
+}
