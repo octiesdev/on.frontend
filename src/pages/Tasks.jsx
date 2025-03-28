@@ -77,8 +77,13 @@ const Tasks = () => {
           </div>
           {tasks.map((task, index) => {
             const isCompleted = completedTasks[index];
+            const isFirst = index === 0;
+            const isLast = index === tasks.length - 1;
+
+            const taskClass = `${task.type === "single" ? "onex-task3" : "onex-task"}${isLast ? " onex-task-last" : ""}${isFirst ? " onex-task-first" : ""}`;
             
             return (
+              <div className={taskClass} key={index}>
               <div className={task.styleClass || "onex-task"} key={index}>
                 <div className="info-tasks-nameText">
                   <div className="info-section">
@@ -117,6 +122,7 @@ const Tasks = () => {
                     )}
                   </div>
                 </div>
+              </div>
               </div>
             );
           })}
