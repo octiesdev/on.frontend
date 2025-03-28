@@ -57,6 +57,11 @@ const Tasks = () => {
       if (data.isSubscribed) {
         const updated = [...completedTasks];
         updated[index] = true;
+        fetch("https://1xback-production.up.railway.app/mark-task-completed", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, taskId: task._id })
+        });
         setCompletedTasks(updated);
       } else {
         alert("❌ Подпишитесь на канал и попробуйте снова.");
