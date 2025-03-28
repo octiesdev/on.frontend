@@ -91,11 +91,8 @@ const Tasks = () => {
                 </div>
               </div>
               <div className="task-to-be-complete-button"> 
-                  <div className="to-be-complete-button"> 
+                  <div className="to-be-complete-button100"> 
                     ВЫПОЛНИТЬ
-                  </div>
-                  <div className="to-be-check-button"> 
-                    ПРОВЕРИТЬ
                   </div>
               </div>
             </div>
@@ -112,11 +109,8 @@ const Tasks = () => {
                 </div>
               </div>
               <div className="task-to-be-complete-button"> 
-                  <div className="to-be-complete-button"> 
+                  <div className="to-be-complete-button100"> 
                     ВЫПОЛНИТЬ
-                  </div>
-                  <div className="to-be-check-button"> 
-                    ПРОВЕРИТЬ
                   </div>
               </div>
             </div>
