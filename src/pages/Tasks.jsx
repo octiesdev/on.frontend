@@ -52,6 +52,9 @@ const Tasks = () => {
                   <div className="to-be-complete-button"> 
                     ВЫПОЛНИТЬ
                   </div>
+                  <div className="to-be-check-button"> 
+                    ПРОВЕРИТЬ
+                  </div>
               </div>
             </div>
           </div>
@@ -69,6 +72,9 @@ const Tasks = () => {
               <div className="task-to-be-complete-button"> 
                   <div className="to-be-complete-button"> 
                     ВЫПОЛНИТЬ
+                  </div>
+                  <div className="to-be-check-button"> 
+                    ПРОВЕРИТЬ
                   </div>
               </div>
             </div>
@@ -88,6 +94,9 @@ const Tasks = () => {
                   <div className="to-be-complete-button"> 
                     ВЫПОЛНИТЬ
                   </div>
+                  <div className="to-be-check-button"> 
+                    ПРОВЕРИТЬ
+                  </div>
               </div>
             </div>
           </div>
@@ -106,6 +115,9 @@ const Tasks = () => {
                   <div className="to-be-complete-button"> 
                     ВЫПОЛНИТЬ
                   </div>
+                  <div className="to-be-check-button"> 
+                    ПРОВЕРИТЬ
+                  </div>
               </div>
             </div>
           </div>
@@ -123,6 +135,9 @@ const Tasks = () => {
               <div className="task-to-be-complete-button"> 
                   <div className="to-be-complete-button"> 
                     ВЫПОЛНИТЬ
+                  </div>
+                  <div className="to-be-check-button"> 
+                    ПРОВЕРИТЬ
                   </div>
               </div>
             </div>
