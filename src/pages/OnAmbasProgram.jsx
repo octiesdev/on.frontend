@@ -26,7 +26,9 @@ const OnAmbasProgram = () => {
       fetch(`https://1xback-production.up.railway.app/get-referrals?userId=${userId}`)
         .then(res => res.json())
         .then(data => {
-          setReferrals(data.referrals || []);
+          if (Array.isArray(data.referrals)) {
+            setReferrals(data.referrals.map(r => ({ username: r })));
+          }
         })
         .catch(err => {
           console.error("❌ Ошибка при получении рефералов:", err);
