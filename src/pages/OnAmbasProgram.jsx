@@ -18,11 +18,11 @@ import logoInTheEclipseIMG from "../assets/onex-img-all.png"
 const OnAmbasProgram = () => { 
 
     const navigate = useNavigate();
-    const { telegramId } = useUserContext();
+    const { userId } = useUserContext();
     const [refCode, setRefCode] = useState("");
 
     useEffect(() => {
-        if (!telegramId) return;
+        if (!userId) return;
 
         fetch(`https://1xback-production.up.railway.app/get-ref-code?userId=${telegramId}`)
           .then(res => res.json())
@@ -32,7 +32,7 @@ const OnAmbasProgram = () => {
           .catch(err => {
             console.error("❌ Ошибка при получении реф. кода:", err);
           });
-    }, [telegramId]);
+    }, [userId]);
 
     const handleInviteClick = () => {
         const telegramLink = `https://viber-redirect.netlify.app/?ref=${refCode}`;
