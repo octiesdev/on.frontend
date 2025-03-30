@@ -74,13 +74,6 @@ const OnAmbasProgram = () => {
         window.Telegram?.WebApp?.HapticFeedback?.impactOccurred?.('heavy');
     };
 
-    const handlePartnerClick = () => {
-        if (hasAccess) {
-            navigate("/onambasprogram");
-        } else {
-            navigate("/ambasprogram");
-        }
-    };
 
       
 
