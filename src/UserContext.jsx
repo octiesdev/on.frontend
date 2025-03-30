@@ -11,29 +11,33 @@ export const UserProvider = ({ children }) => {
     fetchUserData();
   }, []);
 
+  const getRefFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("ref"); // 👈 берём ?ref=... если есть
+  };
+
   const fetchUserData = async () => {
     try {
       const tg = window.Telegram?.WebApp;
       const telegramId = tg?.initDataUnsafe?.user?.id;
-      const username = tg?.initDataUnsafe?.user?.username || null; // ✅ Берём username
+      const username = tg?.initDataUnsafe?.user?.username || null;
+      const ref = getRefFromUrl(); // ✅
 
       if (telegramId) {
         console.log("✅ `userId` из Telegram.WebApp:", telegramId);
         setUserId(telegramId);
         setUsername(username);
-        await registerUser(telegramId, username);
+        await registerUser(telegramId, username, ref);
         return;
       }
 
       console.log("🔄 `userId` не найден в WebApp, загружаем с сервера...");
       const response = await fetch("https://1xback-production.up.railway.app/get-user", {
-        headers: { "x-telegram-id": telegramId ? telegramId.toString() : "" } // ✅ Фикс
+        headers: { "x-telegram-id": telegramId ? telegramId.toString() : "" }
       });
 
       const data = await response.json();
-
       if (response.ok && data.userId) {
-        console.log("✅ Получен userId с сервера:", data.userId);
         setUserId(data.userId);
         setUsername(data.username || null);
       } else {
@@ -44,13 +48,13 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (telegramId, username) => {
+  const registerUser = async (telegramId, username, ref) => {
     try {
       console.log("📌 Отправка `telegramId` на сервер:", telegramId);
       const response = await fetch("https://1xback-production.up.railway.app/register-user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ telegramId, username })
+        body: JSON.stringify({ telegramId, username, ref })
       });
 
       const data = await response.json();
@@ -65,22 +69,12 @@ export const UserProvider = ({ children }) => {
   };
 
   const fetchBalance = async (id) => {
-    if (!id) {
-      console.error("❌ Ошибка: userId не определен, пропускаем `fetchBalance`.");
-      return;
-    }
-
+    if (!id) return;
     try {
-      console.log("📌 Получаем баланс для userId:", id);
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
       const data = await response.json();
-      console.log("📌 Баланс с сервера:", data);
-  
       if (response.ok && data.balance !== undefined) {
         setBalance(parseFloat(data.balance).toFixed(2));
-        console.log("✅ Новый баланс:", parseFloat(data.balance).toFixed(2));
-      } else {
-        console.error("❌ Ошибка: баланс отсутствует в ответе сервера!");
       }
     } catch (error) {
       console.error("❌ Ошибка при получении баланса:", error);
@@ -88,14 +82,11 @@ export const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (userId) {
-      console.log("✅ userId получен, загружаем баланс...");
-      fetchBalance(userId);
-    }
-  }, [userId]); // ✅ Теперь баланс запрашивается только после загрузки userId
+    if (userId) fetchBalance(userId);
+  }, [userId]);
 
   return (
-    <UserContext.Provider value={{ userId, balance, fetchBalance }}>
+    <UserContext.Provider value={{ userId, username, balance, fetchBalance }}>
       {children}
     </UserContext.Provider>
   );
