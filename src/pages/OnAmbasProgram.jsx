@@ -19,10 +19,15 @@ const OnAmbasProgram = () => {
     const navigate = useNavigate();
     const { userId } = useUser();
     const [referrals, setReferrals] = useState([]);
+
+    const [tonPercent, setTonPercent] = useState(0);
+    const [onexPercent, setOnexPercent] = useState(0);
+    const [hasAccess, setHasAccess] = useState(false);
     
     useEffect(() => {
       if (!userId) return;
       
+      // Получение рефералов
       fetch(`https://1xback-production.up.railway.app/get-referrals?userId=${userId}`)
         .then(res => res.json())
         .then(data => {
@@ -32,6 +37,18 @@ const OnAmbasProgram = () => {
         })
         .catch(err => {
           console.error("❌ Ошибка при получении рефералов:", err);
+        });
+      
+      // Получение данных амбассадора
+      fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`)
+        .then(res => res.json())
+        .then(data => {
+          setTonPercent(data.tonPercent);
+          setOnexPercent(data.onexPercent);
+          setHasAccess(data.hasAccess);
+        })
+        .catch(err => {
+          console.error("❌ Ошибка при получении данных амбассадора:", err);
         });
     }, [userId]);
     const [refCode, setRefCode] = useState("");
@@ -57,6 +74,13 @@ const OnAmbasProgram = () => {
     };
 
       
+
+  if (!hasAccess) {
+    useEffect(() => {
+      navigate("/ambasprogram");
+    }, []);
+    return null;
+  }
 
   return (
     <div className="App">
@@ -90,7 +114,7 @@ const OnAmbasProgram = () => {
                             % заработка TON 
                         </div>
                         <div className="earnTON-block-Description2">
-                            10%
+                            {tonPercent}%
                             <img src={tonIMG} alt=""/>
                         </div>
                     </div>
@@ -99,7 +123,7 @@ const OnAmbasProgram = () => {
                             % заработка ONEX 
                         </div>
                         <div className="earnONEX-block-Description2">
-                            20%
+                            {onexPercent}%
                             <img src={onexIMG} alt=""/>
                         </div>
                     </div>
