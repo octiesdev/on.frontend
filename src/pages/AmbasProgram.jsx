@@ -16,6 +16,10 @@ import logoEclipseIMG from "../assets/logo-with-eclipse.png";
 const AmbasProgram = () => { 
 
     const navigate = useNavigate();
+    
+    const handleSupportClick = () => {
+      window.open("https://t.me/zustrich_lab_hr", "_blank");
+    };
 
   return (
     <div className="App">
@@ -41,7 +45,7 @@ const AmbasProgram = () => {
           <div className="logoEclipse"> 
             <img src={logoEclipseIMG} alt=""/>
           </div>
-          <div className="rectangle-button-getAmbassAcess" onClick={() => navigate("/onambasprogram")}> 
+          <div className="rectangle-button-getAmbassAcess" onClick={handleSupportClick}>
             СТАТЬ АМБАСАДОРОМ
           </div>
         </div>
