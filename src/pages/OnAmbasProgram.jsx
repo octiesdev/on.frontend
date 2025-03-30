@@ -37,30 +37,34 @@ const OnAmbasProgram = () => {
     const handleInviteClick = () => {
         const shareText = `🔥 Присоединяйся к ONEX и зарабатывай TON и ONEX вместе со мной!\n\n👉 https://viber-redirect.netlify.app/?ref=${refCode}`;
       
-        window.Telegram.WebApp.showPopup({
-          title: "Приглашение",
-          message: "Отправить приглашение друзьям?",
-          buttons: [
-            {
-              id: "share",
-              type: "default",
-              text: "Поделиться",
-            },
-            {
-              id: "cancel",
-              type: "close",
-              text: "Отмена",
-            },
-          ],
-        });
+        if (window?.Telegram?.WebApp) {
+          window.Telegram.WebApp.showPopup({
+            title: "Приглашение",
+            message: "Отправить приглашение друзьям?",
+            buttons: [
+              {
+                id: "share",
+                type: "default",
+                text: "Поделиться",
+              },
+              {
+                id: "cancel",
+                type: "close",
+                text: "Отмена",
+              },
+            ],
+          });
       
-        window.Telegram.WebApp.onEvent("popupClosed", function (btnId) {
-          if (btnId === "share") {
-            window.Telegram.WebApp.openTelegramLink(
-              `https://t.me/share/url?url=${encodeURIComponent(shareText)}`
-            );
-          }
-        });
+          window.Telegram.WebApp.onEvent("popupClosed", function (btnId) {
+            if (btnId === "share") {
+              window.Telegram.WebApp.openTelegramLink(
+                `https://t.me/share/url?url=${encodeURIComponent(shareText)}`
+              );
+            }
+          });
+        } else {
+          console.warn("❗ Telegram WebApp API недоступен.");
+        }
     };
 
       
