@@ -17,7 +17,7 @@ const PartnerButton = () => {
   
     console.log("👤 Проверяем ambassador доступ для userId:", userId);
   
-    fetch(`${API_URL}/get-ambassador-data?userId=${userId}`)
+    fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`)
       .then(res => res.json())
       .then((data) => {
         console.log("📡 Ответ от API:", data);
