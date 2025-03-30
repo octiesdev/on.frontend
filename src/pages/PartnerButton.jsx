@@ -10,18 +10,23 @@ const PartnerButton = () => {
   const [hasAccess, setHasAccess] = useState(null);
 
   useEffect(() => {
-    if (!userId) return;
-    const fetchAccess = async () => {
-      try {
-        const res = await fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`);
-        const data = await res.json();
+    if (!userId) {
+      console.error("❌ userId отсутствует!");
+      return;
+    }
+  
+    console.log("👤 Проверяем ambassador доступ для userId:", userId);
+  
+    fetch(`${API_URL}/get-ambassador-data?userId=${userId}`)
+      .then(res => res.json())
+      .then((data) => {
+        console.log("📡 Ответ от API:", data);
         setHasAccess(data.hasAccess);
-      } catch (err) {
-        console.error("❌ Ошибка при проверке ambassador-доступа:", err);
-        setHasAccess(false); // default to false on error
-      }
-    };
-    fetchAccess();
+      })
+      .catch((err) => {
+        console.error("❌ Ошибка при запросе:", err);
+        setHasAccess(false);
+      });
   }, [userId]);
 
   const handleClick = () => {
