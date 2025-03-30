@@ -1,3 +1,9 @@
+// components/PartnerButton.jsx
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../UserContext";
+import buttonPartners from "../assets/buttonPartners.png";
+
 const PartnerButton = () => {
     const { userId } = useUser();
     const navigate = useNavigate();
@@ -37,3 +43,5 @@ const PartnerButton = () => {
       />
     );
   };
+
+export default PartnerButton;
