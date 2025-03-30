@@ -127,7 +127,7 @@ const OnAmbasProgram = () => {
                   <div className={`friend-eclipse${index === 1 ? "-v2" : index === 2 ? "-v3" : ""}`}> 
                     <img src={logoInTheEclipseIMG} alt=""/>
                   </div>
-                  <h2>{ref}</h2>
+                  <h2>{ref.username}</h2>
                 </div>
                 <div className="OnAmbasProgram-section-friendsBlocks"> 
                   <div className="rewardInTON-block">
