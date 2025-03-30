@@ -16,9 +16,22 @@ import logoEclipseIMG from "../assets/logo-with-eclipse.png";
 import logoInTheEclipseIMG from "../assets/onex-img-all.png"
 
 const OnAmbasProgram = () => { 
-
     const navigate = useNavigate();
     const { userId } = useUser();
+    const [referrals, setReferrals] = useState([]);
+    
+    useEffect(() => {
+      if (!userId) return;
+      
+      fetch(`https://1xback-production.up.railway.app/get-referrals?userId=${userId}`)
+        .then(res => res.json())
+        .then(data => {
+          setReferrals(data.referrals || []);
+        })
+        .catch(err => {
+          console.error("❌ Ошибка при получении рефералов:", err);
+        });
+    }, [userId]);
     const [refCode, setRefCode] = useState("");
 
     useEffect(() => {
@@ -97,98 +110,48 @@ const OnAmbasProgram = () => {
             </div>
           </div>
           <div className="text-friends-counter"> 
-            3 друзей
+            {referrals.length} друзей
           </div>
-          <div className="info-about-friends-block"> 
-            <div className="info-about-friends-block-nameText2"> 
+          
+          {referrals.map((ref, index) => (
+            <div
+              key={index}
+              className={
+                index === referrals.length - 1
+                  ? "info-about-friends-block-last"
+                  : "info-about-friends-block"
+              }
+            > 
+              <div className="info-about-friends-block-nameText2"> 
                 <div className="info-section-friend-eclipse-block"> 
-                    <div className="friend-eclipse"> 
-                        <img src={logoInTheEclipseIMG} alt=""/>
-                    </div>
-                    <h2>bullpitt4</h2>
+                  <div className={`friend-eclipse${index === 1 ? "-v2" : index === 2 ? "-v3" : ""}`}> 
+                    <img src={logoInTheEclipseIMG} alt=""/>
+                  </div>
+                  <h2>{ref}</h2>
                 </div>
                 <div className="OnAmbasProgram-section-friendsBlocks"> 
-                    <div className="rewardInTON-block">
-                        <div className="rewardInTON-block-MainText2">
-                            Награда в TON 
-                        </div>
-                        <div className="rewardInTON-block-Description2">
-                            100 TON
-                            <img src={tonIMG} alt=""/>
-                        </div>
+                  <div className="rewardInTON-block">
+                    <div className="rewardInTON-block-MainText2">
+                      Награда в TON 
                     </div>
-                    <div className="rewardInONEX-block">
-                        <div className="rewardInONEX-block-MainText2">
-                            Награда в ONEX 
-                        </div>
-                        <div className="rewardInONEX-block-Description2">
-                            16 ONEX
-                            <img src={onexIMG} alt=""/>
-                        </div>
+                    <div className="rewardInTON-block-Description2">
+                      100 TON
+                      <img src={tonIMG} alt=""/>
                     </div>
+                  </div>
+                  <div className="rewardInONEX-block">
+                    <div className="rewardInONEX-block-MainText2">
+                      Награда в ONEX 
+                    </div>
+                    <div className="rewardInONEX-block-Description2">
+                      16 ONEX
+                      <img src={onexIMG} alt=""/>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-          </div>
-          <div className="info-about-friends-block"> 
-            <div className="info-about-friends-block-nameText2"> 
-                <div className="info-section-friend-eclipse-block"> 
-                    <div className="friend-eclipse-v2"> 
-                        <img src={logoInTheEclipseIMG} alt=""/>
-                    </div>
-                    <h2>sampled1kx0</h2>
-                </div>
-                <div className="OnAmbasProgram-section-friendsBlocks"> 
-                    <div className="rewardInTON-block">
-                        <div className="rewardInTON-block-MainText2">
-                            Награда в TON 
-                        </div>
-                        <div className="rewardInTON-block-Description2">
-                            59 TON
-                            <img src={tonIMG} alt=""/>
-                        </div>
-                    </div>
-                    <div className="rewardInONEX-block">
-                        <div className="rewardInONEX-block-MainText2">
-                            Награда в ONEX 
-                        </div>
-                        <div className="rewardInONEX-block-Description2">
-                            24 ONEX
-                            <img src={onexIMG} alt=""/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div className="info-about-friends-block-last"> 
-            <div className="info-about-friends-block-nameText2"> 
-                <div className="info-section-friend-eclipse-block"> 
-                    <div className="friend-eclipse-v3"> 
-                        <img src={logoInTheEclipseIMG} alt=""/>
-                    </div>
-                    <h2>maiskyyGor4o</h2>
-                </div>
-                <div className="OnAmbasProgram-section-friendsBlocks"> 
-                    <div className="rewardInTON-block">
-                        <div className="rewardInTON-block-MainText2">
-                            Награда в TON 
-                        </div>
-                        <div className="rewardInTON-block-Description2">
-                            20 TON
-                            <img src={tonIMG} alt=""/>
-                        </div>
-                    </div>
-                    <div className="rewardInONEX-block">
-                        <div className="rewardInONEX-block-MainText2">
-                            Награда в ONEX 
-                        </div>
-                        <div className="rewardInONEX-block-Description2">
-                            08 ONEX
-                            <img src={onexIMG} alt=""/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
+          ))}
         </div>
     </div>
     {/* Футер */}
