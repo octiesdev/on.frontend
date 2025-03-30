@@ -21,6 +21,7 @@ const PartnerButton = () => {
       .then(res => res.json())
       .then((data) => {
         console.log("📡 Ответ от API:", data);
+        console.log("🧪 Тип доступа:", typeof data.hasAccess, "| Значение:", data.hasAccess === true);
         setHasAccess(data.hasAccess);
       })
       .catch((err) => {
