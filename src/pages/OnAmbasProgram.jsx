@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { useUserContext } from "../UserContext";
+import { useUser } from "../UserContext";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/OnAmbasProgram.css";
 import logo from "../assets/logo.png";
@@ -18,7 +18,7 @@ import logoInTheEclipseIMG from "../assets/onex-img-all.png"
 const OnAmbasProgram = () => { 
 
     const navigate = useNavigate();
-    const { userId } = useUserContext();
+    const { userId } = useUser();
     const [refCode, setRefCode] = useState("");
 
     useEffect(() => {
