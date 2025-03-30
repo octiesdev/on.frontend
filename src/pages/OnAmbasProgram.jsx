@@ -19,6 +19,7 @@ const OnAmbasProgram = () => {
 
     const navigate = useNavigate();
     const { telegramId } = useUserContext();
+    const [refCode, setRefCode] = useState("");
 
     useEffect(() => {
         if (!telegramId) return;
