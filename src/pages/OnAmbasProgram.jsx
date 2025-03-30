@@ -23,7 +23,7 @@ const OnAmbasProgram = () => {
 
     const [tonPercent, setTonPercent] = useState(0);
     const [onexPercent, setOnexPercent] = useState(0);
-    const [hasAccess, setHasAccess] = useState(false);
+    const [hasAccess, setHasAccess] = useState(null);
     
     useEffect(() => {
       if (!userId) return;
@@ -74,15 +74,13 @@ const OnAmbasProgram = () => {
         window.Telegram?.WebApp?.HapticFeedback?.impactOccurred?.('heavy');
     };
 
-
-      
-
-  if (!hasAccess) {
     useEffect(() => {
-      navigate("/ambasprogram");
-    }, []);
-    return null;
-  }
+        if (hasAccess === false) {
+          navigate("/ambasprogram");
+        }
+    }, [hasAccess]);
+
+    if (hasAccess === null) return null; // ⏳ Пока грузим данные — ничего не показываем
 
   return (
     <div className="App">
