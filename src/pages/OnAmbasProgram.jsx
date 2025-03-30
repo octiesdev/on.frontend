@@ -23,7 +23,7 @@ const OnAmbasProgram = () => {
     useEffect(() => {
         if (!telegramId) return;
 
-        fetch(`https://your-backend.com/get-ref-code?userId=${telegramId}`)
+        fetch(`https://1xback-production.up.railway.app/get-ref-code?userId=${telegramId}`)
           .then(res => res.json())
           .then(data => {
             setRefCode(data.refCode);
