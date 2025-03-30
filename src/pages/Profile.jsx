@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import { beginCell, toNano } from "@ton/core";
 import { useUser } from "../UserContext"; // 🔥 Используем глобальный контекст
+import PartnerButton from "../pages/PartnerButton";
 import "../styles/Profile.css";
 
 
@@ -346,7 +347,7 @@ const Profile = () => {
             </img>
           </div>
             <div className="HeaderButtonsContainer">  
-              <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
+              <PartnerButton />
               <TonConnectButton/>
             </div>
         </div>

@@ -10,6 +10,8 @@ import tonIMG from "../assets/ton-img.png";
 import onexIMG from "../assets/onex-circle.png";
 import Footer from "../Footer";
 
+import PartnerButton from "../pages/PartnerButton";
+
 const API_URL = "https://adminviber1x-production.up.railway.app"; // Укажите правильный адрес сервера
 
 const API_URL_MAIN = "https://1xback-production.up.railway.app"; 
@@ -216,7 +218,7 @@ const Onexs = () => {
             <img src={logo} alt="Logo" className="headerlogo" onClick={() => navigate("/")}></img>
           </div>
           <div className="HeaderButtonsContainer">
-            <img src={buttonPartners} alt="" className="headerButtonPartners" onClick={() => navigate("/ambasProgram")}></img>
+            <PartnerButton />
             <TonConnectButton />
           </div>
         </div>
