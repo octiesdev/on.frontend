@@ -27,12 +27,7 @@ const OnAmbasProgram = () => {
         .then(res => res.json())
         .then(data => {
           if (Array.isArray(data.referrals)) {
-            // Парсим строку в объект: убираем маркер "• " и оборачиваем в { username }
-            const cleaned = data.referrals.map(r => {
-              const username = r.replace(/^•\s*/, "").trim();
-              return { username };
-            });
-            setReferrals(cleaned);
+            setReferrals(data.referrals);
           }
         })
         .catch(err => {
