@@ -14,7 +14,7 @@ const PartnerButton = () => {
     fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`)
       .then(res => res.json())
       .then(data => {
-        setHasAccess(data.hasAmbassadorAccess);
+        setHasAccess(data.hasAccess);
       })
       .catch(err => {
         console.error("❌ Ошибка при проверке ambassador-доступа:", err);
