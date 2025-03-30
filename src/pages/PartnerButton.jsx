@@ -11,20 +11,25 @@ const PartnerButton = () => {
 
   useEffect(() => {
     if (!userId) return;
-    fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`)
-      .then(res => res.json())
-      .then(data => {
+    const fetchAccess = async () => {
+      try {
+        const res = await fetch(`https://1xback-production.up.railway.app/get-ambassador-data?userId=${userId}`);
+        const data = await res.json();
         setHasAccess(data.hasAccess);
-      })
-      .catch(err => {
+      } catch (err) {
         console.error("❌ Ошибка при проверке ambassador-доступа:", err);
-      });
+        setHasAccess(false); // default to false on error
+      }
+    };
+    fetchAccess();
   }, [userId]);
 
   const handleClick = () => {
-    if (hasAccess === null) return;
+    if (hasAccess === null) return; // prevent navigation while loading
     navigate(hasAccess ? "/onambasprogram" : "/ambasprogram");
   };
+
+  if (hasAccess === null) return null;
 
   return (
     <img
