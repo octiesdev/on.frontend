@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { useUserContext } from "../UserContext";
 import { TonConnectButton, useTonAddress, useTonConnectUI } from "@tonconnect/ui-react";
 import "../styles/OnAmbasProgram.css";
 import logo from "../assets/logo.png";
@@ -17,6 +18,51 @@ import logoInTheEclipseIMG from "../assets/onex-img-all.png"
 const OnAmbasProgram = () => { 
 
     const navigate = useNavigate();
+    const { telegramId } = useUserContext();
+
+    useEffect(() => {
+        if (!telegramId) return;
+
+        fetch(`https://your-backend.com/get-ref-code?userId=${telegramId}`)
+          .then(res => res.json())
+          .then(data => {
+            setRefCode(data.refCode);
+          })
+          .catch(err => {
+            console.error("❌ Ошибка при получении реф. кода:", err);
+          });
+    }, [telegramId]);
+
+    const handleInviteClick = () => {
+        const shareText = `🔥 Присоединяйся к ONEX и зарабатывай TON и ONEX вместе со мной!\n\n👉 https://viber-redirect.netlify.app/?ref=${refCode}`;
+      
+        window.Telegram.WebApp.showPopup({
+          title: "Приглашение",
+          message: "Отправить приглашение друзьям?",
+          buttons: [
+            {
+              id: "share",
+              type: "default",
+              text: "Поделиться",
+            },
+            {
+              id: "cancel",
+              type: "close",
+              text: "Отмена",
+            },
+          ],
+        });
+      
+        window.Telegram.WebApp.onEvent("popupClosed", function (btnId) {
+          if (btnId === "share") {
+            window.Telegram.WebApp.openTelegramLink(
+              `https://t.me/share/url?url=${encodeURIComponent(shareText)}`
+            );
+          }
+        });
+    };
+
+      
 
   return (
     <div className="App">
@@ -65,7 +111,7 @@ const OnAmbasProgram = () => {
                     </div>
                 </div>
                 <div className="invite-button-block">
-                    <div className="invite-button">
+                    <div className="invite-button" onClick={handleInviteClick}>
                         ПРИГЛАСИТЬ
                     </div>
                 </div>
