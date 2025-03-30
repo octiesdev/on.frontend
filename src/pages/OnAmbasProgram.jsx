@@ -24,7 +24,7 @@ const OnAmbasProgram = () => {
     useEffect(() => {
         if (!userId) return;
 
-        fetch(`https://1xback-production.up.railway.app/get-ref-code?userId=${telegramId}`)
+        fetch(`https://1xback-production.up.railway.app/get-ref-code?userId=${userId}`)
           .then(res => res.json())
           .then(data => {
             setRefCode(data.refCode);
