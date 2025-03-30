@@ -35,9 +35,9 @@ const OnAmbasProgram = () => {
     }, [userId]);
 
     const handleInviteClick = () => {
-        const telegramLink = `https://viber-redirect.netlify.app/?ref=${refCode}`;
-        const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(telegramLink)}`;
-        window.Telegram?.WebApp?.openTelegramLink(telegramUrl); // надёжнее чем window.open
+        const telegramLink = `https://t.me/onnextest_bot?start=${refCode}`;
+        const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(telegramLink)}&text=${encodeURIComponent("🔥 Присоединяйся к ONEX и зарабатывай TON и ONEX вместе со мной!")}`;
+        window.Telegram?.WebApp?.openTelegramLink(telegramUrl);
         window.Telegram?.WebApp?.HapticFeedback?.impactOccurred?.('heavy');
     };
 
