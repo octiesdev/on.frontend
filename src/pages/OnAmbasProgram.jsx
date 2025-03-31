@@ -33,7 +33,10 @@ const OnAmbasProgram = () => {
         .then(res => res.json())
         .then(data => {
           if (Array.isArray(data.referrals)) {
-            setReferrals(data.referrals);
+            setReferrals(data.referrals.map(ref => ({
+              ...ref,
+              rewardInTon: ref.rewardInTon || 0 // add default value
+            })));
           }
         })
         .catch(err => {
@@ -160,10 +163,10 @@ const OnAmbasProgram = () => {
                     <div className="rewardInTON-block-MainText2">
                       Награда в TON 
                     </div>
-                    <div className="rewardInTON-block-Description2">
-                      100 TON
-                      <img src={tonIMG} alt=""/>
-                    </div>
+                  <div className="rewardInTON-block-Description2">
+                    {ref.rewardInTon || 0} TON
+                    <img src={tonIMG} alt=""/>
+                  </div>
                   </div>
                   <div className="rewardInONEX-block">
                     <div className="rewardInONEX-block-MainText2">
