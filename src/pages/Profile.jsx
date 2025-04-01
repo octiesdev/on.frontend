@@ -362,7 +362,7 @@ const Profile = () => {
                   </div>
                 </h2>
                 <p>
-                  ≈ {tonToUsdRate ? (balance * tonToUsdRate).toFixed(2) : "..."} $
+                  ≈ {tonToUsdRate ? (balance.ton * tonToUsdRate).toFixed(2) : "..."} $
                 </p>
               </div>
               <div className="rectangle-for-buttons-profile">
@@ -599,7 +599,7 @@ const Profile = () => {
                     const value = parseFloat(input);
 
                     setWithdrawAmount(input);
-                    const isValid = value >= 1 && value <= parseFloat(balance);
+                    const isValid = value >= 1 && value <= parseFloat(balance.ton);
                     setIsValidWithdraw(isValid);
 
                     moveCursorToEnd(e.target);
