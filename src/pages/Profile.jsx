@@ -43,8 +43,26 @@ const Profile = () => {
 
     const [depositHistory, setDepositHistory] = useState([]);
 
+    const [destinationAddress, setDestinationAddress] = useState("");
+
     
     const navigate = useNavigate();
+
+    const fetchDepositAddress = async () => {
+      try {
+        const res = await fetch("https://1xback-production.up.railway.app/admin/get-config");
+        const data = await res.json();
+        if (data?.depositAddress) {
+          setDestinationAddress(data.depositAddress);
+        }
+      } catch (err) {
+        console.error("❌ Не удалось загрузить адрес для депозита:", err);
+      }
+    };
+  
+    useEffect(() => {
+      fetchDepositAddress();
+    }, []);
 
     useEffect(() => {
       if (!userId) return;
@@ -244,13 +262,13 @@ const Profile = () => {
 
     const sendTransaction = async (amountToSend, comment) => {
       try {
-        if (!userId) {
+        if (!userId || !destinationAddress) {
             console.error("❌ Ошибка: userId отсутствует!");
             return;
           }
 
           const amountInNanoTON = toNano(amountToSend).toString();
-          const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
+          // const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
 
           const payloadCell = beginCell()
           .storeUint(0, 32)  
