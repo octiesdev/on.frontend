@@ -20,7 +20,7 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
-    const { userId, balance, fetchBalance } = useUser(); 
+    const { userId, balance, onexBalance, fetchBalance } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
 
     const [amount, setAmount] = useState("СУММА");
@@ -391,7 +391,7 @@ const Profile = () => {
             <div className="info-onex-nameText40"> 
               <div className="rectangle-info-onex">
                 <h2>
-                  <span className="text-in-rectangle2">08</span>
+                  <span className="text-in-rectangle2">{onexBalance}</span>
                   <div className="rectangle-info-onex-onex">
                     ONEX
                   </div>
