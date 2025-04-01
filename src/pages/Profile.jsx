@@ -37,7 +37,8 @@ const Profile = () => {
     const [farmStatus, setFarmStatus] = useState("не активирована");
     const [timeLeft, setTimeLeft] = useState("");
 
-    const [availableNodes, setAvailableNodes] = useState(100); // ✅ Количество доступных нод
+    const [availableNodes, setAvailableNodes] = useState(100);
+    const [totalNodes, setTotalNodes] = useState(100); // ✅ Общее количество нод
 
     const [tonToUsdRate, setTonToUsdRate] = useState(null); // ✅ Курс TON → USD
 
@@ -121,7 +122,8 @@ const Profile = () => {
         const data = await response.json();
 
         if (response.ok) {
-          setAvailableNodes(data.availableNodes); // ✅ Обновляем состояние
+          setAvailableNodes(data.availableNodes);
+          setTotalNodes(data.totalNodes); // ✅ Устанавливаем общее количество
         } else {
           console.error("❌ Ошибка при получении доступных нод:", data.error);
         }
@@ -456,7 +458,7 @@ const Profile = () => {
                           Доступно ONEX's
                         </div>
                         <div className="farming-time-block-Description2">
-                          <span className="highlight-text">{availableNodes}</span>/100
+                          <span className="highlight-text">{availableNodes}</span> / {totalNodes}
                         </div>
                       </div>  
                     </div>
