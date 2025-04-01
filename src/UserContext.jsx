@@ -5,7 +5,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState(null);
-  const [balance, setBalance] = useState({ ton: "0.00", onex: "0.00" });
+  const [balance, setBalance] = useState({ ton: "0", onex: "0" });
 
   useEffect(() => {
     fetchUserData();
