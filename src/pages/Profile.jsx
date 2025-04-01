@@ -356,7 +356,7 @@ const Profile = () => {
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
                 <h2>
-                <span className="text-in-rectangle">{balance}</span>
+                <span className="text-in-rectangle">{balance.ton}</span>
                   <div className="rectangle-info-profile-ton">
                     TON
                   </div>
@@ -391,7 +391,7 @@ const Profile = () => {
             <div className="info-onex-nameText40"> 
               <div className="rectangle-info-onex">
                 <h2>
-                  <span className="text-in-rectangle2">{onexBalance}</span>
+                  <span className="text-in-rectangle2">{balance.onex}</span>
                   <div className="rectangle-info-onex-onex">
                     ONEX
                   </div>

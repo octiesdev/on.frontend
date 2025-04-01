@@ -5,7 +5,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState(null);
-  const [balance, setBalance] = useState("0.00");
+  const [balance, setBalance] = useState({ ton: "0.00", onex: "0.00" });
 
   useEffect(() => {
     fetchUserData();
@@ -74,7 +74,10 @@ export const UserProvider = ({ children }) => {
       const response = await fetch(`https://1xback-production.up.railway.app/get-balance?userId=${id}`);
       const data = await response.json();
       if (response.ok && data.balance !== undefined) {
-        setBalance(parseFloat(data.balance).toFixed(2));
+        setBalance({
+          ton: parseFloat(data.balance).toFixed(2),
+          onex: parseFloat(data.onexBalance || 0).toFixed(2)
+        });
       }
     } catch (error) {
       console.error("❌ Ошибка при получении баланса:", error);
