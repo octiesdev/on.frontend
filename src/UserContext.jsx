@@ -75,8 +75,8 @@ export const UserProvider = ({ children }) => {
       const data = await response.json();
       if (response.ok && data.balance !== undefined) {
         setBalance({
-          ton: parseFloat(data.balance).toFixed(2),
-          onex: parseFloat(data.onexBalance || 0).toFixed(2)
+          ton: parseFloat(data.balance),
+          onex: parseFloat(data.onexBalance || 0)
         });
       }
     } catch (error) {
