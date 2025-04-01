@@ -376,7 +376,7 @@ const Profile = () => {
             <div className="info-profile-nameText55"> 
               <div className="rectangle-info-profile">
                 <h2>
-                <span className="text-in-rectangle">{balance.ton}</span>
+                <span className="text-in-rectangle">{parseFloat(balance.ton).toFixed(2)}</span>
                   <div className="rectangle-info-profile-ton">
                     TON
                   </div>
