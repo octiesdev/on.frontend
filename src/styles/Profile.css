@@ -1024,7 +1024,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  max-width: 100% !important;
+  max-width: 55% !important;
   
   display: block !important;
   color: #000;
