@@ -1012,7 +1012,7 @@ button[data-tc-dropdown-button="true"] {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  /* position: relative !important; */
+  position: relative !important;
 }
 
 /* 🔥 Убираем баги с выравниванием */
@@ -1025,6 +1025,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   color: #000;
   font-size: 2vh;
   line-height: 2vh;
+  position: relative !important;
 }
 
 .minimum-deposit-text {
