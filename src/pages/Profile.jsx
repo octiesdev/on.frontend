@@ -653,8 +653,11 @@ const Profile = () => {
                   {withdrawAmount}
                 </div>
                   <div 
-                    className={`rectangle-buttonWith-withSection ${isValidWithdraw ? "valid" : ""}`}
-                    onClick={handleWithdraw}
+                    className={`rectangle-buttonWith-withSection ${isValidWithdraw && walletAddress ? "valid" : ""}`}
+                    onClick={() => {
+                      if (!walletAddress) return;
+                      handleWithdraw();
+                    }}
                   >
                     ВЫВЕСТИ
                   </div>
