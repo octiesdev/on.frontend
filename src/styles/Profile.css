@@ -973,10 +973,11 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 }
 
 div[class^="go3572451881"] {
-  width: 80%;
+  width: 11vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4vh;
 }
 
 button[class^="go157313249"] {
@@ -995,7 +996,7 @@ button[data-tc-dropdown-button="true"] {
   color: #000 !important;
   border-radius: 8px !important;
   font-size: 1.4vh !important;
-  width: 50% !important;
+  width: 11vh !important;
   height: 3.75vh !important;
   display: flex !important;
   justify-content: center !important;
