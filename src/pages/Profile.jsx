@@ -570,7 +570,9 @@ const Profile = () => {
                   <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
-                  <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
+                  <p className={`${!walletAddress == "СУММА" ? "error" : ""}`}>
+                    1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.
+                  </p>
                   <p className={`minimum-deposit-text ${isNeutral ? "neutral" : !isValidAmount ? "error" : ""}`}>
                     2. Минимальный депозит 5 TON.
                   </p>
