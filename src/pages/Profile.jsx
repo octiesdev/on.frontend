@@ -615,13 +615,19 @@ const Profile = () => {
                     if (withdrawAmount === "СУММА") setWithdrawAmount("");
                   }}
                   onInput={(e) => {
-                  const input = e.target.textContent.replace(/[^0-9]/g, "");
-                    const value = parseFloat(input);
+                    const raw = e.target.textContent;
+                    const input = raw.replace(/[^0-9.]/g, ''); // Оставляем только цифры и точку
 
-                    setWithdrawAmount(input);
-                    const isValid = value >= 1 && value <= parseFloat(balance.ton);
+                    // Убираем лишние точки, оставляем только первую
+                    const dotFixed = input.replace(/^([^.]*)\.?([^.]*)\.?(.*)$/, (_, int, dec) => int + (dec ? '.' + dec : ''));
+
+                    const value = parseFloat(dotFixed);
+                    setWithdrawAmount(dotFixed);
+
+                    const isValid = !isNaN(value) && value >= 1 && value <= parseFloat(balance.ton);
                     setIsValidWithdraw(isValid);
 
+                    e.target.textContent = dotFixed;
                     moveCursorToEnd(e.target);
                   }}
                   onBlur={(e) => {
