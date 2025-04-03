@@ -1010,7 +1010,7 @@ button[data-tc-dropdown-button="true"] {
   color: #000 !important;
   border-radius: 8px !important;
   font-size: 1.4vh !important;
-  width: 100% !important;
+  width: 80% !important;
   flex-shrink: 0 !important;
   height: 3.75vh !important;
   display: flex !important;
