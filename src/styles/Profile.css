@@ -69,7 +69,9 @@ isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  overflow: hidden;
+  overflow: visible;
+  min-width: 0;
+  width: 100%;
 }
 
 .headerlogo {
@@ -88,6 +90,7 @@ isolation: isolate;
   
   height: 55%;
   margin: 1.6vh 0.5vh 1vh 1vh; 
+  min-width: 0 !important;
 
 }
 
@@ -1007,7 +1010,8 @@ button[data-tc-dropdown-button="true"] {
   color: #000 !important;
   border-radius: 8px !important;
   font-size: 1.4vh !important;
-  width: 100% !important;
+  width: 55% !important;
+  flex-shrink: 0 !important;
   height: 3.75vh !important;
   display: flex !important;
   justify-content: center !important;
@@ -1021,11 +1025,20 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   max-width: 100% !important;
+  
   display: block !important;
   color: #000;
   /* font-size: 2vh;
   line-height: 2vh; */
 
+}
+
+div[class^="go357"], /* обычно обёртка с адресом */
+button[data-tc-dropdown-button="true"] {
+  max-width: 55% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 .minimum-deposit-text {
