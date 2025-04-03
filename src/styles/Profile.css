@@ -973,13 +973,11 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 }
 
 div[class^="go3572451881"] {
-  /* width: 11vh; */
+  width: 55% !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 9vh !important;
-  max-width: 11vh;
-  align-items: flex-end;
+  margin-right: 3vh !important;
 }
 
 div[class^="go3349661836"] {
