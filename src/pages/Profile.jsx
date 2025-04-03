@@ -522,22 +522,25 @@ const Profile = () => {
                       moveCursorToEnd(e.target);
                   }}
                   onInput={(e) => {
-                    let newValue = e.target.textContent.replace(/\D/g, ""); // Оставляем только цифры
-                
-                    if (!newValue) {
-                        setAmount(""); 
-                        setIsValidAmount(false); // ❌ Число меньше 5 - невалидное
-                        setIsNeutral(true); // 🔥 Возвращаем нейтральное состояние
-                    } else {
-                        const isValid = parseInt(newValue) >= 2;
-                        setIsValidAmount(isValid);
-                        setIsNeutral(false); // ❌ Убираем нейтральное состояние
+                    const raw = e.target.textContent;
+                    let input = raw.replace(/[^0-9.]/g, '');
+ 
+                    // Убираем все, кроме первой точки
+                    const dotIndex = input.indexOf(".");
+                    if (dotIndex !== -1) {
+                      input = input.slice(0, dotIndex + 1) + input.slice(dotIndex + 1).replace(/\./g, "");
                     }
-                
-                    setAmount(newValue);
-                    e.target.textContent = newValue;
+ 
+                    const value = parseFloat(input);
+                    setAmount(input);
+ 
+                    const isValid = !isNaN(value) && value >= 5;
+                    setIsValidAmount(isValid);
+                    setIsNeutral(false);
+ 
+                    e.target.textContent = input;
                     moveCursorToEnd(e.target);
-                }}
+                  }}
                   onBlur={(e) => {
                       if (!e.target.textContent.trim()) {
                           setAmount("СУММА"); // 🔥 Если поле пустое, вернуть "СУММА"
