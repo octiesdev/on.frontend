@@ -59,7 +59,7 @@ isolation: isolate;
   margin-top: 0.5vh;
   display: flex;
   align-items: center;
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .HeaderButtonsContainer{
