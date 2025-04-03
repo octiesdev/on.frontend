@@ -60,7 +60,7 @@ isolation: isolate;
   display: flex;
   align-items: center;
   overflow: visible !important;
-  max-width: 30%;
+  max-width: 40%;
 }
 
 .HeaderButtonsContainer{
@@ -79,7 +79,9 @@ isolation: isolate;
 .headerlogo {
   height: auto;
   max-height: 100%;
-  margin: 0vh; 
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .headerConnectWalletConnected { 
@@ -961,8 +963,7 @@ button[data-tc-button="true"] {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px !important; /* Скругление углов */
   font-size: 1.4vh !important; /* Изменение размера шрифта */
-  max-width: 55% !important;
-  width: 55% !important;
+  width: 90% !important; /* Ширина кнопки */
   height: 4vh !important; /* Высота кнопки */
   display: flex !important;
   justify-content: center !important;
@@ -974,8 +975,7 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   white-space: nowrap !important; /* Запрещает перенос текста */
   overflow: hidden !important; /* Обрезает текст, если он выходит за пределы */
   text-overflow: ellipsis !important; /* Добавляет "..." если текст слишком длинный */
-  text-align: center;
-  width: 100% !important;
+  max-width: 100% !important; /* Ограничивает ширину текстового блока */
   display: block !important; /* Гарантирует, что стиль применяется */
   color: #000;
 }
