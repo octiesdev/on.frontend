@@ -615,7 +615,7 @@ const Profile = () => {
                     if (withdrawAmount === "СУММА") setWithdrawAmount("");
                   }}
                   onInput={(e) => {
-                    const input = e.target.textContent.replace(/\D/g, "");
+                  const input = e.target.textContent.replace(/[^0-9]/g, "");
                     const value = parseFloat(input);
 
                     setWithdrawAmount(input);
