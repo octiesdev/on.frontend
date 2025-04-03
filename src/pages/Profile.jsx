@@ -666,7 +666,9 @@ const Profile = () => {
                   <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
-                  <p>1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.</p>
+                <p className={`${!walletAddress && withdrawAmount !== "СУММА" ? "error" : ""}`}>
+                  1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.
+                </p>
                   <p className={`${!isValidWithdraw && withdrawAmount !== "СУММА" ? "error" : ""}`}>
                     2. Обработка вывода может занимать до 24 часов. 
                   </p>
