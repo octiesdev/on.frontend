@@ -997,7 +997,7 @@ button[class^="go157313249"] {
 }
 
 #ton-connect-button {
-  width: 100% !important;     
+  width: 55% !important;     
   margin: 1.64vh 0vh 1vh 0.3vh !important;     /* Ограничиваем максимальную ширину */
 }
 
@@ -1025,7 +1025,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   color: #000;
   font-size: 2vh;
   line-height: 2vh;
-  position: relative !important;
+
 }
 
 .minimum-deposit-text {
