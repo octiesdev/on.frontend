@@ -976,7 +976,8 @@ div[class^="go3572451881"] {
   width: 100% !important;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  max-width: 100% !important;
 
 }
 
