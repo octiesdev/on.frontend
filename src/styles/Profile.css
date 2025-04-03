@@ -60,7 +60,7 @@ isolation: isolate;
   display: flex;
   align-items: center;
   overflow: visible !important;
-  max-width: 40%;
+  max-width: 27%;
 }
 
 .HeaderButtonsContainer{
@@ -77,11 +77,8 @@ isolation: isolate;
 }
 
 .headerlogo {
-  height: auto;
-  max-height: 60%;
-  width: auto;
-  max-width: 80%;
-  object-fit: contain;
+  height: 60%;
+  margin: 0vh; 
 }
 
 .headerConnectWalletConnected { 
@@ -999,7 +996,7 @@ div[class^="go3349661836"] {
 }
 
 button[class^="go157313249"] {
-  padding: 0.4vh 5vh;
+  padding: 0.2vh 0.4vh;
   min-width: 0vh;
   gap: 0.5vh;
 }
