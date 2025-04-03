@@ -1002,7 +1002,7 @@ button[class^="go157313249"] {
   margin: 1.64vh 0vh 1vh 0.3vh !important;     /* Ограничиваем максимальную ширину */
 }
 
-/* 🔥 Оставляем стили кнопки даже после подключения кошелька */
+/* 🔥 Оставляем стили кнопки даже после подключения кошелька
 button[data-tc-dropdown-button="true"] {
   background: linear-gradient(0deg, rgba(227, 23, 23, 1) 0%, rgba(255, 184, 0, 1) 100%) !important;
   color: #000 !important;
@@ -1014,7 +1014,7 @@ button[data-tc-dropdown-button="true"] {
   justify-content: center !important;
   align-items: center !important;
   position: relative !important;
-}
+} */
 
 /* 🔥 Убираем баги с выравниванием */
 button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
