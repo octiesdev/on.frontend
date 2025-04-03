@@ -1019,7 +1019,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  max-width: 50% !important;
+  max-width: 100% !important;
   display: block !important;
   color: #000;
   font-size: 2vh;
