@@ -1012,7 +1012,7 @@ button[data-tc-dropdown-button="true"] {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  position: relative !important;
+  /* position: relative !important; */
 }
 
 /* 🔥 Убираем баги с выравниванием */
