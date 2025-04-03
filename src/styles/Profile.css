@@ -984,6 +984,7 @@ div[class^="go3572451881"] {
 button[class^="go157313249"] {
   padding: 0.8vh 1vh;
   min-width: 0vh;
+  gap: 1vh;
 }
 
 #ton-connect-button {
