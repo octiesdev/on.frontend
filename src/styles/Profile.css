@@ -981,6 +981,15 @@ div[class^="go3572451881"] {
   max-width: 11vh;
 }
 
+div[class^="go3349661836"] {
+  width: 2vh;
+  height: 2vh;
+  transform: rotate(270deg);
+  transition: transform 0.1s ease-in-out;
+  margin-right: 4vh;
+  max-width: 11vh;
+}
+
 button[class^="go157313249"] {
   padding: 0.8vh 1vh;
   min-width: 0vh;
