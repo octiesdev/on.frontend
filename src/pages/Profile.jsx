@@ -556,13 +556,16 @@ const Profile = () => {
                   }}>
                     {amount}
                 </div>
-                <div className={`rectangle-buttonDepo-depoSection ${isNeutral ? "neutral" : isValidAmount ? "valid" : ""}`}
-                    onClick={() => {
-                      if (isValidAmount) {
-                          console.log("🔥 Вызов sendTransaction с userId:", userId);
-                          sendTransaction(amount, `deposit:${userId}`);
-                      }
-                  }}>
+                <div
+                  className={`rectangle-buttonDepo-depoSection ${
+                    isNeutral ? "neutral" : isValidAmount && walletAddress ? "valid" : ""
+                  }`}
+                  onClick={() => {
+                    if (isValidAmount && walletAddress) {
+                      sendTransaction(amount, `deposit:${userId}`);
+                    }
+                  }}
+                >
                   ПОПОЛНИТЬ
                 </div>
                 </div>
@@ -570,7 +573,7 @@ const Profile = () => {
                   <h2>02</h2>
                 </div>
                 <div className="rectangle-for-text-deposit-block"> 
-                  <p className={`${!walletAddress == "СУММА" ? "error" : ""}`}>
+                  <p className={`${!walletAddress && amount !== "СУММА" ? "error" : ""}`}>
                     1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.
                   </p>
                   <p className={`minimum-deposit-text ${isNeutral ? "neutral" : !isValidAmount ? "error" : ""}`}>
