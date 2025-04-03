@@ -1035,7 +1035,7 @@ button[data-tc-dropdown-button="true"] div[data-tc-text="true"] {
 
 div[class^="go357"], /* обычно обёртка с адресом */
 button[data-tc-dropdown-button="true"] {
-  max-width: 55% !important;
+  max-width: 100% !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
