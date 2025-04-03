@@ -59,7 +59,7 @@ isolation: isolate;
   margin-top: 0.5vh;
   display: flex;
   align-items: center;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .HeaderButtonsContainer{
@@ -1010,7 +1010,7 @@ button[data-tc-dropdown-button="true"] {
   color: #000 !important;
   border-radius: 8px !important;
   font-size: 1.4vh !important;
-  width: 55% !important;
+  width: 90% !important;
   flex-shrink: 0 !important;
   height: 3.75vh !important;
   display: flex !important;
