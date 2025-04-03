@@ -60,7 +60,7 @@ isolation: isolate;
   display: flex;
   align-items: center;
   overflow: visible !important;
-  max-width: 30%;
+  max-width: 20%;
 }
 
 .HeaderButtonsContainer{
