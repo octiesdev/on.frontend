@@ -972,15 +972,14 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
   color: #000;
 }
 
-/* div[class^="go3572451881"] {
+div[class^="go3572451881"] {
   width: 100% !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   min-width: 0 !important;
-  height: 4vh !important; */
-
-/* } */
+  height: 4vh !important; 
+}
 
 div[class^="go3349661836"] {
   width: 2vh;
