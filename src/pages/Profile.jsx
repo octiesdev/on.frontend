@@ -616,18 +616,22 @@ const Profile = () => {
                   }}
                   onInput={(e) => {
                     const raw = e.target.textContent;
-                    const input = raw.replace(/[^0-9.]/g, ''); // Оставляем только цифры и точку
-
-                    // Убираем лишние точки, оставляем только первую
-                    const dotFixed = input.replace(/^([^.]*)\.?([^.]*)\.?(.*)$/, (_, int, dec) => int + (dec ? '.' + dec : ''));
-
-                    const value = parseFloat(dotFixed);
-                    setWithdrawAmount(dotFixed);
-
+                    let input = raw.replace(/[^0-9.]/g, '');
+ 
+                    // Убираем все, кроме первой точки
+                    const dotIndex = input.indexOf(".");
+                    if (dotIndex !== -1) {
+                      input = input.slice(0, dotIndex + 1) + input.slice(dotIndex + 1).replace(/\./g, "");
+                    }
+ 
+                    // Обновляем значение и валидность
+                    const value = parseFloat(input);
+                    setWithdrawAmount(input);
+ 
                     const isValid = !isNaN(value) && value >= 1 && value <= parseFloat(balance.ton);
                     setIsValidWithdraw(isValid);
-
-                    e.target.textContent = dotFixed;
+ 
+                    e.target.textContent = input;
                     moveCursorToEnd(e.target);
                   }}
                   onBlur={(e) => {
