@@ -973,7 +973,7 @@ button[data-tc-button="true"] div[data-tc-text="true"] {
 }
 
 div[class^="go3572451881"] {
-  width: 55% !important;
+  width: 100% !important;
   display: flex;
   justify-content: center;
   align-items: center;
