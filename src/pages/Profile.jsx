@@ -173,8 +173,10 @@ const Profile = () => {
           clearInterval(interval);
           setFarmStatus("зафармлено");
         } else {
-          const seconds = Math.floor(diff / 1000);
-          setTimeLeft(`${seconds}`);
+      const totalSeconds = Math.floor(diff / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const seconds = totalSeconds % 60;
+      setTimeLeft(`${hours}ч ${seconds}сек`);
         }
       }, );
     };
