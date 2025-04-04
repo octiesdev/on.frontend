@@ -452,7 +452,7 @@ const Profile = () => {
                           Период фарминга
                         </div>
                         <div className="farming-time-block-Description2">
-                          3 дня
+                          12 часов
                         </div>
                       </div>
                       <div className="avaliable-onex-info-block">
