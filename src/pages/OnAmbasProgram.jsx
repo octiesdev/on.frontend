@@ -164,7 +164,7 @@ const OnAmbasProgram = () => {
                       Награда в TON 
                     </div>
                   <div className="rewardInTON-block-Description2">
-                    {ref.rewardInTon || 0} TON
+                    {(ref.rewardInTon || 0).toFixed(2)} TON
                     <img src={tonIMG} alt=""/>
                   </div>
                   </div>
@@ -173,7 +173,7 @@ const OnAmbasProgram = () => {
                       Награда в ONEX 
                     </div>
                     <div className="rewardInONEX-block-Description2">
-                      16 ONEX
+                    {(ref.rewardInOnex || 0).toFixed(2)} ONEX
                       <img src={onexIMG} alt=""/>
                     </div>
                   </div>
