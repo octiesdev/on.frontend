@@ -168,17 +168,21 @@ const Profile = () => {
       const interval = setInterval(() => {
         const now = new Date();
         const diff = new Date(endTime) - now;
-    
+ 
         if (diff <= 0) {
           clearInterval(interval);
           setFarmStatus("зафармлено");
         } else {
-      const totalSeconds = Math.floor(diff / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const seconds = totalSeconds % 60;
-      setTimeLeft(`${hours}ч ${seconds}сек`);
+          const totalSeconds = Math.floor(diff / 1000);
+          const hours = Math.floor(totalSeconds / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+ 
+          const pad = (num) => String(num).padStart(2, "0");
+ 
+          setTimeLeft(`${pad(hours)}ч ${pad(minutes)}м ${pad(seconds)}с`);
         }
-      }, );
+      }, 1000);
     };
     
     const startFarming = async () => {
