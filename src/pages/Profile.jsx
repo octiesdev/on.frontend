@@ -20,6 +20,9 @@ import onexlogoIMG from "../assets/onex-img-all.png";
 const API_URL = "https://1xback-production.up.railway.app"; 
 
 const Profile = () => {
+  if (!userId) {
+    return null; // или можно заменить на <LoadingScreen />
+  }
     const { userId, balance, onexBalance, fetchBalance } = useUser(); 
     const [activeSection, setActiveSection] = useState("default");
 
