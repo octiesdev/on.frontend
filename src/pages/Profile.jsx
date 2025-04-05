@@ -280,19 +280,22 @@ const Profile = () => {
           }
 
           const amountInNanoTON = toNano(amountToSend).toString();
- 
-          const cell = beginCell().storeUint(0, 32).storeStringTail(`deposit:${userId}`).endCell();
-          const payload = cell.toBoc().toString("base64");
- 
+          // const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
+
+          const payloadCell = beginCell()
+          .storeUint(0, 32)  
+          .storeStringTail(`deposit:${userId}`) // ✅ Передаем `userId` из контекста
+          .endCell();
+  
           const transaction = {
-            validUntil: Math.floor(Date.now() / 1000) + 600,
-            messages: [
-              {
-                address: destinationAddress,
-                amount: amountInNanoTON,
-                payload,
-              },
-            ],
+              validUntil: Math.floor(Date.now() / 1000) + 600,
+              messages: [
+                  {
+                      address: destinationAddress,
+                      amount: amountInNanoTON,
+                      payload: payloadCell.toBoc().toString("base64") // Кодируем в Base64
+                  },
+              ],
           };
   
           console.log("📌 Отправка транзакции с payload:", transaction);
