@@ -281,7 +281,8 @@ const Profile = () => {
 
           const amountInNanoTON = toNano(amountToSend).toString();
  
-          const payload = Buffer.from(`deposit:${userId}`).toString("base64");
+          const cell = beginCell().storeUint(0, 32).storeStringTail(`deposit:${userId}`).endCell();
+          const payload = cell.toBoc().toString("base64");
  
           const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600,
