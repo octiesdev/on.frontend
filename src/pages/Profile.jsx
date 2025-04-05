@@ -544,7 +544,7 @@ const Profile = () => {
                     const value = parseFloat(input);
                     setAmount(input);
  
-                    const isValid = !isNaN(value) && value >= 5;
+                    const isValid = !isNaN(value) && value >= 2;
                     setIsValidAmount(isValid);
                     setIsNeutral(false);
  
@@ -587,7 +587,7 @@ const Profile = () => {
                     1. Подключите кошелек (в правом верхнем <br/> углу экрана) перед внесением депозита.
                   </p>
                   <p className={`minimum-deposit-text ${isNeutral ? "neutral" : !isValidAmount ? "error" : ""}`}>
-                    2. Минимальный депозит 5 TON.
+                    2. Минимальный депозит 2 TON.
                   </p>
                   <p>3. Обработка депозита может занимать до <br/> нескольких минут.</p>
                 </div>
