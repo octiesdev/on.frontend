@@ -280,17 +280,16 @@ const Profile = () => {
           }
 
           const amountInNanoTON = toNano(amountToSend).toString();
-          // const destinationAddress = "0QBkLTS-N_Cpr4qbHMRXIdVYhWMs3dQVpGSQEl44VS3SNwNs";
-
+ 
           const payload = Buffer.from(`deposit:${userId}`).toString("base64");
-          
+ 
           const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600,
             messages: [
               {
                 address: destinationAddress,
                 amount: amountInNanoTON,
-                payload: payload
+                payload,
               },
             ],
           };
