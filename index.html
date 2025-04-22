@@ -16,6 +16,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             if (window.Telegram?.WebApp) {
+                Telegram.WebApp.ready();
                 window.Telegram.WebApp.ready();
                 window.Telegram.WebApp.disableVerticalSwipes();
                 window.Telegram.WebApp.setHeaderColor("#000000");
